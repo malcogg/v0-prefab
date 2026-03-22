@@ -1,8 +1,8 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { WhatIsAduSection } from "@/components/what-is-adu-section"
-import { OpportunitySection } from "@/components/opportunity-section"
 import { DesignOptionsSection } from "@/components/design-options-section"
+import { DealBreakdownSection } from "@/components/deal-breakdown-section"
 import { ProcessSection } from "@/components/process-section"
 import { EarthNestSection } from "@/components/earthnest-section"
 import { TeamSection } from "@/components/team-section"
@@ -16,8 +16,8 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <WhatIsAduSection />
-      <OpportunitySection />
       <DesignOptionsSection />
+      <DealBreakdownSection />
       <ProcessSection />
       <EarthNestSection />
       <TeamSection />

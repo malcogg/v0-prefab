@@ -8,6 +8,7 @@ type FormState = "idle" | "submitting" | "success" | "error"
 export function LeadFormSection() {
   const [formState, setFormState] = useState<FormState>("idle")
   const [ownsProperty, setOwnsProperty] = useState<string>("")
+  const [modelInterest, setModelInterest] = useState<string>("")
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -16,6 +17,13 @@ export function LeadFormSection() {
     await new Promise((res) => setTimeout(res, 1500))
     setFormState("success")
   }
+
+  const modelOptions = [
+    { value: "20ft-studio", label: "20ft Studio (~$80K–$120K)" },
+    { value: "40ft-1bed", label: "40ft 1-Bedroom (~$120K–$175K)" },
+    { value: "traditional", label: "Traditional Site-Built (~$130K–$200K+)" },
+    { value: "not-sure", label: "Not Sure Yet" },
+  ]
 
   return (
     <section id="qualify" className="py-24 bg-secondary">
@@ -30,8 +38,8 @@ export function LeadFormSection() {
               See If Your Property Qualifies
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Fill out the form and we'll review your property details and reach out within one
-              business day to schedule your free site evaluation.
+              Fill out the form and we'll review your property details, run a zoning check, and
+              reach out within one business day to schedule your free site evaluation.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -39,13 +47,32 @@ export function LeadFormSection() {
                 "No obligation — 100% free evaluation",
                 "We cover Orange County and surrounding areas",
                 "All evaluations include zoning & setback review",
-                "Typical ADU build cost: $80K–$150K+",
+                "We run a zoning check BEFORE your first call",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                   <span className="text-sm text-foreground">{item}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Pricing summary */}
+            <div className="mt-8 p-5 bg-background rounded-lg border border-border">
+              <h4 className="font-semibold text-foreground text-sm mb-3">Quick Pricing Reference</h4>
+              <div className="flex flex-col gap-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">20ft Studio</span>
+                  <span className="text-foreground font-medium">$80K – $120K+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">40ft 1-Bedroom</span>
+                  <span className="text-foreground font-medium">$120K – $175K+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Traditional Site-Built</span>
+                  <span className="text-foreground font-medium">$130K – $200K+</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -60,8 +87,8 @@ export function LeadFormSection() {
                   Thanks — We'll Be In Touch!
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                  We've received your information and will review your property details within one
-                  business day. Keep an eye on your phone and email.
+                  We've received your information and will run a zoning check on your property
+                  before reaching out within one business day.
                 </p>
               </div>
             ) : (
@@ -155,11 +182,35 @@ export function LeadFormSection() {
                   <input type="hidden" name="owns_property" value={ownsProperty} />
                 </div>
 
+                {/* Model Interest */}
+                <div className="flex flex-col gap-2">
+                  <span className="text-xs font-semibold text-foreground uppercase tracking-wide">
+                    Which Model Interests You?
+                  </span>
+                  <div className="grid grid-cols-2 gap-2">
+                    {modelOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setModelInterest(option.value)}
+                        className={`py-3 px-3 rounded border text-sm font-medium transition-all text-left ${
+                          modelInterest === option.value
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border text-muted-foreground hover:border-primary/40"
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                  <input type="hidden" name="model_interest" value={modelInterest} />
+                </div>
+
                 {/* Submit */}
                 <button
                   type="submit"
                   disabled={formState === "submitting"}
-                  className="mt-2 w-full flex items-center justify-center gap-2 px-7 py-4 bg-primary text-white text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] disabled:opacity-70 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="mt-2 w-full flex items-center justify-center gap-2 px-7 py-4 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] disabled:opacity-70 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {formState === "submitting" ? (
                     <>
