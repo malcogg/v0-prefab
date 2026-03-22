@@ -7,15 +7,44 @@ type FormState = "idle" | "submitting" | "success" | "error"
 
 export function LeadFormSection() {
   const [formState, setFormState] = useState<FormState>("idle")
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [ownsProperty, setOwnsProperty] = useState<string>("")
   const [modelInterest, setModelInterest] = useState<string>("")
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    setErrorMessage(null)
+
+    if (!ownsProperty || !modelInterest) {
+      setFormState("error")
+      setErrorMessage("Please answer the two selection questions before submitting.")
+      return
+    }
+
     setFormState("submitting")
-    // Simulate submission
-    await new Promise((res) => setTimeout(res, 1500))
-    setFormState("success")
+    try {
+      const form = new FormData(e.currentTarget)
+      form.set("owns_property", ownsProperty)
+      form.set("model_interest", modelInterest)
+
+      const payload = Object.fromEntries(form.entries())
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        setFormState("error")
+        setErrorMessage("Something went wrong. Please try again.")
+        return
+      }
+
+      setFormState("success")
+    } catch {
+      setFormState("error")
+      setErrorMessage("Something went wrong. Please try again.")
+    }
   }
 
   const modelOptions = [
@@ -97,6 +126,11 @@ export function LeadFormSection() {
                 <p className="text-muted-foreground text-sm -mt-2 mb-2">
                   All fields required
                 </p>
+                {formState === "error" && errorMessage && (
+                  <div className="rounded border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                    {errorMessage}
+                  </div>
+                )}
 
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">

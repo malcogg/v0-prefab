@@ -19,9 +19,18 @@ export function ADUQuizFunnel() {
   const [state, setState] = useState<QuizState>({ step: 1 })
   const [showWaitlist, setShowWaitlist] = useState(false)
   const [waitlistData, setWaitlistData] = useState({ name: "", email: "", county: "" })
+  const [contact, setContact] = useState({ name: "", email: "", phone: "" })
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">(
+    "idle"
+  )
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const handleNext = (key: string, value: string) => {
-    if (key === "county" && value !== "Orange County" && value !== "City of Orlando") {
+    if (
+      key === "county" &&
+      !value.startsWith("Orange County") &&
+      value !== "City of Orlando"
+    ) {
       setWaitlistData({ ...waitlistData, county: value })
       setShowWaitlist(true)
       return
@@ -39,6 +48,49 @@ export function ADUQuizFunnel() {
     console.log("Waitlist:", waitlistData)
     setShowWaitlist(false)
     setState({ step: 1 })
+  }
+
+  const handleProgressionSubmit = async () => {
+    setErrorMessage(null)
+
+    if (!contact.name || !contact.email || !contact.phone) {
+      setSubmitState("error")
+      setErrorMessage("Please enter your name, email, and phone.")
+      return
+    }
+
+    const payload = {
+      county: state.county ?? "",
+      propertyType: state.propertyType ?? "",
+      lotSize: state.lotSize ?? "",
+      hoa: state.hoa ?? "",
+      floodZone: state.floodZone ?? "",
+      goal: state.goal ?? "",
+      modelInterest: state.modelInterest ?? "",
+      ...contact,
+    }
+
+    setSubmitState("submitting")
+    try {
+      const res = await fetch("/api/progressions", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        setSubmitState("error")
+        setErrorMessage("Something went wrong. Please try again.")
+        return
+      }
+
+      setSubmitState("success")
+      setState({ step: 1 })
+      setContact({ name: "", email: "", phone: "" })
+    } catch {
+      setSubmitState("error")
+      setErrorMessage("Something went wrong. Please try again.")
+    }
   }
 
   const progressPercent = (state.step / 8) * 100
@@ -80,6 +132,28 @@ export function ADUQuizFunnel() {
                 Notify Me When My County Is Live
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (submitState === "success") {
+    return (
+      <section className="py-24 bg-gradient-to-b from-background via-secondary/30 to-background">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="bg-white rounded-2xl shadow-xl p-10 text-center">
+            <h2 className="font-serif text-3xl text-foreground mb-4">You're all set.</h2>
+            <p className="text-muted-foreground mb-8">
+              We received your answers and will reach out within 24 hours with your recommended
+              path and next steps.
+            </p>
+            <Button
+              onClick={() => setSubmitState("idle")}
+              className="w-full bg-primary py-3 text-base"
+            >
+              Start Over
+            </Button>
           </div>
         </div>
       </section>
@@ -333,23 +407,40 @@ export function ADUQuizFunnel() {
               <p className="text-muted-foreground mb-6">
                 We'll reach out with your personalized evaluation and recommended next steps.
               </p>
+              {submitState === "error" && errorMessage && (
+                <div className="mb-4 rounded border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                  {errorMessage}
+                </div>
+              )}
               <div className="grid gap-4">
                 <input
                   type="text"
                   placeholder="Your Name"
                   className="px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={contact.name}
+                  onChange={(e) => setContact({ ...contact, name: e.target.value })}
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
                   className="px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={contact.email}
+                  onChange={(e) => setContact({ ...contact, email: e.target.value })}
                 />
                 <input
                   type="tel"
                   placeholder="Your Phone"
                   className="px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={contact.phone}
+                  onChange={(e) => setContact({ ...contact, phone: e.target.value })}
                 />
-                <Button className="w-full bg-primary py-3 text-base">Get My Free Evaluation</Button>
+                <Button
+                  onClick={handleProgressionSubmit}
+                  disabled={submitState === "submitting"}
+                  className="w-full bg-primary py-3 text-base"
+                >
+                  {submitState === "submitting" ? "Submitting..." : "Get My Free Evaluation"}
+                </Button>
                 <p className="text-xs text-muted-foreground text-center">
                   We'll contact you within 24 hours with your personalized assessment.
                 </p>
