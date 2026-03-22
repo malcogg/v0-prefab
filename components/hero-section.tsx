@@ -35,8 +35,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl">
-            Add a legal ADU in Central Florida with a structured, expert-led approach. Permitted,
-            foundation-built, and designed for the Florida climate.
+            Add a legal, permitted ADU in Central Florida with a structured, expert-led approach. Foundation-built and optimized for the Florida climate.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
