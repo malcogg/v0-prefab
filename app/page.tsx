@@ -1,7 +1,9 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { ADUQuizFunnel } from "@/components/adu-quiz-funnel"
 import { WhatIsAduSection } from "@/components/what-is-adu-section"
 import { DesignOptionsSection } from "@/components/design-options-section"
+import { OrangeCountyRulesSection } from "@/components/orange-county-rules-section"
 import { DealBreakdownSection } from "@/components/deal-breakdown-section"
 import { ProcessSection } from "@/components/process-section"
 import { EarthNestSection } from "@/components/earthnest-section"
@@ -15,8 +17,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <ADUQuizFunnel />
       <WhatIsAduSection />
       <DesignOptionsSection />
+      <OrangeCountyRulesSection />
       <DealBreakdownSection />
       <ProcessSection />
       <EarthNestSection />
