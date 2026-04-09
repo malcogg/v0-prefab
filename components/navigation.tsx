@@ -6,6 +6,7 @@ import Link from "next/link"
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [exploreOpen, setExploreOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -13,16 +14,19 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { label: "What is an ADU?", href: "#what-is-adu" },
+  const primaryLinks = [
     { label: "ADU Rules by County", href: "/adu-rules" },
     { label: "ADU Calculator", href: "/adu-calculator" },
-    { label: "The Opportunity", href: "#opportunity" },
-    { label: "Our Process", href: "#process" },
-    { label: "EarthNest Model", href: "#earthnest" },
-    { label: "Our Team", href: "#team" },
-    { label: "Partners", href: "#partners" },
+    { label: "Our Process", href: "/#process" },
     { label: "FAQ", href: "/faq" },
+  ]
+
+  const exploreLinks = [
+    { label: "What is an ADU?", href: "/#what-is-adu" },
+    { label: "The Opportunity", href: "/#opportunity" },
+    { label: "EarthNest Model", href: "/#earthnest" },
+    { label: "Our Team", href: "/#team" },
+    { label: "Partners", href: "/#partners" },
   ]
 
   return (
@@ -48,8 +52,8 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <ul className="hidden lg:flex items-center gap-6">
+          {primaryLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -59,12 +63,45 @@ export function Navigation() {
               </Link>
             </li>
           ))}
+          <li
+            className="relative"
+            onMouseEnter={() => setExploreOpen(true)}
+            onMouseLeave={() => setExploreOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setExploreOpen((prev) => !prev)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              aria-expanded={exploreOpen}
+              aria-haspopup="menu"
+            >
+              Explore
+            </button>
+            {exploreOpen && (
+              <div className="absolute top-full right-0 mt-3 w-72 bg-background border border-border rounded-lg shadow-lg p-3 z-50">
+                <p className="text-[11px] uppercase tracking-wide text-muted-foreground px-2 pb-2">
+                  More Resources
+                </p>
+                <div className="flex flex-col gap-1">
+                  {exploreLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="px-2 py-2 rounded text-sm text-foreground hover:bg-secondary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </li>
         </ul>
 
         {/* CTA */}
         <div className="hidden lg:block">
           <Link
-            href="#qualify"
+            href="/#qualify"
             className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-accent-foreground hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Get Free Evaluation
@@ -87,7 +124,7 @@ export function Navigation() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden bg-background border-t border-border px-6 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
+          {primaryLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -97,8 +134,23 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
+          <div className="pt-2 border-t border-border">
+            <p className="text-xs uppercase tracking-wide text-muted-foreground mb-2">Explore</p>
+            <div className="flex flex-col gap-2">
+              {exploreLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm font-medium text-foreground/90 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           <Link
-            href="#qualify"
+            href="/#qualify"
             onClick={() => setMenuOpen(false)}
             className="mt-2 inline-flex items-center justify-center px-5 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded transition-colors hover:bg-[oklch(0.58_0.13_192)]"
           >

@@ -3,14 +3,16 @@ import { MapPin, Phone, Mail } from "lucide-react"
 
 export function SiteFooter() {
   const navLinks = [
-    { label: "What is an ADU?", href: "#what-is-adu" },
-    { label: "The Opportunity", href: "#opportunity" },
-    { label: "Design Options", href: "#design-options" },
-    { label: "Our Process", href: "#process" },
-    { label: "EarthNest Model", href: "#earthnest" },
-    { label: "Our Team", href: "#team" },
-    { label: "Builder Partners", href: "#partners" },
-    { label: "Get Evaluation", href: "#qualify" },
+    { label: "What is an ADU?", href: "/#what-is-adu" },
+    { label: "The Opportunity", href: "/#opportunity" },
+    { label: "Design Options", href: "/#design-options" },
+    { label: "Our Process", href: "/#process" },
+    { label: "EarthNest Model", href: "/#earthnest" },
+    { label: "Our Team", href: "/#team" },
+    { label: "Builder Partners", href: "/#partners" },
+    { label: "ADU Rules by County", href: "/adu-rules" },
+    { label: "ADU Calculator", href: "/adu-calculator" },
+    { label: "Get Evaluation", href: "/#qualify" },
   ]
 
   return (
@@ -27,7 +29,7 @@ export function SiteFooter() {
             </p>
           </div>
           <Link
-            href="#qualify"
+            href="/#qualify"
             className="inline-flex items-center shrink-0 px-8 py-4 bg-primary text-white text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] whitespace-nowrap"
           >
             Get Free Evaluation
