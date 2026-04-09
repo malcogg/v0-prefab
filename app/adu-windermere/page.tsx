@@ -7,6 +7,27 @@ const pageData = getLocalPageBySlug("adu-windermere")
 export const metadata: Metadata = {
   title: pageData?.metaTitle,
   description: pageData?.metaDescription,
+  alternates: { canonical: pageData ? `/${pageData.slug}` : "/" },
+  openGraph: {
+    title: pageData?.metaTitle,
+    description: pageData?.metaDescription,
+    url: pageData ? `/${pageData.slug}` : "/",
+    images: [
+      {
+        url: "/og/local-page-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ADU Specialists in Central Florida",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@earthnestfl",
+    title: pageData?.metaTitle,
+    description: pageData?.metaDescription,
+    images: ["/og/local-page-default.jpg"],
+  },
 }
 
 export default function Page() {

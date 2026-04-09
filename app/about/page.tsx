@@ -1,10 +1,28 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
+import { breadcrumbSchema } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "About EarthNest Florida | Central Florida ADU Specialists",
+  description:
+    "Learn about EarthNest Florida and our ADU design, permitting, and construction process in Central Florida.",
+  alternates: { canonical: "/about" },
+}
 
 export default function AboutPage() {
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+  ])
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navigation />
       <section className="pt-36 pb-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">

@@ -4,6 +4,11 @@ import { useState } from "react"
 import { CheckCircle, Loader2 } from "lucide-react"
 
 type FormState = "idle" | "submitting" | "success" | "error"
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
 
 export function LeadFormSection() {
   const [formState, setFormState] = useState<FormState>("idle")
@@ -40,6 +45,12 @@ export function LeadFormSection() {
         return
       }
 
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "Form",
+          event_label: "Free Property Evaluation",
+        })
+      }
       setFormState("success")
     } catch {
       setFormState("error")

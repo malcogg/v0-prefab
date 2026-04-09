@@ -1,7 +1,9 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
+import { breadcrumbSchema } from "@/lib/seo"
 
 type FaqItem = {
   q: string
@@ -139,9 +141,114 @@ const faqs: { category: string; items: FaqItem[] }[] = [
   },
 ]
 
+export const metadata: Metadata = {
+  title: "ADU FAQ — Central Florida | EarthNest Florida",
+  description:
+    "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "ADU FAQ — Central Florida | EarthNest Florida",
+    description:
+      "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",
+    url: "/faq",
+    images: [{ url: "/og/faq.jpg", width: 1200, height: 630, alt: "ADU Questions Answered" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@earthnestfl",
+    title: "ADU FAQ — Central Florida | EarthNest Florida",
+    description:
+      "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",
+    images: ["/og/faq.jpg"],
+  },
+}
+
 export default function FaqPage() {
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "FAQ", path: "/faq" },
+  ])
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Does my property qualify for an ADU in Orange County?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Your property must meet several conditions to be eligible in Orange County (unincorporated): it must be your primary homesteaded residence, it must be zoned for single-family residential use, the lot must be at least 1.5 times the minimum required lot size for a detached ADU, and you must obtain a Special Exception from the county before a building permit can be applied for.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I have to live on the property to build an ADU?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "In Orange County (unincorporated), yes. The county requires you to occupy either the primary home or the ADU as your principal homesteaded residence. The City of Orlando does not have this requirement — investors can rent both units.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How big can my ADU be in Orange County?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The maximum living area is 45% of your primary home's square footage OR 1,000 square feet — whichever is less. The minimum living area is 400 square feet. The ADU may not have more than 2 bedrooms.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I use my ADU for Airbnb or short-term rentals?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "In Orange County (unincorporated), short-term rentals under 30 days are prohibited for ADUs in most residential zones. You must rent to long-term tenants. The City of Orlando has different rules — visit orlando.gov/homeshare for current policy.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does the ADU process take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "From initial evaluation to Certificate of Occupancy, most projects take 6–12 months. The Special Exception zoning process adds 4–8 weeks upfront. Building permit review takes an additional 4–8 weeks. Construction takes 3–6 months depending on the model.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does a free evaluation cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nothing. No obligation. The evaluation includes a zoning check, setback review, lot size confirmation, feasibility assessment, and model recommendation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does an ADU increase my property value?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A fully permitted, foundation-built ADU adds permanent appraised value. In the current Central Florida market, permitted ADUs typically add $60,000–$130,000+ in equity at completion depending on size and finish level.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is a Special Exception and do I need one?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "In Orange County (unincorporated), a Special Exception is a separate zoning approval required before a building permit can be applied for. It is submitted to the Orange County Planning Division. EarthNest Florida prepares and submits this on your behalf.",
+        },
+      },
+    ],
+  }
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navigation />
       <section className="pt-36 pb-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">

@@ -4,7 +4,22 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:path+/",
+        destination: "/:path+",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "prefabricated.co" }],
+        destination: "https://www.prefabricated.co/:path*",
+        permanent: true,
+      },
+    ]
   },
 }
 

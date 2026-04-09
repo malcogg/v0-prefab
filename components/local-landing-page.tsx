@@ -4,12 +4,84 @@ import { SiteFooter } from "@/components/site-footer"
 import { LeadFormSection } from "@/components/lead-form-section"
 import { ADUCalculatorSection } from "@/components/adu-calculator-section"
 import type { LocalSeoPage } from "@/lib/local-pages-data"
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
 
 type LocalLandingPageProps = { page: LocalSeoPage }
 
 export function LocalLandingPage({ page }: LocalLandingPageProps) {
+  const countyGeo: Record<string, { lat: number; lng: number }> = {
+    "Orange County": { lat: 28.5383, lng: -81.3792 },
+    "Seminole County": { lat: 28.7117, lng: -81.2081 },
+    "Osceola County": { lat: 28.0633, lng: -81.1467 },
+    "Lake County": { lat: 28.7617, lng: -81.7129 },
+    "Polk County": { lat: 28.0395, lng: -81.9498 },
+  }
+  const breadcrumb = page.isHub
+    ? breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: `ADU in ${page.locationName}`, path: `/${page.slug}` },
+      ])
+    : breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: `ADU in ${page.county}`, path: `/${page.hubSlug}` },
+        { name: `ADU Specialists in ${page.locationName}`, path: `/${page.slug}` },
+      ])
+
+  const localServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `ADU Construction and Permitting in ${page.locationName}, FL`,
+    description: `EarthNest Florida provides ADU design, permitting, and construction services in ${page.locationName}, ${page.county}, Florida. We handle zoning verification, special exception filing, and full build management.`,
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: {
+      "@type": "City",
+      name: page.locationName,
+      addressRegion: "FL",
+      addressCountry: "US",
+    },
+    url: `${SITE_URL}/${page.slug}`,
+  }
+  const geo = countyGeo[page.county] ?? countyGeo["Orange County"]
+  const localPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `ADU Specialists in ${page.locationName}, FL`,
+    url: `${SITE_URL}/${page.slug}`,
+    description: page.metaDescription,
+    about: {
+      "@type": "Service",
+      name: "Accessory Dwelling Unit Design, Permitting and Construction",
+      areaServed: {
+        "@type": "City",
+        name: page.locationName,
+        addressRegion: "FL",
+      },
+    },
+    spatialCoverage: {
+      "@type": "Place",
+      name: `${page.locationName}, Florida`,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: geo.lat,
+        longitude: geo.lng,
+      },
+    },
+  }
+
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localServiceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localPageSchema) }}
+      />
       <Navigation />
 
       <section className="pt-36 pb-20 bg-background">

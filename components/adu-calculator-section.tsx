@@ -4,6 +4,11 @@ import Link from "next/link"
 import { useMemo, useState } from "react"
 
 type AduType = "studio" | "one-bedroom" | "two-bedroom"
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
 
 function formatCurrency(value: number) {
   return new Intl.NumberFormat("en-US", {
@@ -41,6 +46,15 @@ export function ADUCalculatorSection() {
     "two-bedroom": "Traditional Site-Built 2-Bedroom",
   }
 
+  const trackCalculatorInteraction = () => {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "calculator_interaction", {
+        event_category: "Engagement",
+        event_label: "ADU Income Calculator",
+      })
+    }
+  }
+
   return (
     <section className="py-24 bg-background" id="adu-calculator">
       <div className="max-w-7xl mx-auto px-6">
@@ -68,6 +82,7 @@ export function ADUCalculatorSection() {
                   key={key}
                   type="button"
                   onClick={() => setAduType(key)}
+                  onMouseUp={trackCalculatorInteraction}
                   className={`px-3 py-2.5 rounded border text-sm font-medium text-left transition-colors ${
                     aduType === key
                       ? "border-primary bg-primary/10 text-primary"
@@ -92,6 +107,7 @@ export function ADUCalculatorSection() {
                   step={1000}
                   value={buildCost}
                   onChange={(e) => setBuildCost(Number(e.target.value))}
+                  onMouseUp={trackCalculatorInteraction}
                   className="w-full"
                   aria-label="Estimated Build Cost"
                 />
@@ -113,6 +129,7 @@ export function ADUCalculatorSection() {
                   step={50}
                   value={monthlyRent}
                   onChange={(e) => setMonthlyRent(Number(e.target.value))}
+                  onMouseUp={trackCalculatorInteraction}
                   className="w-full"
                   aria-label="Estimated Monthly Rent"
                 />
@@ -132,6 +149,7 @@ export function ADUCalculatorSection() {
                   step={5000}
                   value={homeValue}
                   onChange={(e) => setHomeValue(Number(e.target.value))}
+                  onMouseUp={trackCalculatorInteraction}
                   className="w-full"
                   aria-label="Primary Home Value"
                 />

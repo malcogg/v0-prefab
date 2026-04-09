@@ -355,8 +355,8 @@ function makePages() {
             locationName,
             group: groupDef.group,
           }),
-          metaTitle: `ADU Specialists in ${locationName} | EarthNest Florida`,
-          metaDescription: `Build a legal, permitted ADU in ${locationName}, ${groupDef.county}. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.`,
+          metaTitle: `ADU Specialists in ${locationName}, FL | EarthNest Florida`,
+          metaDescription: `Build a legal, permitted ADU in ${locationName}, ${groupDef.county}. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.`,
           wordBand: byTierWording(tier),
         })
       }
@@ -387,8 +387,8 @@ function makePages() {
         "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
         "Use the county directory and parcel-level review before selecting a final ADU plan.",
       ],
-      metaTitle: `ADU Specialists in ${locationName} | EarthNest Florida`,
-      metaDescription: `Build a legal, permitted ADU in ${locationName}. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.`,
+      metaTitle: `ADU Specialists in ${locationName}, FL | EarthNest Florida`,
+      metaDescription: `Build a legal, permitted ADU in ${locationName}, ${county}. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.`,
       wordBand: { minWords: 200, maxWords: 300 },
     })
   }
@@ -448,6 +448,27 @@ const pageData = getLocalPageBySlug("${slug}")
 export const metadata: Metadata = {
   title: pageData?.metaTitle,
   description: pageData?.metaDescription,
+  alternates: { canonical: pageData ? \`/\${pageData.slug}\` : "/" },
+  openGraph: {
+    title: pageData?.metaTitle,
+    description: pageData?.metaDescription,
+    url: pageData ? \`/\${pageData.slug}\` : "/",
+    images: [
+      {
+        url: "/og/local-page-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ADU Specialists in Central Florida",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@earthnestfl",
+    title: pageData?.metaTitle,
+    description: pageData?.metaDescription,
+    images: ["/og/local-page-default.jpg"],
+  },
 }
 
 export default function Page() {

@@ -42,8 +42,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Alafaya | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Alafaya, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Alafaya, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Alafaya, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -74,8 +74,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Altamonte Springs | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Altamonte Springs, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Altamonte Springs, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Altamonte Springs, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -103,8 +103,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Altoona | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Altoona, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Altoona, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Altoona, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -135,8 +135,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Apopka | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Apopka, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Apopka, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Apopka, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -164,8 +164,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Astatula | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Astatula, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Astatula, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Astatula, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -193,8 +193,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Astor | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Astor, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Astor, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Astor, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -222,8 +222,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Auburndale | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Auburndale, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Auburndale, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Auburndale, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -254,8 +254,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Audubon Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Audubon Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Audubon Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Audubon Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -284,8 +284,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Azalea Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Azalea Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Azalea Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Azalea Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -316,8 +316,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Baldwin Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Baldwin Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Baldwin Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Baldwin Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -345,8 +345,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Bartow | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Bartow, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Bartow, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Bartow, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -375,8 +375,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Bay Hill | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Bay Hill, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Bay Hill, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Bay Hill, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -404,8 +404,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Bay Lake | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Bay Lake, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Bay Lake, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Bay Lake, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -434,8 +434,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Belle Isle | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Belle Isle, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Belle Isle, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Belle Isle, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -463,8 +463,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Bithlo | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Bithlo, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Bithlo, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Bithlo, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -495,8 +495,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Buenaventura Lakes | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Buenaventura Lakes, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Buenaventura Lakes, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Buenaventura Lakes, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -524,8 +524,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Campbell | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Campbell, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Campbell, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Campbell, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -556,8 +556,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Casselberry | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Casselberry, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Casselberry, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Casselberry, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -588,8 +588,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Celebration | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Celebration, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Celebration, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Celebration, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -617,8 +617,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Christmas | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Christmas, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Christmas, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Christmas, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -647,8 +647,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Clarcona | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Clarcona, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Clarcona, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Clarcona, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -679,8 +679,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Clermont | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Clermont, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Clermont, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Clermont, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -711,8 +711,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in College Park Orlando | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in College Park Orlando, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in College Park Orlando, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in College Park Orlando, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -741,8 +741,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Conway | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Conway, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Conway, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Conway, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -771,8 +771,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Davenport | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Davenport, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Davenport, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Davenport, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -801,8 +801,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Delaney Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Delaney Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Delaney Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Delaney Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -831,8 +831,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Downtown Orlando | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Downtown Orlando, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Downtown Orlando, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Downtown Orlando, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -863,8 +863,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Dr. Phillips | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Dr. Phillips, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Dr. Phillips, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Dr. Phillips, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -893,8 +893,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Dundee | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Dundee, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Dundee, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Dundee, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -923,8 +923,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Eatonville | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Eatonville, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Eatonville, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Eatonville, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -952,8 +952,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Edgewood | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Edgewood, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Edgewood, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Edgewood, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -982,8 +982,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Eustis | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Eustis, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Eustis, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Eustis, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1012,8 +1012,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Fairview Shores | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Fairview Shores, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Fairview Shores, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Fairview Shores, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1042,8 +1042,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Fern Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Fern Park, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Fern Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Fern Park, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1071,8 +1071,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Ferndale | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Ferndale, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Ferndale, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Ferndale, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1101,8 +1101,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Forest City | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Forest City, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Forest City, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Forest City, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1131,8 +1131,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Four Corners | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Four Corners, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Four Corners, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Four Corners, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1161,8 +1161,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Fruitland Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Fruitland Park, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Fruitland Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Fruitland Park, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1190,8 +1190,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Geneva | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Geneva, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Geneva, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Geneva, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1222,8 +1222,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Goldenrod | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Goldenrod, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Goldenrod, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Goldenrod, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1252,8 +1252,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Gotha | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Gotha, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Gotha, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Gotha, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1284,8 +1284,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Groveland | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Groveland, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Groveland, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Groveland, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1314,8 +1314,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Haines City | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Haines City, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Haines City, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Haines City, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1344,8 +1344,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Harmony | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Harmony, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Harmony, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Harmony, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1376,8 +1376,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Heathrow | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Heathrow, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Heathrow, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Heathrow, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1405,8 +1405,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Holden Heights | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Holden Heights, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Holden Heights, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Holden Heights, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1437,8 +1437,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Horizon West | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Horizon West, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Horizon West, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Horizon West, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1466,8 +1466,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Howey-in-the-Hills | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Howey-in-the-Hills, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Howey-in-the-Hills, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Howey-in-the-Hills, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1498,8 +1498,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Hunter's Creek | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Hunter's Creek, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Hunter's Creek, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Hunter's Creek, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1527,8 +1527,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Intercession City | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Intercession City, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Intercession City, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Intercession City, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1559,8 +1559,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Kissimmee | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Kissimmee, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Kissimmee, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Kissimmee, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1589,8 +1589,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lady Lake | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lady Lake, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lady Lake, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lady Lake, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1618,8 +1618,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lake Alfred | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Alfred, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Alfred, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Alfred, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1647,8 +1647,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lake Buena Vista | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Buena Vista, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Buena Vista, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Buena Vista, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1676,8 +1676,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lake Butler | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Butler, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Butler, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Butler, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1706,8 +1706,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
       "Use the county directory and parcel-level review before selecting a final ADU plan."
     ],
-    "metaTitle": "ADU Specialists in Lake County | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake County, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake County, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1736,8 +1736,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Lake Eola Heights | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Eola Heights, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Eola Heights, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Eola Heights, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -1765,8 +1765,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lake Hart | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Hart, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Hart, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Hart, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1797,8 +1797,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lake Mary | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Mary, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Mary, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Mary, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1826,8 +1826,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lake Mary Jane | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Mary Jane, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Mary Jane, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Mary Jane, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1855,8 +1855,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lake Monroe | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Monroe, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Monroe, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Monroe, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1887,8 +1887,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lake Nona | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Nona, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Nona, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Nona, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1919,8 +1919,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Lake Nona Orlando | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Nona Orlando, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Nona Orlando, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Nona Orlando, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -1948,8 +1948,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lake Wales | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lake Wales, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lake Wales, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lake Wales, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -1977,8 +1977,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Lakeland | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lakeland, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lakeland, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lakeland, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2007,8 +2007,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Leesburg | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Leesburg, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Leesburg, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Leesburg, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2039,8 +2039,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Lockhart | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Lockhart, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Lockhart, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Lockhart, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2071,8 +2071,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Longwood | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Longwood, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Longwood, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Longwood, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2100,8 +2100,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Loughman | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Loughman, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Loughman, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Loughman, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2132,8 +2132,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Maitland | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Maitland, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Maitland, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Maitland, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2162,8 +2162,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Mascotte | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Mascotte, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Mascotte, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Mascotte, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2194,8 +2194,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Meadow Woods | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Meadow Woods, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Meadow Woods, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Meadow Woods, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2226,8 +2226,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in MetroWest | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in MetroWest, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in MetroWest, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in MetroWest, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2255,8 +2255,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Midway (Seminole) | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Midway (Seminole), Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Midway (Seminole), FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Midway (Seminole), Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2285,8 +2285,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Mills 50 | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Mills 50, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Mills 50, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Mills 50, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2317,8 +2317,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Minneola | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Minneola, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Minneola, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Minneola, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2347,8 +2347,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Montverde | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Montverde, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Montverde, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Montverde, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2377,8 +2377,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Mount Dora | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Mount Dora, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Mount Dora, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Mount Dora, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2407,8 +2407,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Mount Plymouth | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Mount Plymouth, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Mount Plymouth, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Mount Plymouth, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2437,8 +2437,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Narcoossee | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Narcoossee, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Narcoossee, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Narcoossee, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2469,8 +2469,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Oak Ridge | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Oak Ridge, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Oak Ridge, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Oak Ridge, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2499,8 +2499,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Oakland | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Oakland, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Oakland, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Oakland, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2531,8 +2531,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Ocoee | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Ocoee, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Ocoee, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Ocoee, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2560,8 +2560,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Okahumpka | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Okahumpka, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Okahumpka, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Okahumpka, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2590,8 +2590,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
       "Use the county directory and parcel-level review before selecting a final ADU plan."
     ],
-    "metaTitle": "ADU Specialists in Orange County | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Orange County, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Orange County, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2622,8 +2622,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Orlando | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Orlando, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Orlando, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Orlando, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2651,8 +2651,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Orlo Vista | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Orlo Vista, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Orlo Vista, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Orlo Vista, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2681,8 +2681,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
       "Use the county directory and parcel-level review before selecting a final ADU plan."
     ],
-    "metaTitle": "ADU Specialists in Osceola County | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Osceola County, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Osceola County, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2713,8 +2713,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Oviedo | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Oviedo, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Oviedo, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Oviedo, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2742,8 +2742,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Paisley | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Paisley, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Paisley, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Paisley, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2772,8 +2772,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Pine Castle | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Pine Castle, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Pine Castle, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Pine Castle, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -2804,8 +2804,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Pine Hills | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Pine Hills, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Pine Hills, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Pine Hills, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2836,8 +2836,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Poinciana | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Poinciana, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Poinciana, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Poinciana, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2865,8 +2865,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Polk City | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Polk City, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Polk City, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Polk City, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2895,8 +2895,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
       "Use the county directory and parcel-level review before selecting a final ADU plan."
     ],
-    "metaTitle": "ADU Specialists in Polk County | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Polk County, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Polk County, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2924,8 +2924,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Rio Pinar | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Rio Pinar, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Rio Pinar, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Rio Pinar, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -2956,8 +2956,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Sanford | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Sanford, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Sanford, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Sanford, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -2986,8 +2986,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Sanlando Springs | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Sanlando Springs, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Sanlando Springs, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Sanlando Springs, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3016,8 +3016,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setback, owner-occupancy, and special-exception expectations vary across the county map.",
       "Use the county directory and parcel-level review before selecting a final ADU plan."
     ],
-    "metaTitle": "ADU Specialists in Seminole County | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Seminole County, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Seminole County, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3046,8 +3046,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Sky Lake | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Sky Lake, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Sky Lake, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Sky Lake, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3075,8 +3075,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Slavia | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Slavia, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Slavia, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Slavia, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3105,8 +3105,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in SoDo Orlando | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in SoDo Orlando, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in SoDo Orlando, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in SoDo Orlando, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3135,8 +3135,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Sorrento | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Sorrento, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Sorrento, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Sorrento, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3165,8 +3165,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in South Apopka | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in South Apopka, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in South Apopka, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in South Apopka, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3195,8 +3195,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Southchase | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Southchase, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Southchase, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Southchase, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3227,8 +3227,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in St. Cloud | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in St. Cloud, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in St. Cloud, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in St. Cloud, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3256,8 +3256,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Taft | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Taft, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Taft, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Taft, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3285,8 +3285,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Tangelo Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Tangelo Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Tangelo Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Tangelo Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3314,8 +3314,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Tangerine | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Tangerine, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Tangerine, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Tangerine, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3344,8 +3344,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Tavares | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Tavares, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Tavares, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Tavares, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3374,8 +3374,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Setbacks, height, and design compatibility depend on district-specific standards.",
       "Short-term rental rules differ from county policy and must be verified separately."
     ],
-    "metaTitle": "ADU Specialists in Thornton Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Thornton Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Thornton Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Thornton Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3403,8 +3403,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Tildenville | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Tildenville, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Tildenville, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Tildenville, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3433,8 +3433,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Tuskawilla | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Tuskawilla, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Tuskawilla, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Tuskawilla, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3462,8 +3462,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Umatilla | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Umatilla, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Umatilla, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Umatilla, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3492,8 +3492,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Union Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Union Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Union Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Union Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3522,8 +3522,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in University (UCF area) | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in University (UCF area), Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in University (UCF area), FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in University (UCF area), Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3551,8 +3551,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Wedgefield | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Wedgefield, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Wedgefield, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Wedgefield, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3581,8 +3581,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Wekiva Springs | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Wekiva Springs, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Wekiva Springs, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Wekiva Springs, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3611,8 +3611,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Williamsburg | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Williamsburg, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Williamsburg, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Williamsburg, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 100,
       "maxWords": 150
@@ -3643,8 +3643,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Windermere | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Windermere, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Windermere, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Windermere, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3675,8 +3675,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Winter Garden | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Winter Garden, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Winter Garden, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Winter Garden, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3704,8 +3704,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Winter Haven | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Winter Haven, Polk County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Winter Haven, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Winter Haven, Polk County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3736,8 +3736,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Winter Park | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Winter Park, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Winter Park, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Winter Park, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3768,8 +3768,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Winter Springs | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Winter Springs, Seminole County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Winter Springs, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Winter Springs, Seminole County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 200,
       "maxWords": 300
@@ -3797,8 +3797,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Yalaha | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Yalaha, Lake County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Yalaha, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Yalaha, Lake County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3826,8 +3826,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Detached placement, utility constraints, and lot dimensions affect feasibility and timeline.",
       "Use the county directory and parcel review to confirm exact standards before permitting."
     ],
-    "metaTitle": "ADU Specialists in Yeehaw Junction | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Yeehaw Junction, Osceola County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Yeehaw Junction, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Yeehaw Junction, Osceola County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
@@ -3855,8 +3855,8 @@ export const LOCAL_SEO_PAGES: LocalSeoPage[] = [
       "Maximum ADU size is often governed by both fixed cap and primary-home percentage rules.",
       "Parcel-level zoning and setback review is required before choosing final layout."
     ],
-    "metaTitle": "ADU Specialists in Zellwood | EarthNest Florida",
-    "metaDescription": "Build a legal, permitted ADU in Zellwood, Orange County. EarthNest Florida handles zoning, permitting, design & construction. Free property evaluation.",
+    "metaTitle": "ADU Specialists in Zellwood, FL | EarthNest Florida",
+    "metaDescription": "Build a legal, permitted ADU in Zellwood, Orange County. EarthNest Florida handles zoning, design, permitting & construction. Free property evaluation — no obligation.",
     "wordBand": {
       "minWords": 50,
       "maxWords": 75
