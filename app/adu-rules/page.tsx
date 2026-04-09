@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
 import { AlertTriangle, CheckCircle2, XCircle } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { LOCAL_SEO_PAGES_BY_COUNTY, LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 type RuleIcon = "check" | "x" | "warning"
@@ -329,6 +329,8 @@ function RuleIconDisplay({ icon }: { icon: RuleIcon }) {
 export default function AduRulesPage() {
   const [activeCounty, setActiveCounty] = useState(COUNTY_DATA[0].key)
   const [verifiedDate, setVerifiedDate] = useState("")
+  const [directorySearch, setDirectorySearch] = useState("")
+  const [directoryCounty, setDirectoryCounty] = useState("All counties")
 
   useEffect(() => {
     setVerifiedDate(
@@ -350,6 +352,23 @@ export default function AduRulesPage() {
       .filter((page) => !page.isHub)
       .sort((a, b) => a.locationName.localeCompare(b.locationName)),
   ] as const)
+  const directoryCountyOptions = ["All counties", ...countyLocalPages.map(([countyName]) => countyName)]
+  const filteredDirectory = useMemo(() => {
+    const q = directorySearch.trim().toLowerCase()
+    return countyLocalPages
+      .filter(([countyName]) => directoryCounty === "All counties" || countyName === directoryCounty)
+      .map(([countyName, pages]) => [
+        countyName,
+        pages.filter((page) =>
+          q.length === 0
+            ? true
+            : page.locationName.toLowerCase().includes(q) ||
+              page.slug.toLowerCase().includes(q) ||
+              page.group.toLowerCase().includes(q)
+        ),
+      ] as const)
+      .filter(([, pages]) => pages.length > 0)
+  }, [countyLocalPages, directoryCounty, directorySearch])
 
   return (
     <main className="min-h-screen">
@@ -477,27 +496,9 @@ export default function AduRulesPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="space-y-4">
-                  {countyLocalPages.map(([countyName, pages]) => (
-                    <details key={countyName} className="group">
-                      <summary className="list-none cursor-pointer text-sm font-medium text-foreground flex items-center justify-between">
-                        <span>{countyName}</span>
-                        <span className="text-muted-foreground group-open:rotate-45 transition-transform">
-                          +
-                        </span>
-                      </summary>
-                      <ul className="mt-2 grid sm:grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                        {pages.map((page) => (
-                          <li key={page.slug}>
-                            <Link href={`/${page.slug}`} className="text-primary hover:underline">
-                              ADU Specialists in {page.locationName}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  ))}
-                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Use the full local directory below to search by city, neighborhood, or county.
+                </p>
               </div>
             </div>
 
@@ -534,6 +535,67 @@ export default function AduRulesPage() {
               </Link>
             </div>
           </div>
+
+          <section id="local-directory" className="mt-14 pt-8 border-t border-border">
+            <h2 className="font-serif text-3xl text-foreground mb-3">Full Local Directory</h2>
+            <p className="text-muted-foreground mb-6">
+              Find your municipality, neighborhood, or county page below. If you are unsure where
+              your parcel falls, start with a free zoning check.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground block mb-2">
+                  Search location
+                </label>
+                <input
+                  value={directorySearch}
+                  onChange={(e) => setDirectorySearch(e.target.value)}
+                  placeholder="Search by city, neighborhood, or slug..."
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wide text-muted-foreground block mb-2">
+                  County
+                </label>
+                <select
+                  value={directoryCounty}
+                  onChange={(e) => setDirectoryCounty(e.target.value)}
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                >
+                  {directoryCountyOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="space-y-6">
+              {filteredDirectory.length === 0 ? (
+                <p className="text-sm text-muted-foreground">
+                  No locations matched your search. Try a broader county or fewer keywords.
+                </p>
+              ) : (
+                filteredDirectory.map(([countyName, pages]) => (
+                  <div key={countyName}>
+                    <h3 className="text-sm font-semibold uppercase tracking-wide text-primary mb-3">
+                      {countyName}
+                    </h3>
+                    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-2 text-sm">
+                      {pages.map((page) => (
+                        <li key={page.slug}>
+                          <Link href={`/${page.slug}`} className="text-foreground hover:text-primary transition-colors">
+                            ADU Specialists in {page.locationName}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
 
           <div className="mt-10 pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground leading-relaxed">

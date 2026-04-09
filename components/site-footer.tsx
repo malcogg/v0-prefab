@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { MapPin, Phone, Mail } from "lucide-react"
-import { LOCAL_SEO_PAGES_BY_COUNTY, LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
+import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 export function SiteFooter() {
   const navLinks = [
@@ -21,12 +21,6 @@ export function SiteFooter() {
   const countyHubs = LOCAL_SEO_PAGES.filter((page) => page.isHub).sort((a, b) =>
     a.locationName.localeCompare(b.locationName)
   )
-  const localPagesByCounty = Object.entries(LOCAL_SEO_PAGES_BY_COUNTY).map(([countyName, pages]) => [
-    countyName,
-    pages
-      .filter((page) => !page.isHub)
-      .sort((a, b) => a.locationName.localeCompare(b.locationName)),
-  ] as const)
 
   return (
     <footer className="bg-foreground text-background">
@@ -119,28 +113,12 @@ export function SiteFooter() {
           <h3 className="text-xs font-semibold text-white/40 tracking-widest uppercase mt-8 mb-4">
             Local Pages
           </h3>
-          <div className="space-y-3">
-            {localPagesByCounty.map(([countyName, pages]) => (
-              <details key={countyName} className="group">
-                <summary className="list-none cursor-pointer text-sm font-medium text-white/80 flex items-center justify-between">
-                  <span>{countyName}</span>
-                  <span className="text-white/50 group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <ul className="mt-2 grid gap-1">
-                  {pages.map((page) => (
-                    <li key={page.slug}>
-                      <Link
-                        href={`/${page.slug}`}
-                        className="text-xs text-white/60 hover:text-white transition-colors"
-                      >
-                        ADU Specialists in {page.locationName}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
-          </div>
+          <p className="text-sm text-white/60 leading-relaxed">
+            Browse all municipalities and neighborhoods on the master directory page.
+          </p>
+          <Link href="/adu-rules#local-directory" className="inline-flex mt-3 text-sm text-primary hover:underline">
+            Open Full Local Directory
+          </Link>
         </div>
 
         {/* Service Area + Legal */}
