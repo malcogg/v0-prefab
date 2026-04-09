@@ -5,7 +5,7 @@ const team = [
     name: "Tiffany Baughn",
     title: "Director of Operations",
     company: "Client Focused Group | Licensed Realtor",
-    image: "/images/tiffany-baughn.jpg",
+    image: "/images/tiffany-baughn.png",
     responsibilities: [
       "Real estate strategy & deal sourcing",
       "Investor relations & partnerships",
@@ -16,10 +16,10 @@ const team = [
       "Our goal is to make ADU development accessible, profitable, and stress-free for every homeowner and investor we work with.",
   },
   {
-    name: "Michael",
+    name: "Michael Francis",
     title: "Construction Operations Lead",
     company: "Build Execution & Site Management",
-    image: "/images/michael-ops.jpg",
+    image: "/images/michael-francis.png",
     responsibilities: [
       "Contractor coordination & oversight",
       "Site feasibility assessment",

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -16,15 +16,8 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-foreground/55" />
       </div>
 
-      {/* Trust bar */}
-      <div className="absolute top-0 left-0 right-0 z-10 bg-primary/90 py-2 px-6">
-        <p className="text-center text-primary-foreground text-xs font-medium tracking-wide uppercase">
-          All ADUs are Foundation-Built · Fully Permitted · Florida Building Code Compliant
-        </p>
-      </div>
-
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-16 w-full">
         <div className="max-w-3xl">
           <span className="inline-block text-primary text-xs font-semibold tracking-widest uppercase mb-6 bg-primary/10 border border-primary/30 px-4 py-1.5 rounded-full text-white border-white/30">
             Central Florida ADU Specialists

@@ -25,17 +25,22 @@ export function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-background/96 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-background/88 backdrop-blur-sm border-b border-border/70"
       }`}
     >
+      <div className="bg-primary/90 border-b border-primary/50 px-4 py-2">
+        <p className="text-center text-primary-foreground text-[11px] font-medium tracking-wide uppercase">
+          All ADUs are Foundation-Built · Fully Permitted · Florida Building Code Compliant
+        </p>
+      </div>
+
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none group">
           <span className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
-            EarthNest
-          </span>
-          <span className="text-[10px] font-sans tracking-widest uppercase text-muted-foreground">
-            Florida ADU
+            prefabricated.co
           </span>
         </Link>
 
