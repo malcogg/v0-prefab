@@ -15,11 +15,14 @@ export function Navigation() {
 
   const navLinks = [
     { label: "What is an ADU?", href: "#what-is-adu" },
+    { label: "ADU Rules by County", href: "/adu-rules" },
+    { label: "ADU Calculator", href: "/adu-calculator" },
     { label: "The Opportunity", href: "#opportunity" },
     { label: "Our Process", href: "#process" },
     { label: "EarthNest Model", href: "#earthnest" },
     { label: "Our Team", href: "#team" },
     { label: "Partners", href: "#partners" },
+    { label: "FAQ", href: "/faq" },
   ]
 
   return (
