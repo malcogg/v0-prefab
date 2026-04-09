@@ -7,12 +7,12 @@ import { breadcrumbSchema } from "@/lib/seo"
 export const metadata: Metadata = {
   title: "ADU Income Calculator — Central Florida | EarthNest Florida",
   description:
-    "Estimate your ADU rental income, equity gain, and payback period in under 60 seconds. Built for Orange County and surrounding Central Florida markets.",
+    "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
   alternates: { canonical: "/adu-calculator" },
   openGraph: {
     title: "ADU Income Calculator — Central Florida | EarthNest Florida",
     description:
-      "Estimate your ADU rental income, equity gain, and payback period in under 60 seconds. Built for Orange County and surrounding Central Florida markets.",
+      "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
     url: "/adu-calculator",
     images: [{ url: "/og/calculator.jpg", width: 1200, height: 630, alt: "ADU Income Calculator" }],
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     site: "@earthnestfl",
     title: "ADU Income Calculator — Central Florida | EarthNest Florida",
     description:
-      "Estimate your ADU rental income, equity gain, and payback period in under 60 seconds. Built for Orange County and surrounding Central Florida markets.",
+      "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
     images: ["/og/calculator.jpg"],
   },
 }
@@ -31,12 +31,28 @@ export default function AduCalculatorPage() {
     { name: "Home", path: "/" },
     { name: "ADU Income Calculator", path: "/adu-calculator" },
   ])
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "EarthNest ADU Investment Calculator",
+    url: "https://www.prefabricated.co/adu-calculator",
+    applicationCategory: "FinanceApplication",
+    description:
+      "ADU investment calculator for Central Florida homeowners and investors. Location-specific rent estimates, financing analysis, and 10-year projection.",
+    provider: {
+      "@id": "https://www.prefabricated.co/#business",
+    },
+  }
 
   return (
     <main className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
       <Navigation />
       <div className="pt-28">
