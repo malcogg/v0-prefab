@@ -62,13 +62,17 @@ export function EarthNestSection() {
               Eco-Conscious Design Built for Florida
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              The EarthNest ADU is our signature product: a 20ft container or hybrid modular unit
-              engineered specifically for Central Florida's climate. This is not an off-grid fantasy
-              — it's a practical, efficient, and beautifully designed permanent ADU.
+              The EarthNest line includes two container-based flex units and a fully custom
+              site-built ADU — each engineered specifically for Central Florida's climate. Our
+              Traditional Site-Built ADU is our primary permitted rental product. Our 20ft and 40ft
+              container units serve as guesthouses, home offices, and flex-use spaces, or as
+              permitted ADUs in qualifying jurisdictions outside Orange County unincorporated. Your
+              free site evaluation determines exactly what's permittable on your property.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
               Every EarthNest unit is mounted on a permanent foundation, fully permitted, and built
-              to Florida Building Code. We emphasize{" "}
+              to Florida Building Code. Units are engineered to Florida Building Code wind load
+              requirements for Central Florida. We emphasize{" "}
               <strong className="text-foreground">efficiency, sustainability, and cost-conscious design</strong>{" "}
               — not exaggerated claims.
             </p>

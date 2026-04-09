@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button"
 interface QuizState {
   step: number
   county?: string
+  homestead?: string
   propertyType?: string
   lotSize?: string
+  primaryHomeSize?: string
   hoa?: string
   floodZone?: string
   goal?: string
@@ -24,6 +26,7 @@ export function ADUQuizFunnel() {
     "idle"
   )
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [showHomesteadMessage, setShowHomesteadMessage] = useState(false)
 
   const handleNext = (key: string, value: string) => {
     if (
@@ -36,6 +39,17 @@ export function ADUQuizFunnel() {
       return
     }
     setState({ ...state, [key]: value, step: state.step + 1 })
+  }
+
+  const handleHomesteadAnswer = (value: string) => {
+    const updatedState = { ...state, homestead: value }
+    setState(updatedState)
+    if (value === "investment-owner") {
+      setShowHomesteadMessage(true)
+      return
+    }
+    setShowHomesteadMessage(false)
+    setState((prev) => ({ ...prev, homestead: value, step: prev.step + 1 }))
   }
 
   const handleBack = () => {
@@ -61,8 +75,10 @@ export function ADUQuizFunnel() {
 
     const payload = {
       county: state.county ?? "",
+      homestead: state.homestead ?? "",
       propertyType: state.propertyType ?? "",
       lotSize: state.lotSize ?? "",
+      primaryHomeSize: state.primaryHomeSize ?? "",
       hoa: state.hoa ?? "",
       floodZone: state.floodZone ?? "",
       goal: state.goal ?? "",
@@ -93,7 +109,8 @@ export function ADUQuizFunnel() {
     }
   }
 
-  const progressPercent = (state.step / 8) * 100
+  const totalSteps = 10
+  const progressPercent = (state.step / totalSteps) * 100
 
   if (showWaitlist) {
     return (
@@ -168,7 +185,7 @@ export function ADUQuizFunnel() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
               <span className="text-sm font-semibold text-muted-foreground">
-                Step {state.step} of 8
+                Step {state.step} of {totalSteps}
               </span>
               {state.step > 1 && (
                 <button
@@ -195,7 +212,7 @@ export function ADUQuizFunnel() {
                 Find out if your property qualifies for an EarthNest ADU.
               </h2>
               <p className="text-muted-foreground mb-6">
-                Answer 8 quick questions. We'll show you your recommended path, estimated cost
+                Answer 10 quick questions. We'll show you your recommended path, estimated cost
                 range, and next steps — in under 2 minutes.
               </p>
               <label className="block text-sm font-semibold text-foreground mb-4">
@@ -222,8 +239,52 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 2: Property Type */}
+          {/* Step 2: Homestead */}
           {state.step === 2 && (
+            <div>
+              <label className="block text-sm font-semibold text-foreground mb-4">
+                Is your property your primary homesteaded residence?
+              </label>
+              <div className="grid gap-3">
+                {[
+                  { label: "Yes, I live here full-time (homesteaded)", value: "homesteaded-owner" },
+                  { label: "No, I own it as an investment / I live elsewhere", value: "investment-owner" },
+                  { label: "Not sure", value: "not-sure" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => handleHomesteadAnswer(option.value)}
+                    className="p-4 text-left border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition text-foreground font-medium"
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+              {showHomesteadMessage && (
+                <div className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4">
+                  <p className="text-sm text-amber-900 leading-relaxed">
+                    Orange County requires the owner to occupy either the primary home or the ADU at
+                    all times as their primary homesteaded residence. If you do not live on this
+                    property, you may not be eligible for an ADU permit in Orange County
+                    (unincorporated). We'll still evaluate your property — other jurisdictions in our
+                    service area may have different requirements. Continue to see your options.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setShowHomesteadMessage(false)
+                      setState((prev) => ({ ...prev, step: prev.step + 1 }))
+                    }}
+                    className="mt-4 bg-primary"
+                  >
+                    Continue to See My Options
+                  </Button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Step 3: Property Type */}
+          {state.step === 3 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-4">
                 What type of property is this?
@@ -248,8 +309,8 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 3: Lot Size */}
-          {state.step === 3 && (
+          {/* Step 4: Lot Size */}
+          {state.step === 4 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-2">
                 Do you know roughly how large your lot is?
@@ -278,8 +339,34 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 4: HOA */}
-          {state.step === 4 && (
+          {/* Step 5: Primary Home Size */}
+          {state.step === 5 && (
+            <div>
+              <label className="block text-sm font-semibold text-foreground mb-4">
+                Approximately how large is your primary home (living area)?
+              </label>
+              <div className="grid gap-3">
+                {[
+                  { label: "Under 800 sq ft", value: "under-800" },
+                  { label: "800–1,200 sq ft", value: "800-1200" },
+                  { label: "1,200–2,000 sq ft", value: "1200-2000" },
+                  { label: "2,000+ sq ft", value: "2000-plus" },
+                  { label: "Not sure", value: "not-sure" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => handleNext("primaryHomeSize", option.value)}
+                    className="p-4 text-left border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition text-foreground font-medium"
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Step 6: HOA */}
+          {state.step === 6 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-2">
                 Is your property part of a Homeowners Association (HOA)?
@@ -306,8 +393,8 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 5: Flood Zone */}
-          {state.step === 5 && (
+          {/* Step 7: Flood Zone */}
+          {state.step === 7 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-2">
                 Do you know if your property is in a FEMA flood zone?
@@ -334,8 +421,8 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 6: Goal */}
-          {state.step === 6 && (
+          {/* Step 8: Goal */}
+          {state.step === 8 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-4">
                 What's your main goal for adding an ADU?
@@ -360,8 +447,8 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 7: Model Interest */}
-          {state.step === 7 && (
+          {/* Step 9: Model Interest */}
+          {state.step === 9 && (
             <div>
               <label className="block text-sm font-semibold text-foreground mb-4">
                 Which EarthNest model fits your budget and goals?
@@ -370,12 +457,12 @@ export function ADUQuizFunnel() {
                 {[
                   {
                     title: "Model 1: 20ft Studio",
-                    specs: "Installed: $80K–$120K+ | Rent: $900–$1,400/mo",
+                    specs: "Installed: $80K–$120K+ | Flex-use unit (non-rental in Orange County)",
                     value: "model-1",
                   },
                   {
                     title: "Model 2: 40ft One-Bedroom",
-                    specs: "Installed: $120K–$175K+ | Rent: $1,200–$1,800/mo",
+                    specs: "Installed: $120K–$175K+ | Expanded studio (jurisdiction dependent)",
                     value: "model-2",
                   },
                   {
@@ -398,8 +485,8 @@ export function ADUQuizFunnel() {
             </div>
           )}
 
-          {/* Step 8: Contact Info */}
-          {state.step === 8 && (
+          {/* Step 10: Contact Info */}
+          {state.step === 10 && (
             <div>
               <h3 className="font-serif text-2xl text-foreground mb-2">
                 One last thing — let's get your contact info.

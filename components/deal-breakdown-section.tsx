@@ -3,33 +3,15 @@
 import { useState } from "react"
 import { TrendingUp, Home, DollarSign } from "lucide-react"
 
-type Scenario = "model1" | "model2"
+type Scenario = "model2" | "model3"
 
 export function DealBreakdownSection() {
-  const [activeScenario, setActiveScenario] = useState<Scenario>("model2")
+  const [activeScenario, setActiveScenario] = useState<Scenario>("model3")
 
   const scenarios = {
-    model1: {
-      title: "Model 1 — 20ft Studio",
-      badge: "Entry-Level Investment",
-      lines: [
-        { label: "Property Purchase", value: "$260,000" },
-        { label: "Container Unit (20ft)", value: "$25,000" },
-        { label: "Installation + Permits + Utilities + Finishing", value: "$55,000 – $95,000" },
-      ],
-      totals: [
-        { label: "Total Project Cost", value: "$340,000 – $380,000", highlight: false },
-        { label: "Estimated After Value", value: "$430,000 – $460,000", highlight: false },
-        { label: "Estimated Equity Gain", value: "$80,000 – $120,000+", highlight: true },
-      ],
-      rent: {
-        adu: "$900 – $1,400/mo",
-        combined: "$2,100 – $3,200/mo",
-      },
-    },
     model2: {
       title: "Model 2 — 40ft 1-Bedroom",
-      badge: "Most Popular",
+      badge: "Qualifying Jurisdictions Only",
       lines: [
         { label: "Property Purchase", value: "$260,000" },
         { label: "Container Unit (40ft)", value: "$45,000" },
@@ -43,6 +25,23 @@ export function DealBreakdownSection() {
       rent: {
         adu: "$1,200 – $1,800/mo",
         combined: "$2,400 – $4,000/mo",
+      },
+    },
+    model3: {
+      title: "Model — Traditional Site-Built ADU (1BR)",
+      badge: "Most Popular Permitted Option",
+      lines: [
+        { label: "Property Purchase", value: "$260,000" },
+        { label: "ADU Construction (installed, permitted)", value: "$130,000 – $200,000" },
+      ],
+      totals: [
+        { label: "Total Project Cost", value: "$390,000 – $460,000", highlight: false },
+        { label: "Estimated After Value", value: "$460,000 – $530,000", highlight: false },
+        { label: "Estimated Equity Gain", value: "$70,000 – $130,000+", highlight: true },
+      ],
+      rent: {
+        adu: "$1,400 – $2,500/mo",
+        combined: "$2,600 – $4,500/mo",
       },
     },
   }
@@ -68,7 +67,7 @@ export function DealBreakdownSection() {
         {/* Toggle */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex bg-white/5 rounded-lg p-1">
-            {(["model1", "model2"] as Scenario[]).map((key) => (
+            {(["model3", "model2"] as Scenario[]).map((key) => (
               <button
                 key={key}
                 onClick={() => setActiveScenario(key)}
@@ -78,7 +77,7 @@ export function DealBreakdownSection() {
                     : "text-white/60 hover:text-white"
                 }`}
               >
-                {key === "model1" ? "20ft Studio" : "40ft 1-Bedroom"}
+                {key === "model3" ? "Traditional Site-Built ADU" : "40ft 1-Bedroom"}
               </button>
             ))}
           </div>
@@ -155,6 +154,16 @@ export function DealBreakdownSection() {
                 Rent both units — the main house plus the ADU — for maximum monthly cash flow.
               </p>
             </div>
+
+            {activeScenario === "model2" && (
+              <div className="bg-amber-400/10 border border-amber-300/30 rounded-lg p-4">
+                <p className="text-amber-100 text-sm leading-relaxed">
+                  The 40ft unit does not qualify as a permitted ADU in Orange County
+                  (unincorporated). This breakdown reflects potential use in qualifying
+                  jurisdictions only. Confirm eligibility during your free site evaluation.
+                </p>
+              </div>
+            )}
 
             <div className="bg-white/5 backdrop-blur rounded-lg p-6 border border-white/10">
               <div className="flex items-center gap-3">

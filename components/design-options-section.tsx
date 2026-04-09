@@ -7,44 +7,49 @@ export function DesignOptionsSection() {
   const models = [
     {
       title: "EarthNest 20ft Studio",
-      badge: "Most Affordable Entry",
+      badge: "Flexible Use Unit — Guesthouse or Home Office",
       image: "/images/container-adu.jpg",
       alt: "20ft container studio ADU on permanent foundation",
       size: "~160 sq ft",
-      layout: "Studio",
+      layout: "Studio / Flex Space",
       unitCost: "$25,000",
       installed: "$80K – $120K+",
-      rent: "$900 – $1,400/mo",
+      rent: null,
       timeline: "Fastest",
-      bestFor: "Budget-conscious homeowners, guest suite, first ADU investment",
+      bestFor:
+        "Private guesthouse for family, home office, detached studio, or hobby space — not intended as a rentable ADU in Orange County (unincorporated).",
+      disclaimer:
+        "At ~160 sq ft, this unit does not meet Orange County's 400 sq ft minimum for a permitted ADU. It is best suited for non-rental uses such as a guesthouse, office, or studio. Eligible uses vary by jurisdiction — we'll confirm during your free site evaluation.",
       features: [
         "20ft container hybrid / modular",
         "Concrete slab foundation",
-        "180 MPH wind-load engineered",
+        "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Closed-cell spray foam insulation",
         "Full kitchen & bath included",
       ],
     },
     {
       title: "EarthNest 40ft 1-Bedroom",
-      badge: "Most Popular for Investors",
+      badge: "EarthNest 40ft Expanded Studio",
       image: "/images/earthnest-model.jpg",
       alt: "40ft container one-bedroom ADU in Florida",
       size: "~320 sq ft",
-      layout: "1-Bedroom",
+      layout: "Studio + Sleeping Area",
       unitCost: "$45,000",
       installed: "$120K – $175K+",
-      rent: "$1,200 – $1,800/mo",
+      rent: null,
       timeline: "Fast",
-      bestFor: "Investors maximizing rental income, full living unit",
+      bestFor:
+        "Guesthouse, extended family suite, home office with sleeping quarters — may qualify as a permitted ADU in select jurisdictions outside Orange County unincorporated (verified during free site evaluation).",
+      disclaimer:
+        "At ~320 sq ft, this unit falls below Orange County's 400 sq ft ADU minimum. Eligible as a permitted ADU in some surrounding jurisdictions. Your free site evaluation will confirm what's possible on your specific property.",
       features: [
         "40ft container hybrid / modular",
         "Concrete slab foundation",
-        "180 MPH wind-load engineered",
+        "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Closed-cell spray foam insulation",
         "Separate bedroom + living area",
       ],
-      highlight: true,
     },
     {
       title: "Traditional Site-Built ADU",
@@ -57,14 +62,16 @@ export function DesignOptionsSection() {
       installed: "$130K – $200K+",
       rent: "$1,400 – $2,500/mo",
       timeline: "Longest",
-      bestFor: "Seamless aesthetic match, larger units, maximum appraisal value",
+      bestFor:
+        "Permitted rentable ADU in Orange County and surrounding jurisdictions, seamless aesthetic match, larger units, maximum appraisal value.",
       features: [
         "Traditional stick-built or CMU block",
         "Concrete slab foundation",
-        "180 MPH wind-load engineered",
+        "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Matches primary home style",
         "Fully custom design & layout",
       ],
+      highlight: true,
     },
   ]
 
@@ -133,10 +140,19 @@ export function DesignOptionsSection() {
                     <span className="text-muted-foreground text-xs uppercase tracking-wide">Installed</span>
                     <p className="font-semibold text-primary">{model.installed}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground text-xs uppercase tracking-wide">Rent</span>
-                    <p className="font-semibold text-foreground">{model.rent}</p>
-                  </div>
+                  {model.rent ? (
+                    <div>
+                      <span className="text-muted-foreground text-xs uppercase tracking-wide">Rent</span>
+                      <p className="font-semibold text-foreground">{model.rent}</p>
+                    </div>
+                  ) : (
+                    <div>
+                      <span className="text-muted-foreground text-xs uppercase tracking-wide">
+                        Rent
+                      </span>
+                      <p className="font-semibold text-foreground">Not listed for this model</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Features */}
@@ -154,6 +170,13 @@ export function DesignOptionsSection() {
                   <span className="text-muted-foreground text-xs uppercase tracking-wide">Best For</span>
                   <p className="text-sm text-foreground mt-1">{model.bestFor}</p>
                 </div>
+                {model.disclaimer && (
+                  <div className="mt-4 rounded-md border border-amber-300/70 bg-amber-50 p-3">
+                    <p className="text-xs text-amber-900 leading-relaxed">
+                      <strong>WARNING:</strong> {model.disclaimer}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           ))}

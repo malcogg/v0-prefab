@@ -78,6 +78,82 @@ export function OrangeCountyRulesSection() {
           </p>
         </div>
 
+        <div className="bg-secondary rounded-lg p-8 border border-border mb-12">
+          <h3 className="font-serif text-2xl text-foreground mb-4">
+            Orange County Eligibility Requirements — Know Before You Build
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-6">
+            Before any building permit can be issued, Orange County requires ADU projects to meet
+            the following baseline eligibility standards. EarthNest Florida verifies all of these
+            during your free site evaluation.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">Owner-Occupancy / Homestead Requirement</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The primary single-family dwelling and the ADU must remain under single ownership at
+                all times. The owner must occupy either the primary home or the ADU as their
+                principal residence. The property must be homesteaded. A Certificate of Occupancy
+                will not be issued until homestead status is confirmed.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">Special Exception Approval</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                In most Orange County residential and agricultural zoning districts, an ADU requires
+                approval as a Special Exception — a separate zoning review process — before a
+                building permit can be applied for. EarthNest Florida coordinates this step as part
+                of your project process.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">ADU Size Limits</h4>
+              <ul className="text-sm text-muted-foreground leading-relaxed flex flex-col gap-1">
+                <li>Minimum: 400 sq ft of living area</li>
+                <li>Maximum: 45% of the primary home's living area OR 1,000 sq ft — whichever is less</li>
+                <li>Exception: Lots 2 acres or larger have a maximum of 1,500 sq ft</li>
+                <li>Maximum: 2 bedrooms</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">Lot Size Requirement</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                A detached ADU may only be built on a lot that is at least 1.5x the minimum lot area
+                required for a single-family dwelling in that zoning district.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">Setbacks — Detached ADU</h4>
+              <ul className="text-sm text-muted-foreground leading-relaxed flex flex-col gap-1">
+                <li>1-story: Minimum 5 ft from rear property line</li>
+                <li>2-story: Minimum 15 ft from rear property line</li>
+                <li>Minimum 10 ft separation between the ADU and primary dwelling</li>
+                <li>Side setbacks: Must meet principal structure minimums for the zoning district</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">Short-Term Rental Restriction</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Orange County prohibits short-term rentals (under 30 days) in most residential zones.
+                ADUs may only be rented under standard long-term residential leases. Short-term rental
+                platforms (Airbnb, VRBO, etc.) are not a permitted income strategy for ADUs in Orange
+                County (unincorporated).
+              </p>
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            <strong className="text-foreground">Note:</strong> Requirements vary by municipality.
+            The City of Orlando, Osceola County, Seminole County, and Lake County each operate under
+            their own ADU rules. EarthNest Florida reviews the specific requirements for your parcel
+            as part of the free evaluation.
+          </p>
+          <p className="text-xs text-muted-foreground mt-4">
+            Source: Orange County Zoning Code Section 38-1426 and orangecountyfl.net/PermitsLicenses/Permits/ResidentialAccessoryDwellingUnit.aspx
+          </p>
+        </div>
+
         {/* ADU Types Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {aduTypes.map((type) => (
@@ -132,12 +208,15 @@ export function OrangeCountyRulesSection() {
             <div className="bg-background rounded-lg p-6 border border-border">
               <h4 className="font-semibold text-foreground mb-4">Questions? Contact Orange County</h4>
               <div className="flex flex-col gap-4">
+                <p className="text-sm text-muted-foreground">
+                  <strong>Zoning & Site Plan Questions:</strong>
+                </p>
                 <a
-                  href="tel:407-836-5550"
+                  href="tel:407-836-3111"
                   className="flex items-center gap-3 text-primary hover:underline font-medium"
                 >
                   <Phone className="w-5 h-5" />
-                  (407) 836-5550
+                  (407) 836-3111
                 </a>
                 <a
                   href="mailto:Zoning@ocfl.net"
@@ -147,7 +226,17 @@ export function OrangeCountyRulesSection() {
                   Zoning@ocfl.net
                 </a>
                 <p className="text-sm text-muted-foreground">
-                  <strong>Building Safety Division:</strong> Inspections and permit status
+                  <strong>Building Inspections & Permit Status:</strong>
+                </p>
+                <a
+                  href="tel:407-836-5550"
+                  className="flex items-center gap-3 text-primary hover:underline font-medium"
+                >
+                  <Phone className="w-5 h-5" />
+                  (407) 836-5550
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  Building Safety Division
                 </p>
               </div>
             </div>
@@ -163,9 +252,10 @@ export function OrangeCountyRulesSection() {
               ADU permitting requirements are sourced from Orange County's official permit information
               page and are subject to change. Requirements vary by project type, zoning, site
               conditions, and local amendments. Always verify current requirements directly with Orange
-              County at orangecountyfl.net or by calling (407) 836-5550 before beginning any project.
-              EarthNest Florida handles all zoning verification and permitting coordination as part of
-              your free property evaluation.
+              County at orangecountyfl.net or by calling Orange County Zoning at (407) 836-3111 or
+              Building Inspections at (407) 836-5550 before beginning any project. EarthNest Florida
+              handles all zoning verification and permitting coordination as part of your free property
+              evaluation.
             </p>
           </div>
         </div>

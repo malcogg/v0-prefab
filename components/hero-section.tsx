@@ -50,11 +50,11 @@ export function HeroSection() {
         {/* Stats bar */}
         <div className="mt-16 flex flex-col sm:flex-row gap-6 sm:gap-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg divide-y sm:divide-y-0 sm:divide-x divide-white/20">
           <div className="flex-1 px-6 py-5 text-center sm:text-left">
-            <p className="text-2xl font-serif font-bold text-white">$1,200–$2,500</p>
+            <p className="text-2xl font-serif font-bold text-white">$1,400–$2,500</p>
             <p className="text-sm text-white/70 mt-1">Est. Monthly Rental Income</p>
           </div>
           <div className="flex-1 px-6 py-5 text-center sm:text-left">
-            <p className="text-2xl font-serif font-bold text-white">$80K–$150K+</p>
+            <p className="text-2xl font-serif font-bold text-white">$130K–$200K+</p>
             <p className="text-sm text-white/70 mt-1">Typical ADU Build Cost</p>
           </div>
           <div className="flex-1 px-6 py-5 text-center sm:text-left">

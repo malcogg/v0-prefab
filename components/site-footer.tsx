@@ -112,9 +112,14 @@ export function SiteFooter() {
             Legal
           </h3>
           <p className="text-xs text-white/40 leading-relaxed">
-            All ADU projects require individual site evaluation, zoning verification, and county
-            permitting. Costs vary by property. Rental income estimates are typical ranges and are
-            not guaranteed. EarthNest Florida is a registered business in the State of Florida.
+            All ADU projects require individual site evaluation, special exception zoning approval
+            (where applicable), and county permitting. Orange County (unincorporated) requires
+            owner-occupancy/homestead status and a minimum ADU living area of 400 sq ft. Maximum
+            ADU size is 45% of primary dwelling living area or 1,000 sq ft, whichever is less.
+            Short-term rentals (under 30 days) are prohibited for ADUs in most Orange County
+            residential zones. Costs vary by property. Rental income estimates are typical ranges
+            and are not guaranteed. EarthNest Florida does not provide legal, financial, or tax
+            advice. EarthNest Florida is a registered business in the State of Florida.
           </p>
         </div>
       </div>

@@ -11,28 +11,34 @@ const steps = [
     number: "02",
     title: "Zoning & Feasibility",
     description:
-      "We review county zoning codes, setback requirements, HOA restrictions (if any), and confirm whether an ADU can be legally built on your lot.",
+      "We review your property's zoning classification, confirm homestead eligibility, verify the special exception approval requirement, check setbacks and lot size minimums, confirm ADU size limits based on your primary home's square footage, and verify HOA restrictions if applicable — before any design work begins.",
   },
   {
     number: "03",
+    title: "Special Exception Filing",
+    description:
+      "For most Orange County residential properties, we prepare and submit the Special Exception application to Orange County's Planning Division on your behalf. This is the required zoning approval step before a building permit can be applied for. We manage the timeline and follow-up so you don't have to.",
+  },
+  {
+    number: "04",
     title: "Design",
     description:
       "You choose your layout and style. We work with our design team to produce engineered plans tailored to your property and preferences.",
   },
   {
-    number: "04",
+    number: "05",
     title: "Permitting",
     description:
       "We submit all required documents to Orange County and manage the full permit process. No surprises. No shortcuts.",
   },
   {
-    number: "05",
+    number: "06",
     title: "Build",
     description:
       "Our vetted construction team builds your ADU to Florida Building Code standards with quality materials and clear timelines.",
   },
   {
-    number: "06",
+    number: "07",
     title: "Rent or Sell",
     description:
       "Once your ADU passes final inspection, you're ready to rent it out — or use it to increase your property's market value.",
@@ -50,7 +56,7 @@ export function ProcessSection() {
               Our Process
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-6">
-              From Concept to Keys — 6 Steps
+              From Concept to Keys — 7 Steps
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Every project follows the same structured approach. You always know where you are in
