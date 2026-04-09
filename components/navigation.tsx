@@ -99,10 +99,16 @@ export function Navigation() {
         </ul>
 
         {/* CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-2">
+          <Link
+            href="/build"
+            className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Build Yours
+          </Link>
           <Link
             href="/#qualify"
-            className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-accent-foreground hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex items-center px-5 py-2.5 border border-border text-foreground text-sm font-semibold rounded transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Get Free Evaluation
           </Link>
@@ -150,9 +156,16 @@ export function Navigation() {
             </div>
           </div>
           <Link
-            href="/#qualify"
+            href="/build"
             onClick={() => setMenuOpen(false)}
             className="mt-2 inline-flex items-center justify-center px-5 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded transition-colors hover:bg-[oklch(0.58_0.13_192)]"
+          >
+            Build Yours
+          </Link>
+          <Link
+            href="/#qualify"
+            onClick={() => setMenuOpen(false)}
+            className="inline-flex items-center justify-center px-5 py-3 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
           >
             Get Free Evaluation
           </Link>

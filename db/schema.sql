@@ -41,3 +41,24 @@ create table if not exists progression_submissions (
 create index if not exists progression_created_at_idx on progression_submissions (created_at desc);
 create index if not exists progression_email_idx on progression_submissions (email);
 
+create table if not exists build_inquiries (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now(),
+
+  name text not null,
+  phone text not null,
+  email text not null,
+  hear_about text null,
+  message text null,
+
+  lot_json jsonb null,
+  model_id text null,
+  customizations_json jsonb not null,
+
+  user_agent text null,
+  ip text null
+);
+
+create index if not exists build_inquiries_created_at_idx on build_inquiries (created_at desc);
+create index if not exists build_inquiries_email_idx on build_inquiries (email);
+

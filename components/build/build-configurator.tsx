@@ -1,0 +1,213 @@
+"use client"
+
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { StepProgress } from "@/components/build/step-progress"
+import { SummaryBar } from "@/components/build/summary-bar"
+import { Step1Land } from "@/components/build/step1-land"
+import { Step2Model } from "@/components/build/step2-model"
+import { Step3Customize } from "@/components/build/step3-customize"
+import { Step4Inquiry } from "@/components/build/step4-inquiry"
+import { ThankYou } from "@/components/build/thank-you"
+import { getStaticLandListings, type LandListing } from "@/lib/build/land-adapter"
+import {
+  BUILD_SESSION_KEY,
+  canContinueStep,
+  calculateOptionsTotal,
+  DEFAULT_BUILD_SESSION,
+  getSelectedModel,
+  type BuildSession,
+  type BuildStep,
+} from "@/lib/build/session"
+
+function parseStep(raw: string | null): BuildStep {
+  const n = Number(raw)
+  if (n >= 1 && n <= 5) return n as BuildStep
+  return 1
+}
+
+export function BuildConfigurator() {
+  const listings = useMemo(() => getStaticLandListings(), [])
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const [session, setSession] = useState<BuildSession>(DEFAULT_BUILD_SESSION)
+  const [submittedEmail, setSubmittedEmail] = useState("")
+  const [animatedOptionsTotal, setAnimatedOptionsTotal] = useState(0)
+  const rafRef = useRef<number | null>(null)
+
+  const stepFromUrl = parseStep(searchParams.get("step"))
+  const selectedModel = getSelectedModel(session.selectedModelId)
+  const basePrice = selectedModel?.startingAt ?? 0
+  const optionsTotal = calculateOptionsTotal(session)
+
+  useEffect(() => {
+    const fromStorage = sessionStorage.getItem(BUILD_SESSION_KEY)
+    if (!fromStorage) return
+    try {
+      const parsed = JSON.parse(fromStorage) as BuildSession
+      setSession({ ...parsed, step: stepFromUrl })
+    } catch {
+      setSession((prev) => ({ ...prev, step: stepFromUrl }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    setSession((prev) => ({ ...prev, step: stepFromUrl }))
+  }, [stepFromUrl])
+
+  useEffect(() => {
+    sessionStorage.setItem(BUILD_SESSION_KEY, JSON.stringify(session))
+  }, [session])
+
+  useEffect(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    const start = animatedOptionsTotal
+    const end = optionsTotal
+    const duration = 220
+    const startedAt = performance.now()
+    const tick = (t: number) => {
+      const p = Math.min((t - startedAt) / duration, 1)
+      const next = Math.round(start + (end - start) * p)
+      setAnimatedOptionsTotal(next)
+      if (p < 1) rafRef.current = requestAnimationFrame(tick)
+    }
+    rafRef.current = requestAnimationFrame(tick)
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [optionsTotal])
+
+  const updateStepInUrl = useCallback(
+    (next: BuildStep) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set("step", String(next))
+      router.replace(`${pathname}?${params.toString()}`)
+    },
+    [pathname, router, searchParams]
+  )
+
+  const setStep = useCallback(
+    (next: BuildStep) => {
+      setSession((prev) => ({ ...prev, step: next }))
+      updateStepInUrl(next)
+    },
+    [updateStepInUrl]
+  )
+
+  const canVisitStep = useCallback(
+    (target: BuildStep) => {
+      if (target <= session.step) return true
+      if (target === 2) return Boolean(session.selectedLot)
+      if (target === 3) return Boolean(session.selectedModelId)
+      if (target === 4) return canContinueStep(session, 3)
+      if (target === 5) return false
+      return false
+    },
+    [session]
+  )
+
+  const handleSelectLot = useCallback(
+    (listing: LandListing) => {
+      setSession((prev) => ({ ...prev, selectedLot: listing, step: 2 }))
+      updateStepInUrl(2)
+    },
+    [updateStepInUrl]
+  )
+
+  const handleSelectModel = useCallback(
+    (modelId: BuildSession["selectedModelId"]) => {
+      if (!modelId) return
+      setSession((prev) => ({ ...prev, selectedModelId: modelId, step: 3 }))
+      updateStepInUrl(3)
+    },
+    [updateStepInUrl]
+  )
+
+  const handleSelectSingle = useCallback((path: string, optionId: string) => {
+    setSession((prev) => {
+      const next = structuredClone(prev)
+      const [group, field] = path.split(".")
+      if (group === "exterior") (next.customizations.exterior as Record<string, string | null>)[field] = optionId
+      if (group === "interior") (next.customizations.interior as Record<string, string | null>)[field] = optionId
+      if (group === "systems") (next.customizations.systems as Record<string, string | string[]>)[field] = optionId
+      return next
+    })
+  }, [])
+
+  const handleToggleAddon = useCallback((optionId: string) => {
+    setSession((prev) => {
+      const addOns = prev.customizations.systems.addOns
+      const has = addOns.includes(optionId)
+      return {
+        ...prev,
+        customizations: {
+          ...prev.customizations,
+          systems: {
+            ...prev.customizations.systems,
+            addOns: has ? addOns.filter((item) => item !== optionId) : [...addOns, optionId],
+          },
+        },
+      }
+    })
+  }, [])
+
+  const nextDisabled = useMemo(() => !canContinueStep(session, session.step), [session])
+  const nextLabel = session.step === 3 ? "Review & Inquire" : session.step === 4 ? "Submit" : "Next Step"
+
+  const content = (
+    <div className="transition-opacity duration-300">
+      {session.step === 1 ? (
+        <Step1Land listings={listings} selectedLotId={session.selectedLot?.id ?? null} onSelectLot={handleSelectLot} />
+      ) : null}
+      {session.step === 2 ? (
+        <Step2Model selectedModelId={session.selectedModelId} onSelectModel={handleSelectModel} />
+      ) : null}
+      {session.step === 3 ? (
+        <Step3Customize
+          session={session}
+          basePrice={basePrice}
+          optionsTotal={animatedOptionsTotal}
+          onSelectSingle={handleSelectSingle}
+          onToggleAddon={handleToggleAddon}
+        />
+      ) : null}
+      {session.step === 4 ? (
+        <Step4Inquiry
+          session={session}
+          onSubmitted={(email) => {
+            setSubmittedEmail(email)
+            setStep(5)
+          }}
+        />
+      ) : null}
+      {session.step === 5 ? (
+        <ThankYou lotAddress={session.selectedLot?.address} modelName={selectedModel?.name} email={submittedEmail} />
+      ) : null}
+    </div>
+  )
+
+  return (
+    <div className="bg-[rgb(250,250,248)] min-h-screen pb-20">
+      <StepProgress step={session.step <= 4 ? session.step : 4} onStepClick={setStep} canVisitStep={canVisitStep} />
+      {content}
+      {session.step <= 4 ? (
+        <SummaryBar
+          session={session}
+          step={session.step}
+          canGoNext={!nextDisabled}
+          nextLabel={nextLabel}
+          onBack={() => setStep(Math.max(1, session.step - 1) as BuildStep)}
+          onNext={() => {
+            if (session.step === 4) return
+            if (nextDisabled) return
+            setStep((session.step + 1) as BuildStep)
+          }}
+        />
+      ) : null}
+    </div>
+  )
+}
