@@ -12,7 +12,17 @@ export function SiteFooter() {
     { label: "Builder Partners", href: "/#partners" },
     { label: "ADU Rules by County", href: "/adu-rules" },
     { label: "ADU Calculator", href: "/adu-calculator" },
+    { label: "FAQ", href: "/faq" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
     { label: "Get Evaluation", href: "/#qualify" },
+  ]
+  const localPages = [
+    { label: "ADU Specialists in Orange County", href: "/adu-orange-county" },
+    { label: "ADU Specialists in Orlando", href: "/adu-orlando" },
+    { label: "ADU Specialists in Windermere", href: "/adu-windermere" },
+    { label: "ADU Specialists in Winter Garden", href: "/adu-winter-garden" },
+    { label: "ADU Specialists in Dr. Phillips", href: "/adu-dr-phillips" },
   ]
 
   return (
@@ -78,6 +88,21 @@ export function SiteFooter() {
           </h3>
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h3 className="text-xs font-semibold text-white/40 tracking-widest uppercase mt-8 mb-4">
+            Local Pages
+          </h3>
+          <ul className="flex flex-col gap-2">
+            {localPages.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
