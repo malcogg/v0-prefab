@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { MapPin, Phone, Mail } from "lucide-react"
+import { LOCAL_SEO_PAGES_BY_COUNTY, LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 export function SiteFooter() {
   const navLinks = [
@@ -17,13 +18,15 @@ export function SiteFooter() {
     { label: "Contact", href: "/contact" },
     { label: "Get Evaluation", href: "/#qualify" },
   ]
-  const localPages = [
-    { label: "ADU Specialists in Orange County", href: "/adu-orange-county" },
-    { label: "ADU Specialists in Orlando", href: "/adu-orlando" },
-    { label: "ADU Specialists in Windermere", href: "/adu-windermere" },
-    { label: "ADU Specialists in Winter Garden", href: "/adu-winter-garden" },
-    { label: "ADU Specialists in Dr. Phillips", href: "/adu-dr-phillips" },
-  ]
+  const countyHubs = LOCAL_SEO_PAGES.filter((page) => page.isHub).sort((a, b) =>
+    a.locationName.localeCompare(b.locationName)
+  )
+  const localPagesByCounty = Object.entries(LOCAL_SEO_PAGES_BY_COUNTY).map(([countyName, pages]) => [
+    countyName,
+    pages
+      .filter((page) => !page.isHub)
+      .sort((a, b) => a.locationName.localeCompare(b.locationName)),
+  ] as const)
 
   return (
     <footer className="bg-foreground text-background">
@@ -99,20 +102,45 @@ export function SiteFooter() {
             ))}
           </ul>
           <h3 className="text-xs font-semibold text-white/40 tracking-widest uppercase mt-8 mb-4">
-            Local Pages
+            County Hubs
           </h3>
           <ul className="flex flex-col gap-2">
-            {localPages.map((link) => (
-              <li key={link.href}>
+            {countyHubs.map((page) => (
+              <li key={page.slug}>
                 <Link
-                  href={link.href}
+                  href={`/${page.slug}`}
                   className="text-sm text-white/60 hover:text-white transition-colors"
                 >
-                  {link.label}
+                  ADU Specialists in {page.locationName}
                 </Link>
               </li>
             ))}
           </ul>
+          <h3 className="text-xs font-semibold text-white/40 tracking-widest uppercase mt-8 mb-4">
+            Local Pages
+          </h3>
+          <div className="space-y-3">
+            {localPagesByCounty.map(([countyName, pages]) => (
+              <details key={countyName} className="group">
+                <summary className="list-none cursor-pointer text-sm font-medium text-white/80 flex items-center justify-between">
+                  <span>{countyName}</span>
+                  <span className="text-white/50 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <ul className="mt-2 grid gap-1">
+                  {pages.map((page) => (
+                    <li key={page.slug}>
+                      <Link
+                        href={`/${page.slug}`}
+                        className="text-xs text-white/60 hover:text-white transition-colors"
+                      >
+                        ADU Specialists in {page.locationName}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
         </div>
 
         {/* Service Area + Legal */}

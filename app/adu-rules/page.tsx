@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
 import { AlertTriangle, CheckCircle2, XCircle } from "lucide-react"
 import { useEffect, useState } from "react"
+import { LOCAL_SEO_PAGES_BY_COUNTY, LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 type RuleIcon = "check" | "x" | "warning"
 
@@ -340,6 +341,15 @@ export default function AduRulesPage() {
   }, [])
 
   const county = COUNTY_DATA.find((item) => item.key === activeCounty) ?? COUNTY_DATA[0]
+  const countyHubs = LOCAL_SEO_PAGES.filter((page) => page.isHub).sort((a, b) =>
+    a.locationName.localeCompare(b.locationName)
+  )
+  const countyLocalPages = Object.entries(LOCAL_SEO_PAGES_BY_COUNTY).map(([countyName, pages]) => [
+    countyName,
+    pages
+      .filter((page) => !page.isHub)
+      .sort((a, b) => a.locationName.localeCompare(b.locationName)),
+  ] as const)
 
   return (
     <main className="min-h-screen">
@@ -458,33 +468,36 @@ export default function AduRulesPage() {
               </div>
               <div className="bg-background border border-border rounded-lg p-5">
                 <h3 className="font-semibold text-foreground mb-3">Local Pages</h3>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link href="/adu-orange-county" className="text-primary hover:underline">
-                      ADU Specialists in Orange County
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/adu-orlando" className="text-primary hover:underline">
-                      ADU Specialists in Orlando
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/adu-windermere" className="text-primary hover:underline">
-                      ADU Specialists in Windermere
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/adu-winter-garden" className="text-primary hover:underline">
-                      ADU Specialists in Winter Garden
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/adu-dr-phillips" className="text-primary hover:underline">
-                      ADU Specialists in Dr. Phillips
-                    </Link>
-                  </li>
+                <ul className="grid sm:grid-cols-2 gap-2 text-sm mb-4">
+                  {countyHubs.map((page) => (
+                    <li key={page.slug}>
+                      <Link href={`/${page.slug}`} className="text-primary hover:underline">
+                        ADU Specialists in {page.locationName}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
+                <div className="space-y-4">
+                  {countyLocalPages.map(([countyName, pages]) => (
+                    <details key={countyName} className="group">
+                      <summary className="list-none cursor-pointer text-sm font-medium text-foreground flex items-center justify-between">
+                        <span>{countyName}</span>
+                        <span className="text-muted-foreground group-open:rotate-45 transition-transform">
+                          +
+                        </span>
+                      </summary>
+                      <ul className="mt-2 grid sm:grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                        {pages.map((page) => (
+                          <li key={page.slug}>
+                            <Link href={`/${page.slug}`} className="text-primary hover:underline">
+                              ADU Specialists in {page.locationName}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
 

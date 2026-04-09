@@ -2,20 +2,12 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { LeadFormSection } from "@/components/lead-form-section"
+import { ADUCalculatorSection } from "@/components/adu-calculator-section"
+import type { LocalSeoPage } from "@/lib/local-pages-data"
 
-type LocalLandingPageProps = {
-  locationName: string
-  marketContext: string[]
-  governingJurisdiction: string
-  quickRules: string[]
-}
+type LocalLandingPageProps = { page: LocalSeoPage }
 
-export function LocalLandingPage({
-  locationName,
-  marketContext,
-  governingJurisdiction,
-  quickRules,
-}: LocalLandingPageProps) {
+export function LocalLandingPage({ page }: LocalLandingPageProps) {
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -23,26 +15,41 @@ export function LocalLandingPage({
       <section className="pt-36 pb-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">
-            ADU Specialists in {locationName}
+            ADU Specialists in {page.locationName}
           </h1>
           <p className="text-muted-foreground text-lg max-w-3xl leading-relaxed mb-8">
-            Permitted, foundation-built ADUs for {locationName} homeowners and investors. We handle
+            Permitted, foundation-built ADUs for {page.locationName} homeowners and investors. We handle
             zoning, design, permitting, and build.
           </p>
           <Link
             href="/#qualify"
             className="inline-flex items-center px-7 py-3.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
           >
-            Get a Free {locationName} Property Evaluation
+            Get a Free {page.locationName} Property Evaluation
           </Link>
         </div>
       </section>
 
       <section className="py-16 bg-secondary">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="rounded-lg border border-primary/30 bg-primary/10 p-5 mb-8">
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
+              Jurisdiction Callout
+            </p>
+            <p className="text-sm text-foreground leading-relaxed">
+              Properties in {page.locationName} are governed by {page.jurisdiction}
+            </p>
+          </div>
+          {page.isFlagged && page.warning && (
+            <div className="rounded-lg border border-amber-300 bg-amber-50 p-5 mb-8">
+              <p className="text-sm text-amber-900 leading-relaxed">
+                <strong>WARNING:</strong> {page.warning}
+              </p>
+            </div>
+          )}
           <h2 className="font-serif text-3xl text-foreground mb-6">Local Market Context</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {marketContext.map((paragraph) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {page.introParagraphs.map((paragraph) => (
               <p key={paragraph} className="text-muted-foreground leading-relaxed">
                 {paragraph}
               </p>
@@ -55,18 +62,33 @@ export function LocalLandingPage({
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-3xl text-foreground mb-4">Quick Rules Summary</h2>
           <p className="text-muted-foreground mb-6">
-            Properties in {locationName} are governed by <strong className="text-foreground">{governingJurisdiction}</strong>.
+            Properties in {page.locationName} are governed by{" "}
+            <strong className="text-foreground">{page.county}</strong>. See full details on{" "}
+            <Link href="/adu-rules" className="text-primary hover:underline">
+              ADU Rules by County
+            </Link>
+            .
           </p>
           <ul className="grid md:grid-cols-2 gap-3 mb-8">
-            {quickRules.map((rule) => (
+            {page.quickRules.map((rule) => (
               <li key={rule} className="rounded border border-border bg-secondary px-4 py-3 text-sm text-foreground">
                 {rule}
               </li>
             ))}
           </ul>
-          <Link href="/adu-rules" className="text-primary font-medium hover:underline">
-            View full county directory
-          </Link>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <Link href="/adu-rules" className="text-primary font-medium hover:underline">
+              View full county directory
+            </Link>
+            {page.hubSlug !== page.slug && (
+              <Link href={`/${page.hubSlug}`} className="text-primary font-medium hover:underline">
+                View {page.county} hub page
+              </Link>
+            )}
+            <Link href="/#qualify" className="text-primary font-medium hover:underline">
+              Go to homepage evaluation form
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -93,10 +115,12 @@ export function LocalLandingPage({
         </div>
       </section>
 
+      <ADUCalculatorSection />
+
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-3xl text-foreground mb-4">
-            See If Your {locationName} Property Qualifies
+            See If Your {page.locationName} Property Qualifies
           </h2>
         </div>
         <LeadFormSection />
