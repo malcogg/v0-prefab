@@ -89,15 +89,14 @@ export default function RootLayout({
         {children}
         <Analytics />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VF74ZRJQ4V"
           strategy="afterInteractive"
         />
         <Script id="ga4-config" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-window.gtag = gtag;
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');`}
+gtag('config', 'G-VF74ZRJQ4V');`}
         </Script>
       </body>
     </html>
