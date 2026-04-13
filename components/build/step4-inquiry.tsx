@@ -24,15 +24,15 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
   }, [lot, model, session.customizations])
 
   async function handleSubmit(formData: FormData) {
-    const email = String(formData.get("email") || "")
+    const email = String(formData.get("email") || "").trim()
     setState("submitting")
     try {
       const payload = {
-        name: formData.get("name"),
-        phone: formData.get("phone"),
+        name: String(formData.get("name") ?? "").trim(),
+        phone: String(formData.get("phone") ?? "").trim(),
         email,
-        hearAbout: formData.get("hearAbout"),
-        message: formData.get("message") || defaultMessage,
+        hearAbout: String(formData.get("hearAbout") ?? ""),
+        message: String(formData.get("message") ?? "").trim() || defaultMessage,
         session,
       }
       const res = await fetch("/api/build-inquiries", {
@@ -41,8 +41,23 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
         body: JSON.stringify(payload),
       })
       if (!res.ok) {
+        let detail = "Submission failed. Please try again."
+        try {
+          const body = (await res.json()) as {
+            error?: string
+            details?: Record<string, string[]>
+          }
+          if (body.details && Object.keys(body.details).length > 0) {
+            const first = Object.values(body.details)[0]?.[0]
+            if (first) detail = first
+          } else if (body.error) {
+            detail = body.error
+          }
+        } catch {
+          // ignore non-JSON error bodies
+        }
         setState("error")
-        setMessage("Submission failed. Please try again.")
+        setMessage(detail)
         return
       }
       onSubmitted(email)

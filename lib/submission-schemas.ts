@@ -31,19 +31,25 @@ export const buildInquirySubmissionSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200),
   phone: z.string().trim().min(7, "Phone is required").max(50),
   email: z.string().trim().email("Email is invalid").max(320),
-  hearAbout: z.string().trim().max(100).optional().default(""),
-  message: z.string().trim().max(4000).optional().default(""),
+  hearAbout: z.preprocess(
+    (val) => (val == null ? "" : val),
+    z.string().trim().max(100),
+  ),
+  message: z.preprocess(
+    (val) => (val == null ? "" : val),
+    z.string().trim().max(4000),
+  ),
   session: z.object({
-    step: z.number().min(1).max(5),
+    step: z.coerce.number().min(1).max(5),
     selectedLot: z
       .object({
         id: z.string(),
         address: z.string(),
         city: z.string(),
         county: z.string(),
-        lotSizeAcres: z.number(),
+        lotSizeAcres: z.coerce.number(),
         zoning: z.string(),
-        askingPrice: z.number(),
+        askingPrice: z.coerce.number(),
         mlsNumber: z.string(),
       })
       .nullable(),
@@ -53,7 +59,7 @@ export const buildInquirySubmissionSchema = z.object({
       interior: z.record(z.string().nullable()),
       systems: z.object({
         hvac: z.string(),
-        addOns: z.array(z.string()),
+        addOns: z.array(z.string()).default([]),
       }),
     }),
   }),
