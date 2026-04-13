@@ -853,7 +853,8 @@ export function ADUCalculatorSection() {
                       ))}
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">
-                      Based on current {selectedRentData.label} market data for a {typeCfg.label}.
+                      Based on current {selectedRentData?.label ?? "selected area"} market data for a{" "}
+                      {typeCfg.label}.
                     </p>
                   </div>
 

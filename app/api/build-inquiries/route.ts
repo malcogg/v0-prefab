@@ -2,10 +2,12 @@ import { getSql } from "@/lib/db"
 import { buildInquirySubmissionSchema } from "@/lib/submission-schemas"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import {
-  buildSummaryEmailHtml,
-  buildSummaryEmailSubject,
-  internalLeadEmailSubject,
-} from "@/lib/build/email-templates"
+  buildInquiryTeamNotificationEmail,
+  buildInquiryUserConfirmationEmail,
+  emailSubjects,
+} from "@/lib/email/transactional"
+import { getTeamInbox } from "@/lib/email/config"
+import { notifyTeam, sendEmail } from "@/lib/email/send"
 
 export async function POST(req: Request) {
   try {
@@ -44,15 +46,31 @@ export async function POST(req: Request) {
         ${ip}
       )
     `
+
     const lotCity = v.session.selectedLot?.city
     const lotAddress = v.session.selectedLot?.address
-    const userEmailSubject = buildSummaryEmailSubject(lotCity)
-    const userEmailHtml = buildSummaryEmailHtml({ recipientName: v.name, session: v.session })
-    const teamEmailSubject = internalLeadEmailSubject(v.name, lotAddress)
-    void userEmailSubject
-    void userEmailHtml
-    void teamEmailSubject
-    // Phase 2 hook: send user/team notification emails via provider here.
+
+    void Promise.all([
+      sendEmail({
+        to: v.email,
+        subject: emailSubjects.buildUser(lotCity),
+        html: buildInquiryUserConfirmationEmail(v),
+        replyTo: getTeamInbox(),
+      }).then((r) => {
+        if (!r.ok && !("skipped" in r && r.skipped)) {
+          console.error("[email] build inquiry user copy failed:", "error" in r ? r.error : r)
+        }
+      }),
+      notifyTeam({
+        subject: emailSubjects.buildTeam(v.name, lotAddress ?? undefined),
+        html: buildInquiryTeamNotificationEmail(v, { ip, userAgent }),
+        replyTo: v.email,
+      }).then((r) => {
+        if (!r.ok && !("skipped" in r && r.skipped)) {
+          console.error("[email] build inquiry team copy failed:", "error" in r ? r.error : r)
+        }
+      }),
+    ]).catch((err) => console.error("[email] build inquiry pipeline:", err))
 
     return Response.json({ ok: true })
   } catch (err) {
