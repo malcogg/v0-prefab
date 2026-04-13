@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { MapPin, Phone, Mail } from "lucide-react"
+import { MapPin, Mail } from "lucide-react"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 export function SiteFooter() {
@@ -58,22 +58,15 @@ export function SiteFooter() {
           </p>
           <div className="flex flex-col gap-3">
             <a
-              href="mailto:info@earthnestflorida.com"
+              href="mailto:prefabflorida@gmail.com"
               className="flex items-center gap-2 text-white/60 text-sm hover:text-white transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@earthnestflorida.com
-            </a>
-            <a
-              href="tel:+14075550100"
-              className="flex items-center gap-2 text-white/60 text-sm hover:text-white transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              (407) 555-0100
+              prefabflorida@gmail.com
             </a>
             <div className="flex items-start gap-2 text-white/60 text-sm">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-              <span>Orlando / Orange County, FL</span>
+              <span>Serving Florida | Based in Orlando</span>
             </div>
           </div>
         </div>
@@ -151,8 +144,8 @@ export function SiteFooter() {
             ADU size is 45% of primary dwelling living area or 1,000 sq ft, whichever is less.
             Short-term rentals (under 30 days) are prohibited for ADUs in most Orange County
             residential zones. Costs vary by property. Rental income estimates are typical ranges
-            and are not guaranteed. EarthNest Florida does not provide legal, financial, or tax
-            advice. EarthNest Florida is a registered business in the State of Florida.
+            and are not guaranteed. PreFabricated.co does not provide legal, financial, or tax
+            advice. PreFabricated.co is a registered business in the State of Florida.
           </p>
         </div>
       </div>
@@ -160,7 +153,10 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 py-5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
-          <p>&copy; {new Date().getFullYear()} EarthNest Florida ADU. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} PreFabricated.co Tiny Homes / ADUs in Florida. All rights
+            reserved.
+          </p>
           <p>Permitted · Foundation-Built · Florida Building Code Compliant</p>
         </div>
       </div>

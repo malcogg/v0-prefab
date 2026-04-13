@@ -13,7 +13,7 @@ export function DesignOptionsSection() {
       size: "~160 sq ft",
       layout: "Studio / Flex Space",
       unitCost: "$25,000",
-      installed: "$80K – $120K+",
+      installed: "$50K – $100K+",
       rent: null,
       timeline: "Fastest",
       bestFor:
@@ -36,7 +36,7 @@ export function DesignOptionsSection() {
       size: "~320 sq ft",
       layout: "Studio + Sleeping Area",
       unitCost: "$45,000",
-      installed: "$120K – $175K+",
+      installed: "$100K – $155K+",
       rent: null,
       timeline: "Fast",
       bestFor:
@@ -59,7 +59,7 @@ export function DesignOptionsSection() {
       size: "Custom",
       layout: "Studio, 1BR, or 2BR",
       unitCost: "N/A",
-      installed: "$130K – $200K+",
+      installed: "$200K+",
       rent: "$1,400 – $2,500/mo",
       timeline: "Longest",
       bestFor:

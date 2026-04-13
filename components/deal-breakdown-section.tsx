@@ -15,12 +15,12 @@ export function DealBreakdownSection() {
       lines: [
         { label: "Property Purchase", value: "$260,000" },
         { label: "Container Unit (40ft)", value: "$45,000" },
-        { label: "Installation + Permits + Utilities + Finishing", value: "$75,000 – $130,000" },
+        { label: "Installation + Permits + Utilities + Finishing", value: "$55,000 – $110,000" },
       ],
       totals: [
-        { label: "Total Project Cost", value: "$380,000 – $435,000", highlight: false },
-        { label: "Estimated After Value", value: "$460,000 – $500,000", highlight: false },
-        { label: "Estimated Equity Gain", value: "$80,000 – $120,000+", highlight: true },
+        { label: "Total Project Cost", value: "$360,000 – $415,000", highlight: false },
+        { label: "Estimated After Value", value: "$440,000 – $490,000", highlight: false },
+        { label: "Estimated Equity Gain", value: "$80,000 – $115,000+", highlight: true },
       ],
       rent: {
         adu: "$1,200 – $1,800/mo",
@@ -32,12 +32,12 @@ export function DealBreakdownSection() {
       badge: "Most Popular Permitted Option",
       lines: [
         { label: "Property Purchase", value: "$260,000" },
-        { label: "ADU Construction (installed, permitted)", value: "$130,000 – $200,000" },
+        { label: "ADU Construction (installed, permitted)", value: "$200,000+" },
       ],
       totals: [
-        { label: "Total Project Cost", value: "$390,000 – $460,000", highlight: false },
-        { label: "Estimated After Value", value: "$460,000 – $530,000", highlight: false },
-        { label: "Estimated Equity Gain", value: "$70,000 – $130,000+", highlight: true },
+        { label: "Total Project Cost", value: "$460,000 – $540,000", highlight: false },
+        { label: "Estimated After Value", value: "$520,000 – $600,000", highlight: false },
+        { label: "Estimated Equity Gain", value: "$60,000 – $140,000+", highlight: true },
       ],
       rent: {
         adu: "$1,400 – $2,500/mo",
@@ -190,7 +190,7 @@ export function DealBreakdownSection() {
             cost includes site preparation, foundation, permitting, utility connections, insulation, HVAC, and
             interior finishing. Final project costs vary based on site conditions, local jurisdiction
             requirements, and design selections. Rental income projections reflect current Orlando-area market
-            conditions and are not guaranteed. EarthNest Florida does not provide legal, financial, or tax advice.
+            conditions and are not guaranteed. PreFabricated.co does not provide legal, financial, or tax advice.
           </p>
         </div>
       </div>

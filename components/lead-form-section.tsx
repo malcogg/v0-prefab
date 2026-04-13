@@ -59,9 +59,9 @@ export function LeadFormSection() {
   }
 
   const modelOptions = [
-    { value: "20ft-studio", label: "20ft Studio (~$80K–$120K)" },
-    { value: "40ft-1bed", label: "40ft 1-Bedroom (~$120K–$175K)" },
-    { value: "traditional", label: "Traditional Site-Built (~$130K–$200K+)" },
+    { value: "20ft-studio", label: "20ft Studio (~$50K–$100K)" },
+    { value: "40ft-1bed", label: "40ft 1-Bedroom (~$100K–$155K)" },
+    { value: "traditional", label: "Traditional Site-Built ($200K+)" },
     { value: "not-sure", label: "Not Sure Yet" },
   ]
 
@@ -102,15 +102,15 @@ export function LeadFormSection() {
               <div className="flex flex-col gap-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">20ft Studio</span>
-                  <span className="text-foreground font-medium">$80K – $120K+</span>
+                  <span className="text-foreground font-medium">$50K – $100K+</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">40ft 1-Bedroom</span>
-                  <span className="text-foreground font-medium">$120K – $175K+</span>
+                  <span className="text-foreground font-medium">$100K – $155K+</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Traditional Site-Built</span>
-                  <span className="text-foreground font-medium">$130K – $200K+</span>
+                  <span className="text-foreground font-medium">$200K+</span>
                 </div>
               </div>
             </div>
@@ -168,7 +168,7 @@ export function LeadFormSection() {
                     name="phone"
                     type="tel"
                     required
-                    placeholder="(407) 555-0100"
+                    placeholder="(555) 555-5555"
                     className="w-full px-4 py-3 rounded border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
                   />
                 </div>
@@ -268,7 +268,7 @@ export function LeadFormSection() {
                 </button>
 
                 <p className="text-center text-xs text-muted-foreground">
-                  By submitting, you agree to be contacted by EarthNest Florida regarding your
+                  By submitting, you agree to be contacted by PreFabricated.co regarding your
                   property evaluation. No spam, ever.
                 </p>
               </form>

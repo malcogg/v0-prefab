@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: DEFAULT_SEO.title,
   description: DEFAULT_SEO.description,
-  authors: [{ name: "EarthNest Florida" }],
+  authors: [{ name: "PreFabricated.co" }],
   robots: {
     index: true,
     follow: true,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "EarthNest Florida",
+    siteName: "PreFabricated.co",
     url: SITE_URL,
     title: DEFAULT_SEO.title,
     description: DEFAULT_SEO.description,
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@earthnestfl",
     title: DEFAULT_SEO.title,
     description: DEFAULT_SEO.description,
     images: ["/og/homepage.jpg"],

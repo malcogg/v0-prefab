@@ -99,7 +99,7 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
             </div>
           </div>
           <p className="mt-5 text-xs text-muted-foreground leading-relaxed">
-            Land inquiries are handled through a licensed Florida REALTOR®. Purchasing land is a real estate transaction separate from any construction agreement with EarthNest Florida. Home pricing shown is an estimate only and is subject to change based on site conditions, material availability, and final design. EarthNest Florida does not provide legal, financial, or investment advice.
+            Land inquiries are handled through a licensed Florida REALTOR®. Purchasing land is a real estate transaction separate from any construction agreement with PreFabricated.co. Home pricing shown is an estimate only and is subject to change based on site conditions, material availability, and final design. PreFabricated.co does not provide legal, financial, or investment advice.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
             </button>
           </form>
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-            By submitting, I agree to be contacted by EarthNest Florida regarding my land and build selections. Land inquiries are handled through a licensed Florida REALTOR®. Home pricing is estimated and confirmed after a free site evaluation.
+            By submitting, I agree to be contacted by PreFabricated.co regarding my land and build selections. Land inquiries are handled through a licensed Florida REALTOR®. Home pricing is estimated and confirmed after a free site evaluation.
           </p>
         </div>
       </div>

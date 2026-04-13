@@ -16,30 +16,29 @@ import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "EarthNest Florida | ADU Specialists in Central Florida",
+  title: "PreFabricated.co | Tiny Homes & ADUs in Florida",
   description:
-    "Build a legal, permitted ADU in Central Florida. EarthNest Florida handles zoning, special exception filing, design, permitting & construction. Free property evaluation.",
+    "Build a legal, permitted tiny home or ADU in Florida. PreFabricated.co handles zoning, design, permitting & construction—serving the state, based in Orlando. Free property evaluation.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "EarthNest Florida | ADU Specialists in Central Florida",
+    title: "PreFabricated.co | Tiny Homes & ADUs in Florida",
     description:
-      "Build a legal, permitted ADU in Central Florida. EarthNest Florida handles zoning, special exception filing, design, permitting & construction. Free property evaluation.",
+      "Build a legal, permitted tiny home or ADU in Florida. PreFabricated.co handles zoning, design, permitting & construction—serving the state, based in Orlando. Free property evaluation.",
     url: "/",
     images: [
       {
         url: "/og/homepage.jpg",
         width: 1200,
         height: 630,
-        alt: "Central Florida's ADU Specialists",
+        alt: "Florida tiny homes and ADU specialists",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@earthnestfl",
-    title: "EarthNest Florida | ADU Specialists in Central Florida",
+    title: "PreFabricated.co | Tiny Homes & ADUs in Florida",
     description:
-      "Build a legal, permitted ADU in Central Florida. EarthNest Florida handles zoning, special exception filing, design, permitting & construction. Free property evaluation.",
+      "Build a legal, permitted tiny home or ADU in Florida. PreFabricated.co handles zoning, design, permitting & construction—serving the state, based in Orlando. Free property evaluation.",
     images: ["/og/homepage.jpg"],
   },
 }
@@ -50,8 +49,8 @@ export default function Home() {
     "@type": "WebSite",
     "@id": "https://www.prefabricated.co/#website",
     url: "https://www.prefabricated.co",
-    name: "EarthNest Florida",
-    description: "Central Florida ADU Specialists — Permitted, Foundation-Built ADUs",
+    name: "PreFabricated.co",
+    description: "Tiny homes and ADUs in Florida — permitted, foundation-built",
     publisher: { "@id": "https://www.prefabricated.co/#business" },
     potentialAction: {
       "@type": "SearchAction",
@@ -77,8 +76,8 @@ export default function Home() {
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "PriceSpecification",
-        minPrice: "130000",
-        maxPrice: "200000",
+        minPrice: "200000",
+        maxPrice: "450000",
         priceCurrency: "USD",
       },
       availability: "https://schema.org/InStock",

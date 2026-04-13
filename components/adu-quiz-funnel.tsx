@@ -457,17 +457,17 @@ export function ADUQuizFunnel() {
                 {[
                   {
                     title: "Model 1: 20ft Studio",
-                    specs: "Installed: $80K–$120K+ | Flex-use unit (non-rental in Orange County)",
+                    specs: "Installed: $50K–$100K+ | Flex-use unit (non-rental in Orange County)",
                     value: "model-1",
                   },
                   {
                     title: "Model 2: 40ft One-Bedroom",
-                    specs: "Installed: $120K–$175K+ | Expanded studio (jurisdiction dependent)",
+                    specs: "Installed: $100K–$155K+ | Expanded studio (jurisdiction dependent)",
                     value: "model-2",
                   },
                   {
                     title: "Model 3: Traditional Site-Built",
-                    specs: "Installed: $130K–$200K+ | Rent: $1,400–$2,500/mo",
+                    specs: "Installed: $200K+ | Rent: $1,400–$2,500/mo",
                     value: "model-3",
                   },
                   { title: "Not sure yet", specs: "We'll help you decide", value: "unsure" },

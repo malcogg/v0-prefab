@@ -54,8 +54,8 @@ export function HeroSection() {
             <p className="text-sm text-white/70 mt-1">Est. Monthly Rental Income</p>
           </div>
           <div className="flex-1 px-6 py-5 text-center sm:text-left">
-            <p className="text-2xl font-serif font-bold text-white">$130K–$200K+</p>
-            <p className="text-sm text-white/70 mt-1">Typical ADU Build Cost</p>
+            <p className="text-2xl font-serif font-bold text-white">$50K–$200K+</p>
+            <p className="text-sm text-white/70 mt-1">Typical Tiny Home / ADU Build Range</p>
           </div>
           <div className="flex-1 px-6 py-5 text-center sm:text-left">
             <p className="text-2xl font-serif font-bold text-white">100% Permitted</p>

@@ -31,7 +31,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `ADU Construction and Permitting in ${page.locationName}, FL`,
-    description: `EarthNest Florida provides ADU design, permitting, and construction services in ${page.locationName}, ${page.county}, Florida. We handle zoning verification, special exception filing, and full build management.`,
+    description: `PreFabricated.co provides ADU design, permitting, and construction services in ${page.locationName}, ${page.county}, Florida. We handle zoning verification, special exception filing, and full build management.`,
     provider: { "@id": `${SITE_URL}/#business` },
     areaServed: {
       "@type": "City",
@@ -174,7 +174,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
             <h3 className="font-serif text-2xl text-foreground mb-3">Primary Permitted ADU Product</h3>
             <ul className="space-y-2 text-sm text-muted-foreground mb-5">
               <li>Size range: Studio, 1BR, or 2BR (up to local code limits)</li>
-              <li>Installed cost: $130K – $200K+</li>
+              <li>Installed cost: $200K+ (traditional site-built; container models from $50K–$155K+)</li>
               <li>Estimated monthly rent: $1,400 – $2,500/mo</li>
             </ul>
             <Link

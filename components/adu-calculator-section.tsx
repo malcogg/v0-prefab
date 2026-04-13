@@ -259,9 +259,9 @@ const TYPE_CONFIG: Record<AduType, { label: string; sizeMin: number; sizeMax: nu
     sizeMin: 400,
     sizeMax: 550,
     sizeDefault: 475,
-    costMin: 130000,
-    costMax: 175000,
-    costDefault: 150000,
+    costMin: 50000,
+    costMax: 100000,
+    costDefault: 75000,
   },
   "1br": {
     label: "1-Bedroom ADU",
@@ -269,9 +269,9 @@ const TYPE_CONFIG: Record<AduType, { label: string; sizeMin: number; sizeMax: nu
     sizeMin: 500,
     sizeMax: 750,
     sizeDefault: 625,
-    costMin: 145000,
-    costMax: 195000,
-    costDefault: 165000,
+    costMin: 100000,
+    costMax: 155000,
+    costDefault: 127500,
   },
   "2br": {
     label: "2-Bedroom ADU",
@@ -279,9 +279,9 @@ const TYPE_CONFIG: Record<AduType, { label: string; sizeMin: number; sizeMax: nu
     sizeMin: 700,
     sizeMax: 1000,
     sizeDefault: 850,
-    costMin: 165000,
-    costMax: 220000,
-    costDefault: 185000,
+    costMin: 200000,
+    costMax: 320000,
+    costDefault: 250000,
   },
 }
 
@@ -290,7 +290,7 @@ export function ADUCalculatorSection() {
   const [areaKey, setAreaKey] = useState<keyof typeof rentData | "">("")
   const [aduType, setAduType] = useState<AduType | "">("")
   const [sizeSqft, setSizeSqft] = useState(475)
-  const [buildCost, setBuildCost] = useState(150000)
+  const [buildCost, setBuildCost] = useState(75000)
   const [buildCostValidation, setBuildCostValidation] = useState("")
   const [sizeValidation, setSizeValidation] = useState("")
 
@@ -301,7 +301,7 @@ export function ADUCalculatorSection() {
 
   const [vacancyRate, setVacancyRate] = useState(5)
   const [insurance, setInsurance] = useState(75)
-  const [maintenanceReserve, setMaintenanceReserve] = useState(Math.round((150000 * 0.01) / 12))
+  const [maintenanceReserve, setMaintenanceReserve] = useState(Math.round((75000 * 0.01) / 12))
   const [maintenanceTouched, setMaintenanceTouched] = useState(false)
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [propertyTaxAnnualIncrease, setPropertyTaxAnnualIncrease] = useState(1200)
@@ -332,7 +332,7 @@ export function ADUCalculatorSection() {
   const aduTypeKey = (aduType || "studio") as AduType
   const typeCfg = TYPE_CONFIG[aduTypeKey]
 
-  const effectiveBuildCost = Math.max(130000, buildCost)
+  const effectiveBuildCost = Math.max(typeCfg.costMin, buildCost)
   const downPaymentAmount = (effectiveBuildCost * downPaymentPercent) / 100
   const loanAmount = Math.max(0, effectiveBuildCost - downPaymentAmount)
   const monthlyLoanPayment =
@@ -430,12 +430,13 @@ export function ADUCalculatorSection() {
     }
   }
 
-  const handleBuildCostInput = (raw: number) => {
+   const handleBuildCostInput = (raw: number) => {
     trackCalculatorInteraction()
-    if (raw < 130000) {
-      setBuildCost(130000)
+    const min = typeCfg.costMin
+    if (raw < min) {
+      setBuildCost(min)
       setBuildCostValidation(
-        "Minimum realistic build cost for a permitted ADU in Central Florida is $130,000."
+        `Use at least ${min.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })} for this ADU type (current published build ranges).`
       )
       return
     }
@@ -954,7 +955,7 @@ export function ADUCalculatorSection() {
                     Rent estimates based on current market data from Apartments.com, Zillow, Zumper, and RentCafe for Central Florida (Q1 2026). ADU rents may differ from apartment complex averages. Estimates are not guaranteed.
                   </p>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    All figures produced by this calculator are illustrative estimates only and are not guaranteed. Rental income estimates are based on current Central Florida market data and may not reflect actual achievable rents for your specific property, unit, or market conditions. Expense assumptions are conservative estimates - actual costs vary. Equity gain projections are not guaranteed and depend on appraisal, market conditions, and property-specific factors. This calculator does not constitute financial, investment, tax, or legal advice. EarthNest Florida strongly recommends consulting a licensed CPA, financial advisor, and real estate attorney before making any investment decision.
+                    All figures produced by this calculator are illustrative estimates only and are not guaranteed. Rental income estimates are based on current Central Florida market data and may not reflect actual achievable rents for your specific property, unit, or market conditions. Expense assumptions are conservative estimates - actual costs vary. Equity gain projections are not guaranteed and depend on appraisal, market conditions, and property-specific factors. This calculator does not constitute financial, investment, tax, or legal advice. PreFabricated.co strongly recommends consulting a licensed CPA, financial advisor, and real estate attorney before making any investment decision.
                   </p>
                 </div>
               )}
