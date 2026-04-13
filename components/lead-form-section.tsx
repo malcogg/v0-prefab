@@ -168,7 +168,7 @@ export function LeadFormSection() {
                     name="phone"
                     type="tel"
                     required
-                    placeholder="(555) 555-5555"
+                    placeholder="(321) 747-3778"
                     className="w-full px-4 py-3 rounded border border-border bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
                   />
                 </div>

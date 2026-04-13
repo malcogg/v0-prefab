@@ -115,7 +115,7 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
             className="space-y-3"
           >
             <input required name="name" placeholder="Full Name" className="w-full rounded border border-border px-3 py-2 text-sm" />
-            <input required name="phone" placeholder="Phone Number" className="w-full rounded border border-border px-3 py-2 text-sm" />
+            <input required name="phone" placeholder="(321) 747-3778" className="w-full rounded border border-border px-3 py-2 text-sm" />
             <input required name="email" type="email" placeholder="Email Address" className="w-full rounded border border-border px-3 py-2 text-sm" />
             <select name="hearAbout" className="w-full rounded border border-border px-3 py-2 text-sm" defaultValue="Google">
               {["Google", "Instagram", "Facebook", "Referral", "Zillow", "Other"].map((source) => (

@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Mail, MapPin } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Contact EarthNest Florida | ADU Specialists",
+  title: "Contact PreFabricated.co | Tiny Homes & ADUs in Florida",
   description:
-    "Contact EarthNest Florida for ADU zoning, permitting, design, and build support in Central Florida.",
+    "Contact PreFabricated.co for tiny home and ADU zoning, permitting, design, and build support in Florida.",
   alternates: { canonical: "/contact" },
 }
 
@@ -49,6 +49,16 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-lg border border-border bg-secondary p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Phone className="w-5 h-5 text-primary" />
+                <h2 className="font-semibold text-foreground">Phone</h2>
+              </div>
+              <a href="tel:+13217473778" className="text-primary hover:underline">
+                (321) 747-3778
+              </a>
+            </div>
+
+            <div className="rounded-lg border border-border bg-secondary p-6 md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-5 h-5 text-primary" />
                 <h2 className="font-semibold text-foreground">Service Area</h2>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { MapPin, Mail } from "lucide-react"
+import { MapPin, Mail, Phone } from "lucide-react"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 export function SiteFooter() {
@@ -63,6 +63,13 @@ export function SiteFooter() {
             >
               <Mail className="w-4 h-4" />
               prefabflorida@gmail.com
+            </a>
+            <a
+              href="tel:+13217473778"
+              className="flex items-center gap-2 text-white/60 text-sm hover:text-white transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              (321) 747-3778
             </a>
             <div className="flex items-start gap-2 text-white/60 text-sm">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" />

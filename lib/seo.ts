@@ -18,6 +18,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
   logo: `${SITE_URL}/images/logo.png`,
   image: `${SITE_URL}/og/homepage.jpg`,
   email: "prefabflorida@gmail.com",
+  telephone: "+13217473778",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Orlando",
