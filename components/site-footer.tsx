@@ -32,7 +32,7 @@ export function SiteFooter() {
               Ready to unlock your property's potential?
             </h2>
             <p className="text-white/60 text-sm mt-1">
-              Free evaluation. No obligation. Central Florida's ADU specialists.
+              Free evaluation. No obligation. Serving Florida, based in Orlando.
             </p>
           </div>
           <Link
@@ -49,12 +49,12 @@ export function SiteFooter() {
         {/* Brand */}
         <div>
           <div className="mb-4">
-            <p className="font-serif text-xl text-white">EarthNest</p>
-            <p className="text-[10px] tracking-widest uppercase text-white/40">Florida ADU</p>
+            <p className="font-serif text-xl text-white">PreFabricated.co</p>
+            <p className="text-[10px] tracking-widest uppercase text-white/40">Tiny Homes / ADUs</p>
           </div>
           <p className="text-white/60 text-sm leading-relaxed mb-6">
-            Central Florida's eco-conscious ADU specialists. We help homeowners and investors add
-            legal, permitted, foundation-built ADUs that generate income and build long-term wealth.
+            Florida tiny home and ADU specialists. We help homeowners and investors add legal,
+            permitted, foundation-built units that generate income and build long-term wealth.
           </p>
           <div className="flex flex-col gap-3">
             <a
