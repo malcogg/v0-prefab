@@ -6,11 +6,13 @@ import {
   buildInquirySubmissionSchema,
   leadSubmissionSchema,
   progressionSubmissionSchema,
+  starterKitDownloadSchema,
 } from "@/lib/submission-schemas"
 
 type LeadPayload = z.infer<typeof leadSubmissionSchema>
 type BuildPayload = z.infer<typeof buildInquirySubmissionSchema>
 type ProgressionPayload = z.infer<typeof progressionSubmissionSchema>
+type StarterKitDownloadPayload = z.infer<typeof starterKitDownloadSchema>
 
 function telHref(phone: string): string {
   const digits = phone.replace(/\D/g, "")
@@ -198,6 +200,40 @@ export function progressionTeamNotificationEmail(
   })
 }
 
+/** --- Starter kit download --- */
+
+export function starterKitDownloadUserEmail(data: StarterKitDownloadPayload) {
+  const inner = `
+    ${h2(`Thanks, ${esc(data.name.split(" ")[0] || data.name)}`)}
+    ${p("Here is your <strong>Florida ADU & Backyard Income Starter Kit</strong>. Open the printable page, then use your browser's print dialog to save it as a PDF.")}
+    ${button("https://www.prefabricated.co/free-adu-course/starter-kit", "Open the Starter Kit")}
+    ${p("When you are ready for a property-specific next step, you can request a free property evaluation from Prefabricated.co.")}
+  `
+  return emailLayout({
+    title: "Your ADU starter kit",
+    preheader: "Open your printable Florida ADU & Backyard Income Starter Kit.",
+    innerHtml: inner,
+  })
+}
+
+export function starterKitDownloadTeamEmail(
+  data: StarterKitDownloadPayload,
+  meta: { ip: string | null; userAgent: string | null },
+) {
+  const inner = `
+    ${h2("New starter kit download")}
+    ${p(`<strong>Name:</strong> ${esc(data.name)}<br/>
+        <strong>Email:</strong> <a href="mailto:${esc(data.email)}" style="color:#0F6E56;">${esc(data.email)}</a><br/>
+        <strong>Source:</strong> ${esc(data.source)}`)}
+    ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}<br/><strong>User-Agent:</strong> ${esc(meta.userAgent ?? "—")}`)}
+  `
+  return emailLayout({
+    title: "Starter kit download",
+    preheader: `Starter kit download: ${data.name}`,
+    innerHtml: inner,
+  })
+}
+
 /** Subjects */
 
 export const emailSubjects = {
@@ -209,6 +245,8 @@ export const emailSubjects = {
     `New build inquiry — ${name}${lot ? ` | ${lot}` : ""}`,
   progressionUser: "We received your ADU quiz",
   progressionTeam: (name: string) => `New ADU quiz — ${name}`,
+  starterKitUser: "Your Florida ADU starter kit",
+  starterKitTeam: (name: string) => `New starter kit download — ${name}`,
 } as const
 
 /** --- Marketing / follow-up (drafts for Resend broadcasts or automations) --- */

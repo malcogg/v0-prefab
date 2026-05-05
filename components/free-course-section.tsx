@@ -20,10 +20,10 @@ export function FreeCourseSection() {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
-                  href="/free-adu-course"
+                  href="/free-adu-course#starter-kit"
                   className="inline-flex items-center px-7 py-3.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
                 >
-                  Start the Free Course
+                  Download the Starter Kit
                 </Link>
                 <Link
                   href="/#qualify"

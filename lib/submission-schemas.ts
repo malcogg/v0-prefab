@@ -65,3 +65,9 @@ export const buildInquirySubmissionSchema = z.object({
   }),
 })
 
+export const starterKitDownloadSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200),
+  email: z.string().trim().email("Email is invalid").max(320),
+  source: z.string().trim().max(100).default("free-adu-course"),
+})
+

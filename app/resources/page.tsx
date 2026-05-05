@@ -20,6 +20,12 @@ const resources = [
     text: "A practical course covering property eligibility, cost, design, permitting, rental income, and EarthNest-style sustainable upgrades.",
   },
   {
+    icon: FileCheck,
+    title: "Printable ADU Starter Kit",
+    href: "/free-adu-course#starter-kit",
+    text: "Unlock the printable workbook with feasibility prompts, budget worksheets, builder questions, and an eco upgrade planner.",
+  },
+  {
     icon: MapPinned,
     title: "ADU Rules by County",
     href: "/adu-rules",

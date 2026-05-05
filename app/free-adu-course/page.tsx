@@ -14,6 +14,7 @@ import {
   Users,
 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { StarterKitDownloadForm } from "@/components/starter-kit-download-form"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
 
@@ -194,12 +195,53 @@ export default function FreeAduCoursePage() {
                 Start the Free Course
               </Link>
               <Link
+                href="#starter-kit"
+                className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
+              >
+                Download Starter Kit
+              </Link>
+              <Link
                 href="/#qualify"
                 className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
               >
                 See If My Property Qualifies
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="starter-kit" className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+            <div>
+              <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
+                Printable Workbook
+              </p>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-5">
+                Get the Florida ADU & Backyard Income Starter Kit.
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Use the printable starter kit while you take the course. It includes feasibility
+                prompts, cost categories, model comparison notes, a city/county call script, builder
+                questions, and an eco upgrade planner.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                {[
+                  "Property Feasibility Checklist",
+                  "ADU Budget Worksheet",
+                  "County / City Call Script",
+                  "Backyard Income Planner",
+                  "Builder Questions Checklist",
+                  "Eco Upgrade Planner",
+                ].map((item) => (
+                  <div key={item} className="rounded border border-border bg-secondary px-4 py-3 text-foreground">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <StarterKitDownloadForm />
           </div>
         </div>
       </section>

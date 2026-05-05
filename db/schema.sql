@@ -62,3 +62,18 @@ create table if not exists build_inquiries (
 create index if not exists build_inquiries_created_at_idx on build_inquiries (created_at desc);
 create index if not exists build_inquiries_email_idx on build_inquiries (email);
 
+create table if not exists starter_kit_downloads (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now(),
+
+  name text not null,
+  email text not null,
+  source text not null,
+
+  user_agent text null,
+  ip text null
+);
+
+create index if not exists starter_kit_downloads_created_at_idx on starter_kit_downloads (created_at desc);
+create index if not exists starter_kit_downloads_email_idx on starter_kit_downloads (email);
+
