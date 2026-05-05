@@ -11,6 +11,7 @@ import { DealBreakdownSection } from "@/components/deal-breakdown-section"
 import { ProcessSection } from "@/components/process-section"
 import { EarthNestSection } from "@/components/earthnest-section"
 import { TeamSection } from "@/components/team-section"
+import { FreeCourseSection } from "@/components/free-course-section"
 import { LeadFormSection } from "@/components/lead-form-section"
 import { PartnerSection } from "@/components/partner-section"
 import { SiteFooter } from "@/components/site-footer"
@@ -113,6 +114,7 @@ export default function Home() {
       <ProcessSection />
       <EarthNestSection />
       <TeamSection />
+      <FreeCourseSection />
       <LeadFormSection />
       <PartnerSection />
       <SiteFooter />

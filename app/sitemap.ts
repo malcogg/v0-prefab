@@ -5,7 +5,7 @@ const SITE_URL = "https://www.prefabricated.co"
 
 function priorityForPath(path: string, tier?: number, isHub?: boolean) {
   if (path === "/") return 1.0
-  if (path === "/adu-rules" || path === "/earthnest-living-systems" || isHub) return 0.9
+  if (path === "/adu-rules" || path === "/earthnest-living-systems" || path === "/free-adu-course" || isHub) return 0.9
   if (path === "/adu-calculator" || path === "/florida-tiny-living-guide" || path === "/resources" || path === "/faq") return 0.8
   if (path === "/adu-checklist") return 0.7
   if (tier === 1) return 0.8
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corePaths = [
     "/",
     "/adu-rules",
+    "/free-adu-course",
     "/earthnest-living-systems",
     "/eco-upgrades",
     "/florida-tiny-living-guide",

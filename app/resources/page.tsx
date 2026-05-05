@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { BookOpen, Calculator, FileCheck, Leaf, MapPinned, Sprout } from "lucide-react"
+import { BookOpen, Calculator, FileCheck, GraduationCap, Leaf, MapPinned, Sprout } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
@@ -13,6 +13,12 @@ export const metadata: Metadata = {
 }
 
 const resources = [
+  {
+    icon: GraduationCap,
+    title: "Free Florida ADU Course",
+    href: "/free-adu-course",
+    text: "A practical course covering property eligibility, cost, design, permitting, rental income, and EarthNest-style sustainable upgrades.",
+  },
   {
     icon: MapPinned,
     title: "ADU Rules by County",

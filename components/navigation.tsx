@@ -23,6 +23,7 @@ export function Navigation() {
   ]
 
   const exploreLinks = [
+    { label: "Free ADU Course", href: "/free-adu-course" },
     { label: "Build Process", href: "/#process" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },

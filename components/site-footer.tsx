@@ -5,6 +5,7 @@ import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 export function SiteFooter() {
   const navLinks = [
     { label: "What is an ADU?", href: "/#what-is-adu" },
+    { label: "Free ADU Course", href: "/free-adu-course" },
     { label: "EarthNest Living Systems", href: "/earthnest-living-systems" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
@@ -138,7 +139,6 @@ export function SiteFooter() {
               "Orange County",
               "Osceola County",
               "Seminole County",
-              "Lake County",
               "Lake County",
               "Polk County",
               "Greater Central Florida",
