@@ -1,8 +1,9 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { summarizeEarthnestEcoSelection } from "@/lib/build/eco-modules"
 import type { BuildSession } from "@/lib/build/session"
-import { calculateOptionsTotal, getSelectedModel } from "@/lib/build/session"
+import { calculateEstimatedTotal, calculateOptionsTotal, getSelectedModel } from "@/lib/build/session"
 import { formatCurrency } from "@/lib/build/pricing"
 
 type Step4InquiryProps = {
@@ -11,17 +12,22 @@ type Step4InquiryProps = {
 }
 
 export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
-  const lot = session.selectedLot
   const model = getSelectedModel(session.selectedModelId)
   const optionsTotal = calculateOptionsTotal(session)
+  const buildTotal = calculateEstimatedTotal(session)
   const [state, setState] = useState<"idle" | "submitting" | "error">("idle")
   const [message, setMessage] = useState("")
 
   const defaultMessage = useMemo(() => {
-    if (!lot || !model) return ""
+    if (!model) return ""
     const c = session.customizations
-    return `I'm interested in the lot at ${lot.address}, ${lot.city} and the ${model.name} with ${c.exterior.siding ?? "selected"} siding, ${c.interior.flooring ?? "selected"} flooring, and ${c.interior.cabinets ?? "selected"} cabinets.`
-  }, [lot, model, session.customizations])
+    const addOnLabels = c.systems.addOns.length ? c.systems.addOns.join(", ") : "none selected"
+    const eco = c.earthnestEco ?? []
+    const ecoLine = eco.length
+      ? ` EarthNest / site modules of interest: ${summarizeEarthnestEcoSelection(eco)}.`
+      : ""
+    return `I'm interested in the ${model.name} with ${c.exterior.siding ?? "selected"} siding, ${c.interior.flooring ?? "selected"} flooring, ${c.interior.cabinets ?? "selected"} cabinets, HVAC ${c.systems.hvac}, add-ons: ${addOnLabels}.${ecoLine} I'd like to discuss site-specific feasibility for my property.`
+  }, [model, session.customizations])
 
   async function handleSubmit(formData: FormData) {
     const email = String(formData.get("email") || "").trim()
@@ -67,7 +73,7 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
     }
   }
 
-  if (!lot || !model) return null
+  if (!model) return null
 
   return (
     <section className="py-8 pb-24">
@@ -76,37 +82,47 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
           <h3 className="font-serif text-2xl mb-4">Your Build Summary</h3>
           <div className="space-y-4 text-sm">
             <div>
-              <p className="font-semibold">Your Selected Lot</p>
-              <p>{lot.address}, {lot.city}</p>
-              <p className="text-muted-foreground">
-                {lot.county} · {lot.lotSizeAcres.toFixed(2)} acres · {lot.zoning}
-              </p>
-              <p>MLS# {lot.mlsNumber}</p>
-            </div>
-            <div>
               <p className="font-semibold">Your Home</p>
               <p>{model.name}</p>
               <p className="text-muted-foreground">{model.badge}</p>
             </div>
             <div>
               <p className="font-semibold">Estimated Investment</p>
-              <p>Land (asking): {formatCurrency(lot.askingPrice)}</p>
               <p>Home (base): {formatCurrency(model.startingAt)}</p>
               <p>Selected options: {formatCurrency(optionsTotal)}</p>
-              <p className="font-semibold mt-1">
-                Est. Total Starting At: {formatCurrency(lot.askingPrice + model.startingAt + optionsTotal)}+
+              <p className="font-semibold mt-1">Est. starting at: {formatCurrency(buildTotal)}+</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Site work, permits, utilities, and foundation are not included until we review your property.
               </p>
+            </div>
+            <div>
+              <p className="font-semibold">EarthNest / site interests</p>
+              {(session.customizations.earthnestEco ?? []).length ? (
+                <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground">
+                  {summarizeEarthnestEcoSelection(session.customizations.earthnestEco ?? [])
+                    .split("; ")
+                    .filter(Boolean)
+                    .map((line, i) => (
+                      <li key={i}>{line}</li>
+                    ))}
+                </ul>
+              ) : (
+                <p className="text-muted-foreground">None selected — add items under Customize → EarthNest & site.</p>
+              )}
             </div>
           </div>
           <p className="mt-5 text-xs text-muted-foreground leading-relaxed">
-            Land inquiries are handled through a licensed Florida REALTOR®. Purchasing land is a real estate transaction separate from any construction agreement with PreFabricated.co. Home pricing shown is an estimate only and is subject to change based on site conditions, material availability, and final design. PreFabricated.co does not provide legal, financial, or investment advice.
+            Pricing shown is an estimate only and is subject to change based on site conditions, code requirements,
+            material availability, and final design. PreFabricated.co does not provide legal, financial, or investment
+            advice. A free property evaluation confirms what is feasible on your parcel.
           </p>
         </div>
 
         <div className="rounded-lg border border-border bg-background p-5">
-          <h3 className="font-serif text-2xl mb-2">Let's make this happen.</h3>
+          <h3 className="font-serif text-2xl mb-2">Let&apos;s make this happen.</h3>
           <p className="text-sm text-muted-foreground mb-4">
-            We will review your selections, run a zoning check on the lot, and contact you within 1 business day.
+            We will review your model and customization selections and contact you within one business day to plan next
+            steps and, when you&apos;re ready, schedule a free site evaluation.
           </p>
           <form
             action={(formData) => {
@@ -140,7 +156,8 @@ export function Step4Inquiry({ session, onSubmitted }: Step4InquiryProps) {
             </button>
           </form>
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-            By submitting, I agree to be contacted by PreFabricated.co regarding my land and build selections. Land inquiries are handled through a licensed Florida REALTOR®. Home pricing is estimated and confirmed after a free site evaluation.
+            By submitting, I agree to be contacted by PreFabricated.co regarding my build configuration. Home pricing
+            is estimated and confirmed after a free site evaluation.
           </p>
         </div>
       </div>

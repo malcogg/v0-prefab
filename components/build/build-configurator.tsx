@@ -2,14 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { StepProgress } from "@/components/build/step-progress"
+import { StepProgress, type BuildWizardStep } from "@/components/build/step-progress"
 import { SummaryBar } from "@/components/build/summary-bar"
-import { Step1Land } from "@/components/build/step1-land"
 import { Step2Model } from "@/components/build/step2-model"
 import { Step3Customize } from "@/components/build/step3-customize"
 import { Step4Inquiry } from "@/components/build/step4-inquiry"
 import { ThankYou } from "@/components/build/thank-you"
-import { getStaticLandListings, type LandListing } from "@/lib/build/land-adapter"
 import {
   BUILD_SESSION_KEY,
   canContinueStep,
@@ -22,12 +20,11 @@ import {
 
 function parseStep(raw: string | null): BuildStep {
   const n = Number(raw)
-  if (n >= 1 && n <= 5) return n as BuildStep
+  if (n === 1 || n === 2 || n === 3 || n === 4) return n
   return 1
 }
 
 export function BuildConfigurator() {
-  const listings = useMemo(() => getStaticLandListings(), [])
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -47,7 +44,22 @@ export function BuildConfigurator() {
     if (!fromStorage) return
     try {
       const parsed = JSON.parse(fromStorage) as BuildSession
-      setSession({ ...parsed, step: stepFromUrl })
+      const c = parsed.customizations
+      setSession({
+        ...DEFAULT_BUILD_SESSION,
+        ...parsed,
+        step: stepFromUrl,
+        customizations: {
+          exterior: { ...DEFAULT_BUILD_SESSION.customizations.exterior, ...c?.exterior },
+          interior: { ...DEFAULT_BUILD_SESSION.customizations.interior, ...c?.interior },
+          systems: {
+            ...DEFAULT_BUILD_SESSION.customizations.systems,
+            ...c?.systems,
+            addOns: c?.systems?.addOns ?? DEFAULT_BUILD_SESSION.customizations.systems.addOns,
+          },
+          earthnestEco: c?.earthnestEco ?? DEFAULT_BUILD_SESSION.customizations.earthnestEco,
+        },
+      })
     } catch {
       setSession((prev) => ({ ...prev, step: stepFromUrl }))
     }
@@ -98,31 +110,21 @@ export function BuildConfigurator() {
     [updateStepInUrl]
   )
 
-  const canVisitStep = useCallback(
-    (target: BuildStep) => {
+  const canVisitWizardStep = useCallback(
+    (target: BuildWizardStep) => {
       if (target <= session.step) return true
-      if (target === 2) return Boolean(session.selectedLot)
-      if (target === 3) return Boolean(session.selectedModelId)
-      if (target === 4) return canContinueStep(session, 3)
-      if (target === 5) return false
+      if (target === 2) return Boolean(session.selectedModelId)
+      if (target === 3) return canContinueStep(session, 2)
       return false
     },
     [session]
   )
 
-  const handleSelectLot = useCallback(
-    (listing: LandListing) => {
-      setSession((prev) => ({ ...prev, selectedLot: listing, step: 2 }))
-      updateStepInUrl(2)
-    },
-    [updateStepInUrl]
-  )
-
   const handleSelectModel = useCallback(
     (modelId: BuildSession["selectedModelId"]) => {
       if (!modelId) return
-      setSession((prev) => ({ ...prev, selectedModelId: modelId, step: 3 }))
-      updateStepInUrl(3)
+      setSession((prev) => ({ ...prev, selectedModelId: modelId, step: 2 }))
+      updateStepInUrl(2)
     },
     [updateStepInUrl]
   )
@@ -155,46 +157,71 @@ export function BuildConfigurator() {
     })
   }, [])
 
+  const handleToggleEarthnestEco = useCallback((optionId: string) => {
+    setSession((prev) => {
+      const cur = prev.customizations.earthnestEco ?? []
+      const has = cur.includes(optionId)
+      return {
+        ...prev,
+        customizations: {
+          ...prev.customizations,
+          earthnestEco: has ? cur.filter((id) => id !== optionId) : [...cur, optionId],
+        },
+      }
+    })
+  }, [])
+
   const nextDisabled = useMemo(() => !canContinueStep(session, session.step), [session])
-  const nextLabel = session.step === 3 ? "Review & Inquire" : session.step === 4 ? "Submit" : "Next Step"
+  const nextLabel =
+    session.step === 2 ? "Review & Inquire" : session.step === 3 ? "Submit" : "Next Step"
+
+  const onWizardClick = useCallback(
+    (next: BuildWizardStep) => {
+      setStep(next as BuildStep)
+    },
+    [setStep]
+  )
 
   const content = (
     <div className="transition-opacity duration-300">
       {session.step === 1 ? (
-        <Step1Land listings={listings} selectedLotId={session.selectedLot?.id ?? null} onSelectLot={handleSelectLot} />
-      ) : null}
-      {session.step === 2 ? (
         <Step2Model selectedModelId={session.selectedModelId} onSelectModel={handleSelectModel} />
       ) : null}
-      {session.step === 3 ? (
+      {session.step === 2 ? (
         <Step3Customize
           session={session}
           basePrice={basePrice}
           optionsTotal={animatedOptionsTotal}
           onSelectSingle={handleSelectSingle}
           onToggleAddon={handleToggleAddon}
+          onToggleEarthnestEco={handleToggleEarthnestEco}
         />
       ) : null}
-      {session.step === 4 ? (
+      {session.step === 3 ? (
         <Step4Inquiry
           session={session}
           onSubmitted={(email) => {
             setSubmittedEmail(email)
-            setStep(5)
+            setStep(4)
           }}
         />
       ) : null}
-      {session.step === 5 ? (
-        <ThankYou lotAddress={session.selectedLot?.address} modelName={selectedModel?.name} email={submittedEmail} />
+      {session.step === 4 ? (
+        <ThankYou modelName={selectedModel?.name} email={submittedEmail} />
       ) : null}
     </div>
   )
 
+  const showProgressAndBar = session.step <= 3
+  const wizardStep = (session.step <= 3 ? session.step : 3) as BuildWizardStep
+
   return (
     <div className="bg-[rgb(250,250,248)] min-h-screen pb-20">
-      <StepProgress step={session.step <= 4 ? session.step : 4} onStepClick={setStep} canVisitStep={canVisitStep} />
+      {showProgressAndBar ? (
+        <StepProgress step={wizardStep} onStepClick={onWizardClick} canVisitStep={canVisitWizardStep} />
+      ) : null}
       {content}
-      {session.step <= 4 ? (
+      {showProgressAndBar ? (
         <SummaryBar
           session={session}
           step={session.step}
@@ -202,7 +229,7 @@ export function BuildConfigurator() {
           nextLabel={nextLabel}
           onBack={() => setStep(Math.max(1, session.step - 1) as BuildStep)}
           onNext={() => {
-            if (session.step === 4) return
+            if (session.step === 3) return
             if (nextDisabled) return
             setStep((session.step + 1) as BuildStep)
           }}

@@ -40,7 +40,7 @@ export const buildInquirySubmissionSchema = z.object({
     z.string().trim().max(4000),
   ),
   session: z.object({
-    step: z.coerce.number().min(1).max(5),
+    step: z.coerce.number().min(1).max(4),
     selectedLot: z
       .object({
         id: z.string(),
@@ -61,6 +61,7 @@ export const buildInquirySubmissionSchema = z.object({
         hvac: z.string(),
         addOns: z.array(z.string()).default([]),
       }),
+      earthnestEco: z.array(z.string()).default([]),
     }),
   }),
 })

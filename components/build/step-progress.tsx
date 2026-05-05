@@ -2,19 +2,20 @@
 
 import { CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { BuildStep } from "@/lib/build/session"
 
-const STEPS: Array<{ step: BuildStep; label: string }> = [
-  { step: 1, label: "Select Land" },
-  { step: 2, label: "Choose Home" },
-  { step: 3, label: "Customize" },
-  { step: 4, label: "Inquiry" },
+/** Visible steps only (Choose Home → Customize → Inquiry); bracket labels stay [2][3][4]. */
+export type BuildWizardStep = 1 | 2 | 3
+
+const STEPS: Array<{ step: BuildWizardStep; displayIndex: number; label: string }> = [
+  { step: 1, displayIndex: 2, label: "Choose Home" },
+  { step: 2, displayIndex: 3, label: "Customize" },
+  { step: 3, displayIndex: 4, label: "Inquiry" },
 ]
 
 type StepProgressProps = {
-  step: BuildStep
-  onStepClick: (next: BuildStep) => void
-  canVisitStep: (target: BuildStep) => boolean
+  step: BuildWizardStep
+  onStepClick: (next: BuildWizardStep) => void
+  canVisitStep: (target: BuildWizardStep) => boolean
 }
 
 export function StepProgress({ step, onStepClick, canVisitStep }: StepProgressProps) {
@@ -38,7 +39,11 @@ export function StepProgress({ step, onStepClick, canVisitStep }: StepProgressPr
                   )}
                 >
                   <span className="inline-flex items-center gap-1">
-                    {complete ? <CheckCircle2 className="w-4 h-4 text-primary" /> : <span>[{item.step}]</span>}
+                    {complete ? (
+                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                    ) : (
+                      <span>[{item.displayIndex}]</span>
+                    )}
                     {item.label}
                   </span>
                 </button>

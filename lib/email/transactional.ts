@@ -103,18 +103,17 @@ export function buildInquiryUserConfirmationEmail(payload: BuildPayload) {
 
   const inner = `
     ${h2(`Hi ${esc(payload.name.split(" ")[0] || payload.name)}, your build summary`)}
-    ${p("Thanks for submitting your <strong>land + home</strong> inquiry. Here’s what we have on file:")}
-    ${p(`<strong>Lot:</strong> ${lotLine}<br/>
-        <strong>Home model:</strong> ${modelLine}<br/>
+    ${p("Thanks for submitting your <strong>home configuration</strong>. Here’s what we have on file:")}
+    ${p(`${lot ? `<strong>Lot:</strong> ${lotLine}<br/>` : ""}<strong>Home model:</strong> ${modelLine}<br/>
         <strong>How you heard about us:</strong> ${esc(payload.hearAbout || "—")}`)}
     ${p("<strong>Your message:</strong><br/>" + esc(payload.message || "—").replace(/\n/g, "<br/>"))}
-    ${p("We’ll review your selections, run a zoning check on the lot where applicable, and contact you within <strong>one business day</strong>.")}
+    ${p("We’ll review your selections" + (lot ? ", run a zoning check on the lot where applicable," : "") + " and contact you within <strong>one business day</strong>.")}
     ${p("<em>This is an inquiry only — not a purchase agreement or contract.</em>")}
     ${button("https://www.prefabricated.co/build?step=1", "Return to build configurator")}
   `
   return emailLayout({
     title: "Your build inquiry",
-    preheader: "We received your land + home configuration.",
+    preheader: "We received your home configuration.",
     innerHtml: inner,
   })
 }
@@ -136,7 +135,7 @@ export function buildInquiryTeamNotificationEmail(
         <strong>Email:</strong> <a href="mailto:${esc(payload.email)}">${esc(payload.email)}</a><br/>
         <strong>Phone:</strong> ${esc(payload.phone)}<br/>
         <strong>Hear about:</strong> ${esc(payload.hearAbout || "—")}`)}
-    ${p(`<strong>Lot:</strong> ${lot ? esc(`${lot.address}, ${lot.city}`) : "—"}<br/>
+    ${p(`<strong>Lot / site:</strong> ${lot ? esc(`${lot.address}, ${lot.city}`) : "Not specified — to be discussed at evaluation"}<br/>
         <strong>Model:</strong> ${model ? esc(model.name) : esc(payload.session.selectedModelId ?? "—")}`)}
     ${p(`<strong>Message:</strong><br/>${esc(payload.message || "—").replace(/\n/g, "<br/>")}`)}
     ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}<br/><strong>User-Agent:</strong> ${esc(meta.userAgent ?? "—")}`)}

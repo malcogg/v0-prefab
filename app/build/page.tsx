@@ -7,7 +7,7 @@ import { BuildConfigurator } from "@/components/build/build-configurator"
 export const metadata: Metadata = {
   title: "Build Your EarthNest ADU or Prefab Backyard Home | Prefabricated.co",
   description:
-    "Browse available land in Central Florida, choose an EarthNest model or traditional site-built ADU, customize finishes and eco-ready options, and submit your build inquiry.",
+    "Choose an EarthNest model or traditional site-built ADU, customize finishes and eco-ready options, and submit your build inquiry. Property-specific feasibility starts with a free site evaluation.",
   robots: { index: true, follow: true },
   alternates: { canonical: "/build" },
 }
@@ -17,7 +17,7 @@ export default function BuildPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "EarthNest Build Configurator",
-    description: "Multi-step land and home configurator for EarthNest ADU and prefab backyard home projects.",
+    description: "Multi-step home configurator for EarthNest ADU and prefab backyard home projects.",
     url: "https://www.prefabricated.co/build",
     provider: {
       "@id": "https://www.prefabricated.co/#business",

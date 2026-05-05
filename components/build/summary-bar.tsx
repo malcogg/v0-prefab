@@ -15,7 +15,6 @@ type SummaryBarProps = {
 }
 
 export function SummaryBar({ session, step, canGoNext, onBack, onNext, nextLabel }: SummaryBarProps) {
-  const lot = session.selectedLot
   const model = getSelectedModel(session.selectedModelId)
   const optionsTotal = calculateOptionsTotal(session)
   const estimatedTotal = calculateEstimatedTotal(session)
@@ -23,16 +22,20 @@ export function SummaryBar({ session, step, canGoNext, onBack, onNext, nextLabel
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/98 backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-3">
-        <div className="hidden md:grid grid-cols-4 gap-3 items-center">
+        <div className="hidden md:grid grid-cols-3 gap-3 items-center">
           <div className="text-xs text-muted-foreground">
-            Lot: {lot ? `${lot.address}, ${lot.city} — ${formatCurrency(lot.askingPrice)}` : "—"}
-          </div>
-          <div className="text-xs text-muted-foreground">
-            Home: {model ? `${model.name} — from ${formatCurrency(model.startingAt)}` : "—"}
+            <span className="font-medium text-foreground">Home: </span>
+            {model ? `${model.name} — from ${formatCurrency(model.startingAt)}` : "—"}
           </div>
           <div className="text-xs font-semibold text-foreground">
-            Est. Total: {estimatedTotal > 0 ? `${formatCurrency(estimatedTotal)}+` : "—"}
-            {optionsTotal > 0 ? <span className="text-muted-foreground font-normal"> (options: {formatCurrency(optionsTotal)})</span> : null}
+            Est. build (home + options):{" "}
+            {estimatedTotal > 0 ? `${formatCurrency(estimatedTotal)}+` : "—"}
+            {optionsTotal > 0 ? (
+              <span className="text-muted-foreground font-normal">
+                {" "}
+                (options: {formatCurrency(optionsTotal)})
+              </span>
+            ) : null}
           </div>
           <div className="justify-self-end flex items-center gap-2">
             <button
@@ -58,7 +61,7 @@ export function SummaryBar({ session, step, canGoNext, onBack, onNext, nextLabel
 
         <div className="md:hidden flex items-center justify-between gap-3">
           <div className="text-xs">
-            <p className="text-muted-foreground">Estimated Total</p>
+            <p className="text-muted-foreground">Est. build (home + options)</p>
             <p className="font-semibold text-foreground">{estimatedTotal > 0 ? `${formatCurrency(estimatedTotal)}+` : "—"}</p>
           </div>
           <div className="flex items-center gap-2">

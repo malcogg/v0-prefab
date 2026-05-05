@@ -1,8 +1,10 @@
+import { earthnestEcoOptionPrice } from "@/lib/build/eco-modules"
 import { HOME_MODELS } from "@/lib/build/models"
 import { EXTERIOR_OPTIONS, INTERIOR_OPTIONS, SYSTEM_OPTIONS } from "@/lib/build/options"
 import type { LandListing } from "@/lib/build/land-adapter"
 
-export type BuildStep = 1 | 2 | 3 | 4 | 5
+/** 1 = Choose Home, 2 = Customize, 3 = Inquiry, 4 = Thank you */
+export type BuildStep = 1 | 2 | 3 | 4
 
 export type BuildSession = {
   step: BuildStep
@@ -27,10 +29,12 @@ export type BuildSession = {
       hvac: string
       addOns: string[]
     }
+    /** EarthNest / permaculture & site modules (multi-select). */
+    earthnestEco: string[]
   }
 }
 
-export const BUILD_SESSION_KEY = "earthnest-build-session-v1"
+export const BUILD_SESSION_KEY = "earthnest-build-session-v2"
 
 export const DEFAULT_BUILD_SESSION: BuildSession = {
   step: 1,
@@ -55,6 +59,7 @@ export const DEFAULT_BUILD_SESSION: BuildSession = {
       hvac: "standard-mini-split",
       addOns: [],
     },
+    earthnestEco: [],
   },
 }
 
@@ -68,7 +73,8 @@ export function getSelectedModel(modelId: BuildSession["selectedModelId"]) {
 }
 
 export function calculateOptionsTotal(session: BuildSession) {
-  const { exterior, interior, systems } = session.customizations
+  const { exterior, interior, systems, earthnestEco } = session.customizations
+  const eco = earthnestEco ?? []
   return (
     optionPrice(exterior.siding, EXTERIOR_OPTIONS.siding) +
     optionPrice(exterior.roof, EXTERIOR_OPTIONS.roof) +
@@ -81,24 +87,23 @@ export function calculateOptionsTotal(session: BuildSession) {
     optionPrice(interior.fixtures, INTERIOR_OPTIONS.fixtures) +
     optionPrice(interior.wallAccent, INTERIOR_OPTIONS.wallAccent) +
     optionPrice(systems.hvac, SYSTEM_OPTIONS.hvac) +
-    systems.addOns.reduce((sum, addOn) => sum + optionPrice(addOn, SYSTEM_OPTIONS.addOns), 0)
+    systems.addOns.reduce((sum, addOn) => sum + optionPrice(addOn, SYSTEM_OPTIONS.addOns), 0) +
+    eco.reduce((sum, id) => sum + earthnestEcoOptionPrice(id), 0)
   )
 }
 
 export function calculateEstimatedTotal(session: BuildSession) {
-  const lotPrice = session.selectedLot?.askingPrice ?? 0
   const modelPrice = getSelectedModel(session.selectedModelId)?.startingAt ?? 0
   const optionsTotal = calculateOptionsTotal(session)
-  return lotPrice + modelPrice + optionsTotal
+  return modelPrice + optionsTotal
 }
 
 export function canContinueStep(session: BuildSession, step: BuildStep) {
-  if (step === 1) return Boolean(session.selectedLot)
-  if (step === 2) return Boolean(session.selectedModelId)
-  if (step === 3) {
+  if (step === 1) return Boolean(session.selectedModelId)
+  if (step === 2) {
     const required = session.customizations
     return Boolean(required.exterior.siding && required.interior.flooring && required.interior.cabinets)
   }
-  if (step === 4) return true
+  if (step === 3) return true
   return false
 }
