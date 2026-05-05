@@ -59,22 +59,20 @@ export function EarthNestSection() {
               The EarthNest Model
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">
-              Eco-Conscious Design Built for Florida
+              Eco-Conscious Living Systems Built for Florida
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              The EarthNest line includes two container-based flex units and a fully custom
-              site-built ADU — each engineered specifically for Central Florida's climate. Our
-              Traditional Site-Built ADU is our primary permitted rental product. Our 20ft and 40ft
-              container units serve as guesthouses, home offices, and flex-use spaces, or as
-              permitted ADUs in qualifying jurisdictions outside Orange County unincorporated. Your
-              free site evaluation determines exactly what's permittable on your property.
+              EarthNest is our broader living system concept: shelter, energy, water, food,
+              healthy materials, Florida climate design, and smart monitoring working together.
+              The first practical branch is still the ADU path — foundation-built, code-aware, and
+              evaluated parcel by parcel.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Every EarthNest unit is mounted on a permanent foundation, fully permitted, and built
-              to Florida Building Code. Units are engineered to Florida Building Code wind load
-              requirements for Central Florida. We emphasize{" "}
-              <strong className="text-foreground">efficiency, sustainability, and cost-conscious design</strong>{" "}
-              — not exaggerated claims.
+              EarthNest 20 and EarthNest 40 introduce compact prefab concepts for guest space,
+              work, retreat, and qualifying jurisdictions. The Traditional Site-Built ADU remains
+              the primary Orange County rental product. We emphasize{" "}
+              <strong className="text-foreground">efficiency, sustainability, staged resilience, and cost-conscious design</strong>{" "}
+              — not exaggerated off-grid claims.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-10">
@@ -95,10 +93,10 @@ export function EarthNestSection() {
             </div>
 
             <Link
-              href="#qualify"
+              href="/earthnest-living-systems"
               className="inline-flex items-center px-7 py-3.5 bg-primary text-white text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
-              Explore the EarthNest for Your Property
+              Learn About EarthNest Living Systems
             </Link>
           </div>
         </div>

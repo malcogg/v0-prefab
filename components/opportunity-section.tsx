@@ -6,24 +6,24 @@ export function OpportunitySection() {
   const benefits = [
     {
       icon: DollarSign,
-      title: "Rental Income",
+      title: "Backyard Income",
       value: "$1,200–$2,500/mo",
       description:
-        "Generate consistent monthly income from your existing property without selling or refinancing.",
+        "Explore long-term rental potential from a legal, foundation-built ADU without selling the property you already own.",
     },
     {
       icon: TrendingUp,
-      title: "Property Value",
-      value: "+15–30% Typical Increase",
+      title: "Family Flexibility",
+      value: "One Lot, More Options",
       description:
-        "A permitted ADU is a permanent asset that increases appraised value and marketability.",
+        "Create space for parents, adult children, guests, work, retreat, or future downsizing with code-aware planning.",
     },
     {
       icon: Home,
-      title: "Dual-Income Model",
-      value: "2 Rentals, 1 Lot",
+      title: "Eco-Living Foundation",
+      value: "Systems Over Structures",
       description:
-        "Live in one unit, rent the other — or rent both. Build long-term wealth on the property you already own.",
+        "Start with shelter, then add staged resilience through energy, water, landscape, healthy materials, and automation.",
     },
   ]
 
@@ -34,15 +34,16 @@ export function OpportunitySection() {
           {/* Left: Content */}
           <div>
             <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
-              The Opportunity
+              The Backyard Opportunity
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-white text-balance leading-tight mb-6">
-              Your Property Can Work Harder for You
+              Unused Land Can Become a Smarter Living System
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-12">
-              Central Florida's rental market is strong. If you own property in Orange County or the
-              greater Orlando area, you likely have an untapped asset sitting in your backyard. We
-              help you unlock it — legally, efficiently, and profitably.
+              Most homeowners have land sitting unused behind the house. That space could become
+              rental income, family housing, a guest suite, a home office, a downsizing option, or
+              the first layer of a more sustainable Florida living system. We help make the path
+              practical: zoning, feasibility, design, permitting, and build coordination.
             </p>
 
             <div className="flex flex-col gap-8">

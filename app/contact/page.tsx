@@ -6,9 +6,9 @@ import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Contact PreFabricated.co | Tiny Homes & ADUs in Florida",
+  title: "Contact Prefabricated.co | Florida Prefab Homes, Tiny Living & ADUs",
   description:
-    "Contact PreFabricated.co for tiny home and ADU zoning, permitting, design, and build support in Florida.",
+    "Contact Prefabricated.co for Florida prefab homes, tiny living systems, ADU zoning, permitting, design, and build support.",
   alternates: { canonical: "/contact" },
 }
 
@@ -30,8 +30,9 @@ export default function ContactPage() {
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">Contact</p>
           <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-6">Get in Touch</h1>
           <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-            Have questions about ADU eligibility, timeline, or cost? Reach out and we&apos;ll help you
-            map out the right next step for your property.
+            Have questions about ADU eligibility, prefab backyard homes, EarthNest Living Systems,
+            timeline, or cost? Reach out and we&apos;ll help you map out the right next step for your
+            property.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">

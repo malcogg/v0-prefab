@@ -15,18 +15,21 @@ export function Navigation() {
   }, [])
 
   const primaryLinks = [
-    { label: "ADU Rules by County", href: "/adu-rules" },
-    { label: "ADU Calculator", href: "/adu-calculator" },
-    { label: "Our Process", href: "/#process" },
-    { label: "FAQ", href: "/faq" },
+    { label: "ADUs", href: "/#what-is-adu" },
+    { label: "EarthNest", href: "/earthnest-living-systems" },
+    { label: "Models", href: "/#design-options" },
+    { label: "Calculator", href: "/adu-calculator" },
+    { label: "Florida Rules", href: "/adu-rules" },
   ]
 
   const exploreLinks = [
-    { label: "What is an ADU?", href: "/#what-is-adu" },
-    { label: "The Opportunity", href: "/#opportunity" },
-    { label: "EarthNest Model", href: "/#earthnest" },
-    { label: "Our Team", href: "/#team" },
-    { label: "Partners", href: "/#partners" },
+    { label: "Build Process", href: "/#process" },
+    { label: "Eco Upgrades", href: "/eco-upgrades" },
+    { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
+    { label: "Resources", href: "/resources" },
+    { label: "FAQ", href: "/faq" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ]
 
   return (
@@ -39,7 +42,7 @@ export function Navigation() {
     >
       <div className="bg-primary/90 border-b border-primary/50 px-4 py-2">
         <p className="text-center text-primary-foreground text-[11px] font-medium tracking-wide uppercase">
-          All ADUs are Foundation-Built · Fully Permitted · Florida Building Code Compliant
+          Florida-ready prefab ADUs · Foundation-Built · Code-Aware · Eco-Conscious
         </p>
       </div>
 
@@ -47,7 +50,7 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none group">
           <span className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
-            prefabricated.co
+            Prefabricated.co
           </span>
         </Link>
 
@@ -75,12 +78,12 @@ export function Navigation() {
               aria-expanded={exploreOpen}
               aria-haspopup="menu"
             >
-              Explore
+              Resources
             </button>
             {exploreOpen && (
               <div className="absolute top-full right-0 mt-3 w-72 bg-background border border-border rounded-lg shadow-lg p-3 z-50">
                 <p className="text-[11px] uppercase tracking-wide text-muted-foreground px-2 pb-2">
-                  More Resources
+                  Explore The Platform
                 </p>
                 <div className="flex flex-col gap-1">
                   {exploreLinks.map((link) => (

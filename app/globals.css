@@ -5,34 +5,37 @@
 
 :root {
   /* Brand Colors */
-  --brand-teal: oklch(0.72 0.13 192);
-  --brand-teal-dark: oklch(0.58 0.13 192);
-  --brand-black: oklch(0.12 0 0);
+  --brand-teal: oklch(0.55 0.11 165);
+  --brand-teal-dark: oklch(0.44 0.1 165);
+  --brand-black: oklch(0.18 0.02 95);
   --brand-white: oklch(1 0 0);
-  --brand-gray: oklch(0.96 0 0);
-  --brand-gray-mid: oklch(0.88 0 0);
-  --brand-gray-text: oklch(0.5 0 0);
+  --brand-sand: oklch(0.96 0.02 85);
+  --brand-clay: oklch(0.62 0.11 55);
+  --brand-sage: oklch(0.72 0.07 145);
+  --brand-gray: oklch(0.96 0.01 85);
+  --brand-gray-mid: oklch(0.87 0.01 85);
+  --brand-gray-text: oklch(0.46 0.02 95);
 
   /* Semantic Tokens */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.12 0 0);
-  --card: oklch(0.98 0 0);
-  --card-foreground: oklch(0.12 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0 0);
-  --primary: oklch(0.72 0.13 192);
+  --background: oklch(0.99 0.01 85);
+  --foreground: oklch(0.18 0.02 95);
+  --card: oklch(0.98 0.01 85);
+  --card-foreground: oklch(0.18 0.02 95);
+  --popover: oklch(0.99 0.01 85);
+  --popover-foreground: oklch(0.18 0.02 95);
+  --primary: oklch(0.55 0.11 165);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.12 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.72 0.13 192);
+  --secondary: oklch(0.95 0.02 85);
+  --secondary-foreground: oklch(0.18 0.02 95);
+  --muted: oklch(0.95 0.02 85);
+  --muted-foreground: oklch(0.46 0.02 95);
+  --accent: oklch(0.62 0.11 55);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.88 0 0);
-  --ring: oklch(0.72 0.13 192);
+  --border: oklch(0.87 0.01 85);
+  --input: oklch(0.87 0.01 85);
+  --ring: oklch(0.55 0.11 165);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

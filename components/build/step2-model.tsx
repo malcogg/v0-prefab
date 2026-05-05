@@ -14,8 +14,13 @@ export function Step2Model({ selectedModelId, onSelectModel }: Step2ModelProps) 
   return (
     <section className="py-8">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-3">Choose your home model.</h2>
-        <p className="text-muted-foreground mb-8">Three models. Each built for a different need.</p>
+        <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-3">
+          Choose your EarthNest model.
+        </h2>
+        <p className="text-muted-foreground mb-8">
+          Compare compact prefab concepts and the traditional site-built ADU path for larger,
+          fully custom backyard homes.
+        </p>
         <div className="grid md:grid-cols-3 gap-5">
           {HOME_MODELS.map((model) => {
             const selected = selectedModelId === model.id

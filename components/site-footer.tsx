@@ -5,7 +5,10 @@ import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 export function SiteFooter() {
   const navLinks = [
     { label: "What is an ADU?", href: "/#what-is-adu" },
-    { label: "The Opportunity", href: "/#opportunity" },
+    { label: "EarthNest Living Systems", href: "/earthnest-living-systems" },
+    { label: "Eco Upgrades", href: "/eco-upgrades" },
+    { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
+    { label: "Resources", href: "/resources" },
     { label: "Design Options", href: "/#design-options" },
     { label: "Our Process", href: "/#process" },
     { label: "EarthNest Model", href: "/#earthnest" },
@@ -32,7 +35,7 @@ export function SiteFooter() {
               Ready to unlock your property's potential?
             </h2>
             <p className="text-white/60 text-sm mt-1">
-              Free evaluation. No obligation. Serving Florida, based in Orlando.
+              Free evaluation. No obligation. Florida prefab, ADU, and tiny living guidance.
             </p>
           </div>
           <Link
@@ -49,12 +52,15 @@ export function SiteFooter() {
         {/* Brand */}
         <div>
           <div className="mb-4">
-            <p className="font-serif text-xl text-white">PreFabricated.co</p>
-            <p className="text-[10px] tracking-widest uppercase text-white/40">Tiny Homes / ADUs</p>
+            <p className="font-serif text-xl text-white">Prefabricated.co</p>
+            <p className="text-[10px] tracking-widest uppercase text-white/40">
+              Prefab Homes / ADUs / EarthNest Systems
+            </p>
           </div>
           <p className="text-white/60 text-sm leading-relaxed mb-6">
-            Florida tiny home and ADU specialists. We help homeowners and investors add legal,
-            permitted, foundation-built units that generate income and build long-term wealth.
+            Florida prefab home, tiny living, and ADU specialists. We help homeowners and
+            investors explore legal, permitted, foundation-built backyard units and eco-conscious
+            living systems that create flexibility, income potential, and long-term resilience.
           </p>
           <div className="flex flex-col gap-3">
             <a
@@ -133,6 +139,8 @@ export function SiteFooter() {
               "Osceola County",
               "Seminole County",
               "Lake County",
+              "Lake County",
+              "Polk County",
               "Greater Central Florida",
             ].map((area) => (
               <li key={area} className="text-sm text-white/60">
@@ -152,7 +160,9 @@ export function SiteFooter() {
             Short-term rentals (under 30 days) are prohibited for ADUs in most Orange County
             residential zones. Costs vary by property. Rental income estimates are typical ranges
             and are not guaranteed. PreFabricated.co does not provide legal, financial, or tax
-            advice. PreFabricated.co is a registered business in the State of Florida.
+            advice. Eco upgrades, water systems, solar, food landscaping, and automation options
+            depend on local code, utility requirements, site conditions, and owner maintenance
+            capacity. Prefabricated.co is a registered business in the State of Florida.
           </p>
         </div>
       </div>
@@ -161,10 +171,10 @@ export function SiteFooter() {
       <div className="border-t border-white/10 py-5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p>
-            &copy; {new Date().getFullYear()} PreFabricated.co Tiny Homes / ADUs in Florida. All rights
+            &copy; {new Date().getFullYear()} Prefabricated.co Prefab Homes / Tiny Living / ADUs in Florida. All rights
             reserved.
           </p>
-          <p>Permitted · Foundation-Built · Florida Building Code Compliant</p>
+          <p>Permitted · Foundation-Built · Florida-Ready · Eco-Conscious</p>
         </div>
       </div>
     </footer>

@@ -1,19 +1,19 @@
 export const SITE_URL = "https://www.prefabricated.co"
 
 export const DEFAULT_SEO = {
-  title: "PreFabricated.co — Tiny Homes & ADUs in Florida",
+  title: "Prefabricated.co — Florida Prefab ADUs & Eco Tiny Living",
   description:
-    "Florida tiny home and ADU specialists. We build legal, permitted, foundation-built units—serving the state, based in Orlando. Free property evaluation.",
+    "Florida prefab home, ADU, backyard income unit, and eco-conscious tiny living specialists. Explore legal foundation-built options and EarthNest Living Systems.",
 }
 
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#business`,
-  name: "PreFabricated.co",
-  alternateName: "PreFabricated.co — Tiny Homes / ADUs in Florida",
+  name: "Prefabricated.co",
+  alternateName: "Prefabricated.co — Florida Prefab Homes, Tiny Living, and ADUs",
   description:
-    "Central Florida's eco-conscious ADU specialists. We help homeowners and investors add legal, permitted, foundation-built accessory dwelling units that generate income and build long-term wealth.",
+    "Central Florida prefab home, tiny living, and eco-conscious ADU specialists. We help homeowners and investors explore legal, permitted, foundation-built accessory dwelling units, backyard income units, and EarthNest Living Systems.",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
   image: `${SITE_URL}/og/homepage.jpg`,
@@ -44,6 +44,10 @@ export const LOCAL_BUSINESS_SCHEMA = {
     "ADU Design",
     "ADU Zoning Consultation",
     "ADU Site Evaluation",
+    "Prefab Backyard Homes",
+    "Tiny Home Education",
+    "Eco-Conscious Living Systems",
+    "Sustainable Home Upgrades",
   ],
   priceRange: "$$$",
   openingHoursSpecification: {

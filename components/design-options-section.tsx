@@ -6,8 +6,8 @@ import Link from "next/link"
 export function DesignOptionsSection() {
   const models = [
     {
-      title: "EarthNest 20ft Studio",
-      badge: "Flexible Use Unit — Guesthouse or Home Office",
+      title: "EarthNest 20",
+      badge: "Entry Prefab Studio Concept",
       image: "/images/container-adu.jpg",
       alt: "20ft container studio ADU on permanent foundation",
       size: "~160 sq ft",
@@ -17,7 +17,7 @@ export function DesignOptionsSection() {
       rent: null,
       timeline: "Fastest",
       bestFor:
-        "Private guesthouse for family, home office, detached studio, or hobby space — not intended as a rentable ADU in Orange County (unincorporated).",
+        "Backyard studio ADU where allowed, guest suite, office, retreat pod, starter eco-living model, or creative studio — not intended as a rentable ADU in Orange County (unincorporated).",
       disclaimer:
         "At ~160 sq ft, this unit does not meet Orange County's 400 sq ft minimum for a permitted ADU. It is best suited for non-rental uses such as a guesthouse, office, or studio. Eligible uses vary by jurisdiction — we'll confirm during your free site evaluation.",
       features: [
@@ -25,12 +25,13 @@ export function DesignOptionsSection() {
         "Concrete slab foundation",
         "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Closed-cell spray foam insulation",
-        "Full kitchen & bath included",
+        "Kitchenette, bath, efficient HVAC, and solar-ready infrastructure options",
+        "Smart monitoring and edible landscape starter package available",
       ],
     },
     {
-      title: "EarthNest 40ft 1-Bedroom",
-      badge: "EarthNest 40ft Expanded Studio",
+      title: "EarthNest 40",
+      badge: "Expanded 1-Bedroom Prefab System",
       image: "/images/earthnest-model.jpg",
       alt: "40ft container one-bedroom ADU in Florida",
       size: "~320 sq ft",
@@ -40,7 +41,7 @@ export function DesignOptionsSection() {
       rent: null,
       timeline: "Fast",
       bestFor:
-        "Guesthouse, extended family suite, home office with sleeping quarters — may qualify as a permitted ADU in select jurisdictions outside Orange County unincorporated (verified during free site evaluation).",
+        "Premium backyard ADU where allowed, long-term guest suite, family housing, eco retreat unit, primary tiny home concept, or future community model.",
       disclaimer:
         "At ~320 sq ft, this unit falls below Orange County's 400 sq ft ADU minimum. Eligible as a permitted ADU in some surrounding jurisdictions. Your free site evaluation will confirm what's possible on your specific property.",
       features: [
@@ -48,7 +49,8 @@ export function DesignOptionsSection() {
         "Concrete slab foundation",
         "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Closed-cell spray foam insulation",
-        "Separate bedroom + living area",
+        "Sleeping area, kitchen, bathroom, living area, and mechanical/storage zone",
+        "Solar/battery-ready, water/landscape-ready, and smart monitoring options",
       ],
     },
     {
@@ -63,13 +65,14 @@ export function DesignOptionsSection() {
       rent: "$1,400 – $2,500/mo",
       timeline: "Longest",
       bestFor:
-        "Permitted rentable ADU in Orange County and surrounding jurisdictions, seamless aesthetic match, larger units, maximum appraisal value.",
+        "Family member housing, larger rental unit, higher-end backyard home, custom layout, and property-value strategy.",
       features: [
         "Traditional stick-built or CMU block",
         "Concrete slab foundation",
         "Engineered to Florida Building Code wind load requirements for Central Florida",
         "Matches primary home style",
         "Fully custom design & layout",
+        "Compatible with staged eco upgrades and smart monitoring options",
       ],
       highlight: true,
     },
@@ -80,14 +83,14 @@ export function DesignOptionsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
-            Our ADU Models
+            Product Lanes
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">
-            Three Models. Clear Pricing. Your Choice.
+            EarthNest 20, EarthNest 40, or a Traditional ADU.
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            We don't do vague quotes. Here are our three defined ADU models with transparent pricing
-            so you can make informed decisions before we even speak.
+            Start with the structure that fits your property and goals, then layer in the right
+            sustainability, landscape, water, and automation options over time.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: DEFAULT_SEO.title,
   description: DEFAULT_SEO.description,
-  authors: [{ name: "PreFabricated.co" }],
+  authors: [{ name: "Prefabricated.co" }],
   robots: {
     index: true,
     follow: true,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "PreFabricated.co",
+    siteName: "Prefabricated.co",
     url: SITE_URL,
     title: DEFAULT_SEO.title,
     description: DEFAULT_SEO.description,
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="author" content="EarthNest Florida" />
+        <meta name="author" content="Prefabricated.co" />
         <meta name="google-site-verification" content="PASTE_VERIFICATION_CODE_HERE" />
         <meta name="theme-color" content="#0F6E56" />
         <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
