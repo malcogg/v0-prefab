@@ -362,7 +362,7 @@ const RAW = [
     county: "Lee County",
     state: "FL" as const,
     streetAddress: "4661 Pine Island Rd",
-    postalCode: "33993",
+    postalCode: "33922",
     latitude: 26.616,
     longitude: -82.069,
     contact: {
