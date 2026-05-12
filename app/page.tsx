@@ -14,6 +14,7 @@ import { TeamSection } from "@/components/team-section"
 import { FreeCourseSection } from "@/components/free-course-section"
 import { LeadFormSection } from "@/components/lead-form-section"
 import { PartnerSection } from "@/components/partner-section"
+import { TinyHomeDirectorySection } from "@/components/tiny-home-directory-section"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
 
@@ -117,6 +118,7 @@ export default function Home() {
       <FreeCourseSection />
       <LeadFormSection />
       <PartnerSection />
+      <TinyHomeDirectorySection />
       <SiteFooter />
     </main>
   )

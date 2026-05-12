@@ -9,6 +9,7 @@ export function SiteFooter() {
     { label: "EarthNest Living Systems", href: "/earthnest-living-systems" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
+    { label: "Tiny Home Communities", href: "/tiny-home-communities" },
     { label: "Resources", href: "/resources" },
     { label: "Design Options", href: "/#design-options" },
     { label: "Our Process", href: "/#process" },

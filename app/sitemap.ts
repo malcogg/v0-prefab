@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
+import { getFloridaSlugParams } from "@/lib/tiny-home-communities/repo"
 
 const SITE_URL = "https://www.prefabricated.co"
 
@@ -12,7 +13,8 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
     path === "/free-adu-course/starter-kit" ||
     isHub
   ) return 0.9
-  if (path === "/adu-calculator" || path === "/florida-tiny-living-guide" || path === "/resources" || path === "/faq") return 0.8
+  if (path === "/adu-calculator" || path === "/florida-tiny-living-guide" || path === "/tiny-home-communities" || path === "/resources" || path === "/faq") return 0.8
+  if (path === "/tiny-home-communities/florida") return 0.82
   if (path === "/adu-checklist") return 0.7
   if (tier === 1) return 0.8
   if (tier === 2) return 0.7
@@ -29,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/earthnest-living-systems",
     "/eco-upgrades",
     "/florida-tiny-living-guide",
+    "/tiny-home-communities",
+    "/tiny-home-communities/florida",
     "/resources",
     "/adu-calculator",
     "/faq",
@@ -51,5 +55,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: priorityForPath(`/${page.slug}`, page.tier, page.isHub),
   }))
 
-  return [...core, ...local]
+  const tinyHomeFlorida = getFloridaSlugParams().map((row) => {
+    const path = `/tiny-home-communities/florida/${row.slug}`
+    return {
+      url: `${SITE_URL}${path}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.62,
+    }
+  })
+
+  return [...core, ...local, ...tinyHomeFlorida]
 }

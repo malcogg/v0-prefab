@@ -127,6 +127,35 @@ export default function FloridaTinyLivingGuidePage() {
         </div>
       </section>
 
+      <section className="py-16 bg-background border-y border-border">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Florida directory</p>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground text-balance mb-3">
+              Browse steward-led tiny dwelling campuses.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Prefabricated.co maps lakefront homesteads, Space Coast cottages, Tampa Bay escapes, Sarasota micro campuses, leasehold cottages, and more—filtered by region cluster
+              and tenancy style, with outbound links you can vet yourself.
+            </p>
+          </div>
+          <div className="shrink-0 flex flex-wrap gap-3">
+            <Link
+              href="/tiny-home-communities"
+              className="inline-flex items-center px-7 py-3.5 bg-primary text-primary-foreground text-sm font-semibold rounded hover:bg-[oklch(0.58_0.13_192)]"
+            >
+              National hub · Florida spotlight
+            </Link>
+            <Link
+              href="/tiny-home-communities/florida"
+              className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded hover:border-primary/40"
+            >
+              Florida roster
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-[oklch(0.11_0_0)]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-serif text-4xl text-white text-balance mb-5">
