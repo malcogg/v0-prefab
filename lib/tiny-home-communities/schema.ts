@@ -86,6 +86,13 @@ export const editorialSourceSchema = z.object({
 
 export type EditorialSource = z.infer<typeof editorialSourceSchema>
 
+/** HTTPS URL or root-relative `/public` asset (e.g. `/images/foo.png`). */
+export const listingImageUrlSchema = z
+  .string()
+  .refine((s) => /^https?:\/\//i.test(s) || /^\/[^?\s]+$/.test(s), {
+    message: "Listing image URL must be http(s) or a root-relative path",
+  })
+
 const contactSchema = z.object({
   website: z.string().url().optional(),
   email: z.string().email().optional(),
@@ -119,7 +126,7 @@ export const tinyHomeCommunitySchema = z.object({
   yearEstablished: z.number().int().optional(),
   legalNotes: z.string().optional(),
   image: z.object({
-    url: z.string().url(),
+    url: listingImageUrlSchema,
     alt: z.string().min(1),
   }),
   schemaKind: schemaKindSchema.default("LodgingBusiness"),

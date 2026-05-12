@@ -17,7 +17,7 @@ import { Separator } from "@/components/ui/separator"
 import { ExternalSiteLink } from "@/components/tiny-home-communities/external-site-link"
 import { CommunityAmenityBadges } from "@/components/tiny-home-communities/community-amenity-badges"
 import { getFloridaCommunities, getFloridaCommunityBySlug, getFloridaSlugParams } from "@/lib/tiny-home-communities/repo"
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
+import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { STATUS_LABELS, TENANCY_LABELS } from "@/lib/tiny-home-communities/display"
 import { communityLodgingSchema, floridaListingUrl } from "@/lib/tiny-home-communities/jsonld"
 import { Mail, MapPin, Phone } from "lucide-react"
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!community) return {}
 
   const canonicalPath = `/tiny-home-communities/florida/${slug}`
+  const heroImageAbsolute = absoluteSiteUrl(community.image.url)
 
   return {
     title: `${community.name} | Florida Tiny Home Community`,
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       images: [
         {
-          url: community.image.url,
+          url: heroImageAbsolute,
           width: 1400,
           height: 900,
           alt: community.image.alt,
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: `${community.name} · Prefabricated.co`,
       description: community.description,
-      images: [community.image.url],
+      images: [heroImageAbsolute],
     },
   }
 }
@@ -76,6 +77,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
 
   const listingUrl = floridaListingUrl(community.slug)
   const lodging = communityLodgingSchema(community)
+  const heroImageAbsolute = absoluteSiteUrl(community.image.url)
 
   const detailWebPageSchema = {
     "@context": "https://schema.org",
@@ -94,7 +96,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
     about: { "@id": `${listingUrl}#place` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: community.image.url,
+      url: heroImageAbsolute,
     },
     mentions: { "@type": "AdministrativeArea", name: `${community.city}, FL` },
   }

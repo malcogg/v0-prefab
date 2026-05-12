@@ -50,8 +50,8 @@ const RAW = [
     legalNotes:
       "Operate as legally permitted dwellings within the revived park—not a generic unmanaged RV campground. Buyers should still independently verify HOA or municipal amendments if lots change hands.",
     image: {
-      url: "https://images.unsplash.com/photo-1518780664699-7e3d4ae7ef32?auto=format&fit=crop&w=1400&q=75",
-      alt: "Tiny home with warm siding and windows among trees.",
+      url: "/images/tiny-home-communities/tiny-town-orlando.png",
+      alt: "Colorful lakeside tiny homes at Tiny Town Orlando on Lake Fairview, with grass and reflections on the water.",
     },
     schemaKind: "LodgingBusiness" as const,
     lastResearched: "2026-05-12",
@@ -151,8 +151,8 @@ const RAW = [
     legalNotes:
       "Confirm minimum age, pet limits, Airbnb prohibitions, and pad certification details with HOA docs before escrow.",
     image: {
-      url: "https://images.unsplash.com/photo-1600596542815-e32c5c27d7c4?auto=format&fit=crop&w=1400&q=75",
-      alt: "Compact modern dwelling with cedar siding beside patio.",
+      url: "/images/tiny-home-communities/escape-tampa-bay-village.png",
+      alt: "Modern Escape tiny homes along a gravel path through landscaped lawns at dusk, warmly lit interiors and wooden decks.",
     },
     schemaKind: "Campground" as const,
     lastResearched: "2026-05-12",
@@ -412,8 +412,8 @@ const RAW = [
     legalNotes:
       "Manufactured-home regimes differ materially from Appendix Q dwellings—verify wind zone anchorage, HOA rental caps, and DBPR disclosures.",
     image: {
-      url: "https://images.unsplash.com/photo-1600047509358-31dc98208ef7?auto=format&fit=crop&w=1400&q=75",
-      alt: "Rows of cottages and greenery in a community setting.",
+      url: "/images/tiny-home-communities/canoe-creek-garber.png",
+      alt: "Paved neighborhood street lined with neat park-model homes with carports and green lawns under a blue sky.",
     },
     schemaKind: "RVPark" as const,
     lastResearched: "2026-05-12",
@@ -470,8 +470,8 @@ const RAW = [
     legalNotes:
       "Operates under RV resort DNA—verify whether Florida DBPR/licensing treats your occupancy as tenancy vs. campground stay, especially for homestead mail or voter registration storytelling.",
     image: {
-      url: "https://images.unsplash.com/photo-1504280390267-ab81deacd0bf?auto=format&fit=crop&w=1400&q=75",
-      alt: "RV and tiny dwelling sites near trees and sunset light.",
+      url: "/images/tiny-home-communities/outpost-the-preserve-winter-haven.png",
+      alt: "Shaded lakeside grassy area with moss-draped oaks framing a dock extending onto calm water at Lake Mariana.",
     },
     schemaKind: "RVPark" as const,
     lastResearched: "2026-05-12",

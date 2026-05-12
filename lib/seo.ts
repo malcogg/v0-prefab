@@ -1,5 +1,12 @@
 export const SITE_URL = "https://www.prefabricated.co"
 
+/** Turn `/images/foo.png` or bare paths into `${SITE_URL}/...`; leave absolute http(s) URLs unchanged. */
+export function absoluteSiteUrl(pathOrUrl: string) {
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl
+  const path = pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`
+  return `${SITE_URL}${path}`
+}
+
 export const DEFAULT_SEO = {
   title: "Prefabricated.co — Florida Prefab ADUs & Eco Tiny Living",
   description:
