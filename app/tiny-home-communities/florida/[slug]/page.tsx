@@ -15,6 +15,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ExternalSiteLink } from "@/components/tiny-home-communities/external-site-link"
+import { CommunityAmenityBadges } from "@/components/tiny-home-communities/community-amenity-badges"
 import { getFloridaCommunities, getFloridaCommunityBySlug, getFloridaSlugParams } from "@/lib/tiny-home-communities/repo"
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { STATUS_LABELS, TENANCY_LABELS } from "@/lib/tiny-home-communities/display"
@@ -99,7 +100,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
   }
 
   const siblingCommunities = getFloridaCommunities()
-    .filter((c) => c.slug !== community.slug && (c.city === community.city || c.county === community.county))
+    .filter((c) => c.slug !== community.slug && c.macroRegion === community.macroRegion)
     .slice(0, 3)
 
   return (
@@ -150,7 +151,8 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                 />
               </div>
               <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.25em] text-primary">{community.regionLabel}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-primary">{community.macroRegion}</p>
+                <p className="text-sm text-muted-foreground">{community.regionLabel}</p>
                 <h1 className="font-serif text-4xl md:text-5xl text-foreground">{community.name}</h1>
                 <div className="flex flex-wrap gap-2 pt-2">
                   <Badge>{STATUS_LABELS[community.status]}</Badge>
@@ -186,15 +188,12 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                   </div>
                 </div>
               </div>
-              <section className="space-y-3">
-                <h2 className="font-serif text-3xl text-foreground">Infrastructure & stewardship amenities</h2>
-                <ul className="grid sm:grid-cols-2 gap-3">
-                  {community.amenities.map((amenity) => (
-                    <li key={amenity} className="rounded-xl border border-border bg-background px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-                      {amenity}
-                    </li>
-                  ))}
-                </ul>
+              <section className="space-y-4">
+                <h2 className="font-serif text-3xl text-foreground">Key amenities</h2>
+                <p className="text-sm text-muted-foreground max-w-prose">
+                  Boolean flags summarize what directories can filter on; they are directional only—operators change pet rules, dock limits, or fitness bundles without notice.
+                </p>
+                <CommunityAmenityBadges flags={community.amenityFlags} variant="full" className="gap-2 md:gap-3" />
               </section>
               {community.legalNotes ? (
                 <section className="rounded-3xl border border-dashed border-amber-200/70 bg-amber-50/60 p-6 text-sm text-amber-950 space-y-2">
@@ -225,11 +224,11 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                   {community.postalCode ? <p>{community.postalCode}</p> : null}
                 </div>
 
-                {community.lastVerified ? (
+                {community.lastResearched ? (
                   <p className="text-xs text-muted-foreground mt-4 pt-4 border-t border-border">
                     Last researched for directory:{" "}
-                    <time dateTime={community.lastVerified} className="font-medium text-foreground">
-                      {community.lastVerified}
+                    <time dateTime={community.lastResearched} className="font-medium text-foreground">
+                      {community.lastResearched}
                     </time>{" "}
                     (operators change rules often—confirm before you move.)
                   </p>
@@ -271,6 +270,23 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                     ) : null}
                   </div>
                 </div>
+
+                {community.sources.length > 0 ? (
+                  <details className="mt-6 rounded-xl border border-dashed border-border bg-muted/20">
+                    <summary className="cursor-pointer px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground list-none [&::-webkit-details-marker]:hidden">
+                      Editorial references (research trail)
+                    </summary>
+                    <ul className="px-4 pb-4 pt-2 space-y-2 text-sm border-t border-border border-dashed">
+                      {community.sources.map((src) => (
+                        <li key={`${src.label}-${src.url}`}>
+                          <ExternalSiteLink href={src.url} className="text-primary hover:underline break-all">
+                            {src.label}
+                          </ExternalSiteLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ) : null}
               </div>
 
               <div className="rounded-3xl bg-secondary border border-border p-6 text-sm leading-relaxed text-muted-foreground">

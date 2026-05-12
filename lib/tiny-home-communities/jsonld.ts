@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/seo"
+import { amenityLabelsForLodging } from "./amenity-labels"
 import type { TinyHomeCommunity } from "./schema"
 
 export function floridaListingUrl(slug: string) {
@@ -49,7 +50,7 @@ export function communityLodgingSchema(community: TinyHomeCommunity) {
     url: community.contact.website ?? url,
     address: postal,
     sameAs: community.contact.website ? [community.contact.website] : undefined,
-    amenityFeature: community.amenities.map((name) => ({
+    amenityFeature: amenityLabelsForLodging(community.amenityFlags).map((name) => ({
       "@type": "LocationFeatureSpecification",
       name,
     })),

@@ -24,6 +24,68 @@ export const schemaKindSchema = z.enum(["Campground", "RVPark", "LodgingBusiness
 
 export type CommunitySchemaKind = z.infer<typeof schemaKindSchema>
 
+export const MACRO_REGION_VALUES = [
+  "Central Florida",
+  "Tampa Bay",
+  "Space Coast",
+  "Treasure Coast",
+  "Nature Coast",
+  "Southwest Florida",
+  "South Florida",
+  "Florida Keys",
+  "North Florida",
+  "Panhandle",
+] as const
+
+export type MacroRegion = (typeof MACRO_REGION_VALUES)[number]
+
+export const macroRegionSchema = z.enum(MACRO_REGION_VALUES)
+
+export const AMENITY_FLAG_KEYS = [
+  "lakefront",
+  "waterfront",
+  "petFriendly",
+  "gated",
+  "ownershipPossible",
+  "communityGarden",
+  "pool",
+  "clubhouse",
+  "pickleballOrSports",
+  "dockOrMarina",
+  "fitnessCenter",
+  "rvHookups",
+  "coworkSpace",
+  "laundry",
+] as const
+
+export type AmenityFlagKey = (typeof AMENITY_FLAG_KEYS)[number]
+
+export const amenityFlagsSchema = z.object({
+  lakefront: z.boolean(),
+  waterfront: z.boolean(),
+  petFriendly: z.boolean(),
+  gated: z.boolean(),
+  ownershipPossible: z.boolean(),
+  communityGarden: z.boolean(),
+  pool: z.boolean(),
+  clubhouse: z.boolean(),
+  pickleballOrSports: z.boolean(),
+  dockOrMarina: z.boolean(),
+  fitnessCenter: z.boolean(),
+  rvHookups: z.boolean(),
+  coworkSpace: z.boolean(),
+  laundry: z.boolean(),
+})
+
+export type AmenityFlags = z.infer<typeof amenityFlagsSchema>
+
+export const editorialSourceSchema = z.object({
+  label: z.string().min(1),
+  url: z.string().url(),
+})
+
+export type EditorialSource = z.infer<typeof editorialSourceSchema>
+
 const contactSchema = z.object({
   website: z.string().url().optional(),
   email: z.string().email().optional(),
@@ -33,6 +95,9 @@ const contactSchema = z.object({
 export const tinyHomeCommunitySchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   name: z.string().min(1),
+  /** Broader marketing region (maps, filters) */
+  macroRegion: macroRegionSchema,
+  /** Human-readable sub-cluster; keep for cards/SEO copy */
   regionLabel: z.string().min(1),
   city: z.string().min(1),
   county: z.string().min(1),
@@ -47,8 +112,10 @@ export const tinyHomeCommunitySchema = z.object({
   statusDetail: z.string().optional(),
   lotDetailsSummary: z.string().min(1),
   tenancyModes: z.array(tenancyModeSchema).min(1),
-  amenities: z.array(z.string()),
+  amenityFlags: amenityFlagsSchema,
   tags: z.array(z.string()),
+  /** Internal editorial citations (do not substitute official contact.website UX) */
+  sources: z.array(editorialSourceSchema),
   yearEstablished: z.number().int().optional(),
   legalNotes: z.string().optional(),
   image: z.object({
@@ -56,8 +123,7 @@ export const tinyHomeCommunitySchema = z.object({
     alt: z.string().min(1),
   }),
   schemaKind: schemaKindSchema.default("LodgingBusiness"),
-  /** ISO date (YYYY-MM-DD); omit if unknown */
-  lastVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  lastResearched: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 })
 
 export type TinyHomeCommunity = z.infer<typeof tinyHomeCommunitySchema>
