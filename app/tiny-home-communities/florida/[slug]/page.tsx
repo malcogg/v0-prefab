@@ -211,8 +211,8 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
               ) : null}
             </article>
 
-            <aside className="space-y-8">
-              <div className="rounded-3xl border border-border bg-background p-6 shadow-sm sticky top-[120px]">
+            <aside className="flex flex-col gap-8 xl:sticky xl:top-[120px] xl:self-start xl:pb-12">
+              <div className="rounded-3xl border border-border bg-background p-6 shadow-sm">
                 <div className="flex items-start gap-3 pb-6">
                   <MapPin className="w-5 h-5 text-primary mt-0.5" aria-hidden />
                   <div>
