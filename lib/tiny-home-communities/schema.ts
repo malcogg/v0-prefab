@@ -56,6 +56,8 @@ export const tinyHomeCommunitySchema = z.object({
     alt: z.string().min(1),
   }),
   schemaKind: schemaKindSchema.default("LodgingBusiness"),
+  /** ISO date (YYYY-MM-DD); omit if unknown */
+  lastVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 })
 
 export type TinyHomeCommunity = z.infer<typeof tinyHomeCommunitySchema>

@@ -225,6 +225,16 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                   {community.postalCode ? <p>{community.postalCode}</p> : null}
                 </div>
 
+                {community.lastVerified ? (
+                  <p className="text-xs text-muted-foreground mt-4 pt-4 border-t border-border">
+                    Last researched for directory:{" "}
+                    <time dateTime={community.lastVerified} className="font-medium text-foreground">
+                      {community.lastVerified}
+                    </time>{" "}
+                    (operators change rules often—confirm before you move.)
+                  </p>
+                ) : null}
+
                 <Separator className="my-6" />
 
                 <div className="space-y-4">
