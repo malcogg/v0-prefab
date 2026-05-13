@@ -1,6 +1,15 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { BookOpen, Calculator, FileCheck, GraduationCap, Leaf, MapPinned, Sprout } from "lucide-react"
+import {
+  BookOpen,
+  Calculator,
+  FileCheck,
+  GraduationCap,
+  Leaf,
+  MapPinned,
+  Sprout,
+  ThermometerSun,
+} from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
@@ -48,6 +57,12 @@ const resources = [
     title: "Florida Tiny Living Guide",
     href: "/florida-tiny-living-guide",
     text: "Learn the differences between ADUs, prefab homes, modular structures, and tiny homes on wheels in Florida.",
+  },
+  {
+    icon: ThermometerSun,
+    title: "Florida Growing Zones & Homestead Planning",
+    href: "/florida-growing-zones-homestead-planning",
+    text: "Interactive USDA zone finder, frost guidance, statewide 8b–11b reference, and personalized regenerative homestead prompts.",
   },
   {
     icon: Leaf,

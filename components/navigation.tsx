@@ -27,6 +27,7 @@ export function Navigation() {
     { label: "Build Process", href: "/#process" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
+    { label: "Florida Growing Zones Tool", href: "/florida-growing-zones-homestead-planning" },
     { label: "Tiny Home Communities", href: "/tiny-home-communities" },
     { label: "Resources", href: "/resources" },
     { label: "FAQ", href: "/faq" },

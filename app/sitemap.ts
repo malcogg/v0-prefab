@@ -13,7 +13,15 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
     path === "/free-adu-course/starter-kit" ||
     isHub
   ) return 0.9
-  if (path === "/adu-calculator" || path === "/florida-tiny-living-guide" || path === "/tiny-home-communities" || path === "/resources" || path === "/faq") return 0.8
+  if (
+    path === "/adu-calculator" ||
+    path === "/florida-tiny-living-guide" ||
+    path === "/florida-growing-zones-homestead-planning" ||
+    path === "/tiny-home-communities" ||
+    path === "/resources" ||
+    path === "/faq"
+  )
+    return 0.8
   if (path === "/tiny-home-communities/florida") return 0.82
   if (path === "/adu-checklist") return 0.7
   if (tier === 1) return 0.8
@@ -31,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/earthnest-living-systems",
     "/eco-upgrades",
     "/florida-tiny-living-guide",
+    "/florida-growing-zones-homestead-planning",
     "/tiny-home-communities",
     "/tiny-home-communities/florida",
     "/resources",

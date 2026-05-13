@@ -10,6 +10,7 @@ import { OrangeCountyRulesSection } from "@/components/orange-county-rules-secti
 import { DealBreakdownSection } from "@/components/deal-breakdown-section"
 import { ProcessSection } from "@/components/process-section"
 import { EarthNestSection } from "@/components/earthnest-section"
+import { FloridaHomesteadResourcesSection } from "@/components/florida-homestead-resources-section"
 import { TeamSection } from "@/components/team-section"
 import { FreeCourseSection } from "@/components/free-course-section"
 import { LeadFormSection } from "@/components/lead-form-section"
@@ -114,6 +115,7 @@ export default function Home() {
       <DealBreakdownSection />
       <ProcessSection />
       <EarthNestSection />
+      <FloridaHomesteadResourcesSection />
       <TeamSection />
       <FreeCourseSection />
       <LeadFormSection />
