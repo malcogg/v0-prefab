@@ -2,8 +2,15 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+import { getNavSectionIdentity, showSectionPill } from "@/lib/nav-section-identity"
 
 export function Navigation() {
+  const pathname = usePathname() ?? "/"
+  const section = getNavSectionIdentity(pathname)
+  const sectionPillVisible = showSectionPill(pathname, section)
+
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [exploreOpen, setExploreOpen] = useState(false)
@@ -36,6 +43,8 @@ export function Navigation() {
     { label: "Contact", href: "/contact" },
   ]
 
+  const pillTitle = `You're in: ${section.pillTopic}`
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,19 +53,47 @@ export function Navigation() {
           : "bg-background/88 backdrop-blur-sm border-b border-border/70"
       }`}
     >
+      <div
+        className={`h-1 w-full shrink-0 ${section.accentClass}`}
+        aria-hidden
+      />
+
       <div className="bg-primary/90 border-b border-primary/50 px-4 py-2">
         <p className="text-center text-primary-foreground text-[11px] font-medium tracking-wide uppercase">
           Florida-ready prefab ADUs · Foundation-Built · Code-Aware · Eco-Conscious
         </p>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none group">
-          <span className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
-            Prefabricated.co
-          </span>
-        </Link>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4">
+          <Link
+            href="/"
+            className="group min-w-0 shrink leading-none"
+            title={section.tagline}
+          >
+            <span className="font-serif text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors block truncate">
+              Prefabricated.co
+            </span>
+            <span
+              className="mt-0.5 block max-w-[min(100%,14rem)] sm:max-w-[16rem] md:max-w-[20rem] truncate text-[10px] sm:text-[11px] font-medium tracking-tight text-muted-foreground group-hover:text-muted-foreground/90"
+              title={section.tagline}
+            >
+              {section.tagline}
+            </span>
+          </Link>
+
+          {sectionPillVisible && (
+            <span
+              className={`hidden lg:inline-flex max-w-[13rem] xl:max-w-none items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${section.pillClass}`}
+              title={pillTitle}
+            >
+              <span className="text-muted-foreground font-medium normal-case tracking-normal">
+                You&apos;re in:
+              </span>
+              <span className="truncate">{section.pillTopic}</span>
+            </span>
+          )}
+        </div>
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-6">
@@ -137,6 +174,16 @@ export function Navigation() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden bg-background border-t border-border px-6 py-6 flex flex-col gap-4">
+          {sectionPillVisible && (
+            <p
+              className={`text-[11px] font-semibold uppercase tracking-wide ${section.pillClass} rounded-full border px-3 py-2`}
+            >
+              <span className="text-muted-foreground font-medium normal-case tracking-normal">
+                You&apos;re in:{" "}
+              </span>
+              {section.pillTopic}
+            </p>
+          )}
           {primaryLinks.map((link) => (
             <Link
               key={link.href}
