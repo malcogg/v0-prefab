@@ -48,6 +48,10 @@ Become the **most trusted discovery layer** between curious newcomers and legiti
 - Homepage: prefab ADUs, EarthNest narrative, calculator, quiz/funnel, lead capture, directory teaser.
 - **Build / evaluation** flows and contact.
 
+**Global header / navigation**
+
+- Fixed stack: thin **route accent** bar, **announcement** strip (multi-path Florida copy), primary **nav row** (logo, centered desktop links + Resources menu, CTAs), then a **thin context strip** under the nav for route-aware **“You’re in”** / tagline—keeps the main bar readable on desktop. **Modal dialogs** (e.g. closed-loop card detail) use a **blurred dimmed backdrop** and layer above the fixed header.
+
 **Tiny home communities (directory)**
 
 - National hub: `/tiny-home-communities`
@@ -57,9 +61,10 @@ Become the **most trusted discovery layer** between curious newcomers and legiti
 
 **Resources & guides**
 
-- `/resources` — hub for courses, checklists, calculators, eco upgrades.
+- `/resources` — hub for courses, checklists, calculators, eco upgrades, **and** the closed-loop homestead guide entry point.
 - `/florida-tiny-living-guide` — rules/climate framing for Florida tiny living.
 - `/florida-growing-zones-homestead-planning` — USDA **2023 ARS** hardiness context (companion to official map), frost notes, **almanac-style lunar rhythm** (educational), regenerative homestead report sections.
+- `/closed-loop-homestead` — **Closed-loop homestead guide:** showcase food cards (same strip as zone-tool results), **house-to-land system cards** (solar, water, greywater, compost, poultry, vertical grow, etc.) with **hover affordances** and **click-to-modal** detail (blurred backdrop, stacked above fixed nav). Includes a quick-scan master checklist (energy, water, food/fertility, waste). Linked from **Resources**, **Explore** nav, the **zone tool** closed-loop block, and the homepage **Florida homestead** section.
 - `/earthnest-living-systems` — shelter + climate + energy + water + food stack narrative.
 - `/eco-upgrades`, `/free-adu-course`, `/adu-calculator`, `/adu-rules`, `/adu-checklist`, **many locality landing pages** (SEO depth).
 
