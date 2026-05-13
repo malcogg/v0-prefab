@@ -8,6 +8,8 @@ export type NavSectionIdentity = {
   pillTopic: string
   accentClass: string
   pillClass: string
+  /** Thin strip under main nav: left border accent (Tailwind border-l-* utilities). */
+  contextStripClass: string
 }
 
 function normalizePath(pathname: string): string {
@@ -30,10 +32,15 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
       accentClass: "bg-[oklch(0.52_0.14_265)]",
       pillClass:
         "border-[oklch(0.52_0.14_265)]/35 text-[oklch(0.38_0.1_265)] bg-[oklch(0.52_0.14_265)]/08",
+      contextStripClass: "border-l-[3px] border-l-[oklch(0.52_0.14_265)]",
     }
   }
 
-  if (path === "/earthnest-living-systems" || path === "/florida-growing-zones-homestead-planning") {
+  if (
+    path === "/earthnest-living-systems" ||
+    path === "/florida-growing-zones-homestead-planning" ||
+    path === "/closed-loop-homestead"
+  ) {
     return {
       id: "regenerative",
       tagline: "Regenerative homestead & food systems",
@@ -41,6 +48,7 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
       accentClass: "bg-[oklch(0.52_0.11_155)]",
       pillClass:
         "border-[oklch(0.52_0.11_155)]/40 text-[oklch(0.32_0.08_155)] bg-[oklch(0.52_0.11_155)]/10",
+      contextStripClass: "border-l-[3px] border-l-[oklch(0.52_0.11_155)]",
     }
   }
 
@@ -51,6 +59,7 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
       pillTopic: "Guides & tools",
       accentClass: "bg-primary",
       pillClass: "border-primary/35 text-foreground/90 bg-primary/08",
+      contextStripClass: "border-l-[3px] border-l-primary",
     }
   }
 
@@ -60,6 +69,7 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
     pillTopic: "ADUs & backyard",
     accentClass: "bg-primary",
     pillClass: "border-primary/35 text-foreground/90 bg-primary/08",
+    contextStripClass: "border-l-[3px] border-l-primary",
   }
 }
 

@@ -49,7 +49,7 @@ export default function BuildPage() {
     <main className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navigation />
-      <div className="pt-24">
+      <div className="pt-32">
         <Suspense fallback={<div className="max-w-7xl mx-auto px-6 py-10 text-sm text-muted-foreground">Loading build configurator...</div>}>
           <BuildConfigurator />
         </Suspense>

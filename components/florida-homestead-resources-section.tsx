@@ -54,10 +54,16 @@ export function FloridaHomesteadResourcesSection() {
               </div>
               <div>
                 <h3 className="font-serif text-xl text-foreground mb-1">Closed-loop inspiration</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                   Practical loops that fit small footprints: compost, poultry tractoring, vertical
                   climbers, and calorie-dense tubers for resilient communities.
                 </p>
+                <Link
+                  href="/closed-loop-homestead"
+                  className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                >
+                  Open the full closed-loop guide (cards &amp; checklists)
+                </Link>
               </div>
             </div>
             <div className="flex gap-4">

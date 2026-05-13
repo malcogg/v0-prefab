@@ -62,7 +62,7 @@ export default function AduCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
       <Navigation />
-      <div className="pt-28">
+      <div className="pt-32">
         <ADUCalculatorSection />
       </div>
       <SiteFooter />

@@ -36,6 +36,7 @@ export function Navigation() {
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
     { label: "Florida Growing Zones Tool", href: "/florida-growing-zones-homestead-planning" },
+    { label: "Closed-loop homestead guide", href: "/closed-loop-homestead" },
     { label: "Tiny Home Communities", href: "/tiny-home-communities" },
     { label: "Resources", href: "/resources" },
     { label: "FAQ", href: "/faq" },
@@ -60,43 +61,28 @@ export function Navigation() {
 
       <div className="bg-primary/90 border-b border-primary/50 px-4 py-2">
         <p className="text-center text-primary-foreground text-[11px] font-medium tracking-wide uppercase">
-          Florida-ready prefab ADUs · Foundation-Built · Code-Aware · Eco-Conscious
+          Florida-first · Prefab ADUs &amp; backyard homes · Tiny villages · Homestead guides
         </p>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
-        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4">
-          <Link
-            href="/"
-            className="group min-w-0 shrink leading-none"
-            title={section.tagline}
-          >
-            <span className="font-serif text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors block truncate">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3 lg:gap-6">
+        <div className="flex min-w-0 shrink-0 items-center">
+          <Link href="/" className="group min-w-0 leading-none" title={section.tagline}>
+            <span className="font-serif text-lg sm:text-xl text-foreground group-hover:text-primary transition-colors block">
               Prefabricated.co
             </span>
+            {/* Tagline only on smaller screens — desktop context moves to thin strip below */}
             <span
-              className="mt-0.5 block max-w-[min(100%,14rem)] sm:max-w-[16rem] md:max-w-[20rem] truncate text-[10px] sm:text-[11px] font-medium tracking-tight text-muted-foreground group-hover:text-muted-foreground/90"
+              className="mt-0.5 block lg:hidden max-w-[11rem] sm:max-w-[14rem] truncate text-[10px] sm:text-[11px] font-medium tracking-tight text-muted-foreground group-hover:text-muted-foreground/90"
               title={section.tagline}
             >
               {section.tagline}
             </span>
           </Link>
-
-          {sectionPillVisible && (
-            <span
-              className={`hidden lg:inline-flex max-w-[13rem] xl:max-w-none items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${section.pillClass}`}
-              title={pillTitle}
-            >
-              <span className="text-muted-foreground font-medium normal-case tracking-normal">
-                You&apos;re in:
-              </span>
-              <span className="truncate">{section.pillTopic}</span>
-            </span>
-          )}
         </div>
 
-        {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-6">
+        {/* Desktop nav — centered between logo and CTAs */}
+        <ul className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-5 min-w-0">
           {primaryLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -143,16 +129,16 @@ export function Navigation() {
         </ul>
 
         {/* CTA */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
           <Link
             href="/build"
-            className="inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex items-center px-4 py-2 xl:px-5 xl:py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap"
           >
             Build Yours
           </Link>
           <Link
             href="/#qualify"
-            className="inline-flex items-center px-5 py-2.5 border border-border text-foreground text-sm font-semibold rounded transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex items-center px-4 py-2 xl:px-5 xl:py-2.5 border border-border text-foreground text-sm font-semibold rounded transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap"
           >
             Get Free Evaluation
           </Link>
@@ -170,6 +156,39 @@ export function Navigation() {
           <span className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </nav>
+
+      {/* Section context: thin strip fixed with header — under main nav, above hero */}
+      <div className="border-t border-border bg-muted/50 backdrop-blur-[2px]">
+        <div
+          className={`max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-1.5 min-h-[2rem] ${
+            sectionPillVisible ? section.contextStripClass : ""
+          }`}
+        >
+          {sectionPillVisible ? (
+            <>
+              <p
+                className="hidden lg:block text-[11px] text-muted-foreground truncate min-w-0 max-w-[55%] xl:max-w-[50%]"
+                title={section.tagline}
+              >
+                {section.tagline}
+              </p>
+              <p
+                className="text-[11px] sm:text-xs font-medium text-foreground lg:text-right w-full lg:w-auto"
+                title={pillTitle}
+              >
+                <span className="text-muted-foreground font-normal">You&apos;re in:</span>{" "}
+                <span className={section.id === "tiny" ? "text-[oklch(0.38_0.1_265)]" : section.id === "regenerative" ? "text-[oklch(0.32_0.08_155)]" : ""}>
+                  {section.pillTopic}
+                </span>
+              </p>
+            </>
+          ) : (
+            <p className="text-[11px] sm:text-xs text-muted-foreground w-full" title={section.tagline}>
+              <span className="text-foreground font-medium">Now browsing:</span> {section.tagline}
+            </p>
+          )}
+        </div>
+      </div>
 
       {/* Mobile Menu */}
       {menuOpen && (

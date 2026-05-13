@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Leaf,
   MapPinned,
+  Recycle,
   Sprout,
   ThermometerSun,
 } from "lucide-react"
@@ -80,6 +81,12 @@ const resources = [
     title: "Florida Growing Zones & Homestead Planning",
     href: "/florida-growing-zones-homestead-planning",
     text: "USDA zone finder, frost guidance, moon-phase planting rhythm, statewide 8b–11b reference, and personalized closed-loop homestead prompts.",
+  },
+  {
+    icon: Recycle,
+    title: "Closed-Loop Homestead Guide",
+    href: "/closed-loop-homestead",
+    text: "Interactive food cards, solar-to-soil house systems, and a master checklist for nutrient loops on small Florida lots.",
   },
   {
     icon: Leaf,

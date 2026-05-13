@@ -13,6 +13,7 @@ import {
   Sparkles,
   Sprout,
 } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { HomesteadZoneDownloadForm } from "@/components/homestead-zone-download-form"
@@ -323,6 +324,14 @@ export function FloridaHomesteadZoneTool() {
                   </div>
                   <p className="mt-6 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
                     {foodVis.cycleParagraph}
+                  </p>
+                  <p className="mt-4 text-center">
+                    <Link
+                      href="/closed-loop-homestead"
+                      className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                    >
+                      Explore the full closed-loop guide — house systems + every crop card
+                    </Link>
                   </p>
                 </section>
               )
