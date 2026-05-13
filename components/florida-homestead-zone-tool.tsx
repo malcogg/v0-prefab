@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { HomesteadZoneDownloadForm } from "@/components/homestead-zone-download-form"
 import {
   FLORIDA_ZONES_OVERVIEW,
   type FloridaZoneCode,
@@ -28,6 +29,7 @@ import {
   LUNAR_ASTROLOGICAL_PLANTING_GUIDE,
   lunarRhythmHighlightsForReport,
 } from "@/lib/lunar-planting"
+import { zoneFoodVisual } from "@/lib/zone-food-visuals"
 import {
   USDA_PLANT_HARDINESS,
   USDA_ZONE_DEFINITION_SHORT,
@@ -173,7 +175,7 @@ export function FloridaHomesteadZoneTool() {
           </p>
         )}
 
-        {resolution && frost && report && lunar && (
+        {resolution && frost && report && lunar && lunarSnapshotAt && (
           <div className="mt-8 space-y-8 border-t border-border pt-8">
             <div className="rounded-lg border border-border bg-background p-5 md:p-6">
               <div className="flex flex-wrap items-center gap-3">
@@ -286,6 +288,45 @@ export function FloridaHomesteadZoneTool() {
                 vertical grow space.
               </p>
             </div>
+
+            {(() => {
+              const foodVis = zoneFoodVisual(resolution.zone)
+              return (
+                <section className="rounded-xl border border-border bg-[oklch(0.99_0.01_85)] p-5 md:p-7 shadow-sm">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                    <div
+                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[oklch(0.9_0.07_155)] text-[oklch(0.42_0.11_155)]"
+                      aria-hidden
+                    >
+                      <Sprout className="h-7 w-7" strokeWidth={1.75} />
+                    </div>
+                    <div className="min-w-0 flex-1 space-y-3">
+                      <h4 className="font-serif text-xl md:text-2xl text-foreground">Closed-loop inspiration</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{foodVis.teaser}</p>
+                      <p className="text-sm text-foreground/90 leading-relaxed">{foodVis.cropsParagraph}</p>
+                    </div>
+                  </div>
+                  <div className="mt-6 flex flex-wrap gap-2.5 md:gap-3" aria-label="Typical foods for your zone">
+                    {foodVis.foods.map((f) => (
+                      <div
+                        key={f.label}
+                        className="flex min-w-[4.75rem] flex-col items-center rounded-lg border border-border/80 bg-background px-2.5 py-2.5 shadow-sm"
+                      >
+                        <span className="text-2xl leading-none" aria-hidden>
+                          {f.emoji}
+                        </span>
+                        <span className="mt-1.5 text-center text-[10px] font-medium leading-tight text-muted-foreground md:text-[11px]">
+                          {f.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-6 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
+                    {foodVis.cycleParagraph}
+                  </p>
+                </section>
+              )
+            })()}
 
             <section className="rounded-lg border border-border bg-background p-5 md:p-6">
               <div className="flex items-center gap-3">
@@ -450,6 +491,17 @@ export function FloridaHomesteadZoneTool() {
                 ))}
               </ul>
             </section>
+
+            <HomesteadZoneDownloadForm
+              snapshot={{
+                zone: resolution.zone,
+                lookupSource: resolution.source,
+                matchedLabel: resolution.matchedLabel,
+                isFloridaZip: resolution.isFloridaZip,
+                addressQuery: query.trim(),
+                lunarSnapshotIso: lunarSnapshotAt.toISOString(),
+              }}
+            />
           </div>
         )}
 

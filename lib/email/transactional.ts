@@ -4,6 +4,7 @@ import { getSelectedModel } from "@/lib/build/session"
 import { emailLayout } from "@/lib/email/layout"
 import {
   buildInquirySubmissionSchema,
+  homesteadZoneReportDownloadSchema,
   leadSubmissionSchema,
   progressionSubmissionSchema,
   starterKitDownloadSchema,
@@ -13,6 +14,7 @@ type LeadPayload = z.infer<typeof leadSubmissionSchema>
 type BuildPayload = z.infer<typeof buildInquirySubmissionSchema>
 type ProgressionPayload = z.infer<typeof progressionSubmissionSchema>
 type StarterKitDownloadPayload = z.infer<typeof starterKitDownloadSchema>
+type HomesteadZoneDl = z.infer<typeof homesteadZoneReportDownloadSchema>
 
 function telHref(phone: string): string {
   const digits = phone.replace(/\D/g, "")
@@ -233,6 +235,46 @@ export function starterKitDownloadTeamEmail(
   })
 }
 
+/** --- Homestead zone tool PDF --- */
+
+export function homesteadZoneReportUserEmail(data: HomesteadZoneDl) {
+  const inner = `
+    ${h2(`Your Zone ${esc(data.zone)} homestead report`)}
+    ${p("Attached is your personalized PDF with recommended crops, closed-loop ideas, frost context, seasonal highlights, and the lunar snapshot from when you ran the tool.")}
+    ${p("Hardiness zones here are estimates—please confirm your half-zone on the <a href=\"https://planthardiness.ars.usda.gov/\" style=\"color:#0F6E56;\">USDA ARS interactive map</a>. Moon rhythm is almanac-style pacing, not a substitute for local Extension advice.")}
+    ${p(`<strong>Lookup:</strong> ${esc(data.matchedLabel)}<br/>
+        <strong>Search:</strong> ${esc(data.addressQuery || "—")}`)}
+    ${p("Questions? Reply to this email or call us at <a href=\"tel:+13217473778\" style=\"color:#0F6E56;\">(321) 747-3778</a>.")}
+    ${button("https://www.prefabricated.co/florida-growing-zones-homestead-planning", "Return to the zone tool")}
+  `
+  return emailLayout({
+    title: `Zone ${data.zone} report`,
+    preheader: `Your Florida homestead PDF for Zone ${data.zone}`,
+    innerHtml: inner,
+  })
+}
+
+export function homesteadZoneReportTeamEmail(
+  data: HomesteadZoneDl,
+  meta: { ip: string | null; userAgent: string | null },
+) {
+  const inner = `
+    ${h2(`Homestead zone PDF — ${esc(data.name)}`)}
+    ${p(`<strong>Email:</strong> <a href="mailto:${esc(data.email)}" style="color:#0F6E56;">${esc(data.email)}</a><br/>
+        <strong>Phone:</strong> <a href="${telHref(data.phone)}" style="color:#0F6E56;">${esc(data.phone)}</a><br/>
+        <strong>Zone:</strong> ${esc(data.zone)} (${esc(data.lookupSource)})<br/>
+        <strong>Matched:</strong> ${esc(data.matchedLabel)}<br/>
+        <strong>Florida ZIP:</strong> ${data.isFloridaZip ? "yes" : "no"}<br/>
+        <strong>Lunar ISO:</strong> ${esc(data.lunarSnapshotIso)}`)}
+    ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}<br/><strong>User-Agent:</strong> ${esc(meta.userAgent ?? "—")}`)}
+  `
+  return emailLayout({
+    title: "Homestead zone PDF download",
+    preheader: `${data.name} · Zone ${data.zone}`,
+    innerHtml: inner,
+  })
+}
+
 /** Subjects */
 
 export const emailSubjects = {
@@ -246,6 +288,8 @@ export const emailSubjects = {
   progressionTeam: (name: string) => `New ADU quiz — ${name}`,
   starterKitUser: "Your Florida ADU starter kit",
   starterKitTeam: (name: string) => `New starter kit download — ${name}`,
+  homesteadZoneUser: (zone: string) => `Your Zone ${zone} Florida homestead PDF | Prefabricated.co`,
+  homesteadZoneTeam: (name: string, zone: string) => `Homestead PDF — ${name} · Zone ${zone}`,
 } as const
 
 /** --- Marketing / follow-up (drafts for Resend broadcasts or automations) --- */
