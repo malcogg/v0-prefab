@@ -28,6 +28,10 @@ import {
   LUNAR_ASTROLOGICAL_PLANTING_GUIDE,
   lunarRhythmHighlightsForReport,
 } from "@/lib/lunar-planting"
+import {
+  USDA_PLANT_HARDINESS,
+  USDA_ZONE_DEFINITION_SHORT,
+} from "@/lib/usda-hardiness-citations"
 
 function ZoneBadge({ code }: { code: FloridaZoneCode }) {
   return (
@@ -115,10 +119,18 @@ export function FloridaHomesteadZoneTool() {
               Enter your address or ZIP code to find your USDA growing zone and current lunar guidance
             </h2>
             <p className="mt-2 text-sm text-muted-foreground max-w-2xl leading-relaxed">
-              USDA hardiness helps you choose perennials and plan frost-aware successions; Moon rhythm
-              adds an Old Farmer’s Almanac–style pacing layer for planting, harvesting, and soil work
-              in Florida humidity. Cross-check zones with USDA ARS maps and treat lunar signs as
-              approximate rhythm prompts—not exact astrology charts.
+              {USDA_ZONE_DEFINITION_SHORT} Use this tool for Florida-oriented schedules, moon rhythm,
+              and closed-loop ideas—then{" "}
+              <a
+                href={USDA_PLANT_HARDINESS.mapHomeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-medium underline-offset-4 hover:underline"
+              >
+                confirm your half-zone on the official ARS map
+              </a>{" "}
+              (ZIP search or click your pin). Moon rhythm is an almanac-style layer: helpful for
+              pacing, not a substitute for irrigation, heat indexes, or extension advice.
             </p>
           </div>
           <div className="hidden md:flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -195,6 +207,27 @@ export function FloridaHomesteadZoneTool() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{frost.narrative}</p>
+              <p className="mt-4 text-xs text-muted-foreground leading-relaxed border-t border-border pt-4">
+                Authoritative half-zone:{" "}
+                <a
+                  href={USDA_PLANT_HARDINESS.mapHomeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-medium underline-offset-4 hover:underline"
+                >
+                  USDA ARS interactive map (2023 edition)
+                </a>
+                —ZIP quick search or click your property. Updates vs. the 2012 map:{" "}
+                <a
+                  href={USDA_PLANT_HARDINESS.mapCreationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-medium underline-offset-4 hover:underline"
+                >
+                  Map Creation (ARS)
+                </a>
+                .
+              </p>
             </div>
 
             <div className="rounded-lg border border-[oklch(0.62_0.11_55)]/35 bg-gradient-to-br from-[oklch(0.96_0.02_85)] to-[oklch(0.72_0.07_145)]/15 p-5 md:p-6">
@@ -478,6 +511,18 @@ export function FloridaHomesteadZoneTool() {
             </tbody>
           </table>
         </div>
+        <p className="mt-4 text-xs text-muted-foreground leading-relaxed max-w-3xl">
+          Temperature ranges in the table follow USDA half-zone definitions aligned with the{" "}
+          <a
+            href={USDA_PLANT_HARDINESS.mapHomeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-medium underline-offset-4 hover:underline"
+          >
+            {USDA_PLANT_HARDINESS.editionLabel}
+          </a>
+          . Half-zones represent 5°F bands within the broader 10°F USDA zones.
+        </p>
       </div>
     </div>
   )

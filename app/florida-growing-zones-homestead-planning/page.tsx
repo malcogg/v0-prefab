@@ -4,6 +4,10 @@ import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { FloridaHomesteadZoneTool } from "@/components/florida-homestead-zone-tool"
 import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
+import {
+  USDA_PLANT_HARDINESS,
+  USDA_ZONE_DEFINITION_SHORT,
+} from "@/lib/usda-hardiness-citations"
 
 const PAGE_PATH = "/florida-growing-zones-homestead-planning"
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
@@ -11,7 +15,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
 export const metadata: Metadata = {
   title: "Florida Growing Zones, Lunar Planting & Homestead Planning | Prefabricated.co",
   description:
-    "Interactive Florida USDA hardiness zone finder with frost guidance, current moon phase & sign rhythm prompts (Old Farmer’s Almanac style), full 8b–11b reference, and regenerative homestead reports for tiny homes.",
+    "Florida USDA Plant Hardiness Zone Map (2023 ARS) companion: zone + frost context, moon rhythm prompts, 8b–11b reference, and regenerative tiny-home homestead ideas. Always verify on planthardiness.ars.usda.gov.",
   alternates: { canonical: PAGE_PATH },
   keywords: [
     "Florida USDA hardiness zone",
@@ -66,12 +70,19 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
     description:
       "Educational resource for Florida USDA plant hardiness zones, frost timing, moon-phase planting rhythms, statewide growing advantages, and regenerative homestead planning.",
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: {
-      "@type": "Thing",
-      name: "USDA Plant Hardiness Zone Map",
-      description:
-        "Standard reference for extreme minimum temperatures used to guide perennial plant survival in North America.",
-    },
+    about: [
+      {
+        "@type": "Thing",
+        name: USDA_PLANT_HARDINESS.editionLabel,
+        description: USDA_ZONE_DEFINITION_SHORT,
+        sameAs: USDA_PLANT_HARDINESS.mapHomeUrl,
+      },
+      {
+        "@type": "GovernmentOrganization",
+        name: USDA_PLANT_HARDINESS.publisher,
+        url: "https://www.ars.usda.gov/",
+      },
+    ],
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: absoluteSiteUrl("/og/homepage.jpg"),
@@ -93,7 +104,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
     },
     publisher: { "@id": `${SITE_URL}/#business` },
     datePublished: "2026-05-01",
-    dateModified: "2026-05-14",
+    dateModified: "2026-05-15",
     mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
     image: [absoluteSiteUrl("/og/homepage.jpg")],
     keywords: [
@@ -124,7 +135,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
     },
     publisher: { "@id": `${SITE_URL}/#business` },
     description:
-      "Interactive estimator that translates Florida ZIP codes or city hints into USDA hardiness zones, current moon-phase rhythm prompts, and customized regenerative homestead planning.",
+      "Educational companion to the 2023 USDA ARS Plant Hardiness Zone Map: Florida ZIP/city zone estimates, moon-phase rhythm prompts, and regenerative homestead planning—not a replacement for the official GIS map.",
   }
 
   const faqSchema = {
@@ -137,7 +148,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
         name: "Which USDA plant hardiness zones occur in Florida?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Florida includes zones 8b through 11b, spanning from Panhandle pockets near 15°F extremes to virtually frost-free areas in the Keys above 45°F extremes, per USDA definitions.",
+          text: "Florida includes zones 8b through 11b under the 2023 USDA Plant Hardiness Zone Map, spanning from Panhandle pockets with colder extreme minimums to nearly frost-free Keys microclimates. Always confirm your half-zone on planthardiness.ars.usda.gov for your exact address or ZIP.",
         },
       },
       {
@@ -169,7 +180,15 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
         name: "Is ZIP-code-based USDA zone lookup exact?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. ZIP-based lookups are educational approximations. Always validate with USDA Agricultural Research Service hardiness data, local extension notes, and on-site temperature history—especially near water and urban heat islands.",
+          text: "No. Quick lookups on third-party or educational sites are approximations. For the authoritative zone at your location, use the USDA ARS Plant Hardiness Zone Map at planthardiness.ars.usda.gov (Quick ZIP Code Search or click the interactive map). Compare with local extension guidance and your on-site temperature history—especially near water and urban heat islands.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the official USDA Plant Hardiness Zone Map?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The USDA Agricultural Research Service publishes the Plant Hardiness Zone Map—the standard gardeners use to see which perennials are most likely to survive winter cold. The current edition is the 2023 USDA Plant Hardiness Zone Map. It is based on average annual extreme minimum winter temperature, displayed as 10-degree F zones and 5-degree F half zones. Use planthardiness.ars.usda.gov to search by ZIP or explore the interactive map. For questions about the map itself, contact phzminfo@usda.gov.",
         },
       },
     ],
@@ -206,6 +225,35 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
               zero-waste loops—scraps to poultry to compost to fruiting guilds—that thrive in Florida
               humidity and storm seasons.
             </p>
+            <p className="mt-5 text-sm text-muted-foreground leading-relaxed max-w-3xl border-l-2 border-primary/40 pl-4">
+              <span className="font-medium text-foreground">Official zone standard: </span>
+              {USDA_ZONE_DEFINITION_SHORT}{" "}
+              <a
+                href={USDA_PLANT_HARDINESS.mapHomeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-medium underline-offset-4 hover:underline"
+              >
+                Open the {USDA_PLANT_HARDINESS.editionLabel}
+              </a>
+              {" "}(USDA ARS). See{" "}
+              <a
+                href={USDA_PLANT_HARDINESS.mapCreationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-medium underline-offset-4 hover:underline"
+              >
+                how the 2023 map differs from 2012
+              </a>
+              . Map questions:{" "}
+              <a
+                href={`mailto:${USDA_PLANT_HARDINESS.contactEmail}`}
+                className="text-primary font-medium underline-offset-4 hover:underline"
+              >
+                {USDA_PLANT_HARDINESS.contactEmail}
+              </a>
+              .
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/resources"
@@ -234,11 +282,26 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
         <div className="max-w-5xl mx-auto px-6 space-y-4">
           <h2 className="font-serif text-3xl text-balance">Planning notes &amp; accuracy</h2>
           <p className="text-white/75 leading-relaxed text-sm md:text-base">
+            <strong className="text-white/90">USDA zones: </strong>
+            {USDA_ZONE_DEFINITION_SHORT} The live authority is the{" "}
+            <a
+              href={USDA_PLANT_HARDINESS.mapHomeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline-offset-4 hover:underline"
+            >
+              ARS interactive map
+            </a>{" "}
+            (ZIP search or click anywhere). This Prefabricated.co tool summarizes Florida growing
+            context; confirm your half-zone on the official map before ordering rare perennials.
+            Zones reflect extreme winter lows—not summer heat, disease pressure, salt spray, or
+            flood risk.
+          </p>
+          <p className="text-white/75 leading-relaxed text-sm md:text-base">
             Moon-phase and sign guidance on this page are <strong className="text-white/90">educational approximations</strong>{" "}
             derived from a synodic model and simplified sky geometry—excellent for rhythm and
             community learning, but not a substitute for ephemeris-grade astrology or extension-office
-            recommendations. USDA plant hardiness zones describe extreme winter lows—not summer heat,
-            disease, or flood risk.
+            recommendations.
           </p>
           <p className="text-white/75 leading-relaxed text-sm md:text-base">
             Florida growers still pair hardiness bands with NOAA frost tools, extension guidance,

@@ -1,6 +1,6 @@
 /**
- * Florida USDA plant hardiness reference data for educational / planning use.
- * Lookup by ZIP is approximate (demo). Always verify with USDA ARS for site-specific planning.
+ * Florida USDA plant hardiness reference (companion to the 2023 ARS map).
+ * Zone lookup by ZIP/city here is an estimate—verify at https://planthardiness.ars.usda.gov/
  */
 
 export type FloridaZoneCode = "8b" | "9a" | "9b" | "10a" | "10b" | "11a" | "11b"

@@ -352,7 +352,7 @@ export const LUNAR_ASTROLOGICAL_PLANTING_GUIDE = {
       "Fruitful (water) — Cancer, Scorpio, Pisces: traditionally favored for planting, grafting, and encouraging lush food systems—still weigh afternoon heat and fungal pressure in Florida’s wet season.",
       "Semi-fruitful (earth) — Taurus, Capricorn: associated with steady roots, tubers, trees, and structural plants that reward patience—great days to feed woody perennials and install windbreaks.",
       "Barren-leaning (fire & air) — Aries, Leo, Sagittarius, Gemini, Libra, Aquarius: often highlighted for cultivation chores, training vines, harvesting for storage, or knocking out infrastructure instead of babying tender seedlings.",
-      "This page approximates the Moon’s sign for rhythm prompts—verify with a nautical or astronomical almanac if you want to-the-minute precision at sign boundaries.",
+      "This tool’s Moon-sign estimate is for rhythm prompts—pair it with the official USDA map at planthardiness.ars.usda.gov for perennial survivability and with a nautical or astronomical almanac if you want precise sign ingress times.",
     ],
   },
 } as const
