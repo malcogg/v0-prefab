@@ -3,6 +3,13 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const checklistOg = ogImageMeta({
+  variant: "default",
+  title: "Free ADU feasibility checklist",
+  subtitle: "10 things to verify in Central Florida",
+})
 
 export const metadata: Metadata = {
   title: "Free ADU Feasibility Checklist — Central Florida | EarthNest Florida",
@@ -13,7 +20,7 @@ export const metadata: Metadata = {
     title: "Free ADU Feasibility Checklist — Central Florida | EarthNest Florida",
     description:
       "10 things to verify before you build an ADU in Central Florida. Download the free checklist and see if your property qualifies.",
-    images: [{ url: "/og/checklist.jpg", width: 1200, height: 630, alt: "Free ADU Feasibility Checklist" }],
+    images: [checklistOg],
     url: "/adu-checklist",
   },
   twitter: {
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     title: "Free ADU Feasibility Checklist — Central Florida | EarthNest Florida",
     description:
       "10 things to verify before you build an ADU in Central Florida. Download the free checklist and see if your property qualifies.",
-    images: ["/og/checklist.jpg"],
+    images: [checklistOg.url],
   },
 }
 

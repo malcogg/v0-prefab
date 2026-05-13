@@ -3,6 +3,13 @@ import { ADUCalculatorSection } from "@/components/adu-calculator-section"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const calcOg = ogImageMeta({
+  variant: "default",
+  title: "ADU income calculator",
+  subtitle: "Central Florida rent, cash flow & 10-year outlook",
+})
 
 export const metadata: Metadata = {
   title: "ADU Income Calculator — Central Florida | EarthNest Florida",
@@ -14,7 +21,7 @@ export const metadata: Metadata = {
     description:
       "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
     url: "/adu-calculator",
-    images: [{ url: "/og/calculator.jpg", width: 1200, height: 630, alt: "ADU Income Calculator" }],
+    images: [calcOg],
   },
   twitter: {
     card: "summary_large_image",
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     title: "ADU Income Calculator — Central Florida | EarthNest Florida",
     description:
       "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
-    images: ["/og/calculator.jpg"],
+    images: [calcOg.url],
   },
 }
 

@@ -4,12 +4,33 @@ import { Mail, MapPin, Phone } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const contactOg = ogImageMeta({
+  variant: "default",
+  title: "Contact Prefabricated.co",
+  subtitle: "Florida prefab ADUs, tiny living & homestead questions",
+})
 
 export const metadata: Metadata = {
   title: "Contact Prefabricated.co | Florida Prefab Homes, Tiny Living & ADUs",
   description:
     "Contact Prefabricated.co for Florida prefab homes, tiny living systems, ADU zoning, permitting, design, and build support.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Prefabricated.co | Florida Prefab Homes, Tiny Living & ADUs",
+    description:
+      "Reach the team for Florida prefab homes, ADUs, tiny living pathways, and EarthNest-style systems.",
+    url: "/contact",
+    images: [contactOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Prefabricated.co | Florida Prefab Homes, Tiny Living & ADUs",
+    description:
+      "Reach the team for Florida prefab homes, ADUs, tiny living pathways, and EarthNest-style systems.",
+    images: [contactOg.url],
+  },
 }
 
 export default function ContactPage() {

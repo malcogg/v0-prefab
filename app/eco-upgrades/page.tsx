@@ -15,12 +15,33 @@ import {
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const ecoOg = ogImageMeta({
+  variant: "homestead",
+  title: "Eco upgrades for Florida ADUs & prefab homes",
+  subtitle: "Solar, water, landscape, materials & resilience",
+})
 
 export const metadata: Metadata = {
   title: "Eco Upgrades for Florida ADUs & Prefab Homes | Prefabricated.co",
   description:
     "Explore solar-ready, battery-ready, water, landscape, healthy material, passive cooling, stormwater, and automation upgrades for Florida ADUs and prefab homes.",
   alternates: { canonical: "/eco-upgrades" },
+  openGraph: {
+    title: "Eco Upgrades for Florida ADUs & Prefab Homes | Prefabricated.co",
+    description:
+      "Solar-ready, battery-ready, water, landscape, healthy materials, passive cooling, stormwater, and automation upgrades.",
+    url: "/eco-upgrades",
+    images: [ecoOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eco Upgrades for Florida ADUs & Prefab Homes | Prefabricated.co",
+    description:
+      "Solar-ready, battery-ready, water, landscape, and resilience upgrades for Florida homes.",
+    images: [ecoOg.url],
+  },
 }
 
 const upgrades = [

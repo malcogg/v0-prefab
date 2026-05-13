@@ -7,6 +7,9 @@ import { CommunityCard } from "@/components/tiny-home-communities/community-card
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { ArrowRight } from "lucide-react"
 import { directoryHubUrl, floridaHubUrl, itemListSchemaFromCommunities } from "@/lib/tiny-home-communities/jsonld"
+import { ogImageMeta } from "@/lib/og"
+
+const tinyHubOg = ogImageMeta({ variant: "tiny" })
 
 export const metadata: Metadata = {
   title: "Tiny Home Communities Directory | Prefabricated.co",
@@ -19,14 +22,14 @@ export const metadata: Metadata = {
       "Curated directories of intentional tiny dwelling clusters across Florida (national expansion roadmap). Transparent amenity summaries without pricing fluff.",
     url: `${SITE_URL}/tiny-home-communities`,
     type: "website",
-    images: [{ url: "/og/homepage.jpg", width: 1200, height: 630, alt: "Prefabricated.co tiny living resources" }],
+    images: [tinyHubOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tiny Home Communities Directory | Prefabricated.co",
     description:
       "Discover Florida-first tiny dwelling campuses with stewardship details, tenancy models, and official outbound links—all mobile friendly.",
-    images: ["/og/homepage.jpg"],
+    images: [tinyHubOg.url],
   },
 }
 

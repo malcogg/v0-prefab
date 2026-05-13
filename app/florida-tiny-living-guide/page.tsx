@@ -4,12 +4,33 @@ import { AlertTriangle, CheckCircle2, Home, Map, Wind } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const tinyGuideOg = ogImageMeta({
+  variant: "tiny",
+  title: "Florida tiny living guide",
+  subtitle: "ADUs, prefab, THOW & storm-aware rules",
+})
 
 export const metadata: Metadata = {
   title: "Florida Tiny Living Guide | ADUs, Prefab Homes & Tiny Home Rules",
   description:
     "A practical Florida tiny living guide covering ADUs, prefab homes, tiny homes on wheels, permitting, utilities, land buying, flood zones, and storm realities.",
   alternates: { canonical: "/florida-tiny-living-guide" },
+  openGraph: {
+    title: "Florida Tiny Living Guide | ADUs, Prefab Homes & Tiny Home Rules",
+    description:
+      "ADUs vs prefab vs THOW, permitting, utilities, land, flood zones, and storm realities—plain language for Florida.",
+    url: "/florida-tiny-living-guide",
+    images: [tinyGuideOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Florida Tiny Living Guide | ADUs, Prefab Homes & Tiny Home Rules",
+    description:
+      "ADUs vs prefab vs THOW, permitting, utilities, and storm-aware Florida context.",
+    images: [tinyGuideOg.url],
+  },
 }
 
 const comparisons = [

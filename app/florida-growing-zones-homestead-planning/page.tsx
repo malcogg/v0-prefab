@@ -3,14 +3,27 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { FloridaHomesteadZoneTool } from "@/components/florida-homestead-zone-tool"
-import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import {
   USDA_PLANT_HARDINESS,
   USDA_ZONE_DEFINITION_SHORT,
 } from "@/lib/usda-hardiness-citations"
+import { ogImageAbsoluteUrl, ogImageMeta } from "@/lib/og"
 
 const PAGE_PATH = "/florida-growing-zones-homestead-planning"
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
+
+const homesteadOg = ogImageMeta({
+  variant: "homestead",
+  title: "Florida growing zones & homestead planning",
+  subtitle: "USDA zones, frost context & lunar rhythm tools",
+})
+
+const schemaOgImageUrl = ogImageAbsoluteUrl({
+  variant: "homestead",
+  title: "Florida growing zones & homestead planning",
+  subtitle: "Educational USDA zone companion",
+})
 
 export const metadata: Metadata = {
   title: "Florida Growing Zones, Lunar Planting & Homestead Planning | Prefabricated.co",
@@ -34,21 +47,14 @@ export const metadata: Metadata = {
       "Find your Florida USDA zone, see current moon-phase rhythm prompts, and explore closed-loop permaculture planning for tiny home communities.",
     url: PAGE_PATH,
     type: "article",
-    images: [
-      {
-        url: "/og/homepage.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Florida permaculture and USDA growing zone educational tool by Prefabricated.co",
-      },
-    ],
+    images: [homesteadOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Florida Growing Zones & Lunar Homestead Planning",
     description:
       "USDA zone finder with moon-phase planting rhythm, frost guidance, and regenerative tiny-home homestead ideas.",
-    images: ["/og/homepage.jpg"],
+    images: [homesteadOg.url],
   },
 }
 
@@ -85,7 +91,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
     ],
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: absoluteSiteUrl("/og/homepage.jpg"),
+      url: schemaOgImageUrl,
     },
     breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
   }
@@ -106,7 +112,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
     datePublished: "2026-05-01",
     dateModified: "2026-05-15",
     mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
-    image: [absoluteSiteUrl("/og/homepage.jpg")],
+    image: [schemaOgImageUrl],
     keywords: [
       "USDA hardiness zone",
       "Florida frost dates",

@@ -17,6 +17,13 @@ import { Navigation } from "@/components/navigation"
 import { StarterKitDownloadForm } from "@/components/starter-kit-download-form"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const courseOg = ogImageMeta({
+  variant: "resource",
+  title: "Free Florida ADU course",
+  subtitle: "Eligibility, costs, permitting & eco upgrades",
+})
 
 export const metadata: Metadata = {
   title: "Free Florida ADU Course | Prefab Backyard Homes & Tiny Living",
@@ -28,14 +35,14 @@ export const metadata: Metadata = {
     description:
       "Learn how to evaluate, plan, finance, and build a legal Florida ADU or prefab backyard home with practical, code-aware guidance.",
     url: "/free-adu-course",
-    images: [
-      {
-        url: "/og/homepage.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Free Florida ADU and backyard living course",
-      },
-    ],
+    images: [courseOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Florida ADU Course | Prefab Backyard Homes & Tiny Living",
+    description:
+      "Learn how to evaluate, plan, finance, and build a legal Florida ADU or prefab backyard home with practical, code-aware guidance.",
+    images: [courseOg.url],
   },
 }
 

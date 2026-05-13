@@ -1,34 +1,12 @@
 import type { Metadata } from "next"
 import { LocalLandingPage } from "@/components/local-landing-page"
+import { buildLocalLandingMetadata } from "@/lib/local-page-metadata"
 import { getLocalPageBySlug } from "@/lib/local-pages-data"
 
-const pageData = getLocalPageBySlug("adu-dundee")
+const pageSlug = "adu-dundee" as const
+const pageData = getLocalPageBySlug(pageSlug)
 
-export const metadata: Metadata = {
-  title: pageData?.metaTitle,
-  description: pageData?.metaDescription,
-  alternates: { canonical: pageData ? `/${pageData.slug}` : "/" },
-  openGraph: {
-    title: pageData?.metaTitle,
-    description: pageData?.metaDescription,
-    url: pageData ? `/${pageData.slug}` : "/",
-    images: [
-      {
-        url: "/og/local-page-default.jpg",
-        width: 1200,
-        height: 630,
-        alt: "ADU Specialists in Central Florida",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@earthnestfl",
-    title: pageData?.metaTitle,
-    description: pageData?.metaDescription,
-    images: ["/og/local-page-default.jpg"],
-  },
-}
+export const metadata: Metadata = buildLocalLandingMetadata(pageSlug)
 
 export default function Page() {
   if (!pageData) return null

@@ -4,6 +4,9 @@ import type { ReactNode } from "react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const faqOg = ogImageMeta({ variant: "faq" })
 
 type FaqItem = {
   q: string
@@ -151,7 +154,7 @@ export const metadata: Metadata = {
     description:
       "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",
     url: "/faq",
-    images: [{ url: "/og/faq.jpg", width: 1200, height: 630, alt: "ADU Questions Answered" }],
+    images: [faqOg],
   },
   twitter: {
     card: "summary_large_image",
@@ -159,7 +162,7 @@ export const metadata: Metadata = {
     title: "ADU FAQ — Central Florida | EarthNest Florida",
     description:
       "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",
-    images: ["/og/faq.jpg"],
+    images: [faqOg.url],
   },
 }
 

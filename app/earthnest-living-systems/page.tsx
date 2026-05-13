@@ -13,6 +13,13 @@ import {
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const earthnestOg = ogImageMeta({
+  variant: "default",
+  title: "EarthNest Living Systems",
+  subtitle: "Shelter, energy, water, food & Florida resilience",
+})
 
 export const metadata: Metadata = {
   title: "EarthNest Living Systems | Florida Eco-Friendly Prefab Homes",
@@ -24,14 +31,14 @@ export const metadata: Metadata = {
     description:
       "A Florida-adapted small home ecosystem for prefab ADUs, backyard homes, energy, water, food, wellness, and automation.",
     url: "/earthnest-living-systems",
-    images: [
-      {
-        url: "/og/homepage.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EarthNest eco-conscious prefab living system in Florida",
-      },
-    ],
+    images: [earthnestOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EarthNest Living Systems | Florida Eco-Friendly Prefab Homes",
+    description:
+      "Prefab ADUs and backyard homes with integrated energy, water, food, and resilience layers.",
+    images: [earthnestOg.url],
   },
 }
 

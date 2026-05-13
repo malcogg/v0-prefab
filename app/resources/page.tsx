@@ -13,12 +13,29 @@ import {
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const resourcesOg = ogImageMeta({ variant: "resource" })
 
 export const metadata: Metadata = {
   title: "Resources | Florida ADUs, Prefab Homes & Eco Tiny Living",
   description:
     "Explore Prefabricated.co resources for Florida ADU rules, prefab backyard homes, tiny living, sustainable upgrades, investment calculators, and property feasibility.",
   alternates: { canonical: "/resources" },
+  openGraph: {
+    title: "Resources | Florida ADUs, Prefab Homes & Eco Tiny Living",
+    description:
+      "Courses, calculators, county rules, tiny living guides, homestead tools, and eco upgrades—organized for Florida homeowners.",
+    url: "/resources",
+    images: [resourcesOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resources | Florida ADUs, Prefab Homes & Eco Tiny Living",
+    description:
+      "Courses, calculators, county rules, tiny living guides, and eco upgrades for Florida properties.",
+    images: [resourcesOg.url],
+  },
 }
 
 const resources = [
@@ -112,6 +129,25 @@ export default function ResourcesPage() {
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
               Start here if you are comparing ADUs, tiny homes, prefab backyard units, income
               potential, Florida rules, or EarthNest-style sustainable living systems.
+            </p>
+            <p className="mt-5 text-muted-foreground text-base leading-relaxed border-l-2 border-primary/35 pl-4">
+              New here? See how we map{" "}
+              <Link href="/about#adus-prefab-orlando-florida" className="text-primary font-medium hover:underline">
+                ADUs &amp; prefab
+              </Link>
+              ,{" "}
+              <Link href="/about#tiny-home-communities-florida" className="text-primary font-medium hover:underline">
+                tiny home communities
+              </Link>
+              , and{" "}
+              <Link href="/about#homestead-permaculture-education" className="text-primary font-medium hover:underline">
+                homestead guides
+              </Link>{" "}
+              on one site—and follow each cluster&apos;s next steps—on our{" "}
+              <Link href="/about" className="text-primary font-medium hover:underline">
+                About page
+              </Link>
+              .
             </p>
           </div>
         </div>

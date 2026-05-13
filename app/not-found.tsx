@@ -2,6 +2,13 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
+import { ogImageMeta } from "@/lib/og"
+
+const notFoundOg = ogImageMeta({
+  variant: "default",
+  title: "Page not found",
+  subtitle: "Prefabricated.co — Florida prefab & tiny living",
+})
 
 export const metadata: Metadata = {
   title: "Page Not Found | EarthNest Florida",
@@ -12,6 +19,16 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/404",
+  },
+  openGraph: {
+    title: "Page not found | Prefabricated.co",
+    description: "This page does not exist. Head home or check your property for ADU eligibility.",
+    images: [notFoundOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Page not found | Prefabricated.co",
+    images: [notFoundOg.url],
   },
 }
 

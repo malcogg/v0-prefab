@@ -23,7 +23,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     "Central Florida prefab home, tiny living, and eco-conscious ADU specialists. We help homeowners and investors explore legal, permitted, foundation-built accessory dwelling units, backyard income units, and EarthNest Living Systems.",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
-  image: `${SITE_URL}/og/homepage.jpg`,
+  image: `${SITE_URL}/api/og?v=default`,
   email: "prefabflorida@gmail.com",
   telephone: "+13217473778",
   address: {

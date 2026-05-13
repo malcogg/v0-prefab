@@ -8,6 +8,13 @@ import {
   floridaHubUrl,
   itemListSchemaFromCommunities,
 } from "@/lib/tiny-home-communities/jsonld"
+import { ogImageMeta } from "@/lib/og"
+
+const floridaTinyOg = ogImageMeta({
+  variant: "tiny",
+  title: "Florida tiny home communities",
+  subtitle: "Curated villages, campuses & lakefront collectives",
+})
 
 export const metadata: Metadata = {
   title: "Florida Tiny Home Communities | Directory · Prefabricated.co",
@@ -28,14 +35,14 @@ export const metadata: Metadata = {
       "Prefabricated.co’s stewardship-first roster covers Orlando, Tampa Bay, Sarasota, Cocoa, Oxford, Osceola County, and the Lake Region—always link-out friendly.",
     url: `${SITE_URL}/tiny-home-communities/florida`,
     type: "article",
-    images: [{ url: "/og/homepage.jpg", width: 1200, height: 630, alt: "Florida tiny dwelling directory" }],
+    images: [floridaTinyOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Florida Tiny Home Communities | Prefabricated.co",
     description:
       "Filter Florida’s curated tiny footprints by region clusters and tenancy models. Zero pricing sensationalism.",
-    images: ["/og/homepage.jpg"],
+    images: [floridaTinyOg.url],
   },
 }
 

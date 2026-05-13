@@ -11,6 +11,13 @@ import {
   starterKitWorksheets,
 } from "@/lib/free-course/starter-kit-content"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const starterOg = ogImageMeta({
+  variant: "resource",
+  title: "Florida ADU starter kit PDF",
+  subtitle: "Feasibility prompts, budgets & eco planner",
+})
 
 export const metadata: Metadata = {
   title: "Florida ADU Starter Kit PDF | Backyard Income Worksheet",
@@ -18,6 +25,20 @@ export const metadata: Metadata = {
     "Print or save the Florida ADU & Backyard Income Starter Kit, with feasibility checklists, budget worksheets, call scripts, and eco upgrade planning tools.",
   alternates: { canonical: "/free-adu-course/starter-kit" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Florida ADU Starter Kit PDF | Backyard Income Worksheet",
+    description:
+      "Printable workbook with feasibility checklists, budget worksheets, call scripts, and eco upgrade planning tools.",
+    url: "/free-adu-course/starter-kit",
+    images: [starterOg],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Florida ADU Starter Kit PDF | Backyard Income Worksheet",
+    description:
+      "Printable workbook with feasibility checklists, budget worksheets, and eco upgrade planning tools.",
+    images: [starterOg.url],
+  },
 }
 
 export default function StarterKitPage() {

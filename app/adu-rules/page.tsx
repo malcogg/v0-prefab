@@ -1,6 +1,13 @@
 import type { Metadata } from "next"
 import { breadcrumbSchema } from "@/lib/seo"
 import { AduRulesPageClient } from "@/components/adu-rules-page"
+import { ogImageMeta } from "@/lib/og"
+
+const rulesOg = ogImageMeta({
+  variant: "default",
+  title: "ADU rules by county — Central Florida",
+  subtitle: "Orlando, Orange, Osceola, Seminole & Lake",
+})
 
 export const metadata: Metadata = {
   title: "ADU Rules by County — Central Florida | EarthNest Florida",
@@ -12,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "What you can and can't build in Orange County, Orlando, Osceola, Seminole & Lake County. Official ADU rules, size limits, setbacks, and contact info for each jurisdiction.",
     url: "/adu-rules",
-    images: [{ url: "/og/county-directory.jpg", width: 1200, height: 630, alt: "ADU Rules by County" }],
+    images: [rulesOg],
   },
   twitter: {
     card: "summary_large_image",
@@ -20,7 +27,7 @@ export const metadata: Metadata = {
     title: "ADU Rules by County — Central Florida | EarthNest Florida",
     description:
       "What you can and can't build in Orange County, Orlando, Osceola, Seminole & Lake County. Official ADU rules, size limits, setbacks, and contact info for each jurisdiction.",
-    images: ["/og/county-directory.jpg"],
+    images: [rulesOg.url],
   },
 }
 

@@ -4,6 +4,9 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const aboutOg = ogImageMeta({ variant: "about" })
 
 export const metadata: Metadata = {
   title:
@@ -16,12 +19,14 @@ export const metadata: Metadata = {
     description:
       "How we help Florida homeowners with ADUs and prefab backyard homes, tiny-home community discovery, and educational regenerative living resources—linked so each audience finds the right next step.",
     url: "/about",
+    images: [aboutOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "About Prefabricated.co | ADUs, Tiny Communities & Homestead Guides",
     description:
       "Florida ADU & prefab path, tiny community directory context, and educational homestead tools—organized for clear next steps.",
+    images: [aboutOg.url],
   },
 }
 

@@ -4,6 +4,7 @@ import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 
 export function SiteFooter() {
   const navLinks = [
+    { label: "Choose your path (home)", href: "/#choose-path" },
     { label: "What is an ADU?", href: "/#what-is-adu" },
     { label: "Free ADU Course", href: "/free-adu-course" },
     { label: "EarthNest Living Systems", href: "/earthnest-living-systems" },

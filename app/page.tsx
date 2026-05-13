@@ -19,6 +19,13 @@ import { PartnerSection } from "@/components/partner-section"
 import { TinyHomeDirectorySection } from "@/components/tiny-home-directory-section"
 import { SiteFooter } from "@/components/site-footer"
 import { breadcrumbSchema } from "@/lib/seo"
+import { ogImageMeta } from "@/lib/og"
+
+const homeOg = ogImageMeta({
+  variant: "default",
+  title: "Florida prefab ADUs & eco tiny living",
+  subtitle: "Backyard homes, tiny communities, homestead tools",
+})
 
 export const metadata: Metadata = {
   title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
@@ -29,20 +36,14 @@ export const metadata: Metadata = {
     title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
     description:
       "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
-    images: [
-      {
-        url: "/og/homepage.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Florida prefab ADUs and eco-conscious tiny living systems",
-      },
-    ],
+    images: [homeOg],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
     description:
       "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
+    images: [homeOg.url],
   },
 }
 
