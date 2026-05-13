@@ -27,26 +27,46 @@ export function HeroSection() {
             Florida Prefab ADUs, Backyard Homes & Eco-Conscious Living Systems
           </h1>
 
-          <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl">
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-6 max-w-xl">
             We help Central Florida homeowners and investors explore legal, foundation-built ADUs
-            and prefab backyard homes designed for income potential, flexible living, and
-            Florida-ready sustainability.
+            and prefab backyard homes—plus curated tiny home communities and optional EarthNest-style
+            food, water, and soil systems. Dabble with one upgrade or stack the full loop.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
+              href="#choose-path"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground text-base font-semibold rounded transition-all hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Choose your path
+            </Link>
+            <Link
               href="#qualify"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white text-base font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              See If My Property Qualifies
+              See if my property qualifies
             </Link>
             <Link
               href="/earthnest-living-systems"
               className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white text-base font-semibold rounded transition-all hover:bg-white/10"
             >
-              Explore EarthNest Living Systems
+              Explore EarthNest
             </Link>
           </div>
+
+          <p className="mt-6 text-sm text-white/65 max-w-xl">
+            <Link href="/tiny-home-communities/florida" className="text-white font-medium underline-offset-4 hover:underline">
+              Tiny communities (Florida)
+            </Link>
+            {" · "}
+            <Link href="/florida-growing-zones-homestead-planning" className="text-white font-medium underline-offset-4 hover:underline">
+              Zones &amp; homestead tool
+            </Link>
+            {" · "}
+            <Link href="/resources" className="text-white font-medium underline-offset-4 hover:underline">
+              Resources
+            </Link>
+          </p>
         </div>
 
         {/* Stats bar */}

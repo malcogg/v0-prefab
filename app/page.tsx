@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { HomePathwaysSection } from "@/components/home-pathways-section"
 import { ADUQuizFunnel } from "@/components/adu-quiz-funnel"
 import { OpportunitySection } from "@/components/opportunity-section"
 import { WhatIsAduSection } from "@/components/what-is-adu-section"
@@ -22,13 +23,12 @@ import { breadcrumbSchema } from "@/lib/seo"
 export const metadata: Metadata = {
   title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
   description:
-    "Explore Florida prefab ADUs, backyard homes, tiny living systems, and eco-conscious EarthNest concepts. Legal, foundation-built options for income, family flexibility, and resilient living.",
+    "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools. Foundation-built, code-aware planning.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
     description:
-      "Explore Florida prefab ADUs, backyard homes, tiny living systems, and eco-conscious EarthNest concepts. Legal, foundation-built options for income, family flexibility, and resilient living.",
-    url: "/",
+      "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
     images: [
       {
         url: "/og/homepage.jpg",
@@ -42,8 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
     description:
-      "Explore Florida prefab ADUs, backyard homes, tiny living systems, and eco-conscious EarthNest concepts. Legal, foundation-built options for income, family flexibility, and resilient living.",
-    images: ["/og/homepage.jpg"],
+      "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
   },
 }
 
@@ -106,6 +105,7 @@ export default function Home() {
       />
       <Navigation />
       <HeroSection />
+      <HomePathwaysSection />
       <ADUQuizFunnel />
       <OpportunitySection />
       <WhatIsAduSection />
