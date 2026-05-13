@@ -14,9 +14,10 @@ export function FloridaHomesteadResourcesSection() {
               Plan year-round food systems for your tiny home or regenerative cluster.
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Use our interactive USDA zone finder, frost-date primer, Florida-wide hardiness table,
-              and zone-aware homestead report tailored to humidity, heat, and storm-season
-              realities—ideal if you are co-developing edible landscaping around compact dwellings.
+              Use our interactive USDA zone finder, frost-date primer, current Moon rhythm prompts,
+              Florida-wide hardiness table, and zone-aware homestead report tailored to humidity, heat,
+              and storm-season realities—ideal if you are co-developing edible landscaping around compact
+              dwellings.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -64,10 +65,11 @@ export function FloridaHomesteadResourcesSection() {
                 <MapPin className="h-5 w-5 text-primary" aria-hidden />
               </div>
               <div>
-                <h3 className="font-serif text-xl text-foreground mb-1">ZIP &amp; city estimator</h3>
+                <h3 className="font-serif text-xl text-foreground mb-1">ZIP &amp; celestial rhythm</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Demo-grade lookup today with room to plug in geocoding later; always verify against
-                  USDA ARS maps for site-specific planning.
+                  Estimate hardiness by ZIP or city cue, then layer waxing/waning planting notes and
+                  sign traditions between frost math and compost loops—always verify USDA ARS maps for
+                  perennials.
                 </p>
               </div>
             </div>

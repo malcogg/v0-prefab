@@ -204,10 +204,10 @@ export function homesteadReportForZone(zone: FloridaZoneCode): ZoneHomesteadRepo
       "Herb hedges: rosemary, sage, thyme on berms with drainage",
     ],
     "10a": [
-      "Avocado selections suited to periodic chill and good drainage",
-      "Citrus, mulberry, and loquat for structure + fruit",
-      "Cherry tomatoes almost year-round with disease rotation",
-      "Winter squash and sweet potatoes for calorie density",
+      "Sweet potatoes, okra, eggplant, peppers, and cherry tomatoes (two peak seasons with disease rotation)",
+      "Malabar spinach, Okinawa spinach, and longevity spinach as humid summer greens",
+      "Banana circles with papaya, citrus, and mulberry for structure + steady calories",
+      "Avocado selections with good drainage and wind protection",
     ],
     "10b": [
       "Mango, moringa, and tropical spinach analogs as summer staples",
@@ -230,11 +230,11 @@ export function homesteadReportForZone(zone: FloridaZoneCode): ZoneHomesteadRepo
   }
 
   const closedLoop =
-    "A practical Florida loop: kitchen scraps and fruit trimmings → duck or chicken tractoring along hedgerows → litter and manure → thermophilic compost → finished compost tea → feeder roots of banana/citrus guilds → surplus greens back to kitchen. Add a greywater planter biofilter (code-aware) and every rain event becomes irrigation for biomass."
+    "Picture a waste-free Florida loop every tiny-home cluster can scale: kitchen scraps and fallen fruit → ducks or chickens on a rotating forage lane beneath banana, papaya, and citrus → manure + litter → hot compost plus worm castings → compost tea and mulch → feeder roots for sweet potato banks, veggie beds, and passionfruit trellises → surplus greens, fruit, and tubers back to the kitchen. Add fallen breadfruit/mango trimmings as coarse carbon, sweet potato vines as ground cover that heals bare sand, and a code-aware greywater planter strip so every rinse grows biomass instead of leaving the site."
 
   const exteriorClimbing = [
-    "Sweet potato vine (edible leaves + tubers)",
-    "Malabar spinach and Okinawa spinach on trellis wire",
+    "Sweet potato vine (edible leaves + tubers; living mulch for sand)",
+    "Malabar spinach, Okinawa spinach, and longevity spinach on cattle-panel trellis",
     "Passionfruit on strong pergolas (refresh wood; use concrete footers in wind zones)",
     "Pole beans and yardlong beans on sun-facing tiny-home walls (afternoon shade helps paint longevity)",
     "Chayote on stout trellis where winter lows allow",
@@ -312,6 +312,7 @@ export function homesteadReportForZone(zone: FloridaZoneCode): ZoneHomesteadRepo
       "Focus on water harvesting: tanks, mulch, and shade to reduce evaporative loss",
       "Hügel-inspired berms with storm-safe slopes",
       "Rotate heavy feeders with legume covers each wet season",
+      "Stack perennials in time: fast-support pigeon pea / gliricidia chop-and-drop feeding slower fruit trees",
     ],
     "10b": [
       "Salt management: freshwater rinse zones, dense windward hedges, species selection",

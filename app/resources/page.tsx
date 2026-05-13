@@ -62,7 +62,7 @@ const resources = [
     icon: ThermometerSun,
     title: "Florida Growing Zones & Homestead Planning",
     href: "/florida-growing-zones-homestead-planning",
-    text: "Interactive USDA zone finder, frost guidance, statewide 8b–11b reference, and personalized regenerative homestead prompts.",
+    text: "USDA zone finder, frost guidance, moon-phase planting rhythm, statewide 8b–11b reference, and personalized closed-loop homestead prompts.",
   },
   {
     icon: Leaf,
