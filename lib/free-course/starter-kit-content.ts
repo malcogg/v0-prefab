@@ -170,7 +170,7 @@ export const starterKitWorksheets = [
 ]
 
 export const starterKitLinks = [
-  { label: "Request a Free Property Evaluation", href: "/#qualify" },
+  { label: "Request a Free Property Evaluation", href: "/qualify" },
   { label: "Use the ADU Calculator", href: "/adu-calculator" },
   { label: "Check ADU Rules", href: "/adu-rules" },
   { label: "Explore EarthNest Living Systems", href: "/earthnest-living-systems" },

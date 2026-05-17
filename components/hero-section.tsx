@@ -41,7 +41,7 @@ export function HeroSection() {
               Choose your path
             </Link>
             <Link
-              href="#qualify"
+              href="/qualify"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white text-base font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               See if my property qualifies

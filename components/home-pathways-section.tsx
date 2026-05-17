@@ -7,7 +7,7 @@ const pathways = [
     title: "ADU, prefab & backyard home",
     description:
       "Foundation-built ADUs and backyard units for income, family, or flexible living—with Florida rules, estimating tools, and (when you want them) EarthNest-style permaculture upgrades.",
-    primary: { label: "See if my property qualifies", href: "/#qualify" },
+    primary: { label: "See if my property qualifies", href: "/qualify" },
     secondary: { label: "ADU calculator", href: "/adu-calculator" },
   },
   {

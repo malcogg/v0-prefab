@@ -140,7 +140,7 @@ export function Navigation() {
             Build Yours
           </Link>
           <Link
-            href="/#qualify"
+            href="/qualify"
             className="inline-flex items-center px-4 py-2 xl:px-5 xl:py-2.5 border border-border text-foreground text-sm font-semibold rounded transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap"
           >
             Get Free Evaluation
@@ -239,7 +239,7 @@ export function Navigation() {
             Build Yours
           </Link>
           <Link
-            href="/#qualify"
+            href="/qualify"
             onClick={() => setMenuOpen(false)}
             className="inline-flex items-center justify-center px-5 py-3 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
           >

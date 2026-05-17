@@ -26,7 +26,7 @@ export function FreeCourseSection() {
                   Download the Starter Kit
                 </Link>
                 <Link
-                  href="/#qualify"
+                  href="/qualify"
                   className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
                 >
                   See If My Property Qualifies

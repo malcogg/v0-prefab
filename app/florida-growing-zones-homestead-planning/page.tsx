@@ -341,7 +341,7 @@ export default function FloridaGrowingZonesHomesteadPlanningPage() {
               EarthNest overview
             </Link>
             <Link
-              href="/#qualify"
+              href="/qualify"
               className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded hover:border-primary/40 bg-background"
             >
               Request a property evaluation

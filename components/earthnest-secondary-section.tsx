@@ -44,7 +44,7 @@ export function EarthNestSecondarySection() {
                 <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">{model.bestFor}</p>
                 <p className="text-sm font-semibold text-primary mb-3">{model.installed} installed band</p>
                 <Link
-                  href="/#qualify"
+                  href="/qualify"
                   className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
                   Request evaluation →

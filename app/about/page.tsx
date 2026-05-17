@@ -127,7 +127,7 @@ export default function AboutPage() {
                 Choose your path (home)
               </Link>
               <Link
-                href="/#qualify"
+                href="/qualify"
                 className="inline-flex items-center px-5 py-2.5 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
               >
                 Get free evaluation
@@ -176,7 +176,7 @@ export default function AboutPage() {
               kickerClass="text-primary"
               title="Central Florida & Orlando-area ADUs and prefab backyard homes"
               links={[
-                { href: "/#qualify", label: "See if my property qualifies" },
+                { href: "/qualify", label: "See if my property qualifies" },
                 { href: "/adu-calculator", label: "ADU calculator" },
                 { href: "/adu-rules", label: "ADU rules by county" },
                 {
@@ -316,7 +316,7 @@ export default function AboutPage() {
 
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
-              href="/#qualify"
+              href="/qualify"
               className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
               Get free evaluation

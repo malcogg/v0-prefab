@@ -71,7 +71,7 @@ const modules = [
       "HOA, flood zone, wetlands, drainage, utilities, and site constraints",
     ],
     cta: "See If My Property Qualifies",
-    href: "/#qualify",
+    href: "/qualify",
   },
   {
     icon: Calculator,
@@ -110,7 +110,7 @@ const modules = [
       "Timeline risks, coordination points, and why shortcuts create expensive problems",
     ],
     cta: "Start With a Free Evaluation",
-    href: "/#qualify",
+    href: "/qualify",
   },
   {
     icon: Sprout,
@@ -208,7 +208,7 @@ export default function FreeAduCoursePage() {
                 Download Starter Kit
               </Link>
               <Link
-                href="/#qualify"
+                href="/qualify"
                 className="inline-flex items-center px-7 py-3.5 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
               >
                 See If My Property Qualifies
@@ -375,7 +375,7 @@ export default function FreeAduCoursePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/#qualify"
+              href="/qualify"
               className="inline-flex items-center px-8 py-4 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
               Request Free Property Evaluation

@@ -194,7 +194,7 @@ export default function FloridaTinyLivingGuidePage() {
               Check Florida ADU Rules
             </Link>
             <Link
-              href="/#qualify"
+              href="/qualify"
               className="inline-flex items-center px-7 py-3.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
               Get Free Evaluation

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
-import { LeadFormSection } from "@/components/lead-form-section"
+import { HomeInterestSection } from "@/components/home-interest-section"
 import { ADUCalculatorSection } from "@/components/adu-calculator-section"
 import type { LocalSeoPage } from "@/lib/local-pages-data"
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
@@ -94,7 +94,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
             zoning, design, permitting, and build.
           </p>
           <Link
-            href="/#qualify"
+            href="/qualify"
             className="inline-flex items-center px-7 py-3.5 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
           >
             Get a Free {page.locationName} Property Evaluation
@@ -157,7 +157,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
                 View {page.county} hub page
               </Link>
             )}
-            <Link href="/#qualify" className="text-primary font-medium hover:underline">
+            <Link href="/qualify" className="text-primary font-medium hover:underline">
               Go to homepage evaluation form
             </Link>
           </div>
@@ -178,7 +178,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
               <li>Estimated monthly rent: $1,400 – $2,500/mo</li>
             </ul>
             <Link
-              href="/#qualify"
+              href="/qualify"
               className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
               Check My Property
@@ -195,7 +195,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
             See If Your {page.locationName} Property Qualifies
           </h2>
         </div>
-        <LeadFormSection />
+        <HomeInterestSection />
       </section>
 
       <SiteFooter />

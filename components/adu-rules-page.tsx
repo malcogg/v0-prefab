@@ -513,7 +513,7 @@ export function AduRulesPageClient() {
                   Not sure which county your property falls under? We run the zoning check — free.
                 </p>
                 <Link
-                  href="/#qualify"
+                  href="/qualify"
                   className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
                 >
                   Check My Property
@@ -530,7 +530,7 @@ export function AduRulesPageClient() {
               <Link href="/#what-is-adu" className="text-primary hover:underline">
                 Learn ADU Basics
               </Link>
-              <Link href="/#qualify" className="text-primary hover:underline">
+              <Link href="/qualify" className="text-primary hover:underline">
                 Start Free Evaluation
               </Link>
             </div>

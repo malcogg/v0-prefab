@@ -17,6 +17,7 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
   if (
     path === "/adu-calculator" ||
     path === "/escape-tiny-homes" ||
+    path === "/qualify" ||
     path === "/florida-tiny-living-guide" ||
     path === "/florida-growing-zones-homestead-planning" ||
     path === "/closed-loop-homestead" ||
@@ -53,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/about",
     "/contact",
+    "/qualify",
     "/adu-checklist",
   ]
 

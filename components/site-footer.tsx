@@ -26,7 +26,7 @@ export function SiteFooter() {
     { label: "FAQ", href: "/faq" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
-    { label: "Get Evaluation", href: "/#qualify" },
+    { label: "Get Evaluation", href: "/qualify" },
   ]
   const countyHubs = LOCAL_SEO_PAGES.filter((page) => page.isHub).sort((a, b) =>
     a.locationName.localeCompare(b.locationName)
@@ -46,7 +46,7 @@ export function SiteFooter() {
             </p>
           </div>
           <Link
-            href="/#qualify"
+            href="/qualify"
             className="inline-flex items-center shrink-0 px-8 py-4 bg-primary text-white text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] whitespace-nowrap"
           >
             Get Free Evaluation

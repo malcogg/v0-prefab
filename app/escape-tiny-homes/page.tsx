@@ -92,7 +92,7 @@ export default function EscapeTinyHomesCatalogPage() {
               View those lanes
             </Link>
             {" · "}
-            <Link href="/#qualify" className="text-primary font-medium underline-offset-4 hover:underline">
+            <Link href="/qualify" className="text-primary font-medium underline-offset-4 hover:underline">
               Book an evaluation
             </Link>
           </p>

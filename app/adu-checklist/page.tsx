@@ -52,7 +52,7 @@ export default function AduChecklistPage() {
           <p className="text-muted-foreground mb-6">
             This page is reserved for the checklist lead magnet experience.
           </p>
-          <Link href="/#qualify" className="text-primary hover:underline">
+          <Link href="/qualify" className="text-primary hover:underline">
             Start free property evaluation
           </Link>
         </div>

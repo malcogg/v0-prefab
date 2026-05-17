@@ -63,7 +63,7 @@ export function ProcessSection() {
               the process and what comes next.
             </p>
             <Link
-              href="#qualify"
+              href="/qualify"
               className="inline-flex items-center px-7 py-3.5 bg-primary text-white text-sm font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)]"
             >
               Start Step 1 — Free Evaluation

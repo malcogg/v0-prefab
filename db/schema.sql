@@ -133,3 +133,28 @@ create index if not exists homestead_zone_report_dl_email_idx
 create index if not exists homestead_zone_report_dl_zone_idx
   on homestead_zone_report_downloads (zone);
 
+-- Multi-step qualify flow + express homepage interest (run in Neon when ready).
+create table if not exists qualify_submissions (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now(),
+
+  submission_kind text not null check (submission_kind in ('express', 'full')),
+
+  name text not null,
+  email text not null,
+  phone text,
+  zip text not null,
+  city text,
+  state_code text,
+
+  payload jsonb not null default '{}',
+  report_json jsonb,
+
+  user_agent text,
+  ip text
+);
+
+create index if not exists qualify_submissions_created_idx on qualify_submissions (created_at desc);
+create index if not exists qualify_submissions_email_idx on qualify_submissions (email);
+create index if not exists qualify_submissions_kind_idx on qualify_submissions (submission_kind);
+

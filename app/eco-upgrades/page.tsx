@@ -171,7 +171,7 @@ export default function EcoUpgradesPage() {
                     Learn About EarthNest
                   </Link>
                   <Link
-                    href="/#qualify"
+                    href="/qualify"
                     className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-semibold rounded transition-colors hover:border-primary/40"
                   >
                     Request Property Evaluation
