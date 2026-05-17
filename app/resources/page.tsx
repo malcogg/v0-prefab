@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Leaf,
   MapPinned,
+  Newspaper,
   Recycle,
   Sprout,
   ThermometerSun,
@@ -40,6 +41,12 @@ export const metadata: Metadata = {
 }
 
 const resources = [
+  {
+    icon: Newspaper,
+    title: "Blog",
+    href: "/blog",
+    text: "Long-form guides for Florida small-space food, water-smart yards, and homestead context—with clear affiliate disclosure when gear links appear.",
+  },
   {
     icon: GraduationCap,
     title: "Free Florida ADU Course",

@@ -63,7 +63,10 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
     }
   }
 
-  if (["/about", "/contact", "/faq", "/resources"].includes(path)) {
+  if (
+    ["/about", "/contact", "/faq", "/resources", "/affiliate-disclosure"].includes(path) ||
+    path.startsWith("/blog")
+  ) {
     return {
       id: "platform",
       tagline: "Prefab · tiny · homestead",

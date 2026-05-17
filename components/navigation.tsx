@@ -43,6 +43,8 @@ export function Navigation() {
     { label: "Closed-loop homestead guide", href: "/closed-loop-homestead" },
     { label: "Tiny Home Communities", href: "/tiny-home-communities" },
     { label: "Resources", href: "/resources" },
+    { label: "Blog", href: "/blog" },
+    { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
     { label: "FAQ", href: "/faq" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },

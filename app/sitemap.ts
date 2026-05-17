@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { ESCAPE_CATALOG_PATH, escapeModelSlugs } from "@/lib/escape-tiny-homes-data"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 import { getAllCommunitySlugParams, getDirectoryStateParams } from "@/lib/tiny-home-communities/repo"
+import { getBlogSlugs } from "@/lib/blog/load-posts"
 
 const SITE_URL = "https://www.prefabricated.co"
 
@@ -24,6 +25,8 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
     path === "/closed-loop-homestead" ||
     path === "/tiny-home-communities" ||
     path === "/resources" ||
+    path === "/blog" ||
+    path === "/affiliate-disclosure" ||
     path === "/faq"
   )
     return 0.8
@@ -47,6 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/closed-loop-homestead",
     "/tiny-home-communities",
     "/resources",
+    "/blog",
+    "/affiliate-disclosure",
     ESCAPE_CATALOG_PATH,
     `${ESCAPE_CATALOG_PATH}/success`,
     "/adu-calculator",
@@ -98,5 +103,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  return [...core, ...local, ...escapeHomes, ...tinyStateHubs, ...tinyListings]
+  const blogPosts = getBlogSlugs().map((slug) => ({
+    url: `${SITE_URL}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.64,
+  }))
+
+  return [...core, ...local, ...escapeHomes, ...tinyStateHubs, ...tinyListings, ...blogPosts]
 }
