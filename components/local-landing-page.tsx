@@ -3,7 +3,17 @@ import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { HomeInterestSection } from "@/components/home-interest-section"
 import { ADUCalculatorSection } from "@/components/adu-calculator-section"
+import { ADUPermittingTimeline } from "@/components/adu-permitting-timeline"
+import { ADUPreflightChecklist } from "@/components/adu-preflight-checklist"
 import type { LocalSeoPage } from "@/lib/local-pages-data"
+import {
+  getDisplayIntroParagraphs,
+  getRegulatoryFootnoteForPage,
+  getRegulatoryQuickRules,
+  ORLANDO_OVERLAY_CITATION,
+  ORLANDO_TRADITIONAL_CITY_OVERLAY,
+  shouldShowOrlandoOverlay,
+} from "@/lib/local-adu-regulatory"
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo"
 
 type LocalLandingPageProps = { page: LocalSeoPage }
@@ -121,8 +131,8 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
           )}
           <h2 className="font-serif text-3xl text-foreground mb-6">Local Market Context</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {page.introParagraphs.map((paragraph) => (
-              <p key={paragraph} className="text-muted-foreground leading-relaxed">
+            {getDisplayIntroParagraphs(page).map((paragraph, i) => (
+              <p key={`${page.slug}-ctx-${i}`} className="text-muted-foreground leading-relaxed">
                 {paragraph}
               </p>
             ))}
@@ -142,12 +152,45 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
             .
           </p>
           <ul className="grid md:grid-cols-2 gap-3 mb-8">
-            {page.quickRules.map((rule) => (
+            {getRegulatoryQuickRules(page).map((rule) => (
               <li key={rule} className="rounded border border-border bg-secondary px-4 py-3 text-sm text-foreground">
                 {rule}
               </li>
             ))}
           </ul>
+          {(() => {
+            const foot = getRegulatoryFootnoteForPage(page)
+            if (!foot) return null
+            return (
+              <div
+                className="mb-8 rounded-xl border border-border/90 bg-secondary/40 px-4 py-4 text-xs text-muted-foreground leading-relaxed"
+                role="note"
+                aria-label="Regulatory summary and compliance reference"
+              >
+                <p className="text-sm text-foreground/90 mb-3">{foot.summaryLine}</p>
+                <p>
+                  <span className="font-semibold text-foreground/80">Reference:</span> {foot.citation}
+                </p>
+                <p className="mt-1.5">
+                  <span className="font-semibold text-foreground/80">Last reviewed (site copy):</span>{" "}
+                  {foot.lastVerifiedDisplay}{" "}
+                  <span className="text-muted-foreground/80">({foot.lastVerifiedRaw})</span>
+                  <span className="text-muted-foreground/60 mx-1.5">·</span>
+                  <span className="font-semibold text-foreground/80">Status:</span> {foot.statusLabel}
+                </p>
+              </div>
+            )
+          })()}
+          {shouldShowOrlandoOverlay(page) ? (
+            <div className="rounded-xl border border-primary/25 bg-primary/5 px-4 py-4 text-sm text-foreground/90 leading-relaxed mb-8">
+              <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">City of Orlando overlay</p>
+              <p>{ORLANDO_TRADITIONAL_CITY_OVERLAY}</p>
+              <p className="text-[11px] text-muted-foreground mt-3 pt-3 border-t border-primary/15 leading-relaxed">
+                <span className="font-semibold text-foreground/75">Reference:</span> {ORLANDO_OVERLAY_CITATION}
+              </p>
+            </div>
+          ) : null}
+          <ADUPreflightChecklist />
           <div className="flex flex-wrap gap-4 text-sm">
             <Link href="/adu-rules" className="text-primary font-medium hover:underline">
               View full county directory
@@ -184,6 +227,12 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
               Check My Property
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <ADUPermittingTimeline />
         </div>
       </section>
 

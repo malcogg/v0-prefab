@@ -3,6 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import { CheckCircle, Loader2 } from "lucide-react"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 
 type UiInterest = "tiny_homes" | "adu" | "earthnest" | "village" | "not_sure"
@@ -21,6 +23,7 @@ export function HomeInterestSection() {
   const [zip, setZip] = useState("")
   const [phone, setPhone] = useState("")
   const [message, setMessage] = useState("")
+  const [marketingConsent, setMarketingConsent] = useState(false)
   const [picked, setPicked] = useState<UiInterest[]>([])
   const [state, setState] = useState<"idle" | "loading" | "done" | "err">("idle")
   const [err, setErr] = useState<string | null>(null)
@@ -36,6 +39,10 @@ export function HomeInterestSection() {
       setErr("Pick at least one interest.")
       return
     }
+    if (!marketingConsent) {
+      setErr("Please confirm you agree to receive email from us.")
+      return
+    }
     setState("loading")
     try {
       const res = await fetch("/api/home-interest", {
@@ -48,6 +55,7 @@ export function HomeInterestSection() {
           phone: phone.trim(),
           message: message.trim(),
           interests: picked,
+          marketingConsent: true,
         }),
       })
       if (!res.ok) {
@@ -105,7 +113,7 @@ export function HomeInterestSection() {
             ) : (
               <form onSubmit={(e) => void submit(e)} className="space-y-5">
                 <h3 className="font-semibold text-foreground">Quick contact</h3>
-                <p className="text-xs text-muted-foreground -mt-2">We respect your privacy — no spam.</p>
+                <p className="text-xs text-muted-foreground -mt-2">We respect your privacy — no unrelated spam.</p>
                 {err ? (
                   <div className="rounded-lg border border-destructive/25 bg-destructive/5 px-3 py-2 text-sm text-destructive">
                     {err}
@@ -183,6 +191,22 @@ export function HomeInterestSection() {
                       onChange={(e) => setMessage(e.target.value)}
                     />
                   </div>
+                </div>
+                <div className="flex gap-3 items-start rounded-lg border border-border bg-secondary/40 p-3">
+                  <Checkbox
+                    id="home-interest-marketing"
+                    checked={marketingConsent}
+                    onCheckedChange={(v) => setMarketingConsent(v === true)}
+                    className="mt-0.5"
+                    aria-required
+                  />
+                  <Label
+                    htmlFor="home-interest-marketing"
+                    className="text-xs text-muted-foreground leading-relaxed font-normal cursor-pointer"
+                  >
+                    I agree to receive email from Prefabricated.co about this inquiry, project updates, and related
+                    offers. I can unsubscribe anytime.
+                  </Label>
                 </div>
                 <button
                   type="submit"

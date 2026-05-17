@@ -2,6 +2,12 @@
 
 import Link from "next/link"
 import { useEffect, useMemo, useRef, useState } from "react"
+import {
+  ADU_CALCULATOR_MAX_SQFT,
+  ADU_CALCULATOR_REGULATORY_ALERTS,
+  CALCULATOR_COUNTY_KEY_TO_REGULATORY_LABEL,
+} from "@/lib/local-adu-regulatory"
+import { cn } from "@/lib/utils"
 
 type AduType = "studio" | "1br" | "2br"
 type FinancingMode = "cash" | "loan"
@@ -84,6 +90,13 @@ const COUNTY_AREAS = {
     areas: [
       { id: "clermont-minneola", label: "Clermont / Minneola" },
       { id: "other-lake", label: "Other Lake County" },
+    ],
+  },
+  polk: {
+    label: "Polk County",
+    areas: [
+      { id: "lakeland-winter-haven", label: "Lakeland / Winter Haven" },
+      { id: "other-polk", label: "Other Polk County" },
     ],
   },
 } as const
@@ -250,6 +263,20 @@ const rentData = {
     "2br": { low: 1400, mid: 1600, high: 1800 },
     note: "Lake County general estimate.",
   },
+  "lakeland-winter-haven": {
+    label: "Lakeland / Winter Haven",
+    studio: { low: 950, mid: 1150, high: 1300 },
+    "1br": { low: 1100, mid: 1300, high: 1500 },
+    "2br": { low: 1350, mid: 1550, high: 1750 },
+    note: "Polk County I-4 corridor. Verify ADU zoning per parcel.",
+  },
+  "other-polk": {
+    label: "Other Polk County",
+    studio: { low: 900, mid: 1100, high: 1250 },
+    "1br": { low: 1050, mid: 1250, high: 1450 },
+    "2br": { low: 1300, mid: 1500, high: 1700 },
+    note: "Polk County general estimate.",
+  },
 } as const
 
 const TYPE_CONFIG: Record<AduType, { label: string; sizeMin: number; sizeMax: number; sizeDefault: number; costMin: number; costMax: number; costDefault: number; description: string }> = {
@@ -326,11 +353,35 @@ export function ADUCalculatorSection() {
     }
   }, [buildCost, maintenanceTouched])
 
+  useEffect(() => {
+    if (!countyKey) return
+    const label = CALCULATOR_COUNTY_KEY_TO_REGULATORY_LABEL[countyKey]
+    if (!label) return
+    const cap = ADU_CALCULATOR_MAX_SQFT[label] ?? 1000
+    setSizeSqft((s) => Math.min(s, cap))
+    setSizeValidation("")
+  }, [countyKey])
+
   const availableAreas = countyKey ? COUNTY_AREAS[countyKey].areas : []
   const selectedRentData = areaKey ? rentData[areaKey] : null
   const canCalculate = Boolean(selectedRentData && aduType)
   const aduTypeKey = (aduType || "studio") as AduType
   const typeCfg = TYPE_CONFIG[aduTypeKey]
+
+  const regulatoryCountyLabel = countyKey
+    ? CALCULATOR_COUNTY_KEY_TO_REGULATORY_LABEL[countyKey]
+    : undefined
+  const regulatoryAlert = regulatoryCountyLabel
+    ? ADU_CALCULATOR_REGULATORY_ALERTS[regulatoryCountyLabel]
+    : undefined
+  const regulatoryMaxSqft = regulatoryCountyLabel
+    ? (ADU_CALCULATOR_MAX_SQFT[regulatoryCountyLabel] ?? 1000)
+    : Number.POSITIVE_INFINITY
+  const calculatorSqftCap = regulatoryCountyLabel
+    ? (ADU_CALCULATOR_MAX_SQFT[regulatoryCountyLabel] ?? 1000)
+    : 1000
+  const sizeSliderMax = Math.min(typeCfg.sizeMax, regulatoryMaxSqft)
+  const sizeSliderMin = typeCfg.sizeMin
 
   const effectiveBuildCost = Math.max(typeCfg.costMin, buildCost)
   const downPaymentAmount = (effectiveBuildCost * downPaymentPercent) / 100
@@ -446,10 +497,12 @@ export function ADUCalculatorSection() {
 
   const handleSizeInput = (raw: number) => {
     trackCalculatorInteraction()
-    if (raw > 1000) {
-      setSizeSqft(1000)
+    const cap = calculatorSqftCap
+    if (raw > cap) {
+      setSizeSqft(cap)
       setSizeValidation(
-        "Orange County limits ADU size to 1,000 sq ft or 45% of your primary home. Verify with your jurisdiction."
+        regulatoryAlert?.message ??
+          `For this county selection, the calculator caps size at ${cap} sq ft. Verify with your jurisdiction.`,
       )
       return
     }
@@ -551,12 +604,27 @@ export function ADUCalculatorSection() {
                     ))}
                   </div>
                   <p className="text-xs text-muted-foreground mt-2">
-                    In Orange County (unincorporated), minimum ADU size is 400 sq ft. Maximum is 1,000
-                    sq ft or 45% of your primary home's living area, whichever is less.
+                    {regulatoryCountyLabel
+                      ? "County-specific limits apply to the size slider and validation below."
+                      : "Select a county to load jurisdiction-aware size caps in the calculator."}
                   </p>
                 </div>
 
                 <div>
+                  {regulatoryAlert ? (
+                    <div
+                      key={countyKey}
+                      className={cn(
+                        "mb-3 rounded-lg border px-3 py-2.5 text-xs leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300",
+                        regulatoryAlert.variant === "warning"
+                          ? "border-amber-300/80 bg-amber-50/90 text-amber-950"
+                          : "border-primary/25 bg-primary/5 text-foreground/90",
+                      )}
+                      role="status"
+                    >
+                      {regulatoryAlert.message}
+                    </div>
+                  ) : null}
                   <div className="flex items-center justify-between mb-2">
                     <label className="text-sm font-medium text-foreground">Estimated ADU size (sq ft)</label>
                     <input
@@ -569,15 +637,20 @@ export function ADUCalculatorSection() {
                   </div>
                   <input
                     type="range"
-                    min={typeCfg.sizeMin}
-                    max={typeCfg.sizeMax}
+                    min={sizeSliderMin}
+                    max={sizeSliderMax}
                     step={5}
-                    value={Math.min(Math.max(sizeSqft, typeCfg.sizeMin), typeCfg.sizeMax)}
+                    value={Math.min(Math.max(sizeSqft, sizeSliderMin), sizeSliderMax)}
                     onChange={(e) => handleSizeInput(Number(e.target.value))}
                     className="w-full"
                     disabled={!aduType}
                   />
                   {sizeValidation ? <p className="text-xs text-amber-700 mt-2">{sizeValidation}</p> : null}
+                  <p className="text-[11px] text-muted-foreground/90 mt-1.5">
+                    {countyKey
+                      ? `Slider max ${sizeSliderMax} sq ft for this ADU type and county (educational — confirm on site).`
+                      : `Slider follows ADU type limits; select a county for regulatory caps (${calculatorSqftCap} sq ft default guard until you do).`}
+                  </p>
                 </div>
 
                 <div>

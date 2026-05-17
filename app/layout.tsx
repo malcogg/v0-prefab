@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next"
 import { Inter, DM_Serif_Display } from "next/font/google"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
+import { ExitIntentLeadModal } from "@/components/exit-intent-lead-modal"
+import { MobileConversionDrawer } from "@/components/mobile-conversion-drawer"
 import "./globals.css"
 import { DEFAULT_SEO, LOCAL_BUSINESS_SCHEMA, SITE_URL } from "@/lib/seo"
 import { ogImageMeta } from "@/lib/og"
@@ -82,6 +84,8 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${dmSerif.variable} font-sans antialiased`}>
         {children}
+        <ExitIntentLeadModal />
+        <MobileConversionDrawer />
         <Analytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VF74ZRJQ4V"

@@ -158,7 +158,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@earthnestfl",
     title: "ADU FAQ — Central Florida | EarthNest Florida",
     description:
       "Answers to the most common ADU questions in Orange County and Central Florida. Zoning, costs, permitting, rental rules, and more.",

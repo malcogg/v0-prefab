@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { Suspense } from "react"
 import { CheckCircle2 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
@@ -78,7 +79,15 @@ export default function QualifyPage() {
       </section>
       <section className="py-14 md:py-20 bg-background">
         <div className="max-w-2xl mx-auto px-6">
-          <QualifyMultiStepForm />
+          <Suspense
+            fallback={
+              <div className="rounded-2xl border border-border bg-card p-8 text-sm text-muted-foreground text-center">
+                Loading qualification form…
+              </div>
+            }
+          >
+            <QualifyMultiStepForm />
+          </Suspense>
         </div>
       </section>
       <SiteFooter />

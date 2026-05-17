@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { ArrowLeft, ArrowRight, CheckCircle, Loader2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -82,6 +83,14 @@ function triButton(current: string, onPick: (v: string) => void, options: { id: 
 }
 
 export function QualifyMultiStepForm() {
+  const searchParams = useSearchParams()
+  const attributionSource = useMemo(() => {
+    const raw = searchParams.get("source")?.trim() ?? ""
+    if (!raw || raw.length > 80) return "direct"
+    if (!/^[a-zA-Z0-9_-]+$/.test(raw)) return "direct"
+    return raw
+  }, [searchParams])
+
   const [step, setStep] = useState(0)
   const [draft, setDraft] = useState<Draft>(emptyDraft)
   const [submitting, setSubmitting] = useState(false)
@@ -124,6 +133,7 @@ export function QualifyMultiStepForm() {
     offGrid: draft.offGrid || undefined,
     bedrooms: draft.bedrooms || undefined,
     notes: draft.notes.trim(),
+    source: attributionSource,
   })
 
   const validateStep = (s: number): string | null => {
@@ -214,7 +224,11 @@ export function QualifyMultiStepForm() {
       }
       const j = (await res.json()) as { ok: boolean; report: QualifyReport }
       if (typeof window !== "undefined" && typeof window.gtag === "function") {
-        window.gtag("event", "generate_lead", { event_category: "Qualify", event_label: "Full qualification" })
+        window.gtag("event", "generate_lead", {
+          event_category: "Qualify",
+          event_label: "Full qualification",
+          source: parsed.data.source,
+        })
       }
       setReport(j.report)
     } catch {

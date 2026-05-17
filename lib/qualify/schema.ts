@@ -62,6 +62,14 @@ export const qualifyFullSubmissionSchema = z
     offGrid: offGridSchema.optional(),
     bedrooms: bedroomsSchema.optional(),
     notes: z.string().trim().max(4000).optional().default(""),
+    /** Internal attribution (URL ?source=); stored in qualify_submissions.payload JSON */
+    source: z
+      .string()
+      .trim()
+      .max(80)
+      .regex(/^[a-zA-Z0-9_-]*$/)
+      .optional()
+      .transform((s) => (s && s.length > 0 ? s : "direct")),
   })
   .superRefine((data, ctx) => {
     if (data.landStatus === "yes") {
@@ -107,6 +115,9 @@ export const homeInterestSubmissionSchema = z.object({
   phone: z.string().trim().max(50).optional().default(""),
   message: z.string().trim().max(500).optional().default(""),
   interests: z.array(interestEnum).min(1, "Pick at least one interest"),
+  marketingConsent: z.boolean().refine((v) => v === true, {
+    message: "You must agree to receive email from Prefabricated.co to submit this form.",
+  }),
 })
 
 export type HomeInterestSubmission = z.infer<typeof homeInterestSubmissionSchema>

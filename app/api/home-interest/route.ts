@@ -45,7 +45,11 @@ export async function POST(req: Request) {
         ${data.zip},
         ${null},
         ${null},
-        ${JSON.stringify({ interests: data.interests, message: data.message })},
+        ${JSON.stringify({
+          interests: data.interests,
+          message: data.message,
+          marketingConsent: data.marketingConsent,
+        })},
         ${null},
         ${userAgent},
         ${ip}

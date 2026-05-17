@@ -30,7 +30,6 @@ export function buildLocalLandingMetadata(slug: string): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@earthnestfl",
       title: pageData.metaTitle,
       description: pageData.metaDescription,
       images: [og.url],

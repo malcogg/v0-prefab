@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@earthnestfl",
     title: "ADU Rules by County — Central Florida | EarthNest Florida",
     description:
       "What you can and can't build in Orange County, Orlando, Osceola, Seminole & Lake County. Official ADU rules, size limits, setbacks, and contact info for each jurisdiction.",

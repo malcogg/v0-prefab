@@ -379,6 +379,7 @@ export function qualifyTeamFullEmail(
         <strong>Email:</strong> <a href="mailto:${esc(data.email)}">${esc(data.email)}</a><br/>
         <strong>Phone:</strong> <a href="${telHref(data.phone)}">${esc(data.phone)}</a><br/>
         <strong>ZIP:</strong> ${esc(data.zip)} ${data.city ? `· ${esc(data.city)}` : ""} ${data.state ? esc(data.state) : ""}`)}
+    ${p(`<strong>Attribution source:</strong> ${esc(data.source)}`)}
     ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}`)}
     <p style="margin:16px 0 8px;font-size:13px;font-weight:600;color:#333;">Form payload</p>
     <pre style="margin:0 0 16px;padding:12px;background:#f6f6f6;border-radius:6px;font-size:11px;overflow:auto;white-space:pre-wrap;">${esc(raw)}</pre>
@@ -411,6 +412,7 @@ export function homeInterestUserEmail(data: HomeInterestSubmission) {
     ${p("Want a deeper, property-specific pass? Complete the full qualification — it helps us prep zoning-aware recommendations.")}
     ${button("https://www.prefabricated.co/qualify", "Open full qualification")}
     ${button("https://www.prefabricated.co", "Visit Prefabricated.co")}
+    ${p("<small>You agreed to receive email from Prefabricated.co about this inquiry and related updates. You can unsubscribe from any message we send.</small>")}
   `
   return emailLayout({
     title: "We received your message",
@@ -429,6 +431,7 @@ export function homeInterestTeamEmail(data: HomeInterestSubmission, meta: { ip: 
         <strong>ZIP:</strong> ${esc(data.zip)}<br/>
         <strong>Interests:</strong> ${esc(labels)}`)}
     ${data.message ? p("<strong>Message:</strong><br/>" + esc(data.message).replace(/\n/g, "<br/>")) : ""}
+    ${p("<strong>Marketing email consent:</strong> Yes (submitted with form)")}
     ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}`)}
   `
   return emailLayout({

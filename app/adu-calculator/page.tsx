@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@earthnestfl",
     title: "ADU Income Calculator — Central Florida | EarthNest Florida",
     description:
       "Calculate your ADU rental income, monthly cash flow, cap rate, and 10-year return for your specific Central Florida neighborhood. Real numbers. Conservative assumptions.",
