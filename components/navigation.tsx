@@ -23,9 +23,10 @@ export function Navigation() {
   }, [])
 
   const primaryLinks = [
+    { label: "Escape tiny homes", href: ESCAPE_CATALOG_PATH },
+    { label: "Communities", href: "/tiny-home-communities/florida" },
     { label: "ADUs", href: "/#what-is-adu" },
     { label: "EarthNest", href: "/earthnest-living-systems" },
-    { label: "Escape homes", href: ESCAPE_CATALOG_PATH },
     { label: "Calculator", href: "/adu-calculator" },
     { label: "Florida Rules", href: "/adu-rules" },
   ]
@@ -64,7 +65,7 @@ export function Navigation() {
 
       <div className="bg-primary/90 border-b border-primary/50 px-4 py-2">
         <p className="text-center text-primary-foreground text-[11px] font-medium tracking-wide uppercase">
-          Florida-first · Prefab ADUs &amp; backyard homes · Tiny villages · Homestead guides
+          Florida-first · Escape tiny homes · ADUs &amp; backyard builds · Communities · Homestead tools
         </p>
       </div>
 

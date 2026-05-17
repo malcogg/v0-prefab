@@ -161,7 +161,7 @@ export function SiteFooter() {
           <p className="text-xs text-white/40 leading-relaxed">
             All ADU projects require individual site evaluation, special exception zoning approval (where
             applicable), and county permitting. Following early 2026 state legislative tracking, statewide
-            &quot;by-right&quot; mandates like SB 48 passed the Senate unanimously but stalled on the House floor over
+            &apos;by-right&apos; mandates like SB 48 passed the Senate unanimously but stalled on the House floor over
             short-term rental rules; therefore, municipal and county codes remain the absolute governing authority on
             backyard builds. PreFabricated.co does not provide guaranteed legal, financial, or tax advice. Costs and
             rental estimates vary by property and are not guaranteed. Eco upgrades depend on local code, utilities,

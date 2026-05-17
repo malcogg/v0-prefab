@@ -4,6 +4,12 @@ import { useState } from "react"
 import { ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
 interface QuizState {
   step: number
   county?: string
@@ -101,6 +107,9 @@ export function ADUQuizFunnel() {
       }
 
       setSubmitState("success")
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", { source: "homepage_qualification_wizard" })
+      }
       setState({ step: 1 })
       setContact({ name: "", email: "", phone: "" })
     } catch {

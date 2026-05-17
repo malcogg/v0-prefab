@@ -3,8 +3,7 @@ import Image from "next/image"
 const team = [
   {
     name: "Tiffany Baughn",
-    title: "Director of Operations",
-    company: "Client Focused Group | Licensed Realtor",
+    title: "Director of Operations | Client Focused Group | Licensed Realtor",
     image: "/images/tiffany-baughn.png",
     responsibilities: [
       "Real estate strategy & deal sourcing",
@@ -17,8 +16,7 @@ const team = [
   },
   {
     name: "Michael Francis",
-    title: "Construction Operations Lead",
-    company: "Build Execution & Site Management",
+    title: "Construction Operations Lead | Build Execution & Site Management",
     image: "/images/michael-francis.png",
     responsibilities: [
       "Contractor coordination & oversight",
@@ -69,8 +67,7 @@ export function TeamSection() {
                 <div className="p-7 flex flex-col justify-between flex-1">
                   <div>
                     <h3 className="font-serif text-2xl text-white mb-0.5">{member.name}</h3>
-                    <p className="text-primary text-xs font-semibold mb-0.5">{member.title}</p>
-                    <p className="text-white/40 text-xs mb-5">{member.company}</p>
+                    <p className="text-primary text-xs font-semibold mb-5 leading-snug">{member.title}</p>
 
                     <ul className="flex flex-col gap-2 mb-5">
                       {member.responsibilities.map((r) => (

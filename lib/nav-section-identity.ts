@@ -76,8 +76,8 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
 
   return {
     id: "adu",
-    tagline: "ADUs & backyard homes",
-    pillTopic: "ADUs & backyard",
+    tagline: "Tiny homes, ADUs & backyard builds",
+    pillTopic: "Discovery hub",
     accentClass: "bg-primary",
     pillClass: "border-primary/35 text-foreground/90 bg-primary/08",
     contextStripClass: "border-l-[3px] border-l-primary",

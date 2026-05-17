@@ -24,26 +24,26 @@ import { ogImageMeta } from "@/lib/og"
 
 const homeOg = ogImageMeta({
   variant: "default",
-  title: "Florida prefab ADUs & eco tiny living",
-  subtitle: "Backyard homes, tiny communities, homestead tools",
+  title: "Florida tiny homes, prefab ADUs & homestead tools",
+  subtitle: "Escape SKUs, communities, rules, calculators & EarthNest",
 })
 
 export const metadata: Metadata = {
-  title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
+  title: "Prefabricated.co | Florida Tiny Homes, Prefab ADUs & Eco Living Systems",
   description:
-    "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools. Foundation-built, code-aware planning.",
+    "Florida tiny homes (Escape 2026), curated communities, permitted ADUs, county rules, calculators, and optional EarthNest permaculture tools—choose tiny, backyard, or regenerative depth.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
+    title: "Prefabricated.co | Florida Tiny Homes, Prefab ADUs & Eco Living Systems",
     description:
-      "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
+      "Florida tiny homes, communities, ADUs, rules, and EarthNest-style systems—one discovery layer for factory SKUs, zoning, and homestead planning.",
     images: [homeOg],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prefabricated.co | Florida Prefab ADUs & Eco Tiny Living Systems",
+    title: "Prefabricated.co | Florida Tiny Homes, Prefab ADUs & Eco Living Systems",
     description:
-      "Florida prefab ADUs, tiny home communities, and optional EarthNest permaculture systems—choose your path: backyard income, curated villages, or regenerative homestead tools.",
+      "Florida tiny homes, communities, ADUs, rules, and EarthNest-style systems—one discovery layer for factory SKUs, zoning, and homestead planning.",
     images: [homeOg.url],
   },
 }
@@ -55,7 +55,8 @@ export default function Home() {
     "@id": "https://www.prefabricated.co/#website",
     url: "https://www.prefabricated.co",
     name: "Prefabricated.co",
-    description: "Florida prefab homes, ADUs, backyard income units, and EarthNest Living Systems",
+    description:
+      "Florida tiny homes, prefab ADUs, backyard units, communities, and EarthNest Living Systems—discovery, zoning-aware planning, and optional regenerative upgrades.",
     publisher: { "@id": "https://www.prefabricated.co/#business" },
     potentialAction: {
       "@type": "SearchAction",
@@ -70,10 +71,10 @@ export default function Home() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Prefab ADU Construction, Permitting, and Eco-Conscious Living Systems",
-    name: "Florida Prefab ADUs and EarthNest Living Systems",
+    serviceType: "Prefab Tiny Homes, ADU Construction, Permitting, and Eco-Conscious Living Systems",
+    name: "Florida Prefab Tiny Homes, ADUs, and EarthNest Living Systems",
     description:
-      "Legal, foundation-built ADUs and prefab backyard home concepts designed for Central Florida income potential, flexible living, and staged sustainability upgrades.",
+      "Factory-built tiny homes, legal foundation-built ADUs, and optional EarthNest layers for Central Florida—communities, rules, calculators, and staged sustainability upgrades.",
     provider: { "@id": "https://www.prefabricated.co/#business" },
     areaServed: { "@type": "State", name: "Florida" },
     offers: {
@@ -108,22 +109,22 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <HomePathwaysSection />
+      <EscapeProductLanesSection />
+      <TinyHomeDirectorySection />
+      <EarthNestSecondarySection />
+      <FloridaHomesteadResourcesSection />
       <ADUQuizFunnel />
       <OpportunitySection />
       <WhatIsAduSection />
-      <EscapeProductLanesSection />
-      <EarthNestSecondarySection />
       <ADUCalculatorSection />
       <OrangeCountyRulesSection />
       <DealBreakdownSection />
       <ProcessSection />
       <EarthNestSection />
-      <FloridaHomesteadResourcesSection />
       <TeamSection />
       <FreeCourseSection />
       <HomeInterestSection />
       <PartnerSection />
-      <TinyHomeDirectorySection />
       <SiteFooter />
     </main>
   )

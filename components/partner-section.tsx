@@ -63,7 +63,7 @@ export function PartnerSection() {
             </div>
 
             <Link
-              href="mailto:prefabflorida@gmail.com"
+              href="/contact"
               className="inline-flex items-center px-7 py-3.5 bg-foreground text-background text-sm font-semibold rounded transition-all hover:bg-foreground/80"
             >
               Inquire About Partnership

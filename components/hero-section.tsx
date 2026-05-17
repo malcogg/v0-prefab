@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-adu.jpg"
-          alt="Eco-conscious ADU in Central Florida backyard"
+          alt="Florida tiny home and backyard living — prefab discovery"
           fill
           className="object-cover"
           priority
@@ -41,7 +41,7 @@ export function HeroSection() {
               Choose your path
             </Link>
             <Link
-              href="/qualify"
+              href="/qualify?source=home_hero_adu"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white text-base font-semibold rounded transition-all hover:bg-[oklch(0.58_0.13_192)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               See if my property qualifies
@@ -69,19 +69,19 @@ export function HeroSection() {
           </p>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-16 flex flex-col sm:flex-row gap-6 sm:gap-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg divide-y sm:divide-y-0 sm:divide-x divide-white/20">
-          <div className="flex-1 px-6 py-5 text-center sm:text-left">
-            <p className="text-2xl font-serif font-bold text-white">$1,400–$2,500</p>
+        {/* Metric cards */}
+        <div className="mt-16 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-sm text-center sm:text-left">
+            <p className="text-2xl font-serif font-bold text-white tabular-nums">$1,400 – $2,500/mo</p>
             <p className="text-sm text-white/70 mt-1">Est. ADU Monthly Rental Income</p>
           </div>
-          <div className="flex-1 px-6 py-5 text-center sm:text-left">
+          <div className="rounded-xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-sm text-center sm:text-left">
             <p className="text-2xl font-serif font-bold text-white">Prefab + Site-Built</p>
-            <p className="text-sm text-white/70 mt-1">ADUs, Backyard Homes & Flex Units</p>
+            <p className="text-sm text-white/70 mt-1">ADUs, Backyard Homes &amp; Flex Units</p>
           </div>
-          <div className="flex-1 px-6 py-5 text-center sm:text-left">
+          <div className="rounded-xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-sm text-center sm:text-left">
             <p className="text-2xl font-serif font-bold text-white">Florida-Ready</p>
-            <p className="text-sm text-white/70 mt-1">Code, Climate, Water & Energy Aware</p>
+            <p className="text-sm text-white/70 mt-1">Code, Climate, Water &amp; Energy Aware</p>
           </div>
         </div>
       </div>

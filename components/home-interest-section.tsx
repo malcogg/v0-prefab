@@ -65,7 +65,7 @@ export function HomeInterestSection() {
         return
       }
       if (typeof window !== "undefined" && typeof window.gtag === "function") {
-        window.gtag("event", "generate_lead", { event_category: "Home", event_label: "Home interest" })
+        window.gtag("event", "generate_lead", { source: "homepage_contact_section" })
       }
       setState("done")
     } catch {

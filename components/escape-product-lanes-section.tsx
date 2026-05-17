@@ -26,9 +26,9 @@ export function EscapeProductLanesSection() {
               2026 Escape Tiny Homes — our primary build partner.
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Factory-built, RVIA-certified units from a recognized leader in tiny living. Eight flagship models below; the
-              complete sixteen-model lineup — pricing, galleries, FAQs, and how to get on the notify list — lives on our
-              dedicated catalog page.
+              Factory-built, RVIA-certified units from a recognized leader in tiny living. Eight flagship
+              models below; the complete sixteen-model lineup — pricing, galleries, FAQs, and how to get
+              on the notify list — lives on our dedicated catalog page.
             </p>
           </div>
           <Link
@@ -40,17 +40,7 @@ export function EscapeProductLanesSection() {
           </Link>
         </div>
 
-        <div className="md:hidden -mx-2 px-2">
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:thin] [-webkit-overflow-scrolling:touch]">
-            {models.map((m) => (
-              <div key={m.slug} className="min-w-[min(100%,300px)] max-w-[300px] snap-center shrink-0">
-                <EscapeModelCard model={m} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
           {models.map((m, i) => (
             <EscapeModelCard key={m.slug} model={m} priorityImage={i < 2} />
           ))}
@@ -60,13 +50,13 @@ export function EscapeProductLanesSection() {
           {ESCAPE_PRICE_SHIPPING_NOTE}
         </p>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex justify-center">
           <Link
             href={ESCAPE_CATALOG_PATH}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-primary bg-primary px-8 py-4 text-sm font-semibold tracking-wide text-primary-foreground shadow-[0_4px_20px_oklch(0.55_0.13_192/0.2)] transition-all hover:bg-[oklch(0.58_0.13_192)] hover:border-[oklch(0.58_0.13_192)]"
           >
             Browse the complete Escape 2026 collection
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
       </div>

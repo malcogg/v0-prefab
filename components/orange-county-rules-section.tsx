@@ -92,10 +92,11 @@ export function OrangeCountyRulesSection() {
             <div>
               <h4 className="font-semibold text-foreground mb-2">Owner-Occupancy / Homestead Requirement</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The primary single-family dwelling and the ADU must remain under single ownership at
-                all times. The owner must occupy either the primary home or the ADU as their
-                principal residence. The property must be homesteaded. A Certificate of Occupancy
-                will not be issued until homestead status is confirmed.
+                Orange County (unincorporated) requires the primary single-family dwelling and the ADU
+                to remain under <strong className="text-foreground font-medium">single ownership</strong> at
+                all times. The owner must occupy either the primary home or the ADU as their principal
+                residence, with homestead alignment consistent with county review. A Certificate of
+                Occupancy will not be issued until homestead status is confirmed.
               </p>
             </div>
             <div>
@@ -111,8 +112,8 @@ export function OrangeCountyRulesSection() {
               <h4 className="font-semibold text-foreground mb-2">ADU Size Limits</h4>
               <ul className="text-sm text-muted-foreground leading-relaxed flex flex-col gap-1">
                 <li>Minimum: 400 sq ft of living area</li>
-                <li>Maximum: 45% of the primary home's living area OR 1,000 sq ft — whichever is less</li>
-                <li>Exception: Lots 2 acres or larger have a maximum of 1,500 sq ft</li>
+                <li>Maximum: 50% of the primary home&apos;s living area OR 1,000 sq ft — whichever is less</li>
+                <li>Exception: Lots 2 acres or larger allow up to 1,500 sq ft</li>
                 <li>Maximum: 2 bedrooms</li>
               </ul>
             </div>
@@ -149,8 +150,8 @@ export function OrangeCountyRulesSection() {
             their own ADU rules. EarthNest Florida reviews the specific requirements for your parcel
             as part of the free evaluation.
           </p>
-          <p className="text-xs text-muted-foreground mt-4">
-            Source: Orange County Zoning Code Section 38-1426 and orangecountyfl.net/PermitsLicenses/Permits/ResidentialAccessoryDwellingUnit.aspx
+          <p className="text-xs text-muted-foreground mt-6 border-t border-border pt-4">
+            Source: Orange County Zoning Code Section 38-1426 and official county safety portals.
           </p>
         </div>
 
