@@ -3,6 +3,8 @@
  * Image paths: default `public/images/escape/{slug}.png`, or richer sets via `ESCAPE_MEDIA_OVERRIDES` (e.g. Traveler subfolder).
  *
  * fullDescription: marketing narrative for PDPs — replace with verbatim Escape PDF copy when available.
+ *
+ * List price (`sellingPriceUsd`) is always factory `basePriceUsd` + 5%, rounded to the nearest dollar.
  */
 
 export const ESCAPE_CATALOG_PATH = "/escape-tiny-homes" as const
@@ -23,7 +25,7 @@ export type EscapeTinyHomeFaqItem = {
 export const ESCAPE_TINY_HOMES_FAQ: EscapeTinyHomeFaqItem[] = [
   {
     q: "What does the listed price include?",
-    a: "Pricing shown is for the base model configuration in this catalog. Factory options, site-specific engineering, freight, and installation services are quoted separately so you see a clear baseline before adding logistics.",
+    a: "Prices shown are Prefabricated.co list pricing: the factory base model figure plus 5%, rounded to the nearest dollar. Factory options, site-specific engineering, freight, and installation services are quoted separately.",
   },
   {
     q: "Does the price include shipping or delivery?",
@@ -70,6 +72,7 @@ export type EscapeTinyHomeModel = {
   /** Long copy for product detail pages */
   fullDescription: string
   basePriceUsd: number
+  /** Whole USD: `Math.round(basePriceUsd * 1.05)` */
   sellingPriceUsd: number
   /** Stripe Checkout (USD cents) */
   sellingPriceCents: number
@@ -84,6 +87,12 @@ export type EscapeTinyHomeModel = {
 
 function cents(usd: number) {
   return Math.round(usd * 100)
+}
+
+const ESCAPE_RETAIL_MARKUP = 0.05 as const
+
+function escapeRetailFromBase(baseUsd: number): number {
+  return Math.round(baseUsd * (1 + ESCAPE_RETAIL_MARKUP))
 }
 
 /** Per-model hero + gallery when more than a single {slug}.png exists */
@@ -143,7 +152,7 @@ function escapeHeroAndGallery(slug: string): { heroImage: string; gallery: strin
 
 type RawRow = Omit<
   EscapeTinyHomeModel,
-  "heroImage" | "gallery" | "sellingPriceCents" | "highlights" | "featuredOnHomepage"
+  "heroImage" | "gallery" | "sellingPriceUsd" | "sellingPriceCents" | "highlights" | "featuredOnHomepage"
 >
 
 const TRAVELER_XL_XLS_SPEC_SHEET: EscapeSpecSheetBlock[] = [
@@ -171,7 +180,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "The Traveler is where the Escape story starts: a confident layout with full-size appliances, a generous bathroom, and double lofts that make room for both living and sleeping. Daylight is treated as a material—generous glazing connects the interior to the landscape while keeping the envelope crisp and purposeful. This model suits owners who want a turnkey tiny home that feels residential, not improvised. As with every unit here, pricing is for the base configuration; delivery is quoted to your site after we confirm access and route.",
     basePriceUsd: 95474,
-    sellingPriceUsd: 100000,
     specSheet: [
       {
         title: "Size",
@@ -195,7 +203,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Traveler XL leans into architectural drama—vaulted spaces, strong horizontal lines, and volume you rarely get in a compact envelope. The kitchen and living sequence feels intentional, with room for one or two lofts depending on configuration, so the home scales with how you live rather than fighting the floor plan. It remains one of Escape’s most recognized silhouettes for good reason: it photographs like architecture and lives like a home. Base price excludes freight; we’ll quote transport once we understand your location and delivery conditions.",
     basePriceUsd: 103020,
-    sellingPriceUsd: 108000,
     specSheet: TRAVELER_XL_XLS_SPEC_SHEET,
   },
   {
@@ -206,7 +213,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Traveler XLS extends the XL concept with additional length for a walk-around sleeping area, smarter storage, and more openings to the outdoors. If you’ve been comparing small-footprint homes that still feel like a primary residence, the XLS answers with circulation space you can feel every day—not just square footage on paper. Large windows balance privacy and outlook. Your quoted price reflects the catalog baseline; shipping and site services are broken out separately for transparency.",
     basePriceUsd: 112235,
-    sellingPriceUsd: 118000,
     specSheet: TRAVELER_XL_XLS_SPEC_SHEET,
   },
   {
@@ -217,7 +223,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Vista is the quiet minimalist—an open plan that prioritizes views, calm, and flexibility. It’s equally convincing as a guest suite, backyard studio, or remote office when local regulations allow. Finishes stay restrained so the space reads serene, while the envelope keeps conditioning efficient. Pair it with a thoughtful site and it feels larger than its footprint. Factory finish and certification apply per Escape specifications; delivery is not included in list pricing.",
     basePriceUsd: 69800,
-    sellingPriceUsd: 73000,
   },
   {
     slug: "vista-boho",
@@ -227,7 +232,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Vista Boho distills coziness into a modern, highly scripted plan—built-in sleeping, clever dining or work surfaces, and furniture that stows cleanly. It’s an excellent match for short-term hospitality or economical personal use where every inch carries weight. The aesthetic stays warm without clutter. As with all Escape builds, you’re buying a finished factory product; getting it to your property is scoped and priced based on mileage and placement.",
     basePriceUsd: 57640,
-    sellingPriceUsd: 61000,
   },
   {
     slug: "vista-boho-xl",
@@ -237,7 +241,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Boho XL expands the idea to roughly 213 square feet with flexibility between open living and a more enclosed sleep zone—ideal when hosts want separation or homeowners want multi-mode use. The plan can flex as needs change, which keeps the home relevant across seasons of life. This is still a catalog base configuration without an online customizer; personalization lives in EarthNest or ADU programs. Transport is quoted after checkout or consultation.",
     basePriceUsd: 62710,
-    sellingPriceUsd: 66000,
   },
   {
     slug: "one",
@@ -247,7 +250,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "ONE is Escape’s zen-forward statement: a Shou Sugi Ban–inspired exterior that reads elemental, paired with an interior tuned for height, light, and calm. Sliding exterior elements reinforce the idea of rooms breathing with the landscape. Inside, the volume does the heavy lifting—small footprint, big sensation. If you respond to quiet materials and disciplined details, ONE delivers without theatrics. Base pricing is FOB factory logic in marketing terms—shipping to you is additional.",
     basePriceUsd: 74500,
-    sellingPriceUsd: 78000,
   },
   {
     slug: "one-xl",
@@ -257,7 +259,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "ONE XL scales the concept for owners who need more kitchen length, bath comfort, and upper outdoor connections. Deck-ready thinking and expanded living zones make daily routines feel less like camping and more like a refined small home. It’s still unmistakably ONE—just with more room to execute. The price shown is the catalog figure; logistics are itemized separately once we model your route and crane or roll-off needs.",
     basePriceUsd: 93540,
-    sellingPriceUsd: 98000,
   },
   {
     slug: "one-xl-wide",
@@ -267,7 +268,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "ONE XL Wide trades additional width for improved circulation, furniture options, and storage depth—particularly noticeable around the kitchen and bathroom cores. If you’ve been constrained by hallway-style tiny plans, the wide variant is the antidote. It retains ONE’s architectural language while giving you literal elbow room. Oversize transport can affect delivery pricing; we disclose that clearly when quoting freight.",
     basePriceUsd: 109460,
-    sellingPriceUsd: 115000,
   },
   {
     slug: "eone",
@@ -277,7 +277,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "eONE pairs the ONE aesthetic with an all-electric systems approach aimed at modern utilities and sustainability-minded sites. The rear loft amplifies usable area without bloating the foundation footprint, and the kitchen is sized for real cooking, not token appliances. Ideal when you want the ONE story with a future-forward MEP posture. Electric service sizing still depends on your utility provider—something we confirm during onboarding. Delivery remains a separate quote from list price.",
     basePriceUsd: 73944,
-    sellingPriceUsd: 78000,
   },
   {
     slug: "eone-xl",
@@ -287,7 +286,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "eONE XL expands the electric platform into a more generous envelope—larger kitchen runs, a more comfortable bath, and living space that supports full-time use. It’s a strong candidate when you want efficient systems without trading away domestic comfort. Base model details follow factory standard; upgrades beyond that roll through sales, not a public configurator. Shipping is quoted based on your address and site complexity.",
     basePriceUsd: 92946,
-    sellingPriceUsd: 98000,
   },
   {
     slug: "eone-xl-wide",
@@ -297,7 +295,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "The wide electric flagship adds horizontal breathing room to eONE XL—walk-around layouts feel natural, storage gets honest depth, and furnishing options multiply. It targets buyers who won’t compromise on aisle width but still want an all-electric story. Expect transport to reflect width and permitting for the move; we coordinate transparently. List pricing excludes those logistics by design.",
     basePriceUsd: 108920,
-    sellingPriceUsd: 114000,
   },
   {
     slug: "ultimate",
@@ -307,7 +304,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "Ultimate is the collection’s two-story answer for households that need real bedrooms—often three to four depending on configuration—plus premium appliance packages and built-in laundry at true residential scale. Above 720 square feet of thoughtfully arranged space, it blurs tiny/park-model expectations into something closer to a compact custom home. Because of size and weight, delivery engineering is always custom-quoted; the price you see is for the manufactured unit baseline.",
     basePriceUsd: 148720,
-    sellingPriceUsd: 156000,
   },
   {
     slug: "evista",
@@ -317,7 +313,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "eVISTA updates Vista’s purity with all-electric systems and an end window wall that pulls the landscape into the plan. It excels as a bright studio, workspace, or compact guest environment. The glazing strategy makes the interior feel cinematic without resorting to busy trim. Confirming electric service capacity at your site is part of our post-purchase checklist. Delivery is quoted independently from the list price.",
     basePriceUsd: 53785,
-    sellingPriceUsd: 56000,
   },
   {
     slug: "evista-xl",
@@ -327,7 +322,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "eVISTA XL gives the electric Vista concept a separated sleep zone with walk-around queen clearance—privacy without losing the collection’s clean aesthetic. Morning light and efficient mechanicals make it a strong long-term ADU or guest unit where codes allow. Factory RVIA credentials apply per model year specifications. Freight varies by region and is not embedded in the list figure.",
     basePriceUsd: 60175,
-    sellingPriceUsd: 63000,
   },
   {
     slug: "eboho-go",
@@ -337,7 +331,6 @@ const RAW: RawRow[] = [
     fullDescription:
       "eBOHO GO is the entry to Escape’s all-electric, minimalist language—compact, disciplined, and bright. Built-ins handle storage so the footprint stays serene; windows land where they matter for daylight. For economical housing experiments, accessory structures where allowed, or a disciplined rental unit, it’s a compelling value. Pricing is intentionally accessible relative to the lineup; shipping still depends on your distance from the factory network and site readiness.",
     basePriceUsd: 39440,
-    sellingPriceUsd: 41000,
   },
 ]
 
@@ -374,9 +367,11 @@ function buildHighlights(m: RawRow): string[] {
 
 export const ESCAPE_TINY_HOME_MODELS: EscapeTinyHomeModel[] = RAW.map((row) => {
   const { heroImage, gallery } = escapeHeroAndGallery(row.slug)
+  const sellingPriceUsd = escapeRetailFromBase(row.basePriceUsd)
   return {
     ...row,
-    sellingPriceCents: cents(row.sellingPriceUsd),
+    sellingPriceUsd,
+    sellingPriceCents: cents(sellingPriceUsd),
     highlights: buildHighlights(row),
     heroImage,
     gallery,
