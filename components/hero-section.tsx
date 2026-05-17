@@ -24,7 +24,7 @@ export function HeroSection() {
           </span>
 
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight text-balance mb-6">
-            Florida Prefab ADUs, Backyard Homes & Eco-Conscious Living Systems
+            Florida Prefab Tiny Homes, ADUs, Backyard Homes &amp; Eco-Conscious Living Systems
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-6 max-w-xl">

@@ -9,7 +9,7 @@ import { CommunityAmenityBadges } from "@/components/tiny-home-communities/commu
 type Props = { community: TinyHomeCommunity }
 
 export function CommunityCard({ community }: Props) {
-  const href = `/tiny-home-communities/florida/${community.slug}`
+  const href = `/tiny-home-communities/${community.stateSlug}/${community.slug}`
 
   return (
     <article className="group flex flex-col rounded-xl border border-border bg-card overflow-hidden shadow-sm transition-colors hover:border-primary/35">

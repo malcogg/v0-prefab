@@ -30,7 +30,12 @@ export function FloridaDirectoryClient({ communities }: Props) {
   const [tenancy, setTenancy] = useState<string>("all")
 
   const macrosInDataset = useMemo(() => new Set(communities.map((c) => c.macroRegion)), [communities])
-  const macrosOrdered = useMemo(() => MACRO_REGION_ORDER.filter((m) => macrosInDataset.has(m)), [macrosInDataset])
+  const macrosOrdered = useMemo(() => {
+    const labels = [...macrosInDataset]
+    const priority = MACRO_REGION_ORDER.filter((m) => labels.includes(m))
+    const rest = labels.filter((m) => !MACRO_REGION_ORDER.includes(m)).sort((a, b) => a.localeCompare(b))
+    return [...priority, ...rest]
+  }, [macrosInDataset])
 
   const tenancyOptions = [
     { value: "lease_land_own_home", label: "Own home · lease pad" },

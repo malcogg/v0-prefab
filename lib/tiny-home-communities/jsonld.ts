@@ -2,12 +2,21 @@ import { SITE_URL } from "@/lib/seo"
 import { amenityLabelsForLodging } from "./amenity-labels"
 import type { TinyHomeCommunity } from "./schema"
 
+export function communityListingUrl(stateSlug: string, listingSlug: string) {
+  return `${SITE_URL}/tiny-home-communities/${stateSlug}/${listingSlug}`
+}
+
+/** @deprecated Prefer `communityListingUrl("florida", slug)` — kept for incremental refactors. */
 export function floridaListingUrl(slug: string) {
-  return `${SITE_URL}/tiny-home-communities/florida/${slug}`
+  return communityListingUrl("florida", slug)
+}
+
+export function stateHubUrl(stateSlug: string) {
+  return `${SITE_URL}/tiny-home-communities/${stateSlug}`
 }
 
 export function floridaHubUrl() {
-  return `${SITE_URL}/tiny-home-communities/florida`
+  return stateHubUrl("florida")
 }
 
 export function directoryHubUrl() {
@@ -24,18 +33,18 @@ export function itemListSchemaFromCommunities(items: TinyHomeCommunity[], listNa
       "@type": "ListItem",
       position: index + 1,
       name: c.name,
-      url: floridaListingUrl(c.slug),
+      url: communityListingUrl(c.stateSlug, c.slug),
     })),
   }
 }
 
-/** Structured data for a single curated community listing (Lodging-oriented place). */
+/** Structured data for a single curated community listing (Lodging / RV Park / Campground). */
 export function communityLodgingSchema(community: TinyHomeCommunity) {
-  const url = floridaListingUrl(community.slug)
+  const url = communityListingUrl(community.stateSlug, community.slug)
   const postal: Record<string, string> = {
     "@type": "PostalAddress",
     addressLocality: community.city,
-    addressRegion: community.state,
+    addressRegion: community.stateCode,
     addressCountry: "US",
   }
   if (community.streetAddress) postal.streetAddress = community.streetAddress

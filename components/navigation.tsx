@@ -24,7 +24,7 @@ export function Navigation() {
 
   const primaryLinks = [
     { label: "Escape tiny homes", href: ESCAPE_CATALOG_PATH },
-    { label: "Communities", href: "/tiny-home-communities/florida" },
+    { label: "Communities", href: "/tiny-home-communities" },
     { label: "ADUs", href: "/#what-is-adu" },
     { label: "EarthNest", href: "/earthnest-living-systems" },
     { label: "Calculator", href: "/adu-calculator" },

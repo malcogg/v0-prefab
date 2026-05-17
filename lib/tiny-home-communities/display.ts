@@ -1,4 +1,4 @@
-import type { CommunityStatus, MacroRegion, TenancyMode } from "./schema"
+import type { CommunityStatus, TenancyMode } from "./schema"
 
 export const STATUS_LABELS: Record<CommunityStatus, string> = {
   active: "Active",
@@ -17,7 +17,7 @@ export const TENANCY_LABELS: Record<TenancyMode, string> = {
 }
 
 /** Display order for filter chips (regions that appear in Florida data first). */
-export const MACRO_REGION_ORDER: MacroRegion[] = [
+export const MACRO_REGION_ORDER: string[] = [
   "Central Florida",
   "Tampa Bay",
   "Space Coast",

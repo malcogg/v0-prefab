@@ -16,28 +16,34 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ExternalSiteLink } from "@/components/tiny-home-communities/external-site-link"
 import { CommunityAmenityBadges } from "@/components/tiny-home-communities/community-amenity-badges"
-import { getFloridaCommunities, getFloridaCommunityBySlug, getFloridaSlugParams } from "@/lib/tiny-home-communities/repo"
+import {
+  getAllCommunitySlugParams,
+  getCommunitiesByStateSlug,
+  getCommunityByStateAndSlug,
+} from "@/lib/tiny-home-communities/repo"
 import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { STATUS_LABELS, TENANCY_LABELS } from "@/lib/tiny-home-communities/display"
-import { communityLodgingSchema, floridaListingUrl } from "@/lib/tiny-home-communities/jsonld"
+import { communityListingUrl, communityLodgingSchema } from "@/lib/tiny-home-communities/jsonld"
+import { directoryStateLabel } from "@/lib/tiny-home-communities/states-registry"
 import { Mail, MapPin, Phone } from "lucide-react"
 
-type PageProps = { params: Promise<{ slug: string }> }
+type PageProps = { params: Promise<{ state: string; slug: string }> }
 
 export function generateStaticParams() {
-  return getFloridaSlugParams()
+  return getAllCommunitySlugParams()
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
-  const community = getFloridaCommunityBySlug(slug)
+  const { state, slug } = await params
+  const community = getCommunityByStateAndSlug(state, slug)
   if (!community) return {}
 
-  const canonicalPath = `/tiny-home-communities/florida/${slug}`
+  const stateLabel = directoryStateLabel(state)
+  const canonicalPath = `/tiny-home-communities/${state}/${slug}`
   const heroImageAbsolute = absoluteSiteUrl(community.image.url)
 
   return {
-    title: `${community.name} | Florida Tiny Home Community`,
+    title: `${community.name} | ${stateLabel} Tiny Home Community`,
     description: community.description.slice(0, 155),
     alternates: { canonical: canonicalPath },
     openGraph: {
@@ -64,18 +70,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function TinyHomeCommunityDetailPage({ params }: PageProps) {
-  const { slug } = await params
-  const community = getFloridaCommunityBySlug(slug)
+  const { state, slug } = await params
+  const community = getCommunityByStateAndSlug(state, slug)
   if (!community) notFound()
+
+  const stateLabel = directoryStateLabel(state)
+  const statePath = `/tiny-home-communities/${state}`
 
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Tiny Home Communities", path: "/tiny-home-communities" },
-    { name: "Florida", path: "/tiny-home-communities/florida" },
-    { name: community.name, path: `/tiny-home-communities/florida/${community.slug}` },
+    { name: stateLabel, path: statePath },
+    { name: community.name, path: `/tiny-home-communities/${state}/${community.slug}` },
   ])
 
-  const listingUrl = floridaListingUrl(community.slug)
+  const listingUrl = communityListingUrl(community.stateSlug, community.slug)
   const lodging = communityLodgingSchema(community)
   const heroImageAbsolute = absoluteSiteUrl(community.image.url)
 
@@ -84,7 +93,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
     "@type": "WebPage",
     "@id": `${listingUrl}#page`,
     url: listingUrl,
-    name: `${community.name} · Florida Tiny Directory`,
+    name: `${community.name} · ${stateLabel} Tiny Directory`,
     headline: community.name,
     description: community.description,
     isPartOf: {
@@ -98,10 +107,10 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
       "@type": "ImageObject",
       url: heroImageAbsolute,
     },
-    mentions: { "@type": "AdministrativeArea", name: `${community.city}, FL` },
+    mentions: { "@type": "AdministrativeArea", name: `${community.city}, ${community.stateCode}` },
   }
 
-  const siblingCommunities = getFloridaCommunities()
+  const siblingCommunities = getCommunitiesByStateSlug(state)
     .filter((c) => c.slug !== community.slug && c.macroRegion === community.macroRegion)
     .slice(0, 3)
 
@@ -130,7 +139,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/tiny-home-communities/florida">Florida</Link>
+                  <Link href={statePath}>{stateLabel}</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -176,7 +185,9 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                   <p className="text-sm text-muted-foreground leading-relaxed">{community.lotDetailsSummary}</p>
                 </div>
                 {community.statusDetail ? (
-                  <p className="text-sm text-foreground bg-background/85 border border-border/80 rounded-xl p-4">{community.statusDetail}</p>
+                  <p className="text-sm text-foreground bg-background/85 border border-border/80 rounded-xl p-4">
+                    {community.statusDetail}
+                  </p>
                 ) : null}
                 <Separator className="my-6" />
                 <div className="space-y-2">
@@ -193,19 +204,18 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
               <section className="space-y-4">
                 <h2 className="font-serif text-3xl text-foreground">Key amenities</h2>
                 <p className="text-sm text-muted-foreground max-w-prose">
-                  Boolean flags summarize what directories can filter on; they are directional only—operators change pet rules, dock limits, or fitness bundles without notice.
+                  Boolean flags summarize what directories can filter on; they are directional only—operators change pet
+                  rules, dock limits, or fitness bundles without notice.
                 </p>
                 <CommunityAmenityBadges flags={community.amenityFlags} variant="full" className="gap-2 md:gap-3" />
               </section>
               {community.legalNotes ? (
                 <section className="rounded-3xl border border-dashed border-amber-200/70 bg-amber-50/60 p-6 text-sm text-amber-950 space-y-2">
-                  <h2 className="font-semibold text-lg text-amber-950 flex items-center gap-2">
-                    Stewardship disclosures
-                  </h2>
+                  <h2 className="font-semibold text-lg text-amber-950 flex items-center gap-2">Stewardship disclosures</h2>
                   <p>{community.legalNotes}</p>
                   <p>
-                    Operators evolve rules—triple-check recorded covenants, county interpretations, HOA restrictions, occupancy certificates, and insurance binders aligned to
-                    your exact structure classification.
+                    Operators evolve rules—triple-check recorded covenants, county interpretations, HOA restrictions,
+                    occupancy certificates, and insurance binders aligned to your exact structure classification.
                   </p>
                 </section>
               ) : null}
@@ -222,7 +232,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                 </div>
                 <div className="space-y-1 text-sm text-muted-foreground">
                   {community.streetAddress ? <p>{community.streetAddress}</p> : null}
-                  <p>{community.state}</p>
+                  <p>{community.stateCode}</p>
                   {community.postalCode ? <p>{community.postalCode}</p> : null}
                 </div>
 
@@ -249,7 +259,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                         </ExternalSiteLink>
                       </div>
                     ) : (
-                      <p>No public website surfaced—research via GIS, Sunbiz filings, county permits, or direct calls.</p>
+                      <p>No public website surfaced—research via GIS, county permits, or direct calls.</p>
                     )}
                     {community.contact.phone ? (
                       <div className="flex items-center gap-2">
@@ -292,8 +302,10 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
               </div>
 
               <div className="rounded-3xl bg-secondary border border-border p-6 text-sm leading-relaxed text-muted-foreground">
-                <strong className="text-foreground">Need on-site feasibility from Prefabricated.co?</strong> Backyard ADUs ≠ deed-restricted leasehold parcels. When you inherit
-                an existing homestead, book a zoning-first evaluation—we map utilities, setbacks, wind exposure, foundations, EarthNest layering, but not HOA campground politics.
+                <strong className="text-foreground">Need on-site feasibility from Prefabricated.co?</strong> Backyard
+                ADUs ≠ deed-restricted leasehold parcels. When you inherit an existing homestead, book a zoning-first
+                evaluation—we map utilities, setbacks, wind exposure, foundations, EarthNest layering, but not HOA
+                campground politics.
               </div>
               {siblingCommunities.length ? (
                 <div className="rounded-3xl border border-border bg-background p-6 space-y-3">
@@ -301,7 +313,10 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                   <ul className="space-y-3 text-sm text-primary">
                     {siblingCommunities.map((neighbor) => (
                       <li key={neighbor.slug}>
-                        <Link className="font-semibold hover:underline focus-visible:ring-2 focus-visible:ring-ring rounded" href={`/tiny-home-communities/florida/${neighbor.slug}`}>
+                        <Link
+                          className="font-semibold hover:underline focus-visible:ring-2 focus-visible:ring-ring rounded"
+                          href={`/tiny-home-communities/${neighbor.stateSlug}/${neighbor.slug}`}
+                        >
                           {neighbor.name}
                         </Link>
                       </li>

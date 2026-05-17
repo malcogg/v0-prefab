@@ -37,8 +37,10 @@ export const MACRO_REGION_VALUES = [
   "Panhandle",
 ] as const
 
-export type MacroRegion = (typeof MACRO_REGION_VALUES)[number]
+/** Region / cluster label for filters (Florida uses legacy macro names; other states use clusters). */
+export type MacroRegion = string
 
+/** @deprecated Use string macro regions on listings; kept for Florida sort helpers. */
 export const macroRegionSchema = z.enum(MACRO_REGION_VALUES)
 
 export const AMENITY_FLAG_KEYS = [
@@ -102,13 +104,16 @@ const contactSchema = z.object({
 export const tinyHomeCommunitySchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   name: z.string().min(1),
-  /** Broader marketing region (maps, filters) */
-  macroRegion: macroRegionSchema,
+  /** Broader marketing region (maps, filters) — Florida uses legacy macro names; other states use region clusters. */
+  macroRegion: z.string().min(1),
   /** Human-readable sub-cluster; keep for cards/SEO copy */
   regionLabel: z.string().min(1),
   city: z.string().min(1),
   county: z.string().min(1),
-  state: z.literal("FL"),
+  /** USPS-style state code for JSON-LD */
+  stateCode: z.string().length(2),
+  /** URL segment under /tiny-home-communities/[stateSlug]/… */
+  stateSlug: z.string().regex(/^[a-z]+(?:-[a-z]+)*$/),
   streetAddress: z.string().optional(),
   postalCode: z.string().optional(),
   latitude: z.number().optional(),
