@@ -182,7 +182,7 @@ export default async function EscapeModelPage({ params }: PageProps) {
                 Fixed base model — no online configurator on Escape units. Custom finishes and layouts stay on EarthNest /
                 custom ADU lanes.
               </p>
-              <EscapeCheckoutButton slug={model.slug} label="Buy now — Stripe checkout" />
+              <EscapeCheckoutButton slug={model.slug} modelLabel={model.fullName} />
               <p className="mt-8 text-xs text-muted-foreground leading-relaxed">
                 Prefer to talk through siting first?{" "}
                 <Link href="/contact" className="text-primary underline-offset-4 hover:underline">

@@ -1,5 +1,28 @@
 import { z } from "zod"
 
+import { isValidUsStateCode } from "@/lib/us-states"
+
+/** Escape model page — checkout coming soon; capture purchase intent + siting context */
+export const escapePurchaseIntentSchema = z.object({
+  email: z.string().trim().email("Email is invalid").max(320),
+  modelSlug: z.string().trim().min(1).max(80),
+  modelLabel: z.string().trim().min(1).max(200),
+  stateCode: z
+    .string()
+    .trim()
+    .min(2)
+    .max(2)
+    .transform((c) => c.toUpperCase())
+    .refine(isValidUsStateCode, "Please choose a valid U.S. state or DC"),
+  landSituation: z
+    .string()
+    .trim()
+    .min(12, "Add a bit more detail about your land or placement plans")
+    .max(4000),
+  name: z.preprocess((val) => (val == null ? "" : val), z.string().trim().max(200)).optional().default(""),
+  phone: z.preprocess((val) => (val == null ? "" : val), z.string().trim().max(50)).optional().default(""),
+})
+
 export const leadSubmissionSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200),
   phone: z.string().trim().min(7, "Phone is required").max(50),

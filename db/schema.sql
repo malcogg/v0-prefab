@@ -18,6 +18,32 @@ create table if not exists leads (
 create index if not exists leads_created_at_idx on leads (created_at desc);
 create index if not exists leads_email_idx on leads (email);
 
+-- Escape tiny home model pages: interest list while Stripe checkout is paused / partnership ramps.
+create table if not exists escape_purchase_intent_leads (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now(),
+
+  email text not null,
+  escape_model_slug text not null,
+  escape_model_label text not null,
+
+  state_code text not null,
+  land_situation text not null,
+
+  name text null,
+  phone text null,
+
+  user_agent text null,
+  ip text null
+);
+
+create index if not exists escape_purchase_intent_created_idx
+  on escape_purchase_intent_leads (created_at desc);
+create index if not exists escape_purchase_intent_email_idx
+  on escape_purchase_intent_leads (email);
+create index if not exists escape_purchase_intent_slug_idx
+  on escape_purchase_intent_leads (escape_model_slug);
+
 create table if not exists progression_submissions (
   id bigint generated always as identity primary key,
   created_at timestamptz not null default now(),

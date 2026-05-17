@@ -4,12 +4,14 @@ import { getSelectedModel } from "@/lib/build/session"
 import { emailLayout } from "@/lib/email/layout"
 import {
   buildInquirySubmissionSchema,
+  escapePurchaseIntentSchema,
   homesteadZoneReportDownloadSchema,
   leadSubmissionSchema,
   progressionSubmissionSchema,
   starterKitDownloadSchema,
 } from "@/lib/submission-schemas"
 
+type EscapePurchaseIntent = z.infer<typeof escapePurchaseIntentSchema>
 type LeadPayload = z.infer<typeof leadSubmissionSchema>
 type BuildPayload = z.infer<typeof buildInquirySubmissionSchema>
 type ProgressionPayload = z.infer<typeof progressionSubmissionSchema>
@@ -275,6 +277,42 @@ export function homesteadZoneReportTeamEmail(
   })
 }
 
+/** --- Escape model “coming soon” purchase intent --- */
+
+export function escapeIntentUserConfirmationEmail(data: EscapePurchaseIntent) {
+  const inner = `
+    ${h2("You're on the list")}
+    ${p(`Thanks — we saved your interest in <strong>${esc(data.modelLabel)}</strong>. Checkout isn’t open yet; we’ll email you when purchases go live for your area.`)}
+    ${p(`<strong>State:</strong> ${esc(data.stateCode)}<br/><strong>Site notes:</strong><br/>${esc(data.landSituation).replace(/\n/g, "<br/>")}`)}
+    ${p("Our team reviews every submission to confirm what’s realistic for your state and site before we take payment.")}
+    ${p("Questions? Reply to this email or call us at <a href=\"tel:+13217473778\" style=\"color:#0F6E56;\">(321) 747-3778</a>.")}
+    ${button("https://www.prefabricated.co/escape-tiny-homes", "Browse all Escape models")}
+  `
+  return emailLayout({
+    title: "Escape model — we’ll follow up",
+    preheader: `${data.modelLabel} · ${data.stateCode}`,
+    innerHtml: inner,
+  })
+}
+
+export function escapeIntentTeamNotificationEmail(data: EscapePurchaseIntent, meta: { ip: string | null }) {
+  const inner = `
+    ${h2("Escape purchase intent (checkout coming soon)")}
+    ${p(`<strong>Model:</strong> ${esc(data.modelLabel)} <small>(${esc(data.modelSlug)})</small><br/>
+        <strong>Email:</strong> <a href="mailto:${esc(data.email)}" style="color:#0F6E56;">${esc(data.email)}</a><br/>
+        ${data.name ? `<strong>Name:</strong> ${esc(data.name)}<br/>` : ""}
+        ${data.phone ? `<strong>Phone:</strong> ${esc(data.phone)}<br/>` : ""}
+        <strong>State:</strong> ${esc(data.stateCode)}<br/>
+        <strong>Land / placement:</strong><br/>${esc(data.landSituation).replace(/\n/g, "<br/>")}`)}
+    ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}`)}
+  `
+  return emailLayout({
+    title: "Escape intent lead",
+    preheader: `${data.modelLabel} · ${data.email}`,
+    innerHtml: inner,
+  })
+}
+
 /** Subjects */
 
 export const emailSubjects = {
@@ -290,6 +328,8 @@ export const emailSubjects = {
   starterKitTeam: (name: string) => `New starter kit download — ${name}`,
   homesteadZoneUser: (zone: string) => `Your Zone ${zone} Florida homestead PDF | Prefabricated.co`,
   homesteadZoneTeam: (name: string, zone: string) => `Homestead PDF — ${name} · Zone ${zone}`,
+  escapeIntentUser: "We received your Escape model request",
+  escapeIntentTeam: (model: string) => `Escape intent — ${model}`,
 } as const
 
 /** --- Marketing / follow-up (drafts for Resend broadcasts or automations) --- */
