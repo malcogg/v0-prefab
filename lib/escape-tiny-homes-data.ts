@@ -146,6 +146,21 @@ type RawRow = Omit<
   "heroImage" | "gallery" | "sellingPriceCents" | "highlights" | "featuredOnHomepage"
 >
 
+const TRAVELER_XL_XLS_SPEC_SHEET: EscapeSpecSheetBlock[] = [
+  {
+    title: "Size",
+    body: '30\' long (35\' including hitch) × 8.5\' W × 13\'5" H. Travel Trailer with the RVIA seal.',
+  },
+  {
+    title: "Square footage & weight",
+    body: '344 sq ft — 255 sq ft first floor, 89 sq ft in lofts. 11,000–13,000 lbs depending on options. Class V hitch recommended, 2 5/16" ball required.',
+  },
+  {
+    title: "Trailer",
+    body: "Custom ESCAPE steel trailer, 7,000 lb HD tandem axles, 10-ply radial tires, electric brakes, Hopkins break-away safety system, easy-use leveling jacks, steel rodent-resistant belly.",
+  },
+]
+
 const RAW: RawRow[] = [
   {
     slug: "traveler",
@@ -181,6 +196,7 @@ const RAW: RawRow[] = [
       "Traveler XL leans into architectural drama—vaulted spaces, strong horizontal lines, and volume you rarely get in a compact envelope. The kitchen and living sequence feels intentional, with room for one or two lofts depending on configuration, so the home scales with how you live rather than fighting the floor plan. It remains one of Escape’s most recognized silhouettes for good reason: it photographs like architecture and lives like a home. Base price excludes freight; we’ll quote transport once we understand your location and delivery conditions.",
     basePriceUsd: 103020,
     sellingPriceUsd: 108000,
+    specSheet: TRAVELER_XL_XLS_SPEC_SHEET,
   },
   {
     slug: "traveler-xls",
@@ -191,6 +207,7 @@ const RAW: RawRow[] = [
       "Traveler XLS extends the XL concept with additional length for a walk-around sleeping area, smarter storage, and more openings to the outdoors. If you’ve been comparing small-footprint homes that still feel like a primary residence, the XLS answers with circulation space you can feel every day—not just square footage on paper. Large windows balance privacy and outlook. Your quoted price reflects the catalog baseline; shipping and site services are broken out separately for transparency.",
     basePriceUsd: 112235,
     sellingPriceUsd: 118000,
+    specSheet: TRAVELER_XL_XLS_SPEC_SHEET,
   },
   {
     slug: "vista",
