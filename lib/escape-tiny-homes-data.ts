@@ -3,8 +3,6 @@
  * Image paths: default `public/images/escape/{slug}.png`, or richer sets via `ESCAPE_MEDIA_OVERRIDES` (e.g. Traveler subfolder).
  *
  * fullDescription: marketing narrative for PDPs — replace with verbatim Escape PDF copy when available.
- *
- * List price (`sellingPriceUsd`) is always factory `basePriceUsd` + 5%, rounded to the nearest dollar.
  */
 
 export const ESCAPE_CATALOG_PATH = "/escape-tiny-homes" as const
@@ -25,7 +23,7 @@ export type EscapeTinyHomeFaqItem = {
 export const ESCAPE_TINY_HOMES_FAQ: EscapeTinyHomeFaqItem[] = [
   {
     q: "What does the listed price include?",
-    a: "Prices shown are Prefabricated.co list pricing: the factory base model figure plus 5%, rounded to the nearest dollar. Factory options, site-specific engineering, freight, and installation services are quoted separately.",
+    a: "Pricing shown is for the base model configuration in this catalog. Factory options, site-specific engineering, freight, and installation services are quoted separately so you see a clear baseline before adding logistics.",
   },
   {
     q: "Does the price include shipping or delivery?",
@@ -72,7 +70,7 @@ export type EscapeTinyHomeModel = {
   /** Long copy for product detail pages */
   fullDescription: string
   basePriceUsd: number
-  /** Whole USD: `Math.round(basePriceUsd * 1.05)` */
+  /** List price shown in the catalog (whole USD) */
   sellingPriceUsd: number
   /** Stripe Checkout (USD cents) */
   sellingPriceCents: number
@@ -89,10 +87,10 @@ function cents(usd: number) {
   return Math.round(usd * 100)
 }
 
-const ESCAPE_RETAIL_MARKUP = 0.05 as const
+const ESCAPE_PUBLISHED_LIST_FACTOR = 1.05 as const
 
 function escapeRetailFromBase(baseUsd: number): number {
-  return Math.round(baseUsd * (1 + ESCAPE_RETAIL_MARKUP))
+  return Math.round(baseUsd * ESCAPE_PUBLISHED_LIST_FACTOR)
 }
 
 /** Per-model hero + gallery when more than a single {slug}.png exists */
