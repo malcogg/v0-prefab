@@ -24,6 +24,17 @@ function normalizePath(pathname: string): string {
 export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
   const path = normalizePath(pathname)
 
+  if (path.startsWith("/tiny-homes")) {
+    return {
+      id: "adu",
+      tagline: "Escape tiny homes — 2026 lineup",
+      pillTopic: "Escape · checkout ready",
+      accentClass: "bg-primary",
+      pillClass: "border-primary/35 text-foreground/90 bg-primary/08",
+      contextStripClass: "border-l-[3px] border-l-primary",
+    }
+  }
+
   if (path.startsWith("/tiny-home-communities") || path === "/florida-tiny-living-guide") {
     return {
       id: "tiny",

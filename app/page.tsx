@@ -5,7 +5,8 @@ import { HomePathwaysSection } from "@/components/home-pathways-section"
 import { ADUQuizFunnel } from "@/components/adu-quiz-funnel"
 import { OpportunitySection } from "@/components/opportunity-section"
 import { WhatIsAduSection } from "@/components/what-is-adu-section"
-import { DesignOptionsSection } from "@/components/design-options-section"
+import { EscapeProductLanesSection } from "@/components/escape-product-lanes-section"
+import { EarthNestSecondarySection } from "@/components/earthnest-secondary-section"
 import { ADUCalculatorSection } from "@/components/adu-calculator-section"
 import { OrangeCountyRulesSection } from "@/components/orange-county-rules-section"
 import { DealBreakdownSection } from "@/components/deal-breakdown-section"
@@ -110,7 +111,8 @@ export default function Home() {
       <ADUQuizFunnel />
       <OpportunitySection />
       <WhatIsAduSection />
-      <DesignOptionsSection />
+      <EscapeProductLanesSection />
+      <EarthNestSecondarySection />
       <ADUCalculatorSection />
       <OrangeCountyRulesSection />
       <DealBreakdownSection />

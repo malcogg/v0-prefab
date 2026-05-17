@@ -24,7 +24,7 @@ export function Navigation() {
   const primaryLinks = [
     { label: "ADUs", href: "/#what-is-adu" },
     { label: "EarthNest", href: "/earthnest-living-systems" },
-    { label: "Models", href: "/#design-options" },
+    { label: "Escape homes", href: "/tiny-homes" },
     { label: "Calculator", href: "/adu-calculator" },
     { label: "Florida Rules", href: "/adu-rules" },
   ]
@@ -33,6 +33,8 @@ export function Navigation() {
     { label: "Choose your path (home)", href: "/#choose-path" },
     { label: "Free ADU Course", href: "/free-adu-course" },
     { label: "Build Process", href: "/#process" },
+    { label: "Escape 2026 catalog", href: "/tiny-homes" },
+    { label: "EarthNest & custom ADUs", href: "/#earthnest-adu-lanes" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },
     { label: "Florida Growing Zones Tool", href: "/florida-growing-zones-homestead-planning" },
