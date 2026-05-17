@@ -14,14 +14,14 @@ import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { AffiliateDisclosureBanner } from "@/components/blog/affiliate-disclosure-banner"
 import { BlogMarkdownBody } from "@/components/blog/markdown-body"
-import { getBlogSlugs, getPostBySlug } from "@/lib/blog/load-posts"
+import { getMarkdownBlogSlugs, getPostBySlug } from "@/lib/blog/load-posts"
 import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { ogImageMeta } from "@/lib/og"
 
 type PageProps = { params: Promise<{ slug: string }> }
 
 export function generateStaticParams() {
-  return getBlogSlugs().map((slug) => ({ slug }))
+  return getMarkdownBlogSlugs().map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

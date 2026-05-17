@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 
 import type { BlogFrontmatter, BlogPost } from "./types"
+import { TSX_BLOG_PAGES } from "./tsx-posts"
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 
@@ -31,7 +32,7 @@ function parseFrontmatter(raw: string): { meta: Partial<BlogFrontmatter>; body: 
   return { meta, body }
 }
 
-export function getBlogSlugs(): string[] {
+export function getMarkdownBlogSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) return []
   return fs
     .readdirSync(BLOG_DIR)
@@ -39,11 +40,26 @@ export function getBlogSlugs(): string[] {
     .map((f) => f.replace(/\.md$/, ""))
 }
 
+export function getBlogSlugs(): string[] {
+  const md = getMarkdownBlogSlugs()
+  const tsx = TSX_BLOG_PAGES.map((p) => p.slug)
+  return [...new Set([...md, ...tsx])]
+}
+
 export function getAllPosts(): BlogPost[] {
-  return getBlogSlugs()
+  const mdPosts = getMarkdownBlogSlugs()
     .map((slug) => getPostBySlug(slug))
     .filter((p): p is BlogPost => p != null)
-    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+  const tsxPosts: BlogPost[] = TSX_BLOG_PAGES.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    description: p.description,
+    date: p.date,
+    body: "",
+  }))
+  return [...mdPosts, ...tsxPosts].sort((a, b) =>
+    a.date < b.date ? 1 : a.date > b.date ? -1 : 0,
+  )
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
