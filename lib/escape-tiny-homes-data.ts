@@ -1,6 +1,6 @@
 /**
  * Escape Tiny Homes — 2026 collection (Prefabricated.co partner lineup).
- * Image paths: add matching files under public/images/escape/ or rely on placeholders until assets ship.
+ * Image paths: files in public/images/escape/{slug}.png (see repo folder).
  *
  * fullDescription: marketing narrative for PDPs — replace with verbatim Escape PDF copy when available.
  */
@@ -79,21 +79,9 @@ function cents(usd: number) {
   return Math.round(usd * 100)
 }
 
-/** Rotate placeholders per slug until per-model photography is uploaded */
-const PLACEHOLDERS = [
-  "/images/hero-adu.jpg",
-  "/images/earthnest-model.jpg",
-  "/images/income-property.jpg",
-  "/images/container-adu.jpg",
-  "/images/traditional-adu.jpg",
-] as const
-
-export function escapePlaceholderImages(slug: string): { hero: string; gallery: string[] } {
-  let h = 0
-  for (let i = 0; i < slug.length; i++) h = (h + slug.charCodeAt(i) * (i + 1)) % PLACEHOLDERS.length
-  const hero = PLACEHOLDERS[h]!
-  const g = [hero, PLACEHOLDERS[(h + 1) % PLACEHOLDERS.length]!, PLACEHOLDERS[(h + 2) % PLACEHOLDERS.length]!]
-  return { hero, gallery: g }
+function escapeHeroAndGallery(slug: string): { heroImage: string; gallery: string[] } {
+  const heroImage = `/images/escape/${slug}.png`
+  return { heroImage, gallery: [heroImage] }
 }
 
 type RawRow = Omit<
@@ -297,12 +285,12 @@ function buildHighlights(m: RawRow): string[] {
 }
 
 export const ESCAPE_TINY_HOME_MODELS: EscapeTinyHomeModel[] = RAW.map((row) => {
-  const { hero, gallery } = escapePlaceholderImages(row.slug)
+  const { heroImage, gallery } = escapeHeroAndGallery(row.slug)
   return {
     ...row,
     sellingPriceCents: cents(row.sellingPriceUsd),
     highlights: buildHighlights(row),
-    heroImage: hero,
+    heroImage,
     gallery,
     featuredOnHomepage: FEATURED_SLUGS.has(row.slug),
   }

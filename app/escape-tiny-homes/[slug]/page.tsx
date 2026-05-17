@@ -17,6 +17,7 @@ import {
 } from "@/lib/escape-tiny-homes-data"
 import { ogImageMeta } from "@/lib/og"
 import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
+import { cn } from "@/lib/utils"
 
 type PageProps = { params: Promise<{ slug: string }> }
 
@@ -95,7 +96,7 @@ export default async function EscapeModelPage({ params }: PageProps) {
         <div className="relative h-[min(78vh,620px)] w-full bg-foreground">
           <Image
             src={model.heroImage}
-            alt=""
+            alt={model.fullName}
             fill
             className="object-cover object-center opacity-[0.92]"
             priority
@@ -197,19 +198,31 @@ export default async function EscapeModelPage({ params }: PageProps) {
         <section className="px-6 py-16 md:py-20">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-10 text-center">Gallery</h2>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div
+              className={cn(
+                "grid gap-4",
+                model.gallery.length >= 3 && "sm:grid-cols-3",
+                model.gallery.length === 2 && "sm:grid-cols-2",
+                model.gallery.length === 1 && "max-w-3xl mx-auto",
+              )}
+            >
               {model.gallery.map((src, i) => (
                 <div
                   key={`${src}-${i}`}
                   className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border/60"
                 >
-                  <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                  <Image
+                    src={src}
+                    alt={`${model.shortLabel} — photo ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
                 </div>
               ))}
             </div>
             <p className="text-center text-xs text-muted-foreground mt-8 max-w-xl mx-auto">
-              Photography may show similar finishes; hero and gallery use placeholders until Escape-specific assets are in{" "}
-              <code className="text-foreground/80">/public/images/escape/</code>.
+              Additional interior and alternate exterior angles can be added as factory photography becomes available.
             </p>
           </div>
         </section>
