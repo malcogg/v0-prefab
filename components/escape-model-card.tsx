@@ -39,13 +39,8 @@ export function EscapeModelCard({
         <p className="text-sm text-foreground/88 leading-relaxed line-clamp-3 mb-4">{model.description}</p>
         <div className="mt-auto pt-4 border-t border-border/80 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-[0.16em] mb-0.5">Your price</p>
             <p className="text-xl font-semibold text-primary tabular-nums tracking-tight">
               {formatUsd(model.sellingPriceUsd)}
-            </p>
-            <p className="text-xs text-muted-foreground tabular-nums">
-              <span className="line-through">{formatUsd(model.basePriceUsd)}</span>
-              <span className="ml-1.5 text-[10px] uppercase tracking-wide">MSRP</span>
             </p>
           </div>
           <span className="text-sm font-medium text-foreground/90 group-hover:text-primary transition-colors shrink-0">

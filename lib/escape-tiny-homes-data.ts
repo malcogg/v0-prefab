@@ -167,7 +167,7 @@ const RAW: RawRow[] = [
     fullName: "8/ ONE XL",
     description: "Larger version with expanded kitchen, bathroom and living areas.",
     fullDescription:
-      "ONE XL scales the concept for owners who need more kitchen length, bath comfort, and upper outdoor connections. Deck-ready thinking and expanded living zones make daily routines feel less like camping and more like a refined small home. It’s still unmistakably ONE—just with more room to execute. Your price shown is the promotional catalog figure; logistics are itemized separately once we model your route and crane or roll-off needs.",
+      "ONE XL scales the concept for owners who need more kitchen length, bath comfort, and upper outdoor connections. Deck-ready thinking and expanded living zones make daily routines feel less like camping and more like a refined small home. It’s still unmistakably ONE—just with more room to execute. The price shown is the catalog figure; logistics are itemized separately once we model your route and crane or roll-off needs.",
     basePriceUsd: 93540,
     sellingPriceUsd: 98000,
   },
@@ -227,7 +227,7 @@ const RAW: RawRow[] = [
     fullName: "11/ eVISTA",
     description: "All-electric modern design with dramatic window wall.",
     fullDescription:
-      "eVISTA updates Vista’s purity with all-electric systems and an end window wall that pulls the landscape into the plan. It excels as a bright studio, workspace, or compact guest environment. The glazing strategy makes the interior feel cinematic without resorting to busy trim. Confirming electric service capacity at your site is part of our post-purchase checklist. Delivery is quoted independently from MSRP or promotional pricing.",
+      "eVISTA updates Vista’s purity with all-electric systems and an end window wall that pulls the landscape into the plan. It excels as a bright studio, workspace, or compact guest environment. The glazing strategy makes the interior feel cinematic without resorting to busy trim. Confirming electric service capacity at your site is part of our post-purchase checklist. Delivery is quoted independently from the list price.",
     basePriceUsd: 53785,
     sellingPriceUsd: 56000,
   },

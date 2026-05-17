@@ -27,8 +27,8 @@ export function EscapeProductLanesSection() {
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
               Factory-built, RVIA-certified units from a recognized leader in tiny living. Eight flagship models below; the
-              complete sixteen-model lineup — pricing, galleries, FAQs, and secure checkout — lives on our dedicated
-              catalog page.
+              complete sixteen-model lineup — pricing, galleries, FAQs, and how to get on the notify list — lives on our
+              dedicated catalog page.
             </p>
           </div>
           <Link

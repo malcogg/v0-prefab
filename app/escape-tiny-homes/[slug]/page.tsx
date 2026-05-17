@@ -118,12 +118,9 @@ export default async function EscapeModelPage({ params }: PageProps) {
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white text-balance leading-[1.05] mb-6">
                 {model.shortLabel}
               </h1>
-              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2 text-white mb-4">
+              <div className="text-white mb-4">
                 <span className="text-3xl md:text-[2.15rem] font-semibold tabular-nums tracking-tight">
                   {formatUsd(model.sellingPriceUsd)}
-                </span>
-                <span className="text-white/65 text-base md:text-lg line-through tabular-nums">
-                  MSRP {formatUsd(model.basePriceUsd)}
                 </span>
               </div>
               <p className="text-white/80 text-sm max-w-xl leading-relaxed border-l-2 border-white/35 pl-4">
@@ -174,10 +171,7 @@ export default async function EscapeModelPage({ params }: PageProps) {
             </div>
             <div className="rounded-2xl border border-border/90 bg-background p-8 shadow-sm ring-1 ring-foreground/[0.04]">
               <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">Purchase</p>
-              <p className="font-serif text-3xl text-foreground tabular-nums mb-1">{formatUsd(model.sellingPriceUsd)}</p>
-              <p className="text-sm text-muted-foreground line-through tabular-nums mb-1">
-                MSRP {formatUsd(model.basePriceUsd)}
-              </p>
+              <p className="font-serif text-3xl text-foreground tabular-nums mb-3">{formatUsd(model.sellingPriceUsd)}</p>
               <p className="text-sm text-foreground/85 font-medium mb-6">{ESCAPE_PRICE_SHIPPING_NOTE}</p>
               <p className="text-sm text-muted-foreground mb-8">
                 Fixed base model — no online configurator on Escape units. Custom finishes and layouts stay on EarthNest /

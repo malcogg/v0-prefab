@@ -26,7 +26,7 @@ const pageOg = ogImageMeta({
 export const metadata: Metadata = {
   title: "Escape Tiny Homes (2026) | Prefabricated.co",
   description:
-    "Shop the full Escape Homes 2026 tiny house lineup: sixteen models with MSRP, your price, RVIA-certified U.S. factory builds, and Stripe checkout. Shipping quoted separately.",
+    "Shop the full Escape Homes 2026 tiny house lineup: sixteen models with clear pricing, RVIA-certified U.S. factory builds, and Prefabricated.co lead capture. Shipping quoted separately.",
   alternates: { canonical: ESCAPE_CATALOG_PATH },
   openGraph: {
     title: "Escape Tiny Homes — 2026 Collection",
@@ -79,10 +79,9 @@ export default function EscapeTinyHomesCatalogPage() {
             Tiny home collection
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-5">
-            Every model lists <strong className="text-foreground font-medium">MSRP</strong> and{" "}
-            <strong className="text-foreground font-medium">your Prefabricated.co price</strong>. Open a model for a full
-            product page, gallery, and one-click Stripe checkout — fixed base configurations only (no online customizer on
-            Escape builds).
+            Every model shows its <strong className="text-foreground font-medium">price</strong> up front. Open a card for
+            the full product page, gallery, and how to reserve your spot — fixed base configurations only (no online
+            customizer on Escape builds).
           </p>
           <p className="text-sm text-foreground/85 leading-relaxed max-w-2xl mx-auto border border-border/70 rounded-xl bg-card/60 px-5 py-3.5 backdrop-blur-sm">
             {ESCAPE_FACTORY_LINE} {ESCAPE_PRICE_SHIPPING_NOTE}
