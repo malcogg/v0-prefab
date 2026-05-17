@@ -156,6 +156,22 @@ export default async function EscapeModelPage({ params }: PageProps) {
           </p>
         </div>
 
+        {model.specSheet?.length ? (
+          <section className="border-t border-border bg-[oklch(0.988_0.008_88)] px-6 py-14 md:py-16">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8 text-center">Fact sheet</h2>
+              <dl className="space-y-8">
+                {model.specSheet.map((block) => (
+                  <div key={block.title}>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-primary mb-2">{block.title}</dt>
+                    <dd className="text-base text-foreground/90 leading-relaxed">{block.body}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        ) : null}
+
         <section className="border-y border-border bg-[oklch(0.985_0.012_85)] px-6 py-14 md:py-20">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div>
@@ -195,7 +211,7 @@ export default async function EscapeModelPage({ params }: PageProps) {
             <div
               className={cn(
                 "grid gap-4",
-                model.gallery.length >= 3 && "sm:grid-cols-3",
+                model.gallery.length >= 3 && "sm:grid-cols-2 lg:grid-cols-3",
                 model.gallery.length === 2 && "sm:grid-cols-2",
                 model.gallery.length === 1 && "max-w-3xl mx-auto",
               )}
@@ -215,9 +231,15 @@ export default async function EscapeModelPage({ params }: PageProps) {
                 </div>
               ))}
             </div>
-            <p className="text-center text-xs text-muted-foreground mt-8 max-w-xl mx-auto">
-              Additional interior and alternate exterior angles can be added as factory photography becomes available.
-            </p>
+            {model.gallery.length <= 3 ? (
+              <p className="text-center text-xs text-muted-foreground mt-8 max-w-xl mx-auto">
+                Additional interior and alternate exterior angles can be added as factory photography becomes available.
+              </p>
+            ) : (
+              <p className="text-center text-xs text-muted-foreground mt-8 max-w-xl mx-auto">
+                Finishes and staging may vary slightly by build batch; your order confirmation reflects factory specifications.
+              </p>
+            )}
           </div>
         </section>
       </article>

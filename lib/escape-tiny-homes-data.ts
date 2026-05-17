@@ -1,6 +1,6 @@
 /**
  * Escape Tiny Homes — 2026 collection (Prefabricated.co partner lineup).
- * Image paths: files in public/images/escape/{slug}.png (see repo folder).
+ * Image paths: default `public/images/escape/{slug}.png`, or richer sets via `ESCAPE_MEDIA_OVERRIDES` (e.g. Traveler subfolder).
  *
  * fullDescription: marketing narrative for PDPs — replace with verbatim Escape PDF copy when available.
  */
@@ -55,6 +55,11 @@ export const ESCAPE_TINY_HOMES_FAQ: EscapeTinyHomeFaqItem[] = [
   },
 ]
 
+export type EscapeSpecSheetBlock = {
+  title: string
+  body: string
+}
+
 export type EscapeTinyHomeModel = {
   slug: string
   /** Display line e.g. "TRAVELER XL" */
@@ -73,13 +78,65 @@ export type EscapeTinyHomeModel = {
   heroImage: string
   gallery: string[]
   featuredOnHomepage: boolean
+  /** Optional factory fact sheet (dimensions, trailer, weight, etc.) */
+  specSheet?: EscapeSpecSheetBlock[]
 }
 
 function cents(usd: number) {
   return Math.round(usd * 100)
 }
 
+/** Per-model hero + gallery when more than a single {slug}.png exists */
+const ESCAPE_MEDIA_OVERRIDES: Partial<Record<string, { heroImage: string; gallery: string[] }>> = {
+  traveler: {
+    heroImage: "/images/escape/traveler/traveler-front.png",
+    gallery: [
+      "/images/escape/traveler/traveler-front.png",
+      "/images/escape/traveler/traveler-on-the-road.png",
+      "/images/escape/traveler/interior-full.png",
+      "/images/escape/traveler/interior-kitchen-bath.png",
+      "/images/escape/traveler/kitchen-galley.png",
+      "/images/escape/traveler/kitchen-sink.png",
+      "/images/escape/traveler/bathroom.png",
+      "/images/escape/traveler/loft.png",
+      "/images/escape/traveler/living-area.png",
+      "/images/escape/traveler/storage.png",
+      "/images/escape/traveler/closet.png",
+    ],
+  },
+  "traveler-xl": {
+    heroImage: "/images/escape/traveler-xl/front-sunset.png",
+    gallery: [
+      "/images/escape/traveler-xl/front-sunset.png",
+      "/images/escape/traveler-xl/exterior-wooded.png",
+      "/images/escape/traveler-xl/interior-main.png",
+      "/images/escape/traveler-xl/dining-long-view.png",
+      "/images/escape/traveler-xl/kitchen.png",
+      "/images/escape/traveler-xl/living-area.png",
+      "/images/escape/traveler-xl/clerestory-living.png",
+      "/images/escape/traveler-xl/living-fireplace.png",
+      "/images/escape/traveler-xl/bedroom.png",
+    ],
+  },
+  "traveler-xls": {
+    heroImage: "/images/escape/traveler-xl/front-sunset.png",
+    gallery: [
+      "/images/escape/traveler-xl/front-sunset.png",
+      "/images/escape/traveler-xl/exterior-wooded.png",
+      "/images/escape/traveler-xl/interior-main.png",
+      "/images/escape/traveler-xl/dining-long-view.png",
+      "/images/escape/traveler-xl/kitchen.png",
+      "/images/escape/traveler-xl/living-area.png",
+      "/images/escape/traveler-xl/clerestory-living.png",
+      "/images/escape/traveler-xl/living-fireplace.png",
+      "/images/escape/traveler-xl/bedroom.png",
+    ],
+  },
+}
+
 function escapeHeroAndGallery(slug: string): { heroImage: string; gallery: string[] } {
+  const override = ESCAPE_MEDIA_OVERRIDES[slug]
+  if (override) return override
   const heroImage = `/images/escape/${slug}.png`
   return { heroImage, gallery: [heroImage] }
 }
@@ -100,11 +157,25 @@ const RAW: RawRow[] = [
       "The Traveler is where the Escape story starts: a confident layout with full-size appliances, a generous bathroom, and double lofts that make room for both living and sleeping. Daylight is treated as a material—generous glazing connects the interior to the landscape while keeping the envelope crisp and purposeful. This model suits owners who want a turnkey tiny home that feels residential, not improvised. As with every unit here, pricing is for the base configuration; delivery is quoted to your site after we confirm access and route.",
     basePriceUsd: 95474,
     sellingPriceUsd: 100000,
+    specSheet: [
+      {
+        title: "Size",
+        body: '25\' long (30\' including hitch) × 8.5\' W × 13\'6" H travel trailer with the RVIA seal.',
+      },
+      {
+        title: "Square footage & weight",
+        body: "269 sq ft — 180 sq ft first floor, 89 sq ft in lofts. 10,000–12,000 lbs depending on options. Class V hitch recommended.",
+      },
+      {
+        title: "Trailer",
+        body: "Custom ESCAPE steel trailer: 7,000 lb HD tandem axles, 10-ply radial tires, electric brakes, Hopkins break-away safety system, easy-use leveling jacks, steel rodent-resistant belly, 2 5/16\" ball hitch.",
+      },
+    ],
   },
   {
     slug: "traveler-xl",
-    shortLabel: "TRAVELER XL",
-    fullName: "5/ TRAVELER XL",
+    shortLabel: "TRAVELER XL/XLS",
+    fullName: "5/ TRAVELER XL/XLS",
     description: "Frank Lloyd Wright inspired with soaring ceilings and excellent space.",
     fullDescription:
       "Traveler XL leans into architectural drama—vaulted spaces, strong horizontal lines, and volume you rarely get in a compact envelope. The kitchen and living sequence feels intentional, with room for one or two lofts depending on configuration, so the home scales with how you live rather than fighting the floor plan. It remains one of Escape’s most recognized silhouettes for good reason: it photographs like architecture and lives like a home. Base price excludes freight; we’ll quote transport once we understand your location and delivery conditions.",
