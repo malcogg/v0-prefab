@@ -2,10 +2,11 @@ import Link from "next/link"
 
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
+import { ESCAPE_CATALOG_PATH } from "@/lib/escape-tiny-homes-data"
 
 type SearchParams = Promise<{ session_id?: string }>
 
-export default async function TinyHomesCheckoutSuccessPage({
+export default async function EscapeTinyHomesCheckoutSuccessPage({
   searchParams,
 }: {
   searchParams: SearchParams
@@ -21,19 +22,23 @@ export default async function TinyHomesCheckoutSuccessPage({
         <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-4 text-balance">Thank you</h1>
         <p className="text-muted-foreground leading-relaxed mb-8">
           Your payment session was completed. We&apos;ll email a confirmation shortly and reach out within one business
-          day to coordinate delivery, siting, and any open items for your Escape tiny home.
+          day to coordinate delivery, siting, and any open items for your Escape tiny home. Remember: list pricing does
+          not include shipping — we&apos;ll quote freight to your location.
         </p>
         {sessionId ? (
           <p className="text-xs text-muted-foreground font-mono mb-8 break-all">Reference: {sessionId}</p>
         ) : null}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
-            href="/tiny-homes"
+            href={ESCAPE_CATALOG_PATH}
             className="inline-flex justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-[oklch(0.58_0.13_192)]"
           >
             Back to catalog
           </Link>
-          <Link href="/contact" className="inline-flex justify-center px-6 py-3 rounded-lg border border-border text-sm font-semibold hover:border-primary/40">
+          <Link
+            href="/contact"
+            className="inline-flex justify-center px-6 py-3 rounded-lg border border-border text-sm font-semibold hover:border-primary/40"
+          >
             Contact support
           </Link>
         </div>

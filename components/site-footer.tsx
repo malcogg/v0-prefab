@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { MapPin, Mail, Phone } from "lucide-react"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
+import { ESCAPE_CATALOG_PATH } from "@/lib/escape-tiny-homes-data"
 
 export function SiteFooter() {
   const navLinks = [
@@ -13,7 +14,7 @@ export function SiteFooter() {
     { label: "Florida Growing Zones Tool", href: "/florida-growing-zones-homestead-planning" },
     { label: "Tiny Home Communities", href: "/tiny-home-communities" },
     { label: "Resources", href: "/resources" },
-    { label: "Escape tiny homes (shop)", href: "/tiny-homes" },
+    { label: "Escape tiny homes (shop)", href: ESCAPE_CATALOG_PATH },
     { label: "Escape featured on home", href: "/#escape-product-lanes" },
     { label: "EarthNest & site-built ADUs", href: "/#earthnest-adu-lanes" },
     { label: "Our Process", href: "/#process" },

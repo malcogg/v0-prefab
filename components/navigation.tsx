@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { getNavSectionIdentity, showSectionPill } from "@/lib/nav-section-identity"
+import { ESCAPE_CATALOG_PATH } from "@/lib/escape-tiny-homes-data"
 
 export function Navigation() {
   const pathname = usePathname() ?? "/"
@@ -24,7 +25,7 @@ export function Navigation() {
   const primaryLinks = [
     { label: "ADUs", href: "/#what-is-adu" },
     { label: "EarthNest", href: "/earthnest-living-systems" },
-    { label: "Escape homes", href: "/tiny-homes" },
+    { label: "Escape homes", href: ESCAPE_CATALOG_PATH },
     { label: "Calculator", href: "/adu-calculator" },
     { label: "Florida Rules", href: "/adu-rules" },
   ]
@@ -33,7 +34,7 @@ export function Navigation() {
     { label: "Choose your path (home)", href: "/#choose-path" },
     { label: "Free ADU Course", href: "/free-adu-course" },
     { label: "Build Process", href: "/#process" },
-    { label: "Escape 2026 catalog", href: "/tiny-homes" },
+    { label: "Escape 2026 catalog", href: ESCAPE_CATALOG_PATH },
     { label: "EarthNest & custom ADUs", href: "/#earthnest-adu-lanes" },
     { label: "Eco Upgrades", href: "/eco-upgrades" },
     { label: "Florida Tiny Living Guide", href: "/florida-tiny-living-guide" },

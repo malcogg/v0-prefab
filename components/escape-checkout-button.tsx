@@ -3,6 +3,7 @@
 import { useState } from "react"
 
 import { cn } from "@/lib/utils"
+import { ESCAPE_PRICE_SHIPPING_NOTE } from "@/lib/escape-tiny-homes-data"
 
 type EscapeCheckoutButtonProps = {
   slug: string
@@ -58,9 +59,9 @@ export function EscapeCheckoutButton({
         {loading ? "Redirecting to secure checkout…" : label}
       </button>
       {error ? <p className="text-sm text-destructive">{error}</p> : null}
-      <p className="text-xs text-muted-foreground max-w-md">
-        Secure payment via Stripe. You&apos;ll complete purchase on Stripe-hosted checkout. Delivery and siting are
-        coordinated after payment — our team follows up within one business day.
+      <p className="text-xs text-muted-foreground max-w-md leading-relaxed">
+        Secure payment via Stripe. {ESCAPE_PRICE_SHIPPING_NOTE} We follow up within one business day to coordinate next
+        steps.
       </p>
     </div>
   )

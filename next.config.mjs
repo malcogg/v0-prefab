@@ -16,6 +16,21 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/tiny-homes/success",
+        destination: "/escape-tiny-homes/success",
+        permanent: true,
+      },
+      {
+        source: "/tiny-homes/:slug",
+        destination: "/escape-tiny-homes/:slug",
+        permanent: true,
+      },
+      {
+        source: "/tiny-homes",
+        destination: "/escape-tiny-homes",
+        permanent: true,
+      },
+      {
         source: "/:path+/",
         destination: "/:path+",
         permanent: true,

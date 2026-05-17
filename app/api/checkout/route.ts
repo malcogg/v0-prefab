@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import Stripe from "stripe"
 import { z } from "zod"
 
-import { getEscapeModelBySlug } from "@/lib/escape-tiny-homes-data"
+import { getEscapeModelBySlug, ESCAPE_CATALOG_PATH } from "@/lib/escape-tiny-homes-data"
 import { SITE_URL, absoluteSiteUrl } from "@/lib/seo"
 
 export const runtime = "nodejs"
@@ -43,8 +43,8 @@ export async function POST(req: Request) {
   const stripe = new Stripe(secret)
 
   const imageUrl = absoluteSiteUrl(model.heroImage)
-  const successUrl = `${SITE_URL}/tiny-homes/success?session_id={CHECKOUT_SESSION_ID}`
-  const cancelUrl = `${SITE_URL}/tiny-homes/${model.slug}`
+  const successUrl = `${SITE_URL}${ESCAPE_CATALOG_PATH}/success?session_id={CHECKOUT_SESSION_ID}`
+  const cancelUrl = `${SITE_URL}${ESCAPE_CATALOG_PATH}/${model.slug}`
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
             unit_amount: model.sellingPriceCents,
             product_data: {
               name: `Escape — ${model.shortLabel} (${model.fullName})`,
-              description: model.description.slice(0, 450),
+              description: model.fullDescription.slice(0, 450),
               images: [imageUrl],
               metadata: {
                 escape_slug: model.slug,

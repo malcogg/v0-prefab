@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { escapeModelSlugs } from "@/lib/escape-tiny-homes-data"
+import { ESCAPE_CATALOG_PATH, escapeModelSlugs } from "@/lib/escape-tiny-homes-data"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
 import { getFloridaSlugParams } from "@/lib/tiny-home-communities/repo"
 
@@ -16,7 +16,7 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
   ) return 0.9
   if (
     path === "/adu-calculator" ||
-    path === "/tiny-homes" ||
+    path === "/escape-tiny-homes" ||
     path === "/florida-tiny-living-guide" ||
     path === "/florida-growing-zones-homestead-planning" ||
     path === "/closed-loop-homestead" ||
@@ -47,8 +47,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tiny-home-communities",
     "/tiny-home-communities/florida",
     "/resources",
-    "/tiny-homes",
-    "/tiny-homes/success",
+    ESCAPE_CATALOG_PATH,
+    `${ESCAPE_CATALOG_PATH}/success`,
     "/adu-calculator",
     "/faq",
     "/about",
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const escapeHomes = escapeModelSlugs().map((slug) => ({
-    url: `${SITE_URL}/tiny-homes/${slug}`,
+    url: `${SITE_URL}${ESCAPE_CATALOG_PATH}/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.72,

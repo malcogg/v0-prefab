@@ -24,7 +24,7 @@ function normalizePath(pathname: string): string {
 export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
   const path = normalizePath(pathname)
 
-  if (path.startsWith("/tiny-homes")) {
+  if (path.startsWith("/escape-tiny-homes")) {
     return {
       id: "adu",
       tagline: "Escape tiny homes — 2026 lineup",
