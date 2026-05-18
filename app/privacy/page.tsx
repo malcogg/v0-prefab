@@ -105,9 +105,8 @@ export default function PrivacyPolicyPage() {
                 >
                   Neon
                 </a>
-                , using a server-side connection string from our hosting environment. Rows typically include the fields
-                needed for that product (see our internal schema definitions in the repo’s <code>db/schema.sql</code> for
-                engineers).
+                , using a server-side connection in our hosting environment. What we store for a given submission matches
+                the fields that form or tool asks for (for example contact details and answers you provided).
               </p>
               <p>
                 <strong className="text-foreground">Email (Resend).</strong> When you request confirmations or we notify
@@ -153,12 +152,11 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="space-y-3">
-              <h2 className="font-serif text-2xl text-foreground">Security</h2>
+              <h2 className="font-serif text-2xl text-foreground">How we protect your information</h2>
               <p>
-                Secrets (database URL, email API key, Stripe secret) live only in server environment variables—not in
-                browser-exposed <code>NEXT_PUBLIC_*</code> bundles. We apply HTTP security headers (including a
-                Content-Security-Policy) and optional rate limiting on write-heavy API routes. No security practice is
-                perfect; if you discover a vulnerability, email us at the address above.
+                We use safeguards we consider appropriate for the type of information we process, including serving the
+                Site over encrypted connections and limiting access to personal information to people who need it to run
+                the Site and respond to you.
               </p>
             </section>
 

@@ -19,26 +19,28 @@ const PAGE_URL = `${SITE_URL}${ESCAPE_CATALOG_PATH}`
 
 const pageOg = ogImageMeta({
   variant: "default",
-  title: "Escape Tiny Homes — 2026 collection",
-  subtitle: "Partner lineup · Secure checkout · Prefabricated.co",
+  title: "Escape tiny homes — 2026 lineup",
+  subtitle: "Sixteen models · Listed prices · RVIA U.S. factory · Stripe checkout",
 })
 
 export const metadata: Metadata = {
-  title: "Escape Tiny Homes (2026) | Prefabricated.co",
+  title: "Escape Tiny Homes — 2026 Lineup | Prefabricated.co",
   description:
-    "Shop the full Escape Homes 2026 tiny house lineup: sixteen models with clear pricing, RVIA-certified U.S. factory builds, and Prefabricated.co lead capture. Shipping quoted separately.",
+    "Full 2026 Escape lineup on Prefabricated.co: sixteen RVIA-certified U.S. factory models with list pricing on every card, Stripe checkout, and delivery quoted to your site. Fixed factory configurations—EarthNest and ADU lanes for custom builds.",
   alternates: { canonical: ESCAPE_CATALOG_PATH },
   openGraph: {
-    title: "Escape Tiny Homes — 2026 Collection",
+    title: "Escape tiny homes — 2026 lineup",
     description:
-      "Sixteen Escape models: Traveler, Vista, ONE, e-series, Ultimate, and more. Transparent pricing; delivery quoted to your location.",
+      "Sixteen Escape models: Traveler through eVISTA XL and Ultimate. List pricing, U.S. RVIA factory build, finished delivery per spec, secure checkout. Shipping quoted separately.",
     url: ESCAPE_CATALOG_PATH,
     type: "website",
     images: [pageOg],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Escape Tiny Homes (2026) | Prefabricated.co",
+    title: "Escape tiny homes — 2026 lineup | Prefabricated.co",
+    description:
+      "Sixteen models, list prices, RVIA U.S. factory builds, Stripe checkout—delivery quoted to your location.",
     images: [pageOg.url],
   },
 }
@@ -76,12 +78,13 @@ export default function EscapeTinyHomesCatalogPage() {
         <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-primary text-xs font-semibold tracking-[0.28em] uppercase mb-5">Escape Homes · 2026</p>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-[3.35rem] text-foreground text-balance leading-[1.06] mb-6">
-            Tiny home collection
+            Escape tiny homes — 2026 lineup
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-5">
-            Every model shows its <strong className="text-foreground font-medium">price</strong> up front. Open a card for
-            the full product page, gallery, and how to reserve your spot — fixed base configurations only (no online
-            customizer on Escape builds).
+            Sixteen factory models: <strong className="text-foreground font-medium">list price on every card</strong>{" "}
+            and a full PDP on each—gallery, specs, and Stripe checkout to reserve your unit. Escape SKUs are{" "}
+            <strong className="text-foreground font-medium">fixed factory configurations</strong>; customization runs
+            through our EarthNest and site-built ADU lanes.
           </p>
           <p className="text-sm text-foreground/85 leading-relaxed max-w-2xl mx-auto border border-border/70 rounded-xl bg-card/60 px-5 py-3.5 backdrop-blur-sm">
             {ESCAPE_FACTORY_LINE} {ESCAPE_PRICE_SHIPPING_NOTE}
