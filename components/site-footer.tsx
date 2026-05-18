@@ -26,6 +26,7 @@ export function SiteFooter() {
     { label: "ADU Calculator", href: "/adu-calculator" },
     { label: "FAQ", href: "/faq" },
     { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
+    { label: "Privacy policy", href: "/privacy" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "Get Evaluation", href: "/qualify" },

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -68,8 +69,11 @@ export function HomesteadZoneDownloadForm({ snapshot }: { snapshot: HomesteadZon
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl">
         Enter your details to receive a <strong className="text-foreground">personalized PDF</strong> with
         your Zone {snapshot.zone} crops, closed-loop pattern, seasonal notes, and the lunar snapshot from
-        when you ran this tool. We store your request to improve the guides (see our privacy policy on the
-        contact page). <strong className="text-foreground">Dashboard / saved results are coming later.</strong>
+        when you ran this tool. We store your request to improve the guides (see our{" "}
+        <Link href="/privacy" className="text-primary underline-offset-4 hover:underline">
+          privacy policy
+        </Link>
+        ). <strong className="text-foreground">Dashboard / saved results are coming later.</strong>
       </p>
       <form onSubmit={handleSubmit} className="mt-6 grid gap-4 sm:grid-cols-2 max-w-xl">
         <div className="sm:col-span-2">

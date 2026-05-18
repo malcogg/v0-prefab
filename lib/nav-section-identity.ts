@@ -64,7 +64,7 @@ export function getNavSectionIdentity(pathname: string): NavSectionIdentity {
   }
 
   if (
-    ["/about", "/contact", "/faq", "/resources", "/affiliate-disclosure"].includes(path) ||
+    ["/about", "/contact", "/faq", "/resources", "/affiliate-disclosure", "/privacy"].includes(path) ||
     path.startsWith("/blog")
   ) {
     return {

@@ -1,4 +1,5 @@
 import { getSql } from "@/lib/db"
+import { logApiError } from "@/lib/server/api-error-log"
 import {
   escapeIntentTeamNotificationEmail,
   escapeIntentUserConfirmationEmail,
@@ -60,7 +61,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] escape intent user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:escape-intent-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -69,14 +70,14 @@ export async function POST(req: Request) {
         replyTo: v.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] escape intent team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:escape-intent-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] escape intent pipeline:", err))
+    ]).catch((err) => logApiError("email:escape-intent-pipeline", err))
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error(err)
+    logApiError("escape-leads", err)
     const msg = err instanceof Error ? err.message : String(err)
     if (/escape_purchase_intent|relation .* does not exist/i.test(msg)) {
       return jsonError(

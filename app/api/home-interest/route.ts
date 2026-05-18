@@ -1,5 +1,6 @@
 import { getSql } from "@/lib/db"
 import { homeInterestSubmissionSchema } from "@/lib/qualify/schema"
+import { logApiError } from "@/lib/server/api-error-log"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import { getTeamInbox } from "@/lib/email/config"
 import { emailSubjects, homeInterestTeamEmail, homeInterestUserEmail } from "@/lib/email/transactional"
@@ -64,7 +65,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] home interest user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:home-interest-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -73,14 +74,14 @@ export async function POST(req: Request) {
         replyTo: data.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] home interest team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:home-interest-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] home interest pipeline:", err))
+    ]).catch((err) => logApiError("email:home-interest-pipeline", err))
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error(err)
+    logApiError("home-interest", err)
     const msg = err instanceof Error ? err.message : String(err)
     if (/qualify_submissions|relation .* does not exist/i.test(msg)) {
       return jsonError(

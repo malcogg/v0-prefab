@@ -27,6 +27,7 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
     path === "/resources" ||
     path === "/blog" ||
     path === "/affiliate-disclosure" ||
+    path === "/privacy" ||
     path === "/faq"
   )
     return 0.8
@@ -52,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/blog",
     "/affiliate-disclosure",
+    "/privacy",
     ESCAPE_CATALOG_PATH,
     `${ESCAPE_CATALOG_PATH}/success`,
     "/adu-calculator",

@@ -9,6 +9,7 @@ import {
   homesteadReportForZone,
 } from "@/lib/florida-homestead-zones"
 import { getSql } from "@/lib/db"
+import { logApiError } from "@/lib/server/api-error-log"
 import { getTeamInbox } from "@/lib/email/config"
 import {
   emailSubjects,
@@ -111,7 +112,7 @@ export async function POST(req: Request) {
         )
       `
     } catch (err) {
-      console.error("[homestead-zone-report] database insert failed:", err)
+      logApiError("homestead-zone-report:db-insert", err)
       return jsonError(503, "Could not save your request. Try again in a few minutes.")
     }
 
@@ -125,10 +126,7 @@ export async function POST(req: Request) {
     })
 
     if (!userSend.ok && !("skipped" in userSend && userSend.skipped)) {
-      console.error(
-        "[homestead-zone-report] user email failed:",
-        "error" in userSend ? userSend.error : userSend,
-      )
+      logApiError("homestead-zone-report:user-email", "error" in userSend ? userSend.error : userSend)
     }
 
     const emailSent = userSend.ok === true
@@ -139,7 +137,7 @@ export async function POST(req: Request) {
       replyTo: v.email,
     }).then((r) => {
       if (!r.ok && !("skipped" in r && r.skipped)) {
-        console.error("[homestead-zone-report] team notify failed:", "error" in r ? r.error : r)
+        logApiError("homestead-zone-report:team-notify", "error" in r ? r.error : r)
       }
     })
 
@@ -148,7 +146,7 @@ export async function POST(req: Request) {
       emailSent,
     })
   } catch (err) {
-    console.error(err)
+    logApiError("homestead-zone-report", err)
     return jsonError(500, "Server error")
   }
 }

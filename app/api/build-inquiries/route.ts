@@ -1,5 +1,6 @@
 import { getSql } from "@/lib/db"
 import { buildInquirySubmissionSchema } from "@/lib/submission-schemas"
+import { logApiError } from "@/lib/server/api-error-log"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import {
   buildInquiryTeamNotificationEmail,
@@ -58,7 +59,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] build inquiry user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:build-inquiry-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -67,14 +68,14 @@ export async function POST(req: Request) {
         replyTo: v.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] build inquiry team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:build-inquiry-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] build inquiry pipeline:", err))
+    ]).catch((err) => logApiError("email:build-inquiry-pipeline", err))
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error(err)
+    logApiError("build-inquiries", err)
     return jsonError(500, "Server error")
   }
 }

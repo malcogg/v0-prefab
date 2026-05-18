@@ -3,6 +3,7 @@ import Stripe from "stripe"
 import { z } from "zod"
 
 import { getEscapeModelBySlug, ESCAPE_CATALOG_PATH } from "@/lib/escape-tiny-homes-data"
+import { logApiError } from "@/lib/server/api-error-log"
 import { SITE_URL, absoluteSiteUrl } from "@/lib/seo"
 
 export const runtime = "nodejs"
@@ -85,7 +86,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: session.url })
   } catch (e) {
-    console.error("[checkout]", e)
+    logApiError("checkout", e)
     return NextResponse.json({ error: "Stripe could not create a checkout session." }, { status: 502 })
   }
 }

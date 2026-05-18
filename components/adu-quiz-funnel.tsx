@@ -65,7 +65,6 @@ export function ADUQuizFunnel() {
   }
 
   const handleWaitlistSubmit = () => {
-    console.log("Waitlist:", waitlistData)
     setShowWaitlist(false)
     setState({ step: 1 })
   }

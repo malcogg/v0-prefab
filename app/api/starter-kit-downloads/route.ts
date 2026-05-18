@@ -1,5 +1,6 @@
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import { getSql } from "@/lib/db"
+import { logApiError } from "@/lib/server/api-error-log"
 import { getTeamInbox } from "@/lib/email/config"
 import { notifyTeam, sendEmail } from "@/lib/email/send"
 import {
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
         )
       `
     } catch (err) {
-      console.error("[starter-kit] database insert failed:", err)
+      logApiError("starter-kit:db-insert", err)
     }
 
     void Promise.all([
@@ -42,7 +43,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] starter kit user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:starter-kit-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -51,14 +52,14 @@ export async function POST(req: Request) {
         replyTo: v.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] starter kit team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:starter-kit-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] starter kit pipeline:", err))
+    ]).catch((err) => logApiError("email:starter-kit-pipeline", err))
 
     return Response.json({ ok: true, url: "/free-adu-course/starter-kit" })
   } catch (err) {
-    console.error(err)
+    logApiError("starter-kit-downloads", err)
     return jsonError(500, "Server error")
   }
 }

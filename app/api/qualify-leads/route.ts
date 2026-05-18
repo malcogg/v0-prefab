@@ -1,6 +1,7 @@
 import { getSql } from "@/lib/db"
 import { buildQualifyReport } from "@/lib/qualify/recommendations"
 import { qualifyFullSubmissionSchema } from "@/lib/qualify/schema"
+import { logApiError } from "@/lib/server/api-error-log"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import { getTeamInbox } from "@/lib/email/config"
 import {
@@ -66,7 +67,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] qualify user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:qualify-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -75,14 +76,14 @@ export async function POST(req: Request) {
         replyTo: data.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] qualify team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:qualify-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] qualify pipeline:", err))
+    ]).catch((err) => logApiError("email:qualify-pipeline", err))
 
     return Response.json({ ok: true, report })
   } catch (err) {
-    console.error(err)
+    logApiError("qualify-leads", err)
     const msg = err instanceof Error ? err.message : String(err)
     if (/qualify_submissions|relation .* does not exist/i.test(msg)) {
       return jsonError(

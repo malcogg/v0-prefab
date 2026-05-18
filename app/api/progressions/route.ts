@@ -1,4 +1,5 @@
 import { getSql } from "@/lib/db"
+import { logApiError } from "@/lib/server/api-error-log"
 import { progressionSubmissionSchema } from "@/lib/submission-schemas"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import { getTeamInbox } from "@/lib/email/config"
@@ -60,7 +61,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] progression user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:progression-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -69,14 +70,14 @@ export async function POST(req: Request) {
         replyTo: v.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] progression team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:progression-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] progression pipeline:", err))
+    ]).catch((err) => logApiError("email:progression-pipeline", err))
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error(err)
+    logApiError("progressions", err)
     return jsonError(500, "Server error")
   }
 }

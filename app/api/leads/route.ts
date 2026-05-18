@@ -1,4 +1,5 @@
 import { getSql } from "@/lib/db"
+import { logApiError } from "@/lib/server/api-error-log"
 import { leadSubmissionSchema } from "@/lib/submission-schemas"
 import { getClientIp, jsonError, readRequestBody, zodErrorToJson } from "@/app/api/_utils"
 import { getTeamInbox } from "@/lib/email/config"
@@ -38,7 +39,7 @@ export async function POST(req: Request) {
         replyTo: getTeamInbox(),
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] lead user copy failed:", "error" in r ? r.error : r)
+          logApiError("email:lead-user", "error" in r ? r.error : r)
         }
       }),
       notifyTeam({
@@ -47,14 +48,14 @@ export async function POST(req: Request) {
         replyTo: v.email,
       }).then((r) => {
         if (!r.ok && !("skipped" in r && r.skipped)) {
-          console.error("[email] lead team copy failed:", "error" in r ? r.error : r)
+          logApiError("email:lead-team", "error" in r ? r.error : r)
         }
       }),
-    ]).catch((err) => console.error("[email] lead pipeline:", err))
+    ]).catch((err) => logApiError("email:lead-pipeline", err))
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error(err)
+    logApiError("leads", err)
     return jsonError(500, "Server error")
   }
 }

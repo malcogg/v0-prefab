@@ -45,6 +45,7 @@ export function Navigation() {
     { label: "Resources", href: "/resources" },
     { label: "Blog", href: "/blog" },
     { label: "Affiliate disclosure", href: "/affiliate-disclosure" },
+    { label: "Privacy policy", href: "/privacy" },
     { label: "FAQ", href: "/faq" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
