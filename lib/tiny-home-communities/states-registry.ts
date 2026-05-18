@@ -7,6 +7,14 @@ export const DIRECTORY_STATES = [
   { slug: "colorado", label: "Colorado", code: "CO" },
   { slug: "georgia", label: "Georgia", code: "GA" },
   { slug: "oregon", label: "Oregon", code: "OR" },
+  { slug: "arizona", label: "Arizona", code: "AZ" },
+  { slug: "south-carolina", label: "South Carolina", code: "SC" },
+  { slug: "tennessee", label: "Tennessee", code: "TN" },
+  { slug: "ohio", label: "Ohio", code: "OH" },
+  { slug: "virginia", label: "Virginia", code: "VA" },
+  { slug: "alabama", label: "Alabama", code: "AL" },
+  { slug: "kentucky", label: "Kentucky", code: "KY" },
+  { slug: "michigan", label: "Michigan", code: "MI" },
 ] as const
 
 export type DirectoryStateSlug = (typeof DIRECTORY_STATES)[number]["slug"]

@@ -1,0 +1,383 @@
+import { tinyHomeCommunitySchema } from "@/lib/tiny-home-communities/schema"
+import type { TinyHomeCommunity } from "@/lib/tiny-home-communities/schema"
+import { flags, ph } from "@/data/tiny-home-communities/_helpers"
+
+const TEXAS_RAW: unknown[] = [
+  {
+    slug: "village-farm-austin",
+    name: "Village Farm Austin",
+    macroRegion: "Austin Metro",
+    regionLabel: "Austin · Travis County",
+    city: "Austin",
+    county: "Travis County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.villagefarmaustin.com/" },
+    description:
+      "An agrihood-style campus built around a certified organic farm—community kitchen, pool, dog park, tiny-specific utility hookups, and farm-to-table programming with composting loops.",
+    status: "active",
+    lotDetailsSummary:
+      "Multiple paths including pad leases and turnkey purchases—confirm THOW vs park model allowances, utility ownership, and farm easements.",
+    tenancyModes: ["purchase_or_rent_mix", "lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      petFriendly: true,
+      pool: true,
+      communityGarden: true,
+      clubhouse: true,
+      rvHookups: true,
+    }),
+    tags: ["agrihood", "organic farm", "Austin", "utilities"],
+    sources: [{ label: "Village Farm Austin", url: "https://www.villagefarmaustin.com/" }],
+    image: ph("photo-1464226184884-fa280b87c399", "Farm rows and cultivated fields near a residential cluster."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Agricultural covenants and HOA farm operations can affect setbacks and outbuildings—verify floodplain, utility capacity, and lease restrictions for your unit class.",
+  },
+  {
+    slug: "spur-tiny-community",
+    name: "Spur Tiny House Community",
+    macroRegion: "West Texas Rural",
+    regionLabel: "Spur · Dickens County",
+    city: "Spur",
+    county: "Dickens County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.spurtx.com/" },
+    description:
+      "A rural town nationally cited for tiny-friendly zoning—deed-backed municipal lots, municipal utilities, fiber, and a revitalization story oriented toward small-footprint infill.",
+    status: "active",
+    lotDetailsSummary:
+      "Land ownership (deed-purchased lots) for foundation or compatible mini-homes—confirm current ordinance text, inspections, and wind/seismic engineering with the city.",
+    tenancyModes: ["purchase_home_on_site"],
+    amenityFlags: flags({
+      ownershipPossible: true,
+      rvHookups: true,
+    }),
+    tags: ["tiny-friendly city", "deed lots", "fiber", "rural"],
+    sources: [{ label: "City of Spur", url: "https://www.spurtx.com/" }],
+    image: ph("photo-1500382017468-9049bed7ef34", "Open rural Texas prairie and horizon."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Municipal welcome policies can still impose build codes and inspections—validate foundation rules, utility taps, and lender requirements for tiny builds.",
+  },
+  {
+    slug: "watersedge-tiny-home-austin",
+    name: "Watersedge Tiny Home Community",
+    macroRegion: "Austin Metro",
+    regionLabel: "Austin · Travis County · Lake Walter E. Long",
+    city: "Austin",
+    county: "Travis County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.tinyhousecommunity.com/" },
+    description:
+      "Lake-oriented long-term pad community with kayak launches, gated perimeter, dog run, and shared fire ring infrastructure—marketed with shoreline buffer and stormwater-minded landscaping.",
+    status: "active",
+    lotDetailsSummary:
+      "Long-term pad lease for compliant THOWs—confirm marina/water access rules, skirting, and insurance requirements for lakeside exposure.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      lakefront: true,
+      waterfront: true,
+      petFriendly: true,
+      gated: true,
+      dockOrMarina: true,
+      rvHookups: true,
+    }),
+    tags: ["lake", "gated", "kayak", "Austin"],
+    sources: [{ label: "Directory / listing context", url: "https://www.tinyhousecommunity.com/" }],
+    image: ph("photo-1439066615861-d1af74d74000", "Calm lake shoreline with trees."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Waterfront communities face additional erosion and buffer rules—verify AHJ updates, flood zones, and dock permits independently.",
+  },
+  {
+    slug: "majestic-hills-willis",
+    name: "Majestic Hills Tiny Home Community",
+    macroRegion: "North Houston",
+    regionLabel: "Willis · Montgomery County",
+    city: "Willis",
+    county: "Montgomery County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://majestichillstinyhomes.com/" },
+    description:
+      "A gated luxury-oriented pad community for park models and THOWs—dog park, workout barn, private ponds, and underground utilities with drought-tolerant groundcover strategies.",
+    status: "expanding",
+    lotDetailsSummary:
+      "Luxury lot lease model—confirm deposit structures, pad size envelopes, and storage/outbuilding rules.",
+    tenancyModes: ["lease_land_own_home"],
+    amenityFlags: flags({
+      gated: true,
+      petFriendly: true,
+      fitnessCenter: true,
+      rvHookups: true,
+    }),
+    tags: ["gated", "ponds", "Houston exurbs", "park model"],
+    sources: [{ label: "Majestic Hills Tiny Homes", url: "https://majestichillstinyhomes.com/" }],
+    image: ph("photo-1600585154340-be6161a56a0c", "Upscale neighborhood entry and landscaped drives."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Marketing mentions centralized water strategies—validate metered billing, drought stages, and HOA architectural guidelines for your unit.",
+  },
+  {
+    slug: "lake-dallas-tiny-home-village",
+    name: "Lake Dallas Tiny Home Village",
+    macroRegion: "North Texas / DFW",
+    regionLabel: "Lake Dallas · Denton County",
+    city: "Lake Dallas",
+    county: "Denton County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://lakedallastinyhomevillage.com/" },
+    description:
+      "City-zoned tiny-home park with long-term pads, community gathering spaces, and edible landscaping—the municipal project helped normalize IRC Appendix Q–style tiny zoning in a Dallas–Fort Worth lake town context.",
+    status: "active",
+    lotDetailsSummary:
+      "Pad lease or home-and-lot combinations as published by the operator—confirm city inspection paths, utility tap schedules, and fire separation rules for your unit class.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      communityGarden: true,
+      petFriendly: true,
+      rvHookups: true,
+    }),
+    tags: ["municipal pilot", "DFW", "lake town", "long-term pads"],
+    sources: [{ label: "Lake Dallas Tiny Home Village", url: "https://lakedallastinyhomevillage.com/" }],
+    image: ph("photo-1501594907352-04cda38ebc29", "Sunrise over a calm Texas lake."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "City ordinances can still cap occupancy or unit dimensions—read the published zoning packet and recorded easements before relocating a THOW.",
+  },
+  {
+    slug: "elken-village-canton",
+    name: "Elken Village",
+    macroRegion: "East Texas / DFW exurbs",
+    regionLabel: "Canton · Van Zandt County",
+    city: "Canton",
+    county: "Van Zandt County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://elkenvillage.com/" },
+    description:
+      "Gated 55+ oriented tiny community off I-20 with roughly 21 long-term pads, fishing pond, pavilion, dog amenities, and turnkey cottage options marketed for low-maintenance retiree living.",
+    status: "active",
+    lotDetailsSummary:
+      "Lot leases with published deposit and rent bands—confirm age rules, pet limits, and whether your build is accepted as THOW vs park model with the management team.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      gated: true,
+      petFriendly: true,
+      rvHookups: true,
+      dockOrMarina: true,
+    }),
+    tags: ["55+", "East Texas", "pond", "THOW-friendly"],
+    sources: [{ label: "Elken Village", url: "https://elkenvillage.com/" }],
+    image: ph("photo-1570129477492-45c003edd2be", "Wooded East Texas lane with cottages."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Marketed as RV-park zoning in press coverage—verify recorded site plan, storm shelter access, and year-to-year lease escalators independently.",
+  },
+  {
+    slug: "nama-stay-hideaway-van-alstyne",
+    name: "NamaStay Hideaway",
+    macroRegion: "North Texas",
+    regionLabel: "Van Alstyne · Grayson County",
+    city: "Van Alstyne",
+    county: "Grayson County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.namastayhideaway.com/" },
+    description:
+      "Inclusive tiny / THOW / small-RV enclave with full hookups, storm shelters, composting and garden space, and intentional-community norms framed for longer stays.",
+    status: "active",
+    lotDetailsSummary:
+      "Minimum-term pad leases with credit/background checks—confirm unit width/length ceilings, pet caps, and subleasing prohibitions before move-in.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      petFriendly: true,
+      communityGarden: true,
+      rvHookups: true,
+    }),
+    tags: ["THOW", "Grayson County", "inclusive", "full hookups"],
+    sources: [
+      { label: "NamaStay Hideaway", url: "https://www.namastayhideaway.com/" },
+      { label: "THIA profile", url: "https://tinyhomeindustryassociation.org/" },
+    ],
+    image: ph("photo-1441974231531-c6227db76b6e", "Trees and open sky over a small community commons."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Blend of movable dwellings can affect insurance class—verify whether your lender treats the placement as personal property vs real estate.",
+  },
+  {
+    slug: "the-pines-azle",
+    name: "The Pines RV & Tiny Community",
+    macroRegion: "North Texas / DFW",
+    regionLabel: "Azle · Tarrant County",
+    city: "Azle",
+    county: "Tarrant County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.thepinesrvcommunity.com/" },
+    description:
+      "Large gated long-stay campus west of Fort Worth pairing RV infrastructure with a dedicated tiny-home phase—clubhouse, laundry, trails, and cowork-style amenity bundles.",
+    status: "active",
+    lotDetailsSummary:
+      "Tiered RV and tiny pad pricing with utilities bundles—confirm which phase accepts THOWs, skirting rules, and whether lots are tax-simplified land leases.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      gated: true,
+      petFriendly: true,
+      clubhouse: true,
+      laundry: true,
+      rvHookups: true,
+      coworkSpace: true,
+    }),
+    tags: ["DFW", "tiny phase", "gated", "long-term"],
+    sources: [
+      { label: "The Pines RV Community", url: "https://www.thepinesrvcommunity.com/" },
+      { label: "THIA — The Pines", url: "https://tinyhomeindustryassociation.org/" },
+    ],
+    image: ph("photo-1600585154340-be6161a56a0c", "Gated community entry with landscaping."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Resort-scale campuses layer storage, gate, and utility surcharges—request the current fee sheet in writing before counting monthly housing cost.",
+  },
+  {
+    slug: "bluebonnet-tiny-home-village-cedar-creek",
+    name: "Bluebonnet Tiny Home Village",
+    macroRegion: "Austin Metro exurbs",
+    regionLabel: "Cedar Creek · Bastrop County",
+    city: "Cedar Creek",
+    county: "Bastrop County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.bluebonnetcommunities.com/" },
+    description:
+      "Emerging East Austin–ward tiny village marketing turnkey and bring-your-own options near the Colorado River corridor with a newer build-out story.",
+    status: "expanding",
+    lotDetailsSummary:
+      "Phased availability—confirm current phase map, HOA or POA formation, wildfire evacuation routes, and utility capacity during drought peaks.",
+    tenancyModes: ["purchase_or_rent_mix", "lease_land_own_home"],
+    amenityFlags: flags({
+      petFriendly: true,
+      rvHookups: true,
+      communityGarden: true,
+    }),
+    tags: ["Bastrop", "Austin exurbs", "new build-out"],
+    sources: [{ label: "Bluebonnet Communities", url: "https://www.bluebonnetcommunities.com/" }],
+    image: ph("photo-1500382017468-9049bed7ef34", "Open rolling Texas countryside."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Wildland–urban interface exposures near Austin are real—check defensible space guidance, insurance wildfire endorsements, and staged construction noise covenants.",
+  },
+  {
+    slug: "the-grove-mineral-wells",
+    name: "The Grove Tiny Home Community",
+    macroRegion: "North Texas / Hill Country fringe",
+    regionLabel: "Mineral Wells · Palo Pinto County",
+    city: "Mineral Wells",
+    county: "Palo Pinto County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://www.incredibletinyhomes.com/" },
+    description:
+      "West-of-Fort Worth tiny neighborhood marketed alongside the Incredible Tiny Homes build ecosystem—emphasizes community lots, regional builder ties, and small-footprint living.",
+    status: "active",
+    lotDetailsSummary:
+      "Pad lease or package deals may bundle homes and sites—parse what is titled personal property vs real estate before financing.",
+    tenancyModes: ["lease_land_own_home", "purchase_or_rent_mix"],
+    amenityFlags: flags({
+      petFriendly: true,
+      rvHookups: true,
+    }),
+    tags: ["Mineral Wells", "builder network", "North Texas"],
+    sources: [
+      { label: "Incredible Tiny Homes", url: "https://www.incredibletinyhomes.com/" },
+      { label: "THIA / regional press (verify)", url: "https://tinyhomeindustryassociation.org/" },
+    ],
+    image: ph("photo-1600585154526-990dced4db0d", "New cottage-style homes on a community street."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Operator + builder pairings can complicate warranty chains—document pad lease, build contract, and utility account ownership separately.",
+  },
+  {
+    slug: "birds-nest-cumby",
+    name: "The Bird's Nest",
+    macroRegion: "East Texas",
+    regionLabel: "Cumby · Hopkins County",
+    city: "Cumby",
+    county: "Hopkins County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://thebirdsnesttx.wixsite.com/home" },
+    description:
+      "Women-focused tiny-home enclave on a compact campus emphasizing affordable pads, shared pavilion life, and peer support—national media has covered its resident-led culture and waitlist demand.",
+    status: "active",
+    lotDetailsSummary:
+      "Pad leases with community participation expectations—confirm eligibility, guest policies, and whether occupancy is limited to the operator’s published resident profile.",
+    tenancyModes: ["lease_land_own_home", "rent_home_or_lot"],
+    amenityFlags: flags({
+      petFriendly: true,
+      communityGarden: true,
+      rvHookups: true,
+    }),
+    tags: ["supportive culture", "women-focused", "East Texas", "affordable pads"],
+    sources: [
+      { label: "The Bird's Nest (operator)", url: "https://thebirdsnesttx.wixsite.com/home" },
+      { label: "Press coverage", url: "https://www.cbsnews.com/texas/news/east-texas-tiny-home-community-offers-female-retirees-sisterhood-sense-of-community/" },
+    ],
+    image: ph("photo-1519710164239-da123dc03ef4", "Cozy tiny home porch with plants."),
+    schemaKind: "RVPark",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Operator-driven communities are not generic RV parks—review house rules, mediation processes, and any shared-services fees like a cooperative.",
+  },
+  {
+    slug: "constellation-atx",
+    name: "Constellation ATX",
+    macroRegion: "Austin Metro",
+    regionLabel: "South Austin · Travis County",
+    city: "Austin",
+    county: "Travis County",
+    stateCode: "TX",
+    stateSlug: "texas",
+    contact: { website: "https://constellationatx.com/" },
+    description:
+      "Micro-estate neighborhood concept south of central Austin—gated small-footprint homes, pooled amenities, and design-forward units that attracted regional development press.",
+    status: "active",
+    lotDetailsSummary:
+      "Verify current sell-out status, HOA budgets, STR prohibitions, and whether lots remain fee-simple vs land-lease as marketing evolved post-launch.",
+    tenancyModes: ["purchase_home_on_site", "purchase_or_rent_mix"],
+    amenityFlags: flags({
+      gated: true,
+      petFriendly: true,
+      pool: true,
+      fitnessCenter: true,
+      laundry: true,
+    }),
+    tags: ["Austin", "micro-estate", "gated", "design-forward"],
+    sources: [
+      { label: "Constellation ATX", url: "https://constellationatx.com/" },
+      { label: "Regional coverage", url: "https://communityimpact.com/" },
+    ],
+    image: ph("photo-1512917774080-9991f1c4c750", "Modern small home with intentional landscaping."),
+    schemaKind: "LodgingBusiness",
+    lastResearched: "2026-05-13",
+    legalNotes:
+      "Infill micropockets can sit near floodplains and highland water features—inspect surveys, impervious cover limits, and HOA design guidelines.",
+  },
+]
+
+export function texasCommunities(): TinyHomeCommunity[] {
+  return TEXAS_RAW.map((row) => tinyHomeCommunitySchema.parse(row))
+}

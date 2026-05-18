@@ -1,5 +1,7 @@
 import { floridaRawCommunities } from "@/data/tiny-home-communities/florida"
 import { nationalCommunities } from "@/data/tiny-home-communities/national"
+import { texasCommunities } from "@/data/tiny-home-communities/texas"
+import { expansionCommunities } from "@/data/tiny-home-communities/expansion-communities"
 import { DIRECTORY_STATES } from "@/lib/tiny-home-communities/states-registry"
 import type { TinyHomeCommunity } from "./schema"
 
@@ -18,7 +20,8 @@ function nationalParsed(): TinyHomeCommunity[] {
 }
 
 function allCommunities(): TinyHomeCommunity[] {
-  if (!_all) _all = [...floridaParsed(), ...nationalParsed()]
+  if (!_all)
+    _all = [...floridaParsed(), ...nationalParsed(), ...texasCommunities(), ...expansionCommunities()]
   return _all
 }
 
