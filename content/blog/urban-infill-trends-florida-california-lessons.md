@@ -58,4 +58,4 @@ Surround dense clusters with native canopy and perennial food forests to drop am
 
 Urban infill is not a passing trend—it is the future of Florida real estate. By adapting California's proven frameworks—by-right permitting, centralized infrastructure, native eco-landscaping—to Florida Building Code compliance, we can build vibrant, accessible neighborhoods inside existing city boundaries.
 
-*That wraps Pillar 4 (Tiny Home Community Directories). Explore live listings in our [Florida communities directory](/tiny-home-communities/florida)—or [request a free property evaluation](/qualify) to compare village living vs. a permitted backyard ADU on your lot.*
+*That wraps Pillar 4 (Tiny Home Community Directories). Next in Pillar 5: [The moon as an almanac—lunar rhythms for backyard pacing](/blog/lunar-rhythms-backyard-pacing)—or explore live listings in our [Florida communities directory](/tiny-home-communities/florida).*

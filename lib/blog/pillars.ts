@@ -32,6 +32,12 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     shortLabel: "Communities",
     description: "Community-focused tiny living, directory spotlights, and long-term-lease villages across Florida.",
   },
+  {
+    id: "lifestyle",
+    label: "Educational & Lifestyle",
+    shortLabel: "Lifestyle",
+    description: "Lunar pacing, starter-kit checklists, showcase crops, and day-to-day tools for backyard homestead life.",
+  },
 ]
 
 export function getPillarMeta(pillar: BlogPillar): BlogPillarMeta {

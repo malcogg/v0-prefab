@@ -2,19 +2,20 @@
 
 Living inventory of published and planned blog posts across Prefabricated.co pillars. Update this file whenever a post ships or a draft is queued.
 
-**Last updated:** 2026-06-01  
-**Published total:** **15** posts (14 markdown + 1 legacy TSX page)
+**Last updated:** 2026-06-04  
+**Published total:** **18** posts (17 markdown + 1 legacy TSX page)
 
 ---
 
 ## Summary by pillar
 
-| Pillar | Published | Planned (queued) | Primary CTA |
-|--------|-----------|------------------|-------------|
-| **1 · Legal & Permitting** | 4 | — | Starter Kit / Qualify |
-| **2 · Investment & ROI** | 3 | — | Starter Kit / Calculator |
-| **3 · Regenerative Living (EarthNest)** | 5 | — | Starter Kit / Rainwater Guide / Zones Tool |
-| **4 · Communities** | 3 | TBD | Communities / Qualify |
+| Pillar | Published | Primary CTA |
+|--------|-----------|-------------|
+| **1 · Legal & Permitting** | 4 | Starter Kit / Qualify |
+| **2 · Investment & ROI** | 3 | Starter Kit / Calculator |
+| **3 · Regenerative Living (EarthNest)** | 5 | Starter Kit / Rainwater Guide / Zones Tool |
+| **4 · Communities** | 3 | Communities / Qualify |
+| **5 · Educational & Lifestyle** | 3 | Starter Kit / Zones Tool |
 
 **Blog UX:** `/blog` search bar → `/blog/search?q=…` · category pills → `/blog/category/{pillar}`
 
@@ -22,80 +23,69 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 
 ## Pillar 1 — Legal & Permitting
 
-| # | Status | Slug | Title | Date | Format |
-|---|--------|------|-------|------|--------|
-| 1 | ✅ Published | `what-is-an-adu-florida` | What is an ADU? Understanding Your Florida Backyard Housing Options | 2026-05-19 | markdown |
-| 2 | ✅ Published | `special-exception-orange-county-zoning` | Special Exception & Orange County Zoning | 2026-05-20 | markdown |
-| 3 | ✅ Published | `seven-steps-legal-backyard-home` | 7 Steps to a Legal Backyard Home | 2026-05-21 | markdown |
-| 4 | ✅ Published | `city-orlando-vs-unincorporated-orange-county` | City of Orlando vs. Unincorporated Orange County | 2026-05-22 | markdown |
-
-**Series arc:** Foundations → zoning exceptions → step-by-step path → jurisdiction split.  
-**Forward link:** Pillar 1 closing post links to Pillar 2 #1 (`florida-adu-rental-income-opportunity`).
+| # | Slug | Title | Date |
+|---|------|-------|------|
+| 1 | `what-is-an-adu-florida` | What is an ADU? | 2026-05-19 |
+| 2 | `special-exception-orange-county-zoning` | Special Exception & Orange County Zoning | 2026-05-20 |
+| 3 | `seven-steps-legal-backyard-home` | 7 Steps to a Legal Backyard Home | 2026-05-21 |
+| 4 | `city-orlando-vs-unincorporated-orange-county` | City of Orlando vs. Unincorporated Orange County | 2026-05-22 |
 
 ---
 
 ## Pillar 2 — Investment & ROI
 
-| # | Status | Slug | Title | Date | Format |
-|---|--------|------|-------|------|--------|
-| 1 | ✅ Published | `florida-adu-rental-income-opportunity` | The $2,500 Monthly ADU Rental Income Opportunity | 2026-05-23 | markdown |
-| 2 | ✅ Published | `florida-adu-budget-worksheet` | Running the Numbers: Florida ADU Budget Worksheet | 2026-05-24 | markdown |
-| 3 | ✅ Published | `forced-appreciation-permitted-adu-appraisals` | Forced Appreciation: Why Permitted ADUs Outperform Temporary Units in Appraisals | 2026-05-25 | markdown |
-
-**Series arc:** Cash flow → budget modeling → equity / appraisal mechanics.
+| # | Slug | Title | Date |
+|---|------|-------|------|
+| 1 | `florida-adu-rental-income-opportunity` | The $2,500 Monthly ADU Rental Income Opportunity | 2026-05-23 |
+| 2 | `florida-adu-budget-worksheet` | Running the Numbers: Florida ADU Budget Worksheet | 2026-05-24 |
+| 3 | `forced-appreciation-permitted-adu-appraisals` | Forced Appreciation: Permitted ADUs vs Temporary Units | 2026-05-25 |
 
 ---
 
 ## Pillar 3 — Regenerative Living (EarthNest)
 
-| # | Status | Slug | Title | Date | Format |
-|---|--------|------|-------|------|--------|
-| 1 | ✅ Published | `closed-loop-kitchen-scraps-food-forest` | Closed-Loop Living: How to Turn Kitchen Scraps into a Backyard Food Forest | 2026-05-26 | markdown |
-| 2 | ✅ Published | `rainwater-harvesting-low-footprint-resilience` | Designing for the Deluge: Rainwater Harvesting in the Florida Wet Season | 2026-05-27 | markdown |
-| 3 | ✅ Published | `staged-resilience-efficiency-before-solar-panels` | Staged Resilience: Why Efficiency and Insulation Come Before Solar Panels | 2026-05-28 | markdown |
-| 4 | ✅ Published | `florida-growing-zones-101-what-to-plant` | Florida Growing Zones 101: What to Plant from the Panhandle to the Keys | 2026-05-29 | markdown |
-| 5 | ✅ Published | `small-space-food-florida-backyard` | Small-Space Food in a Florida Backyard (or ADU Pad) | 2026-05-17 | **legacy TSX** |
-
-**Series arc:** Closed-loop → rainwater → efficiency → growing zones → small-space food.
+| # | Slug | Title | Date |
+|---|------|-------|------|
+| 1 | `closed-loop-kitchen-scraps-food-forest` | Closed-Loop Living: Kitchen Scraps → Food Forest | 2026-05-26 |
+| 2 | `rainwater-harvesting-low-footprint-resilience` | Designing for the Deluge (Rainwater) | 2026-05-27 |
+| 3 | `staged-resilience-efficiency-before-solar-panels` | Staged Resilience: Efficiency Before Solar | 2026-05-28 |
+| 4 | `florida-growing-zones-101-what-to-plant` | Florida Growing Zones 101 | 2026-05-29 |
+| 5 | `small-space-food-florida-backyard` | Small-Space Food *(legacy TSX)* | 2026-05-17 |
 
 ---
 
 ## Pillar 4 — Tiny Home Community Directories
 
-| # | Status | Slug | Title | Date | Format |
-|---|--------|------|-------|------|--------|
-| 1 | ✅ Published | `florida-stewardship-led-tiny-villages` | Beyond "RV Spam": A Guide to Florida's Stewardship-Led Tiny Villages | 2026-05-30 | markdown |
-| 2 | ✅ Published | `escape-tampa-bay-village-high-performance` | Escape to Tampa Bay: High-Performance Living in the Escape Tampa Bay Village | 2026-05-31 | markdown |
-| 3 | ✅ Published | `urban-infill-trends-florida-california-lessons` | Urban Infill Trends: What Florida Can Learn from California's Tiny Home Clusters | 2026-06-01 | markdown |
-
-**Series arc:** Stewardship villages → Escape Tampa Bay spotlight → California infill lessons.  
-**Catalog:** `/tiny-home-communities/florida` · listings: Tiny Town Orlando, Peacewind, Escape Tampa Bay Village.
+| # | Slug | Title | Date |
+|---|------|-------|------|
+| 1 | `florida-stewardship-led-tiny-villages` | Beyond "RV Spam": Stewardship-Led Tiny Villages | 2026-05-30 |
+| 2 | `escape-tampa-bay-village-high-performance` | Escape Tampa Bay Village Spotlight | 2026-05-31 |
+| 3 | `urban-infill-trends-florida-california-lessons` | Urban Infill: Florida ← California Lessons | 2026-06-01 |
 
 ---
 
-## Draft queue (not yet in repo)
+## Pillar 5 — Educational & Lifestyle
 
-| Pillar | Working title | Notes |
-|--------|---------------|-------|
-| 3 | Migrate `small-space-food-florida-backyard` to markdown | Last legacy TSX post |
-| 5 | Lunar rhythms / lifestyle tools | Teased at end of Pillar 4 #3 |
+| # | Slug | Title | Date |
+|---|------|-------|------|
+| 1 | `lunar-rhythms-backyard-pacing` | The Moon as an Almanac: Lunar Rhythms for Backyard Pacing | 2026-06-02 |
+| 2 | `florida-adu-starter-kit-essential-checklists` | Florida ADU Starter Kit: Essential Checklists | 2026-06-03 |
+| 3 | `resilient-roots-showcase-crops-florida` | Resilient Roots: 10 Showcase Crops | 2026-06-04 |
+
+**Series arc:** Lunar pacing → pre-build checklists → showcase crops (series finale).  
+**Note:** User batch listed 4 posts; only 3 drafts were provided—add a 4th Pillar 5 post here if one exists.
 
 ---
 
-## Full slug index (alphabetical)
+## Draft queue
 
-1. `city-orlando-vs-unincorporated-orange-county`
-2. `closed-loop-kitchen-scraps-food-forest`
-3. `escape-tampa-bay-village-high-performance`
-4. `florida-adu-budget-worksheet`
-5. `florida-adu-rental-income-opportunity`
-6. `florida-growing-zones-101-what-to-plant`
-7. `florida-stewardship-led-tiny-villages`
-8. `forced-appreciation-permitted-adu-appraisals`
-9. `rainwater-harvesting-low-footprint-resilience`
-10. `seven-steps-legal-backyard-home`
-11. `small-space-food-florida-backyard` *(TSX)*
-12. `special-exception-orange-county-zoning`
-13. `staged-resilience-efficiency-before-solar-panels`
-14. `urban-infill-trends-florida-california-lessons`
-15. `what-is-an-adu-florida`
+| Pillar | Task |
+|--------|------|
+| 3 | Migrate `small-space-food-florida-backyard` TSX → markdown |
+| 5 | 4th lifestyle post (if drafted separately) |
+
+---
+
+## Full slug index (18)
+
+`city-orlando-vs-unincorporated-orange-county` · `closed-loop-kitchen-scraps-food-forest` · `escape-tampa-bay-village-high-performance` · `florida-adu-budget-worksheet` · `florida-adu-rental-income-opportunity` · `florida-adu-starter-kit-essential-checklists` · `florida-growing-zones-101-what-to-plant` · `florida-stewardship-led-tiny-villages` · `forced-appreciation-permitted-adu-appraisals` · `lunar-rhythms-backyard-pacing` · `rainwater-harvesting-low-footprint-resilience` · `resilient-roots-showcase-crops-florida` · `seven-steps-legal-backyard-home` · `small-space-food-florida-backyard` *(TSX)* · `special-exception-orange-county-zoning` · `staged-resilience-efficiency-before-solar-panels` · `urban-infill-trends-florida-california-lessons` · `what-is-an-adu-florida`

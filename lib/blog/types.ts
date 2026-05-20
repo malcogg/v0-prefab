@@ -13,7 +13,7 @@ export type BlogFrontmatter = {
   endCta?: string
   /** Optional bottom lead magnet embed */
   leadMagnet?: string
-  /** legal | regenerative | investment | communities */
+  /** legal | regenerative | investment | communities | lifestyle */
   pillar?: string
   /** Slugs for related reads footer (max 3 shown) */
   related?: string[]

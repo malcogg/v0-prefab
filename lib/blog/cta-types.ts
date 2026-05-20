@@ -8,7 +8,7 @@ export type BlogCtaVariant =
 
 export type BlogLeadMagnet = "starter-kit" | "rainwater-guide"
 
-export type BlogPillar = "legal" | "regenerative" | "investment" | "communities"
+export type BlogPillar = "legal" | "regenerative" | "investment" | "communities" | "lifestyle"
 
 export const BLOG_CTA_MARKER = "<!-- blog-cta -->"
 
@@ -29,6 +29,6 @@ export function parseLeadMagnet(value: string | undefined): BlogLeadMagnet | und
 }
 
 export function parsePillar(value: string | undefined): BlogPillar | undefined {
-  const allowed: BlogPillar[] = ["legal", "regenerative", "investment", "communities"]
+  const allowed: BlogPillar[] = ["legal", "regenerative", "investment", "communities", "lifestyle"]
   return allowed.includes(value as BlogPillar) ? (value as BlogPillar) : undefined
 }
