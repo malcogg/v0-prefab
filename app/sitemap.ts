@@ -27,6 +27,7 @@ function priorityForPath(path: string, tier?: number, isHub?: boolean) {
     path === "/tiny-home-communities" ||
     path === "/resources" ||
     path === "/blog" ||
+    path === "/search" ||
     path === "/affiliate-disclosure" ||
     path === "/privacy" ||
     path === "/faq"
@@ -53,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tiny-home-communities",
     "/resources",
     "/blog",
+    "/search",
     "/affiliate-disclosure",
     "/privacy",
     ESCAPE_CATALOG_PATH,

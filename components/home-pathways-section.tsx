@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ArrowRight, Home, Leaf, MapPin } from "lucide-react"
 
+import { SiteSearchForm } from "@/components/site-search-form"
+
 const pathways = [
   {
     icon: Home,
@@ -90,6 +92,16 @@ export function HomePathwaysSection() {
             Contact
           </Link>
         </p>
+
+        <div className="mt-10 pt-10 border-t border-border/80">
+          <p className="text-center text-sm font-medium text-foreground mb-4">
+            Or search the whole site
+          </p>
+          <SiteSearchForm idPrefix="home-pathways" centered />
+          <p className="mt-3 text-center text-xs text-muted-foreground">
+            ADUs, communities, Escape models, guides, and blog articles
+          </p>
+        </div>
       </div>
     </section>
   )
