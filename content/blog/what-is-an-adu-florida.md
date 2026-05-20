@@ -2,8 +2,16 @@
 title: "What is an ADU? Understanding Your Florida Backyard Housing Options"
 description: "ADUs vs modular vs tiny homes on wheels in Florida—permanent foundations, FBC compliance, zoning reality, and why Prefabricated.co focuses on legal backyard housing."
 date: "2026-05-19"
-category: "ADU basics · Florida housing"
+category: "Legal & Permitting · Florida housing"
 readTime: "12 min read"
+pillar: legal
+cta: starter-kit
+endCta: qualify
+leadMagnet: starter-kit
+related:
+  - special-exception-orange-county-zoning
+  - seven-steps-legal-backyard-home
+  - city-orlando-vs-unincorporated-orange-county
 ---
 
 The housing landscape in Florida is undergoing a massive transformation. Between surging population growth, rising real estate costs, and an increasing desire for multi-generational living arrangements, homeowners across the Sunshine State are looking out their back windows and seeing untapped potential. The backyard is no longer just a place for a lawnmower and a patio set; it is the frontier of modern housing.
@@ -26,7 +34,9 @@ Legally speaking, an ADU is a secondary residential unit that shares the same bu
 
 ADUs can be attached to the primary home (like a converted garage or an addition) or detached (a standalone structure in the backyard). For the purposes of regenerative design and maximizing backyard utility, we usually focus on Detached ADUs (DADUs).
 
-Crucially, an ADU is built on a **permanent foundation**. It is tied into the local utility grid (water, sewer/septic, electricity) and is built to comply with the strict Florida Building Code (FBC). Because it is permanently affixed to the land, an ADU is considered real property. This is a vital distinction when we look at alternative housing options.
+Crucially, an ADU is built on a **permanent foundation**. It is tied into the local utility grid (water, sewer/septic, electricity) and is built to comply with the strict [Florida Building Code (FBC)](https://www.floridabuilding.org/). Because it is permanently affixed to the land, an ADU is considered real property. This is a vital distinction when we look at alternative housing options.
+
+<!-- blog-cta -->
 
 ## The Great Divide: ADUs vs. Modular Units vs. Tiny Homes on Wheels
 
@@ -74,6 +84,6 @@ Understanding your options is step one. Knowing that you want a legally permitte
 
 The next hurdle is figuring out *if* you can build it. Zoning laws, setbacks, utility easements, and local jurisdictional quirks—like the difference between the City of Orlando and Unincorporated Orange County—can make or break a project.
 
-In our next guide, we will dive deep into the legal and permitting path, specifically exploring the reality of [special exceptions in Orange County](/blog/special-exception-orange-county-zoning) and navigating [local ADU rules](/adu-rules) so you can move from inspiration to action with confidence.
+In our next guide, we will dive deep into the legal and permitting path, specifically exploring the reality of [special exceptions in Orange County](/blog/special-exception-orange-county-zoning), [City of Orlando vs. unincorporated county rules](/blog/city-orlando-vs-unincorporated-orange-county), and navigating [local ADU rules](/adu-rules) so you can move from inspiration to action with confidence.
 
 *Ready to start planning your legally compliant, regenerative backyard home? [Download the Florida ADU Starter Kit](/free-adu-course#starter-kit) today and take the first step toward your Prefabricated future—or [request a free property evaluation](/qualify) when you want site-specific guidance.*

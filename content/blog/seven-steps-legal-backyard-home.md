@@ -2,13 +2,20 @@
 title: "7 Steps to a Legal Backyard Home: From Site Evaluation to Final Inspection"
 description: "The 2026 Florida ADU roadmap—feasibility, design, permitting, foundation, delivery or site build, utilities, and Certificate of Occupancy—without skipping legal steps."
 date: "2026-05-21"
-category: "ADU process · Florida builds"
+category: "Legal & Permitting · Florida builds"
 readTime: "13 min read"
+pillar: legal
+cta: qualify
+endCta: starter-kit
+related:
+  - what-is-an-adu-florida
+  - special-exception-orange-county-zoning
+  - city-orlando-vs-unincorporated-orange-county
 ---
 
 Building an Accessory Dwelling Unit (ADU) in Florida is one of the most rewarding investments you can make in your property. Whether you are creating a multi-generational living space, generating a new stream of rental income, or taking a step toward a regenerative, [closed-loop lifestyle](/closed-loop-homestead), a backyard home opens up a world of possibilities.
 
-However, the leap from a Pinterest board of tiny homes to a fully legal, permanent structure requires navigating a strict development process. At [Prefabricated.co](/), we emphasize that skipping steps in the permitting process is the fastest way to turn a dream project into a legal nightmare. The 2026 Florida Building Code (FBC) and local zoning ordinances are stringent for a reason: they ensure safety, resilience against extreme weather, and neighborhood harmony.
+However, the leap from a Pinterest board of tiny homes to a fully legal, permanent structure requires navigating a strict development process. At [Prefabricated.co](/), we emphasize that skipping steps in the permitting process is the fastest way to turn a dream project into a legal nightmare. The [2026 Florida Building Code (FBC)](https://www.floridabuilding.org/) and local zoning ordinances are stringent for a reason: they ensure safety, resilience against extreme weather, and neighborhood harmony.
 
 To help you move from inspiration to execution, we have broken down the 2026 development process into seven clear, actionable steps. Here is your roadmap to a legal backyard home.
 
@@ -43,6 +50,8 @@ A standard permit package for a detached ADU includes:
 * **Energy Calculations:** Proof that the home meets Florida's strict energy conservation codes.
 
 If you are utilizing a state-approved modular home, the building itself is already engineered and approved by the state of Florida. Your local municipality will only need to review and approve the *site plan and foundation*, drastically reducing the time spent in the permitting queue.
+
+<!-- blog-cta -->
 
 ## Step 4: Site Preparation and Foundation Work
 
@@ -79,4 +88,4 @@ The CO is the golden ticket. It is the legal document proving your structure is 
 
 Building an ADU is a marathon, not a sprint. By understanding these seven steps, you can avoid the common pitfalls that delay projects and inflate budgets. A legal backyard home is an asset that provides generational wealth, flexible living, and the perfect canvas for a regenerative lifestyle.
 
-*Now that you understand the process, we need to look closer at the specific rules governing your land. Review [ADU rules by county](/adu-rules), compare [City of Orlando vs. unincorporated Orange County context](/blog/special-exception-orange-county-zoning), and start with [What is an ADU?](/blog/what-is-an-adu-florida) if you are still choosing your housing lane. [Get a free property evaluation](/qualify) when you are ready for site-specific next steps.*
+*Now that you understand the process, we need to look closer at the specific rules governing your land. Compare [City of Orlando vs. unincorporated Orange County](/blog/city-orlando-vs-unincorporated-orange-county), review [ADU rules by county](/adu-rules), and start with [What is an ADU?](/blog/what-is-an-adu-florida) if you are still choosing your housing lane. [Get a free property evaluation](/qualify) when you are ready for site-specific next steps.*

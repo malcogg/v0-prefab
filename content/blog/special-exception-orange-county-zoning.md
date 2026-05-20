@@ -2,8 +2,15 @@
 title: "The \"Special Exception\" Reality: Navigating Orange County Zoning Laws"
 description: "Why unincorporated Orange County ADUs often require a Special Exception—not by-right approval—and how the BZA process, neighbor notification, and homestead rules work."
 date: "2026-05-20"
-category: "ADU permitting · Orange County"
+category: "Legal & Permitting · Orange County"
 readTime: "11 min read"
+pillar: legal
+cta: qualify
+endCta: starter-kit
+related:
+  - what-is-an-adu-florida
+  - city-orlando-vs-unincorporated-orange-county
+  - seven-steps-legal-backyard-home
 ---
 
 If you have spent any time researching backyard homes, you have likely encountered a recurring piece of advice: *"Just check your local zoning laws."* It sounds simple enough. You look up a zoning map, find your property, read a paragraph, and start building.
@@ -52,6 +59,8 @@ On the day of the hearing, you (or your representative) will stand before the BZ
 
 The BZA ultimately votes to approve, approve with conditions, or deny your request.
 
+<!-- blog-cta -->
+
 ## The Homestead Requirement: Keeping it Local
 
 If you successfully navigate the BZA and are granted your Special Exception, you will likely encounter another significant regulatory hurdle: the owner-occupancy or "Homestead" requirement.
@@ -72,4 +81,4 @@ At Prefabricated.co, we believe in radical transparency. We do not sell the illu
 
 But you do not have to do it alone. By understanding the rules of the game before you play, you position yourself for success.
 
-*In our next guide, we will break down the exact timeline. We will walk you through the [7 steps to a legal backyard home](/blog/seven-steps-legal-backyard-home)—from site evaluation to final inspection—so you know exactly what to expect when you break ground. Need help on your lot? [Request a free property evaluation](/qualify) or review [ADU rules by county](/adu-rules).*
+*In our next guide, we will break down the exact timeline. We will walk you through the [7 steps to a legal backyard home](/blog/seven-steps-legal-backyard-home)—from site evaluation to final inspection—so you know exactly what to expect when you break ground. Then see [City of Orlando vs. unincorporated Orange County](/blog/city-orlando-vs-unincorporated-orange-county) to confirm which rulebook applies. Need help on your lot? [Request a free property evaluation](/qualify) or review [ADU rules by county](/adu-rules).*

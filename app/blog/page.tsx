@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { format, parseISO } from "date-fns"
+
+import { BlogIndexToolbar } from "@/components/blog/blog-index-toolbar"
+import { BlogPostList } from "@/components/blog/blog-post-list"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import { getAllPosts } from "@/lib/blog/load-posts"
@@ -65,32 +67,11 @@ export default function BlogIndexPage() {
 
       <section className="py-16 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6">
+          <BlogIndexToolbar />
           {posts.length === 0 ? (
             <p className="text-muted-foreground">Posts are loading soon.</p>
           ) : (
-            <ul className="flex flex-col gap-6 max-w-3xl">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <article className="rounded-xl border border-border bg-background p-6 md:p-8 shadow-sm transition-colors hover:border-primary/30">
-                    <time dateTime={post.date} className="text-xs font-mono uppercase tracking-wide text-muted-foreground">
-                      {format(parseISO(post.date), "MMMM d, yyyy")}
-                    </time>
-                    <h2 className="font-serif text-2xl md:text-3xl text-foreground mt-2 mb-2">
-                      <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                        {post.title}
-                      </Link>
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed">{post.description}</p>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex mt-4 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                    >
-                      Read article →
-                    </Link>
-                  </article>
-                </li>
-              ))}
-            </ul>
+            <BlogPostList posts={posts} />
           )}
         </div>
       </section>

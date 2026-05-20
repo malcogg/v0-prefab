@@ -10,11 +10,17 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { AffiliateDisclosureBanner } from "@/components/blog/affiliate-disclosure-banner"
+import { BlogEndCta } from "@/components/blog/blog-inline-cta"
+import { BlogMarkdownBody } from "@/components/blog/markdown-body"
+import { BlogRelatedReads } from "@/components/blog/blog-related-reads"
+import { RainwaterGuideDownloadForm } from "@/components/blog/rainwater-guide-download-form"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
-import { AffiliateDisclosureBanner } from "@/components/blog/affiliate-disclosure-banner"
-import { BlogMarkdownBody } from "@/components/blog/markdown-body"
-import { getMarkdownBlogSlugs, getPostBySlug } from "@/lib/blog/load-posts"
+import { StarterKitDownloadForm } from "@/components/starter-kit-download-form"
+import { parseCtaVariant, parseLeadMagnet } from "@/lib/blog/cta-types"
+import { getAllPosts, getMarkdownBlogSlugs, getPostBySlug } from "@/lib/blog/load-posts"
+import { resolveRelatedPosts } from "@/lib/blog/related-posts"
 import { absoluteSiteUrl, breadcrumbSchema, SITE_URL } from "@/lib/seo"
 import { ogImageMeta } from "@/lib/og"
 
@@ -57,6 +63,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
+
+  const allPosts = getAllPosts()
+  const related = resolveRelatedPosts(post, allPosts)
+  const ctaVariant = parseCtaVariant(post.cta)
+  const endCtaVariant = parseCtaVariant(post.endCta) ?? ctaVariant
+  const leadMagnet = parseLeadMagnet(post.leadMagnet)
 
   const path = `/blog/${slug}`
   const breadcrumbs = breadcrumbSchema([
@@ -125,7 +137,23 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           <AffiliateDisclosureBanner className="mb-10" />
 
-          <BlogMarkdownBody source={post.body} />
+          <BlogMarkdownBody source={post.body} ctaVariant={ctaVariant} />
+
+          {endCtaVariant ? <BlogEndCta variant={endCtaVariant} /> : null}
+
+          {leadMagnet === "starter-kit" ? (
+            <section className="mt-14">
+              <StarterKitDownloadForm />
+            </section>
+          ) : null}
+
+          {leadMagnet === "rainwater-guide" ? (
+            <section className="mt-14">
+              <RainwaterGuideDownloadForm />
+            </section>
+          ) : null}
+
+          <BlogRelatedReads posts={related} />
 
           <AffiliateDisclosureBanner className="mt-12" />
 

@@ -5,6 +5,8 @@ export type TsxBlogPageMeta = {
   description: string
   /** ISO date YYYY-MM-DD */
   date: string
+  pillar?: string
+  category?: string
 }
 
 export const TSX_BLOG_PAGES: TsxBlogPageMeta[] = [
@@ -14,13 +16,8 @@ export const TSX_BLOG_PAGES: TsxBlogPageMeta[] = [
     description:
       "Practical guide to sun, soil, water, and vertical growing on tight lots, ADUs, and rental-friendly setups in Florida.",
     date: "2026-05-17",
-  },
-  {
-    slug: "rainwater-harvesting-low-footprint-resilience",
-    title: "Rainwater Harvesting & Low-Footprint Water Resilience",
-    description:
-      "Staged rainwater catchment for Florida EarthNest, ADU, and Escape sites—first-flush, filtration, overflow routing, and permitted integration.",
-    date: "2026-05-17",
+    pillar: "regenerative",
+    category: "Regenerative Living · Small-space food",
   },
 ]
 
