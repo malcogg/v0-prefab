@@ -45,3 +45,5 @@
 3. Run `pnpm run build` (Zod will validate each object).
 
 For a historical snapshot of the older 38-listing set, see git history of this file or [`docs/tiny-home-communities-research-inventory.md`](./tiny-home-communities-research-inventory.md) (may be out of date until refreshed).
+
+**Listing content spec (5-part profile):** [`docs/tiny-home-community-listing-spec.md`](./tiny-home-community-listing-spec.md)

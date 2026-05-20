@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ExternalSiteLink } from "@/components/tiny-home-communities/external-site-link"
 import { CommunityAmenityBadges } from "@/components/tiny-home-communities/community-amenity-badges"
+import { CommunityDirectoryProfile } from "@/components/tiny-home-communities/community-directory-profile"
 import {
   getAllCommunitySlugParams,
   getCommunitiesByStateSlug,
@@ -179,6 +180,9 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
                 </div>
               </div>
               <p className="text-lg leading-relaxed text-muted-foreground">{community.description}</p>
+
+              <CommunityDirectoryProfile community={community} />
+
               <div className="rounded-3xl bg-secondary/55 border border-border p-8 space-y-4">
                 <div>
                   <h2 className="font-serif text-2xl text-foreground mb-2">Pads & tenancy snapshot</h2>

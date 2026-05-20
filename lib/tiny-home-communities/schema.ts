@@ -1,5 +1,9 @@
 import { z } from "zod"
 
+import { TBD_RESEARCH } from "@/lib/tiny-home-communities/directory-profile"
+
+export { TBD_RESEARCH }
+
 export const tenancyModeSchema = z.enum([
   "lease_land_own_home",
   "rent_home_or_lot",
@@ -95,6 +99,57 @@ export const listingImageUrlSchema = z
     message: "Listing image URL must be http(s) or a root-relative path",
   })
 
+const optionalProfileString = z.string().min(1).optional()
+
+export const parkSpecsSchema = z.object({
+  powerInfrastructure: optionalProfileString,
+  wasteSewerSystem: optionalProfileString,
+  buildCertifications: optionalProfileString,
+  petConstraints: optionalProfileString,
+})
+
+export const communityFinancialsSchema = z.object({
+  lotRentBenchmarks: optionalProfileString,
+  utilityInclusions: optionalProfileString,
+  leaseMechanics: optionalProfileString,
+})
+
+export const homeSpecificationsSchema = z.object({
+  dimensionalThresholds: optionalProfileString,
+  aestheticControls: optionalProfileString,
+})
+
+export const sustainabilityAllowancesSchema = z.object({
+  alternativeWasteSystems: optionalProfileString,
+  offGridAdaptations: optionalProfileString,
+  siteEdiblesGardens: optionalProfileString,
+})
+
+export const communityMediaAssetsSchema = z.object({
+  sitePlanUrl: listingImageUrlSchema.optional(),
+  sitePlanAlt: optionalProfileString,
+  videoTourUrl: z.string().url().optional(),
+  videoTourTitle: optionalProfileString,
+})
+
+export const communityLocalCtaSchema = z.object({
+  label: z.string().min(1),
+  href: z.string().min(1),
+  helperText: optionalProfileString,
+})
+
+/** Five-part directory profile (PreFabricated.co listing spec). All sub-fields optional — UI shows TBD when empty. */
+export const directoryProfileSchema = z.object({
+  parkSpecs: parkSpecsSchema.optional(),
+  financials: communityFinancialsSchema.optional(),
+  homeSpecifications: homeSpecificationsSchema.optional(),
+  sustainability: sustainabilityAllowancesSchema.optional(),
+  media: communityMediaAssetsSchema.optional(),
+  localCta: communityLocalCtaSchema.optional(),
+})
+
+export type DirectoryProfile = z.infer<typeof directoryProfileSchema>
+
 const contactSchema = z.object({
   website: z.string().url().optional(),
   email: z.string().email().optional(),
@@ -136,6 +191,8 @@ export const tinyHomeCommunitySchema = z.object({
   }),
   schemaKind: schemaKindSchema.default("LodgingBusiness"),
   lastResearched: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  /** Structured park specs, financials, placement rules, sustainability, and media (see docs/tiny-home-community-listing-spec.md) */
+  directoryProfile: directoryProfileSchema.optional(),
 })
 
 export type TinyHomeCommunity = z.infer<typeof tinyHomeCommunitySchema>

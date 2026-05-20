@@ -3,9 +3,9 @@ import { floridaCommunitiesSchema } from "@/lib/tiny-home-communities/schema"
 const RAW = [
   {
     slug: "tiny-town-orlando",
-    name: "Tiny Town Orlando (Orlando Lakefront)",
+    name: "Tiny Town Orlando (Orlando Lakefront Tiny House Community)",
     macroRegion: "Central Florida",
-    regionLabel: "Central Florida · Orlando Metro",
+    regionLabel: "Lake Fairview · College Park · Orlando Metro",
     city: "Orlando",
     county: "Orange County",
     stateCode: "FL" as const,
@@ -20,11 +20,12 @@ const RAW = [
       phone: "+14079364094",
     },
     description:
-      "Tiny Town Orlando revitalized a mid-century waterfront park into a curated tiny home village on Lake Fairview. Residents and guests enjoy a walkable waterfront setting with docks, paddling access, mature trees, and a strong sense of intentional community. The project is among Florida’s highest-profile legally permitted tiny dwelling clusters and has attracted national recognition.",
+      "A revitalized 1950s RV park transformed into a legal, thriving lakefront tiny home village on the 405-acre Lake Fairview shoreline. Tiny Town Orlando blends thoughtful design, full utility hook-ups, and a tight-knit community ethos—one of Central Florida's premier locations for THOWs and long-term tiny living. Residents enjoy direct lake access, walking paths, and a peaceful setting minutes from downtown Orlando, ideal for regenerative, low-impact housing within an established municipal framework.",
     status: "mixed",
-    statusDetail: "Offers long-term placements and leasing options; waits can occur for coveted lakefront spacing.",
+    statusDetail:
+      "Interior pads from $625/mo and lakefront from $775/mo (2026 benchmarks). Month-to-month lot leases and 6–12 month furnished rentals; waitlist and application deposit apply for premium spacing.",
     lotDetailsSummary:
-      "Mix of long-term leased pads and turnkey tiny units. Sizes span compact THOW footprints through small cottages. Ownership and tenancy models vary—confirm allowable unit standards, setbacks, hooks, and term lengths directly with operators.",
+      "RVIA-certified THOWs and modular structures on full hook-ups. Owner-occupied pad leases (electric typically metered) or park-owned furnished tiny rentals with all utilities included. Confirm pad dimensions and compliance with management before moving a unit.",
     tenancyModes: ["rent_home_or_lot", "lease_land_own_home", "purchase_or_rent_mix"] as const,
     amenityFlags: {
       lakefront: true,
@@ -42,20 +43,66 @@ const RAW = [
       coworkSpace: false,
       laundry: true,
     },
-    tags: ["lakefront", "walkable docks", "established hub", "permitted cluster", "Orlando Metro"],
+    tags: [
+      "lakefront",
+      "Lake Fairview",
+      "College Park",
+      "THOW",
+      "regenerative living",
+      "permitted cluster",
+      "Orlando Metro",
+    ],
     sources: [
-      { label: "Operator site (editorial archive)", url: "https://tinytownorlando.com/" },
+      { label: "Tiny Town Orlando (operator)", url: "https://tinytownorlando.com/" },
       { label: "THIA listing context", url: "https://tinyhomeindustryassociation.org/" },
     ],
     yearEstablished: 2010,
     legalNotes:
-      "Operate as legally permitted dwellings within the revived park—not a generic unmanaged RV campground. Buyers should still independently verify HOA or municipal amendments if lots change hands.",
+      "Operates as a revitalized, legally permitted lakefront tiny dwelling cluster—not an unmanaged RV overflow lot. Municipal sewer and full hook-ups are standard. Confirm current pad availability, THOW standards, and any recorded park covenants with management before signing. Last verified May 2026; pricing and rules evolve.",
     image: {
       url: "/images/tiny-home-communities/tiny-town-orlando.png",
       alt: "Colorful lakeside tiny homes at Tiny Town Orlando on Lake Fairview, with grass and reflections on the water.",
     },
     schemaKind: "LodgingBusiness" as const,
-    lastResearched: "2026-05-12",
+    lastResearched: "2026-05-20",
+    directoryProfile: {
+      parkSpecs: {
+        powerInfrastructure: "Full electric hook-ups (RV-style 30/50 Amp compatible)",
+        wasteSewerSystem: "Municipal sewer grid tie-in + full hook-ups",
+        buildCertifications:
+          "RVIA-certified THOWs and modular structures welcome (revitalized RV park zoning)",
+        petConstraints:
+          "Pet-friendly — specific breed and weight limits [TBD - Research Component Required]; confirm with park office",
+      },
+      financials: {
+        lotRentBenchmarks:
+          "Interior pads: $625–$750/mo. Premium / lakefront pads: $775–$875/mo (2026 benchmarks; varies by location and availability).",
+        utilityInclusions:
+          "Baseline lot rent covers water, sewer, trash, landscaping/lawn maintenance, and basic residential Wi-Fi. Electricity is typically separately metered for owner-occupied THOW lots. Park-owned furnished tiny home rentals (long-term) include all utilities (electric, water, gas, sewer, trash, Wi-Fi) in the monthly rate.",
+        leaseMechanics:
+          "Lot leases: month-to-month with standard application and deposit. Park-owned tiny home rentals: 6-month or 12-month minimum. Waitlist / application deposit required; approval based on THOW compliance and community fit.",
+      },
+      homeSpecifications: {
+        dimensionalThresholds:
+          "Designed for standard THOWs on former RV park infrastructure. Typical pads accommodate most 8.5 ft wide × up to 40 ft long units — exact maximum length, width, and height clearances [TBD - Research Component Required]; confirm with management for your assigned pad.",
+        aestheticControls:
+          "Cohesive, nature-integrated design respecting the lakefront setting. Skirting, exterior cladding, and shading should support outdoor living. Temporary fixtures (e.g., unapproved window AC units or canvas awnings) restricted for visual harmony. Approved materials and review process available from park management.",
+      },
+      sustainability: {
+        alternativeWasteSystems:
+          "Municipal sewer hook-ups required and standard. Composting or incinerating toilets not explicitly addressed—likely require prior approval; traditional sewer preferred for grid compliance.",
+        offGridAdaptations:
+          "Roof-mounted solar, battery banks, and rainwater collection not highlighted as prohibited but must align with full utility hook-up expectations. Grid-tied solutions are the norm; pure off-grid pad setups [TBD - Research Component Required].",
+        siteEdiblesGardens:
+          "Dedicated community garden for residents. Individual lot raised beds, container gardening, and small permaculture plantings encouraged within park covenants and Orange County rules—contact management for lot-specific guidelines.",
+      },
+      localCta: {
+        label: "Run your free ADU feasibility check",
+        href: "/qualify?source=tiny-town-orlando-lakefront",
+        helperText:
+          "Tiny Town Orlando proves legal lakefront tiny living is achievable today. If you also own land in Orange County (or nearby Lake, Seminole, or Osceola), check backyard ADU feasibility before you commit to a pad lease or park-owned rental.",
+      },
+    },
   },
   {
     slug: "peacewind-cocoa",
