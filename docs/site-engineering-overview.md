@@ -2,6 +2,8 @@
 
 Handoff doc for engineers and content owners. **Canonical production URL:** `https://www.prefabricated.co` (see `lib/seo.ts` → `SITE_URL`). The stack is **Next.js 16 (App Router)**, React, Tailwind, Neon serverless Postgres for lead/storage, Resend (or configured provider) for transactional email, Vercel Analytics + GA4 (`G-VF74ZRJQ4V` in `app/layout.tsx`).
 
+**See also:** [Site audit handoff](./site-audit-handoff.md) · [Accuracy conflicts appendix](./accuracy-conflicts-appendix.md)
+
 ---
 
 ## What the site is for
@@ -19,7 +21,7 @@ Handoff doc for engineers and content owners. **Canonical production URL:** `htt
 | **Home** | `/` | Primary funnel: pathways, ADU quiz, calculator, rules teaser, **Home interest** form, CTAs to `/qualify`. |
 | **Qualification (deep lead)** | `/qualify` | Multi-step form → `POST /api/qualify-leads` → DB + personalized report emails. |
 | **Light lead (homepage-style)** | Sections using `HomeInterestSection` | `POST /api/home-interest` — name, email, ZIP, interests; same table family as qualify in practice (see API). |
-| **ADU local SEO** ~120+ | `/adu-orlando`, `/adu-orange-county`, … | `LocalLandingPage` + `lib/local-pages-data.ts` + **county regulatory overlay** in `lib/local-adu-regulatory.ts`. |
+| **ADU local SEO** ~100 + 5 hubs | `/adu-orlando`, `/adu-orange-county`, … | `LocalLandingPage` + `lib/local-pages-data.ts` + **regulatory SSOT** in `lib/local-adu-regulatory.ts` + rules adapter in `lib/regulatory/rules-page-adapter.ts`. |
 | **ADU utilities** | `/adu-rules`, `/adu-checklist`, `/adu-calculator` | Rules directory, **10-point checklist** + timeline, calculator. |
 | **Course / lead magnet** | `/free-adu-course`, `/free-adu-course/starter-kit` | Content + **starter kit** download `POST /api/starter-kit-downloads`. |
 | **Escape product line** | `/escape-tiny-homes`, `/escape-tiny-homes/[slug]` | SKUs, checkout hook `POST /api/checkout`, leads `POST /api/escape-leads`. |
@@ -56,14 +58,14 @@ Handoff doc for engineers and content owners. **Canonical production URL:** `htt
 4. **Hard conversion** → `/qualify` → report + team email.
 5. **Product-specific** → Escape lanes → checkout / `escape-leads`; Build → `build-inquiries`.
 
-**Gap to watch:** Brand strings still mix **“Prefabricated.co”** (global SEO, footer) and **“EarthNest Florida”** on some ADU/meta titles — decide one primary consumer brand and align metadata.
+**Brand titles (2026-05):** Local ADU pages use `getPageTitle()` in `lib/seo.ts` → `{location} ADU | Prefabricated.co — EarthNest Florida` via `lib/local-page-metadata.ts`. Legacy `metaTitle` in `local-pages-data.ts` is deprecated.
 
 ---
 
 ## ADU content system (technical)
 
 - **Data:** `lib/local-pages-data.ts` defines each locality (slug, county, copy blocks, `quickRules`, etc.).
-- **Regulatory layer:** `lib/local-adu-regulatory.ts` holds **`COUNTY_REGULATORY_BLOCKS`** — each county’s `quickRules`, **`lastVerified` (YYYY-MM)**, **`citation`**, **`status`**, **`statusLabel`**. `getRegulatoryFootnoteForPage()` drives the compliance note under Quick Rules on local landings. Orlando /T overlay includes **`ORLANDO_OVERLAY_CITATION`** on the overlay card.
+- **Regulatory SSOT:** `lib/local-adu-regulatory.ts` — slug-keyed `COUNTY_REGULATORY_BLOCKS` (`orange-county`, `polk-county`, `city-orlando`, etc.) with `maxSizeRule`, `quickRules`, **`lastVerified` (YYYY-MM-DD)**, **`citation`**, **`status`** (`live` | `provisional`). `/adu-rules` consumes `lib/regulatory/rules-page-adapter.ts`. `getRegulatoryFootnoteForPage()` drives local landing footnotes. Calculator alerts derived from SSOT.
 - **UI:** `components/local-landing-page.tsx` composes hero, intro, quick rules, Orlando overlay, **preflight 4-card** (`adu-preflight-checklist.tsx`), links, model callout, **permitting timeline**, calculator, **HomeInterestSection**, footer.
 - **Checklist page:** `/adu-checklist` uses **full** `ADUFeasibilityChecklist` (`adu-feasibility-checklist.tsx`) — 10 checkboxes, progress persisted in `localStorage`.
 
@@ -84,7 +86,11 @@ Handoff doc for engineers and content owners. **Canonical production URL:** `htt
 
 ## County report API (stub)
 
-- **`POST /api/generate-county-report`** — JSON `{ countySlug, localNeighborhood }`. Slugs: `orange-county`, `lake-county`, etc. Returns validation stub + `meta` from `COUNTY_REGULATORY_BLOCKS`.
+- **`POST /api/generate-county-report`** — JSON `{ countySlug, localNeighborhood }`. Slugs: `orange-county`, `lake-county`, etc. Returns validation stub + `meta` from regulatory SSOT.
+
+## Rate limiting (API)
+
+- **`middleware.ts`** — Upstash sliding window (40 req / 60s per IP) on `POST /api/*` when **`UPSTASH_REDIS_REST_URL`** and **`UPSTASH_REDIS_REST_TOKEN`** are set in the environment. If unset, throttling is disabled — confirm in Vercel production.
 
 ---
 
@@ -101,7 +107,7 @@ Handoff doc for engineers and content owners. **Canonical production URL:** `htt
 
 ## Accuracy, risk, and content governance
 
-- **County bullet rules** in `local-adu-regulatory.ts` are **marketing-paraphrase**, not codified law. **Legal review** should validate against current ordinances; add “last reviewed” + source links if compliance is a priority.
+- **County bullet rules** in `local-adu-regulatory.ts` are **marketing-paraphrase** aligned to official citations — not legal advice. See [accuracy conflicts appendix](./accuracy-conflicts-appendix.md) for known narrative drift in blogs/FAQ/process copy.
 - **Disclaimer** in `components/site-footer.tsx` and checklist page: emphasizes **2026 / SB 48** narrative and that **municipal/county** authority governs; not legal advice.
 - **Open questions for stakeholders**
   1. Single public brand: Prefabricated.co vs EarthNest Florida vs Escape — how should OG titles read?
@@ -135,9 +141,12 @@ Handoff doc for engineers and content owners. **Canonical production URL:** `htt
 
 | Concern | Location |
 |---------|-----------|
-| SEO defaults | `lib/seo.ts` |
+| SEO defaults + `getPageTitle()` | `lib/seo.ts` |
+| Local page metadata | `lib/local-page-metadata.ts` |
 | Locality data | `lib/local-pages-data.ts` |
-| County rules & intro replacement | `lib/local-adu-regulatory.ts` |
+| Regulatory SSOT | `lib/local-adu-regulatory.ts` |
+| Rules page adapter | `lib/regulatory/rules-page-adapter.ts` |
+| OC homepage building reqs | `lib/building-requirements/florida-orange-county.ts` |
 | Local ADU page shell | `components/local-landing-page.tsx` |
 | 10-point checklist | `components/adu-feasibility-checklist.tsx` |
 | Preflight 4-card | `components/adu-preflight-checklist.tsx` |

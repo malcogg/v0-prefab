@@ -13,6 +13,21 @@ export const DEFAULT_SEO = {
     "Florida prefab home, ADU, backyard income unit, and eco-conscious tiny living specialists. Explore legal foundation-built options and EarthNest Living Systems.",
 }
 
+export type PageTitleSuffix = "local-adu" | "default"
+
+const LOCAL_ADU_TITLE_SUFFIX = "Prefabricated.co — EarthNest Florida"
+
+/**
+ * Canonical title pattern for marketing pages.
+ * Local ADU example: `Alafaya ADU | Prefabricated.co — EarthNest Florida`
+ */
+export function getPageTitle(opts: { primary: string; suffix?: PageTitleSuffix }): string {
+  if (opts.suffix === "local-adu") {
+    return `${opts.primary} | ${LOCAL_ADU_TITLE_SUFFIX}`
+  }
+  return opts.primary
+}
+
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",

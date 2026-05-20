@@ -11,6 +11,7 @@ export type LocalSeoPage = {
   warning: string
   introParagraphs: string[]
   quickRules: string[]
+  /** @deprecated Runtime titles use getPageTitle() in lib/seo.ts via buildLocalLandingMetadata() */
   metaTitle: string
   metaDescription: string
   wordBand: { minWords: number; maxWords: number }

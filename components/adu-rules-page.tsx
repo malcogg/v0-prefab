@@ -4,321 +4,15 @@ import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
 import { AlertTriangle, CheckCircle2, XCircle } from "lucide-react"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { LOCAL_SEO_PAGES_BY_COUNTY, LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
+import {
+  getAllRulesPageCounties,
+  type RuleIcon,
+  type RulesPageCountyData,
+} from "@/lib/regulatory/rules-page-adapter"
 
-type RuleIcon = "check" | "x" | "warning"
-
-type CountyData = {
-  key: string
-  label: string
-  status: "verified" | "pending"
-  stats: {
-    minSize: string
-    maxSize: string
-    ownerOccupancy: string
-    specialException: string
-  }
-  rules: { icon: RuleIcon; title: string; note: string }[]
-  setbacks: { type: string; measurement: string }[]
-  contact: string[]
-  source: string
-}
-
-const COUNTY_DATA: CountyData[] = [
-  {
-    key: "orange",
-    label: "Orange County (unincorporated)",
-    status: "verified",
-    stats: {
-      minSize: "400 sq ft",
-      maxSize:
-        "1,000 sq ft (or 45% of primary home, whichever is less; 1,500 sq ft for lots 2+ acres)",
-      ownerOccupancy: "YES — property must be homesteaded",
-      specialException: "YES — separate zoning approval before building permit",
-    },
-    rules: [
-      {
-        icon: "x",
-        title: "Owner Occupancy",
-        note: "Owner must occupy primary home OR ADU — cannot rent both units if living elsewhere",
-      },
-      {
-        icon: "x",
-        title: "Special Exception",
-        note: "Special exception approval required before building permit application",
-      },
-      {
-        icon: "x",
-        title: "Short-Term Rental",
-        note: "Short-term rentals prohibited — 30+ day leases only (no Airbnb/VRBO)",
-      },
-      {
-        icon: "check",
-        title: "Detached ADUs",
-        note: "Detached ADUs permitted — subject to lot size and setback requirements",
-      },
-      {
-        icon: "check",
-        title: "Container/Modular",
-        note: "Foundation-built container/modular units allowed — DBPR state review may apply",
-      },
-      { icon: "x", title: "Bedroom Limit", note: "Max 2 bedrooms per ADU" },
-      {
-        icon: "check",
-        title: "Appraisal Impact",
-        note: "ADU adds to property value — permitted and inspected units are appraised",
-      },
-      {
-        icon: "warning",
-        title: "Lot Size Threshold",
-        note: "Lot must be 1.5x minimum zoning lot size for a detached ADU",
-      },
-    ],
-    setbacks: [
-      { type: "Rear property line (1-story)", measurement: "5 ft minimum" },
-      { type: "Rear property line (2-story)", measurement: "15 ft minimum" },
-      { type: "From primary dwelling", measurement: "10 ft minimum" },
-      { type: "Side yard", measurement: "Matches principal structure minimums for zoning district" },
-    ],
-    contact: [
-      "Zoning questions: (407) 836-3111 | Zoning@ocfl.net",
-      "Building inspections / permit status: (407) 836-5550",
-      "Fast Track portal: orangecountyfl.net",
-    ],
-    source:
-      "Orange County Zoning Code § 38-1426 | orangecountyfl.net/PermitsLicenses/Permits/ResidentialAccessoryDwellingUnit.aspx",
-  },
-  {
-    key: "orlando",
-    label: "City of Orlando",
-    status: "verified",
-    stats: {
-      minSize: "Varies by zoning district",
-      maxSize: "500–1,000 sq ft (depends on lot size and zoning)",
-      ownerOccupancy: "NO — city does not require owner to live on property",
-      specialException: "No — ADUs permitted by right in most R-zoned districts",
-    },
-    rules: [
-      {
-        icon: "check",
-        title: "Owner Occupancy",
-        note: "No owner-occupancy requirement — investors can rent both units",
-      },
-      {
-        icon: "check",
-        title: "Permitting Path",
-        note: "ADUs permitted by right in most residential (R) zoning districts",
-      },
-      {
-        icon: "check",
-        title: "Detached Placement",
-        note: "Detached ADUs allowed — must be at side or rear of primary dwelling",
-      },
-      {
-        icon: "warning",
-        title: "Short-Term Rentals",
-        note: "Short-term rentals restricted — visit orlando.gov/homeshare for full rules",
-      },
-      {
-        icon: "warning",
-        title: "Design Compatibility",
-        note: "Design compatibility required — ADU must match primary home or have approved distinct identity",
-      },
-      {
-        icon: "warning",
-        title: "Container Guidance",
-        note: "Container/shipping container ADUs — contact Planning Division for specific requirements",
-      },
-      {
-        icon: "x",
-        title: "Front Yard Placement",
-        note: "ADU cannot be placed in front of primary dwelling",
-      },
-      {
-        icon: "x",
-        title: "Size Relationship",
-        note: "ADU cannot be larger than the main house (including garage, porch, balconies)",
-      },
-    ],
-    setbacks: [
-      { type: "Front yard", measurement: "Not permitted" },
-      { type: "Side and rear", measurement: "Varies by zoning district" },
-      { type: "Common (R-1A)", measurement: "Side 7.5 ft, Street side 15 ft, Rear 25 ft" },
-      { type: "Max height", measurement: "Typically 30–35 ft depending on district" },
-    ],
-    contact: [
-      "Planning / zoning: cityplanning@orlando.gov",
-      "Permitting: permittingservices@orlando.gov",
-    ],
-    source: "City of Orlando Code Ch. 58 Part 3A | orlando.gov",
-  },
-  {
-    key: "osceola",
-    label: "Osceola County",
-    status: "pending",
-    stats: {
-      minSize: "Verify with county",
-      maxSize: "Verify with county",
-      ownerOccupancy: "Verify with county",
-      specialException: "Verify with county",
-    },
-    rules: [
-      {
-        icon: "warning",
-        title: "ADU Eligibility",
-        note: "ADU eligibility varies by zoning — verify your parcel's classification",
-      },
-      {
-        icon: "warning",
-        title: "Owner Occupancy",
-        note: "Owner-occupancy requirement — not yet confirmed, check current ordinance",
-      },
-      {
-        icon: "warning",
-        title: "Detached Standards",
-        note: "Detached ADU rules — contact county for current standards",
-      },
-      {
-        icon: "warning",
-        title: "Short-Term Rental",
-        note: "Short-term rental policy — verify current status before planning",
-      },
-      {
-        icon: "warning",
-        title: "Container/Modular",
-        note: "Container/modular units — no confirmed approval data; contact building dept.",
-      },
-      {
-        icon: "warning",
-        title: "Setbacks",
-        note: "Setbacks — vary by zoning district, verify before designing",
-      },
-    ],
-    setbacks: [
-      { type: "Rear property line", measurement: "Verify with Osceola Zoning" },
-      { type: "From primary dwelling", measurement: "Verify with Osceola Zoning" },
-      { type: "Side yard", measurement: "Verify with Osceola Zoning" },
-      { type: "Height", measurement: "Verify with Osceola Zoning" },
-    ],
-    contact: [
-      "Phone: (407) 742-0200",
-      "Email: planninginfo@osceolafl.org",
-      "Website: osceola.org",
-    ],
-    source: "Verify directly with Osceola County Planning & Zoning before making any project decisions.",
-  },
-  {
-    key: "seminole",
-    label: "Seminole County",
-    status: "pending",
-    stats: {
-      minSize: "Verify with county",
-      maxSize: "Verify with county",
-      ownerOccupancy: "Verify with county",
-      specialException: "Verify with county",
-    },
-    rules: [
-      {
-        icon: "warning",
-        title: "ADU Eligibility",
-        note: "ADU eligibility varies by zoning — verify your parcel's classification",
-      },
-      {
-        icon: "warning",
-        title: "Owner Occupancy",
-        note: "Owner-occupancy requirement — not yet confirmed, check current ordinance",
-      },
-      {
-        icon: "warning",
-        title: "Detached Standards",
-        note: "Detached ADU rules — lot size requirements unconfirmed",
-      },
-      {
-        icon: "warning",
-        title: "Short-Term Rental",
-        note: "Short-term rental policy — verify current status",
-      },
-      {
-        icon: "warning",
-        title: "Container/Modular",
-        note: "Container/modular units — check with Seminole building department",
-      },
-      {
-        icon: "warning",
-        title: "Setbacks",
-        note: "Setbacks — vary by zoning district",
-      },
-    ],
-    setbacks: [
-      { type: "Rear property line", measurement: "Verify with Seminole Zoning" },
-      { type: "From primary dwelling", measurement: "Verify with Seminole Zoning" },
-      { type: "Side yard", measurement: "Verify with Seminole Zoning" },
-      { type: "Height", measurement: "Verify with Seminole Zoning" },
-    ],
-    contact: [
-      "Phone: (407) 665-7444",
-      "Email: zoning@seminolecountyfl.gov",
-      "Website: seminolecountyfl.gov",
-    ],
-    source: "Verify directly with Seminole County Zoning before making any project decisions.",
-  },
-  {
-    key: "lake",
-    label: "Lake County",
-    status: "pending",
-    stats: {
-      minSize: "Verify with county",
-      maxSize: "Verify with county",
-      ownerOccupancy: "Verify with county",
-      specialException: "Verify with county",
-    },
-    rules: [
-      {
-        icon: "warning",
-        title: "ADU Eligibility",
-        note: "ADU eligibility varies by zoning — verify your parcel's classification",
-      },
-      {
-        icon: "warning",
-        title: "Acreage Flexibility",
-        note: "ADUs may have more flexibility on acreage lots — verify with county",
-      },
-      {
-        icon: "warning",
-        title: "Owner Occupancy",
-        note: "Owner-occupancy requirement — not yet confirmed",
-      },
-      {
-        icon: "warning",
-        title: "Short-Term Rental",
-        note: "Short-term rental policy — verify current status",
-      },
-      {
-        icon: "warning",
-        title: "Container/Modular",
-        note: "Container/modular units — check with Lake County building department",
-      },
-      {
-        icon: "warning",
-        title: "Setbacks",
-        note: "Setbacks — vary by zoning district",
-      },
-    ],
-    setbacks: [
-      { type: "Rear property line", measurement: "Verify with Lake County Zoning" },
-      { type: "From primary dwelling", measurement: "Verify with Lake County Zoning" },
-      { type: "Side yard", measurement: "Verify with Lake County Zoning" },
-      { type: "Height", measurement: "Verify with Lake County Zoning" },
-    ],
-    contact: [
-      "Phone: (352) 343-9801",
-      "Email: building@mylakelnd.com",
-      "Website: lakecountyfl.gov",
-    ],
-    source: "Verify directly with Lake County Growth Management before making any project decisions.",
-  },
-]
+const RULES_PAGE_COUNTIES = getAllRulesPageCounties()
 
 function RuleIconDisplay({ icon }: { icon: RuleIcon }) {
   if (icon === "check") return <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -327,24 +21,15 @@ function RuleIconDisplay({ icon }: { icon: RuleIcon }) {
 }
 
 export function AduRulesPageClient() {
-  const [activeCounty, setActiveCounty] = useState(COUNTY_DATA[0].key)
-  const [verifiedDate, setVerifiedDate] = useState("")
+  const [activeCounty, setActiveCounty] = useState(RULES_PAGE_COUNTIES[0]?.key ?? "orange-county")
   const [directorySearch, setDirectorySearch] = useState("")
   const [directoryCounty, setDirectoryCounty] = useState("All counties")
 
-  useEffect(() => {
-    setVerifiedDate(
-      new Date().toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })
-    )
-  }, [])
+  const county: RulesPageCountyData =
+    RULES_PAGE_COUNTIES.find((item) => item.key === activeCounty) ?? RULES_PAGE_COUNTIES[0]
 
-  const county = COUNTY_DATA.find((item) => item.key === activeCounty) ?? COUNTY_DATA[0]
   const countyHubs = LOCAL_SEO_PAGES.filter((page) => page.isHub).sort((a, b) =>
-    a.locationName.localeCompare(b.locationName)
+    a.locationName.localeCompare(b.locationName),
   )
   const countyLocalPages = Object.entries(LOCAL_SEO_PAGES_BY_COUNTY).map(([countyName, pages]) => [
     countyName,
@@ -364,7 +49,7 @@ export function AduRulesPageClient() {
             ? true
             : page.locationName.toLowerCase().includes(q) ||
               page.slug.toLowerCase().includes(q) ||
-              page.group.toLowerCase().includes(q)
+              page.group.toLowerCase().includes(q),
         ),
       ] as const)
       .filter(([, pages]) => pages.length > 0)
@@ -387,7 +72,7 @@ export function AduRulesPageClient() {
 
           <div className="mb-8 border-b border-border overflow-x-auto">
             <div className="inline-flex min-w-full sm:min-w-0 gap-1">
-              {COUNTY_DATA.map((item) => (
+              {RULES_PAGE_COUNTIES.map((item) => (
                 <button
                   key={item.key}
                   type="button"
@@ -405,17 +90,18 @@ export function AduRulesPageClient() {
           </div>
 
           <div className="bg-secondary border border-border rounded-lg p-6">
-            <div className="mb-6">
+            <div className="mb-6 flex flex-wrap items-center gap-2">
               <span
                 className={`inline-flex text-xs font-semibold px-3 py-1 rounded-full ${
-                  county.status === "verified"
+                  county.status === "live"
                     ? "bg-primary/15 text-primary"
                     : "bg-amber-100 text-amber-800 border border-amber-300/70"
                 }`}
               >
-                {county.status === "verified"
-                  ? "Data verified — sourced from official county records"
-                  : "Pending verification — contact county before making decisions"}
+                {county.statusLabel}
+              </span>
+              <span className="text-xs text-muted-foreground">
+                Last verified: {county.lastVerifiedDisplay}
               </span>
             </div>
 
@@ -503,8 +189,8 @@ export function AduRulesPageClient() {
             </div>
 
             <p className="text-xs text-muted-foreground mb-6">
-              Source: {county.source}. Requirements subject to change. Always verify directly with
-              the county before starting any project.
+              Source: {county.source}. Citation: {county.citation}. Requirements subject to change.
+              Always verify directly with the county before starting any project.
             </p>
 
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-6">
@@ -600,13 +286,15 @@ export function AduRulesPageClient() {
           <div className="mt-10 pt-6 border-t border-border">
             <p className="text-xs text-muted-foreground leading-relaxed">
               All information on this page is sourced from official county and city records and is
-              believed to be accurate as of the date listed. ADU regulations are subject to change
-              without notice. Requirements vary by zoning district, parcel conditions, and local
-              amendments. EarthNest Florida strongly recommends verifying all requirements directly
-              with the relevant county or city before beginning any project. This page does not
-              constitute legal or zoning advice.
+              believed to be accurate as of the date listed per jurisdiction. ADU regulations are
+              subject to change without notice. Requirements vary by zoning district, parcel
+              conditions, and local amendments. Prefabricated.co strongly recommends verifying all
+              requirements directly with the relevant county or city before beginning any project.
+              This page does not constitute legal or zoning advice.
             </p>
-            <p className="text-xs text-muted-foreground mt-2">Last verified: {verifiedDate || "—"}</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Active tab last verified: {county.lastVerifiedDisplay} ({county.statusLabel})
+            </p>
           </div>
         </div>
       </section>

@@ -1,36 +1,48 @@
 import type { JurisdictionRequirements } from "./types"
+import {
+  formatLastVerifiedDisplay,
+  getRegulatoryBlock,
+} from "@/lib/local-adu-regulatory"
+
+const orange = getRegulatoryBlock("orange-county")
+
+if (!orange) {
+  throw new Error("Missing orange-county regulatory block for homepage building requirements")
+}
+
+const verifiedDisplay = formatLastVerifiedDisplay(orange.lastVerified)
 
 export const FLORIDA_ORANGE_COUNTY_REQUIREMENTS: JurisdictionRequirements = {
   id: "orange-county",
   name: "Orange County",
   status: "active",
-  sourceUrl:
-    "https://www.orangecountyfl.net/PermitsLicenses/Permits/ResidentialAccessoryDwellingUnit.aspx",
-  sourceLabel: "orangecountyfl.net",
+  sourceUrl: orange.citation.startsWith("http") ? orange.citation : "https://www.ocfl.net/PlanningDevelopment/ReadySetOrange.aspx",
+  sourceLabel: "ocfl.net Ready Set Orange",
   intro:
-    "We follow every Orange County regulation exactly. Here's what the county requires for each ADU type, sourced directly from ",
+    "We align site copy with Orange County's current ADU pathway under SB 48. Here's what the county requires for each ADU type, sourced directly from ",
   eligibilityTitle: "Orange County eligibility requirements — know before you build",
   eligibilityIntro:
-    "Before any building permit can be issued, Orange County requires ADU projects to meet the following baseline eligibility standards. EarthNest Florida verifies all of these during your free site evaluation.",
+    "Before any building permit can be issued, Orange County ADU projects must meet baseline eligibility standards summarized below. Prefabricated.co verifies parcel-specific constraints during your free site evaluation.",
   eligibilityBlocks: [
     {
-      title: "Owner-occupancy / homestead requirement",
-      body:
-        "Orange County (unincorporated) requires the primary single-family dwelling and the ADU to remain under single ownership at all times. The owner must occupy either the primary home or the ADU as their principal residence, with homestead alignment consistent with county review. A Certificate of Occupancy will not be issued until homestead status is confirmed.",
-    },
-    {
-      title: "Special exception approval",
-      body:
-        "In most Orange County residential and agricultural zoning districts, an ADU requires approval as a Special Exception — a separate zoning review process — before a building permit can be applied for. EarthNest Florida coordinates this step as part of your project process.",
+      title: "Permitting path (SB 48)",
+      body: orange.quickRules[0],
     },
     {
       title: "ADU size limits",
       body: [
-        "Minimum: 400 sq ft of living area",
-        "Maximum: 50% of the primary home's living area OR 1,000 sq ft — whichever is less",
-        "Exception: Lots 2 acres or larger allow up to 1,500 sq ft",
+        `Maximum: ${orange.maxSizeRule}`,
+        "Minimum: 400 sq ft of living area (verify district standards)",
         "Maximum: 2 bedrooms",
       ],
+    },
+    {
+      title: "Owner-occupancy",
+      body: orange.quickRules.find((r) => r.toLowerCase().includes("owner-occupancy")) ?? orange.quickRules[2],
+    },
+    {
+      title: "Parking",
+      body: orange.quickRules.find((r) => r.toLowerCase().includes("parking")) ?? orange.quickRules[3],
     },
     {
       title: "Lot size requirement",
@@ -49,12 +61,12 @@ export const FLORIDA_ORANGE_COUNTY_REQUIREMENTS: JurisdictionRequirements = {
     {
       title: "Short-term rental restriction",
       body:
-        "Orange County prohibits short-term rentals (under 30 days) in most residential zones. ADUs may only be rented under standard long-term residential leases. Short-term rental platforms (Airbnb, VRBO, etc.) are not a permitted income strategy for ADUs in Orange County (unincorporated).",
+        "Verify current STR rules for your zoning district. Many residential contexts restrict short-term rentals under 30 days — confirm with county planning before planning Airbnb income.",
     },
   ],
   eligibilityNote:
-    "Requirements vary by municipality. The City of Orlando, Osceola County, Seminole County, and Lake County each operate under their own ADU rules. EarthNest Florida reviews the specific requirements for your parcel as part of the free evaluation.",
-  eligibilitySource: "Orange County Zoning Code Section 38-1426 and official county safety portals.",
+    "Requirements vary by municipality. The City of Orlando, Osceola County, Seminole County, Lake County, and Polk County each operate under their own ADU rules. We review the specific requirements for your parcel as part of the free evaluation.",
+  eligibilitySource: `Orange County Ready Set Orange — last verified ${verifiedDisplay}. Florida SB 48 requires counties to allow ADUs; local size and development standards still apply.`,
   aduTypes: [
     {
       id: "type-1",
@@ -124,5 +136,5 @@ export const FLORIDA_ORANGE_COUNTY_REQUIREMENTS: JurisdictionRequirements = {
     },
   ],
   disclaimer:
-    "ADU permitting requirements are sourced from Orange County's official permit information page and are subject to change. Requirements vary by project type, zoning, site conditions, and local amendments. Always verify current requirements directly with Orange County at orangecountyfl.net or by calling Orange County Zoning at (407) 836-3111 or Building Inspections at (407) 836-5550 before beginning any project. EarthNest Florida handles all zoning verification and permitting coordination as part of your free property evaluation.",
+    `ADU permitting requirements are sourced from Orange County Ready Set Orange (${orange.citation}) and Florida SB 48 context as of ${verifiedDisplay}. Requirements vary by project type, zoning, site conditions, and local amendments. Always verify current requirements directly with Orange County at ocfl.net or by calling Zoning at (407) 836-3111 before beginning any project. Prefabricated.co handles zoning verification and permitting coordination as part of your free property evaluation. This is not legal advice.`,
 }

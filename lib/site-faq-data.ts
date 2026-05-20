@@ -103,7 +103,7 @@ export const SITE_FAQ_CATEGORIES: SiteFaqCategory[] = [
       {
         q: "How big can my ADU be in Orange County?",
         a: [
-          "Maximum living area is 45% of the primary home's square footage or 1,000 sq ft—whichever is less (up to 1,500 sq ft on lots of 2 acres or more). Minimum is 400 sq ft living area, max 2 bedrooms. Exact caps depend on your district and primary dwelling size.",
+          "Maximum living area is 50% of the primary home's square footage or 1,000 sq ft—whichever is less (up to 1,500 sq ft on lots of 2 acres or more). Minimum is 400 sq ft living area, max 2 bedrooms. Exact caps depend on your district and primary dwelling size.",
         ],
       },
       {
