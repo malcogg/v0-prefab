@@ -108,24 +108,28 @@ const RAW = [
     slug: "peacewind-cocoa",
     name: "Peacewind by Braveheart Properties",
     macroRegion: "Space Coast",
-    regionLabel: "Space Coast · Brevard County",
+    regionLabel: "Cocoa · Brevard County · Space Coast",
     city: "Cocoa",
     county: "Brevard County",
     stateCode: "FL" as const,
     stateSlug: "florida" as const,
     latitude: 28.3896,
     longitude: -80.7615,
-    contact: { website: "https://braveheartproperties.org/" },
+    contact: {
+      website: "https://braveheartproperties.org/",
+      phone: "+13215221953",
+    },
     description:
-      "Peacewind is a Braveheart Properties nonprofit woodland village purpose-built around tiny footprints, intentional agriculture, and community programming minutes from Cocoa’s aerospace corridor.",
+      "Brevard County's first legally zoned tiny home and small cottage community—a 35-acre Planned Urban Development (PUD) by nonprofit Braveheart Properties of Brevard. Founded by affordable-housing advocate Jinkie Echols, this intentional woodland village offers large wooded parcels, full municipal utilities, and a strong emphasis on regenerative living, permaculture, and community stewardship. Minutes from Cocoa's aerospace corridor, rivers, and beaches, Peacewind delivers permanent, code-compliant tiny living on 5,000+ sq ft lots in a setting that feels rural yet stays connected to Central Florida opportunity.",
     status: "active",
-    statusDetail: "Rolling availability for builds, turnkey rentals, and raw pads—coordinate tours with stewardship staff.",
+    statusDetail:
+      "Rental lots ~$650/mo; deeded lots $72,000–$82,000+ (market range). HOA ~$38–$63/mo. One-year minimum lease for rentals; background check required. Rolling availability for rent and purchase—coordinate with stewardship staff.",
     lotDetailsSummary:
-      "Generously proportioned parcels host THOW-certified builds and stick-built cottages. Equity and rental mixes evolve—Braveheart catalogs options public-facing with mission-first vetting.",
+      "Average 5,005 sq ft wooded parcels (55 ft × 91 ft) with 20 ft × 40 ft concrete parking pads. ANSI-certified THOWs (min. 120 sq ft) or small stick-built cottages. Rent a pad, buy a deeded lot, or place an approved unit subject to Braveheart design review.",
     tenancyModes: ["lease_land_own_home", "purchase_home_on_site", "rent_home_or_lot"] as const,
     amenityFlags: {
-      lakefront: true,
-      waterfront: true,
+      lakefront: false,
+      waterfront: false,
       petFriendly: true,
       gated: false,
       ownershipPossible: true,
@@ -133,26 +137,76 @@ const RAW = [
       pool: false,
       clubhouse: false,
       pickleballOrSports: false,
-      dockOrMarina: true,
+      dockOrMarina: false,
       fitnessCenter: false,
       rvHookups: false,
       coworkSpace: false,
       laundry: false,
     },
-    tags: ["nonprofit stewardship", "wooded parcels", "Space Coast proximity", "permitted cluster"],
+    tags: [
+      "PUD",
+      "nonprofit stewardship",
+      "EcoFarming",
+      "permaculture",
+      "deeded lots",
+      "Space Coast",
+      "Brevard County",
+    ],
     sources: [
-      { label: "Braveheart / Peacewind (editorial archive)", url: "https://braveheartproperties.org/" },
-      { label: "THIA contextual listing", url: "https://tinyhomeindustryassociation.org/" },
+      { label: "Braveheart Properties / Peacewind", url: "https://braveheartproperties.org/" },
+      { label: "Peacewind rentals", url: "https://braveheartproperties.org/peacewind-rentals/" },
+      { label: "Community gallery", url: "https://braveheartproperties.org/gallery" },
     ],
     yearEstablished: 2018,
     legalNotes:
-      "Braveheart advocated for ordinance updates enabling permanent tiny footprints in Brevard—still independently confirm recorded covenants with title counsel.",
+      "Operates under a dedicated PUD with municipal water and sewer on every lot—not a transient RV park. Braveheart helped establish Brevard's tiny-home zoning pathway; still confirm recorded HOA covenants, ANSI/THOW standards, and closing terms with title counsel. Last verified May 2026.",
     image: {
       url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=75",
-      alt: "Sunrise over calm lake bordered by shoreline trees.",
+      alt: "Woodland clearing with mature trees at Peacewind tiny home community near Cocoa, Florida.",
     },
     schemaKind: "LodgingBusiness" as const,
-    lastResearched: "2026-05-12",
+    lastResearched: "2026-05-20",
+    directoryProfile: {
+      parkSpecs: {
+        powerInfrastructure: "50 Amp electrical hook-ups (all utilities underground)",
+        wasteSewerSystem: "Municipal city water + public sewer tie-ins required",
+        buildCertifications: "ANSI-certified THOWs or small stick-built cottages (minimum 120 sq ft)",
+        petConstraints:
+          "Highly pet- and agriculture-friendly: poultry, livestock, and bees permitted on individual parcels (confirm HOA limits with management)",
+      },
+      financials: {
+        lotRentBenchmarks:
+          "Rental lots: ~$650/mo (baseline for approved THOWs). Deeded lot ownership: $72,000–$82,000+ recent market range (some earlier cash sales near $35,000). HOA: ~$38–$63/mo ($63 until reserves funded; expected to drop to ~$30 thereafter).",
+        utilityInclusions:
+          "Lot rent and HOA do not include utilities. Residents pay individually metered electric, water, and sewer. High-speed internet hook-ups pre-installed on all pads.",
+        leaseMechanics:
+          "Rentals: minimum 1-year lease, mandatory background check and references. Ownership: deeded lots with standard closing and HOA governance. Application process applies to both renters and buyers.",
+      },
+      homeSpecifications: {
+        dimensionalThresholds:
+          "Lots average 5,005 sq ft (55 ft × 91 ft). Most pads include a 20 ft × 40 ft concrete parking/driveway area. Accommodates THOWs and small foundation cottages on existing infrastructure—confirm unit dimensions with stewardship before transport.",
+        aestheticControls:
+          "Homes must meet Braveheart's high-quality, aesthetically pleasing standard. THOW and cottage submissions require review and approval by stewardship staff to preserve woodland character and neighborhood cohesion.",
+      },
+      sustainability: {
+        alternativeWasteSystems:
+          "Public sewer tie-ins pre-installed and required on every lot per PUD zoning. Composting, dry-flush, or incinerating toilets not permitted as primary waste solutions.",
+        offGridAdaptations:
+          "Grid-tied electric and city water are standard. Supplementary roof-mounted solar and battery storage generally allowed under HOA covenants (subject to review and Brevard County electrical code). Pure off-grid living is not supported.",
+        siteEdiblesGardens:
+          "EcoFarming is a core pillar: vegetable gardens, permaculture designs, raised beds, poultry, livestock, and bees encouraged on individual parcels. Community gardens and walking trails support regenerative living—confirm parcel-specific limits with management.",
+      },
+      media: {
+        videoTourUrl: "https://www.youtube.com/watch?v=gzNo085d5wg",
+        videoTourTitle: "Peacewind Tiny Home And Small Cottage Community — Cocoa, Florida",
+      },
+      localCta: {
+        label: "Run your free ADU / tiny home feasibility check",
+        href: "/qualify?source=peacewind-braveheart",
+        helperText:
+          "Peacewind shows legal regenerative tiny living on large wooded lots in Brevard County. If you also own land elsewhere in Central Florida, check backyard ADU or THOW siting feasibility before you rent or buy here.",
+      },
+    },
   },
   {
     slug: "escape-tampa-bay-village",
