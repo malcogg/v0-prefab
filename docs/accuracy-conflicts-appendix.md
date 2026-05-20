@@ -23,11 +23,10 @@
 
 ## Florida community image audit
 
-**10 listings using Unsplash placeholders** (replace with `/images/tiny-home-communities/{slug}.png` when available):
+**9 listings using Unsplash placeholders** (replace with `/images/tiny-home-communities/{slug}.png` when available):
 
 | Slug |
 |------|
-| `peacewind-cocoa` |
 | `circle-pond-ruskin` |
 | `gracious-tiny-house-park` |
 | `simple-life-lakeshore` |
@@ -38,7 +37,7 @@
 | `story-box-brooksville` |
 | `simple-life-charlotte-harbour` |
 
-**4 with local assets:** `tiny-town-orlando`, `escape-tampa-bay-village`, `canoe-creek-st-cloud`, `outpost-the-preserve-winter-haven`
+**5 with local assets:** `tiny-town-orlando`, `peacewind-cocoa`, `escape-tampa-bay-village`, `canoe-creek-st-cloud`, `outpost-the-preserve-winter-haven`
 
 ---
 

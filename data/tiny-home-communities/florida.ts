@@ -161,8 +161,8 @@ const RAW = [
     legalNotes:
       "Operates under a dedicated PUD with municipal water and sewer on every lot—not a transient RV park. Braveheart helped establish Brevard's tiny-home zoning pathway; still confirm recorded HOA covenants, ANSI/THOW standards, and closing terms with title counsel. Last verified May 2026.",
     image: {
-      url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=75",
-      alt: "Woodland clearing with mature trees at Peacewind tiny home community near Cocoa, Florida.",
+      url: "/images/tiny-home-communities/peacewind-cocoa.png",
+      alt: "Colorful patchwork tiny home with red, yellow, and brown siding on a grassy lot at Peacewind near Cocoa, Florida.",
     },
     schemaKind: "LodgingBusiness" as const,
     lastResearched: "2026-05-20",
