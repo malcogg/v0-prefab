@@ -95,6 +95,12 @@ export const starterKitDownloadSchema = z.object({
   source: z.string().trim().max(100).default("free-adu-course"),
 })
 
+export const rainwaterGuideDownloadSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200),
+  email: z.string().trim().email("Email is invalid").max(320),
+  source: z.string().trim().max(100).default("blog-rainwater-harvesting"),
+})
+
 export const floridaZoneCodeSchema = z.enum(["8b", "9a", "9b", "10a", "10b", "11a", "11b"])
 
 export const zoneLookupSourceSchema = z.enum(["zip", "city", "demo"])

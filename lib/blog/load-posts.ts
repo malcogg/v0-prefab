@@ -28,6 +28,8 @@ function parseFrontmatter(raw: string): { meta: Partial<BlogFrontmatter>; body: 
     if (key === "title") meta.title = value
     else if (key === "description") meta.description = value
     else if (key === "date") meta.date = value
+    else if (key === "category") meta.category = value
+    else if (key === "readTime") meta.readTime = value
   }
   return { meta, body }
 }
@@ -73,6 +75,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     title: meta.title,
     description: meta.description,
     date: meta.date,
+    category: meta.category,
+    readTime: meta.readTime,
     body,
   }
 }

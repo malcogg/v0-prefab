@@ -8,6 +8,7 @@ import {
   homesteadZoneReportDownloadSchema,
   leadSubmissionSchema,
   progressionSubmissionSchema,
+  rainwaterGuideDownloadSchema,
   starterKitDownloadSchema,
 } from "@/lib/submission-schemas"
 import type { QualifyFullSubmission, HomeInterestSubmission } from "@/lib/qualify/schema"
@@ -18,6 +19,7 @@ type LeadPayload = z.infer<typeof leadSubmissionSchema>
 type BuildPayload = z.infer<typeof buildInquirySubmissionSchema>
 type ProgressionPayload = z.infer<typeof progressionSubmissionSchema>
 type StarterKitDownloadPayload = z.infer<typeof starterKitDownloadSchema>
+type RainwaterGuideDownloadPayload = z.infer<typeof rainwaterGuideDownloadSchema>
 type HomesteadZoneDl = z.infer<typeof homesteadZoneReportDownloadSchema>
 
 function telHref(phone: string): string {
@@ -239,6 +241,40 @@ export function starterKitDownloadTeamEmail(
   })
 }
 
+/** --- Rainwater guide download --- */
+
+export function rainwaterGuideDownloadUserEmail(data: RainwaterGuideDownloadPayload) {
+  const inner = `
+    ${h2(`Thanks, ${esc(data.name.split(" ")[0] || data.name)}`)}
+    ${p("Here is your <strong>Florida Rainwater Resilience</strong> reference PDF—catchment sizing, first-flush staging, filtration tiers, overflow routing, and permitted-integration notes for small-footprint Florida lots.")}
+    ${button("https://www.prefabricated.co/downloads/florida-rainwater-resilience-guide.pdf", "Download the PDF guide")}
+    ${p("When you are ready for a property-specific next step, request a free evaluation from Prefabricated.co.")}
+  `
+  return emailLayout({
+    title: "Your rainwater resilience guide",
+    preheader: "Download your Florida Rainwater Resilience PDF.",
+    innerHtml: inner,
+  })
+}
+
+export function rainwaterGuideDownloadTeamEmail(
+  data: RainwaterGuideDownloadPayload,
+  meta: { ip: string | null; userAgent: string | null },
+) {
+  const inner = `
+    ${h2("New rainwater guide download")}
+    ${p(`<strong>Name:</strong> ${esc(data.name)}<br/>
+        <strong>Email:</strong> <a href="mailto:${esc(data.email)}" style="color:#0F6E56;">${esc(data.email)}</a><br/>
+        <strong>Source:</strong> ${esc(data.source)}`)}
+    ${p(`<strong>IP:</strong> ${esc(meta.ip ?? "—")}<br/><strong>User-Agent:</strong> ${esc(meta.userAgent ?? "—")}`)}
+  `
+  return emailLayout({
+    title: "Rainwater guide download",
+    preheader: `Rainwater guide download: ${data.name}`,
+    innerHtml: inner,
+  })
+}
+
 /** --- Homestead zone tool PDF --- */
 
 export function homesteadZoneReportUserEmail(data: HomesteadZoneDl) {
@@ -454,6 +490,8 @@ export const emailSubjects = {
   progressionTeam: (name: string) => `New ADU quiz — ${name}`,
   starterKitUser: "Your Florida ADU starter kit",
   starterKitTeam: (name: string) => `New starter kit download — ${name}`,
+  rainwaterGuideUser: "Your Florida Rainwater Resilience guide",
+  rainwaterGuideTeam: (name: string) => `New rainwater guide download — ${name}`,
   homesteadZoneUser: (zone: string) => `Your Zone ${zone} Florida homestead PDF | Prefabricated.co`,
   homesteadZoneTeam: (name: string, zone: string) => `Homestead PDF — ${name} · Zone ${zone}`,
   escapeIntentUser: "We received your Escape model request",

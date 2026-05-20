@@ -19,7 +19,7 @@ export const TSX_BLOG_PAGES: TsxBlogPageMeta[] = [
     slug: "rainwater-harvesting-low-footprint-resilience",
     title: "Rainwater Harvesting & Low-Footprint Water Resilience",
     description:
-      "Practical systems for collecting, filtering, and using rainwater on small lots, ADUs, and tiny homes in Florida.",
+      "Staged rainwater catchment for Florida EarthNest, ADU, and Escape sites—first-flush, filtration, overflow routing, and permitted integration.",
     date: "2026-05-17",
   },
 ]

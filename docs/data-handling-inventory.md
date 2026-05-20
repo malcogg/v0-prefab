@@ -25,6 +25,7 @@ Source of truth: `db/schema.sql`.
 | `progression_submissions` | Quiz/progression answers, contact, UA, IP |
 | `build_inquiries` | Contact, message, lot/model JSON, UA, IP |
 | `starter_kit_downloads` | Name, email, source, UA, IP |
+| `rainwater_guide_downloads` | Name, email, source, UA, IP (blog PDF gate) |
 | `homestead_zone_report_downloads` | Contact, zone metadata, full `snapshot_json`, UA, IP |
 | `qualify_submissions` | Express + full qualify flows; `payload` / `report_json`, UA, IP |
 

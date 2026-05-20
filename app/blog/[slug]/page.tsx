@@ -109,9 +109,13 @@ export default async function BlogPostPage({ params }: PageProps) {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <header className="mb-8">
+          <header className="mb-8 border-b border-neutral-200 pb-6">
+            {post.category ? (
+              <div className="text-xs font-bold text-teal-800 tracking-wider uppercase mb-2">{post.category}</div>
+            ) : null}
             <time dateTime={post.date} className="text-xs font-mono uppercase tracking-wide text-muted-foreground">
               {format(parseISO(post.date), "MMMM d, yyyy")}
+              {post.readTime ? ` · ${post.readTime}` : null}
             </time>
             <h1 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mt-2 mb-4">
               {post.title}
