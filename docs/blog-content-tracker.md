@@ -2,8 +2,8 @@
 
 Living inventory of published and planned blog posts across Prefabricated.co pillars. Update this file whenever a post ships or a draft is queued.
 
-**Last updated:** 2026-06-04  
-**Published total:** **18** posts (17 markdown + 1 legacy TSX page)
+**Last updated:** 2026-06-14  
+**Published total:** **28** posts (27 markdown + 1 legacy TSX page)
 
 ---
 
@@ -11,9 +11,9 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 
 | Pillar | Published | Primary CTA |
 |--------|-----------|-------------|
-| **1 · Legal & Permitting** | 4 | Starter Kit / Qualify |
+| **1 · Legal & Permitting** | 5 | Starter Kit / Qualify |
 | **2 · Investment & ROI** | 3 | Starter Kit / Calculator |
-| **3 · Regenerative Living (EarthNest)** | 5 | Starter Kit / Rainwater Guide / Zones Tool |
+| **3 · Regenerative Living (EarthNest)** | 14 | Starter Kit / Rainwater Guide / Zones Tool |
 | **4 · Communities** | 3 | Communities / Qualify |
 | **5 · Educational & Lifestyle** | 3 | Starter Kit / Zones Tool |
 
@@ -29,6 +29,7 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 | 2 | `special-exception-orange-county-zoning` | Special Exception & Orange County Zoning | 2026-05-20 |
 | 3 | `seven-steps-legal-backyard-home` | 7 Steps to a Legal Backyard Home | 2026-05-21 |
 | 4 | `city-orlando-vs-unincorporated-orange-county` | City of Orlando vs. Unincorporated Orange County | 2026-05-22 |
+| 5 | `florida-reality-check-zoning-hurricanes-humidity` | The Florida Reality Check *(EarthNest v2 capstone)* | 2026-06-14 |
 
 ---
 
@@ -51,6 +52,34 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 | 3 | `staged-resilience-efficiency-before-solar-panels` | Staged Resilience: Efficiency Before Solar | 2026-05-28 |
 | 4 | `florida-growing-zones-101-what-to-plant` | Florida Growing Zones 101 | 2026-05-29 |
 | 5 | `small-space-food-florida-backyard` | Small-Space Food *(legacy TSX)* | 2026-05-17 |
+| 6 | `what-is-regenerative-tiny-living` | What Is Regenerative Tiny Living? *(EarthNest v2 hub)* | 2026-06-05 |
+| 7 | `tiny-home-self-sufficiency-decentralized-utilities` | Can a Tiny Home Help You Live More Self-Sufficiently? | 2026-06-06 |
+| 8 | `core-systems-low-waste-tiny-home` | The Core Systems of a Low-Waste Tiny Home | 2026-06-07 |
+| 9 | `container-home-living-system-thermal-envelope` | The Architecture of High Performance Container Engineering | 2026-06-08 |
+| 10 | `backyard-homesteading-small-lots-florida` | Backyard Homesteading for Small Lots | 2026-06-09 |
+| 11 | `composting-every-sustainable-home-plan` | Why Composting Belongs in Every Sustainable Home Plan | 2026-06-10 |
+| 12 | `rainwater-collection-tiny-homes-first-steps` | Rainwater Collection for Tiny Homes: What to Know First | 2026-06-11 |
+| 13 | `solar-battery-basics-tiny-home-living` | Solar and Battery Basics for Tiny Home Living | 2026-06-12 |
+| 14 | `food-forests-gardens-greenhouses-small-properties` | Food Forests, Gardens, and Greenhouses | 2026-06-13 |
+
+---
+
+## EarthNest Systems v2 (series)
+
+| # | Slug | Title | Status |
+|---|------|-------|--------|
+| 01 | `what-is-regenerative-tiny-living` | What Is Regenerative Tiny Living? | **Published** |
+| 02 | `tiny-home-self-sufficiency-decentralized-utilities` | Can a Tiny Home Help You Live More Self-Sufficiently? | **Published** |
+| 03 | `core-systems-low-waste-tiny-home` | The Core Systems of a Low-Waste Tiny Home | **Published** |
+| 04 | `container-home-living-system-thermal-envelope` | The Architecture of High Performance Container Engineering | **Published** |
+| 05 | `backyard-homesteading-small-lots-florida` | Backyard Homesteading for Small Lots | **Published** |
+| 06 | `composting-every-sustainable-home-plan` | Why Composting Belongs in Every Sustainable Home Plan | **Published** |
+| 07 | `rainwater-collection-tiny-homes-first-steps` | Rainwater Collection for Tiny Homes: What to Know First | **Published** |
+| 08 | `solar-battery-basics-tiny-home-living` | Solar and Battery Basics for Tiny Home Living | **Published** |
+| 09 | `food-forests-gardens-greenhouses-small-properties` | Food Forests, Gardens, and Greenhouses | **Published** |
+| 10 | `florida-reality-check-zoning-hurricanes-humidity` | The Florida Reality Check *(pillar: legal)* | **Published** |
+
+**Video scripts:** queued — see `docs/plans/2026-05-19-001-feat-regenerative-series-blogs-videos-plan.md` § U8
 
 ---
 
@@ -72,9 +101,6 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 | 2 | `florida-adu-starter-kit-essential-checklists` | Florida ADU Starter Kit: Essential Checklists | 2026-06-03 |
 | 3 | `resilient-roots-showcase-crops-florida` | Resilient Roots: 10 Showcase Crops | 2026-06-04 |
 
-**Series arc:** Lunar pacing → pre-build checklists → showcase crops (series finale).  
-**Note:** User batch listed 4 posts; only 3 drafts were provided—add a 4th Pillar 5 post here if one exists.
-
 ---
 
 ## Draft queue
@@ -83,9 +109,10 @@ Living inventory of published and planned blog posts across Prefabricated.co pil
 |--------|------|
 | 3 | Migrate `small-space-food-florida-backyard` TSX → markdown |
 | 5 | 4th lifestyle post (if drafted separately) |
+| Media | 10 infographic video scripts + YouTube embeds |
 
 ---
 
-## Full slug index (18)
+## Full slug index (28)
 
-`city-orlando-vs-unincorporated-orange-county` · `closed-loop-kitchen-scraps-food-forest` · `escape-tampa-bay-village-high-performance` · `florida-adu-budget-worksheet` · `florida-adu-rental-income-opportunity` · `florida-adu-starter-kit-essential-checklists` · `florida-growing-zones-101-what-to-plant` · `florida-stewardship-led-tiny-villages` · `forced-appreciation-permitted-adu-appraisals` · `lunar-rhythms-backyard-pacing` · `rainwater-harvesting-low-footprint-resilience` · `resilient-roots-showcase-crops-florida` · `seven-steps-legal-backyard-home` · `small-space-food-florida-backyard` *(TSX)* · `special-exception-orange-county-zoning` · `staged-resilience-efficiency-before-solar-panels` · `urban-infill-trends-florida-california-lessons` · `what-is-an-adu-florida`
+`backyard-homesteading-small-lots-florida` · `city-orlando-vs-unincorporated-orange-county` · `closed-loop-kitchen-scraps-food-forest` · `composting-every-sustainable-home-plan` · `container-home-living-system-thermal-envelope` · `core-systems-low-waste-tiny-home` · `escape-tampa-bay-village-high-performance` · `florida-adu-budget-worksheet` · `florida-adu-rental-income-opportunity` · `florida-adu-starter-kit-essential-checklists` · `florida-growing-zones-101-what-to-plant` · `florida-reality-check-zoning-hurricanes-humidity` · `florida-stewardship-led-tiny-villages` · `food-forests-gardens-greenhouses-small-properties` · `forced-appreciation-permitted-adu-appraisals` · `lunar-rhythms-backyard-pacing` · `rainwater-collection-tiny-homes-first-steps` · `rainwater-harvesting-low-footprint-resilience` · `resilient-roots-showcase-crops-florida` · `seven-steps-legal-backyard-home` · `small-space-food-florida-backyard` *(TSX)* · `solar-battery-basics-tiny-home-living` · `special-exception-orange-county-zoning` · `staged-resilience-efficiency-before-solar-panels` · `tiny-home-self-sufficiency-decentralized-utilities` · `urban-infill-trends-florida-california-lessons` · `what-is-an-adu-florida` · `what-is-regenerative-tiny-living`
