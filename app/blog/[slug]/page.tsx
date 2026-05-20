@@ -135,8 +135,6 @@ export default async function BlogPostPage({ params }: PageProps) {
             <p className="text-lg text-muted-foreground leading-relaxed">{post.description}</p>
           </header>
 
-          <AffiliateDisclosureBanner className="mb-10" />
-
           <BlogMarkdownBody source={post.body} ctaVariant={ctaVariant} />
 
           {endCtaVariant ? <BlogEndCta variant={endCtaVariant} /> : null}

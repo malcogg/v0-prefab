@@ -106,8 +106,6 @@ export default function SmallSpaceGardeningBlogPage() {
             </div>
           </header>
 
-          <AffiliateDisclosureBanner className="mb-8" />
-
           <article className="text-neutral-800 font-sans leading-relaxed space-y-8 text-base">
             <h2 className="text-xl font-bold text-neutral-900 tracking-tight">Why Small-Space Food Fits Florida ADU & Tiny-Home Contexts</h2>
             <p>
