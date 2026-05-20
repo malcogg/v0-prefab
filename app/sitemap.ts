@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next"
 import { ESCAPE_CATALOG_PATH, escapeModelSlugs } from "@/lib/escape-tiny-homes-data"
 import { LOCAL_SEO_PAGES } from "@/lib/local-pages-data"
+import { getBlogSlugs, getAllPosts } from "@/lib/blog/load-posts"
+import { BLOG_PILLARS } from "@/lib/blog/pillars"
 import { getAllCommunitySlugParams, getDirectoryStateParams } from "@/lib/tiny-home-communities/repo"
-import { getBlogSlugs } from "@/lib/blog/load-posts"
 
 const SITE_URL = "https://www.prefabricated.co"
 
@@ -105,12 +106,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  const blogPosts = getBlogSlugs().map((slug) => ({
-    url: `${SITE_URL}/blog/${slug}`,
+  const blogPosts = getBlogSlugs().map((slug) => {
+    const post = getAllPosts().find((p) => p.slug === slug)
+    return {
+      url: `${SITE_URL}/blog/${slug}`,
+      lastModified: post?.date ? new Date(post.date) : now,
+      changeFrequency: "monthly" as const,
+      priority: 0.64,
+    }
+  })
+
+  const blogCategories = BLOG_PILLARS.map((pillar) => ({
+    url: `${SITE_URL}/blog/category/${pillar.id}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.64,
+    priority: 0.68,
   }))
 
-  return [...core, ...local, ...escapeHomes, ...tinyStateHubs, ...tinyListings, ...blogPosts]
+  const blogSearch = {
+    url: `${SITE_URL}/blog/search`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.66,
+  }
+
+  return [...core, ...local, ...escapeHomes, ...tinyStateHubs, ...tinyListings, blogSearch, ...blogCategories, ...blogPosts]
 }

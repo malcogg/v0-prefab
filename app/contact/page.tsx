@@ -46,7 +46,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <Navigation />
-      <section className="pt-36 pb-24 bg-background">
+      <section className="pt-44 pb-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">Contact</p>
           <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-6">Get in Touch</h1>

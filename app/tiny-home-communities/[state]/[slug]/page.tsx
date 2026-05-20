@@ -121,7 +121,7 @@ export default async function TinyHomeCommunityDetailPage({ params }: PageProps)
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(detailWebPageSchema) }} />
       <Navigation />
 
-      <div className="pt-36 pb-10 bg-background">
+      <div className="pt-44 pb-10 bg-background">
         <div className="max-w-7xl mx-auto px-6 space-y-6">
           <Breadcrumb className="text-sm">
             <BreadcrumbList>

@@ -57,7 +57,7 @@ export default function ClosedLoopHomesteadPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Navigation />
 
-      <article className="pt-32 sm:pt-36 pb-20">
+      <article className="pt-44 sm:pt-44 pb-20">
         <div className="mx-auto max-w-7xl px-6">
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary">
             Regenerative planning

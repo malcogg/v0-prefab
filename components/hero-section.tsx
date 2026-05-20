@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-32 sm:pt-36">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-44 sm:pt-44">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

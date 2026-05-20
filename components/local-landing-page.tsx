@@ -94,7 +94,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
       />
       <Navigation />
 
-      <section className="pt-36 pb-20 bg-background">
+      <section className="pt-44 pb-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">
             ADU Specialists in {page.locationName}

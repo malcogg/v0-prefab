@@ -47,7 +47,7 @@ export default function BlogIndexPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Navigation />
 
-      <section className="pt-36 pb-20 bg-background border-b border-border">
+      <section className="pt-44 pb-20 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">Blog</p>
           <h1 className="font-serif text-5xl md:text-6xl text-foreground text-balance leading-tight mb-6">

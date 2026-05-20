@@ -167,7 +167,7 @@ export function Navigation() {
       {/* Section context: thin strip fixed with header — under main nav, above hero */}
       <div className="border-t border-border bg-muted/50 backdrop-blur-[2px]">
         <div
-          className={`max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-1.5 min-h-[2rem] ${
+          className={`max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-2 sm:py-2.5 min-h-[2.25rem] ${
             sectionPillVisible ? section.contextStripClass : ""
           }`}
         >

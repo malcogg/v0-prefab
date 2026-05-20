@@ -252,7 +252,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navigation />
-      <section className="pt-36 pb-24 bg-background">
+      <section className="pt-44 pb-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4">Frequently Asked Questions</h1>
           <p className="text-muted-foreground text-lg leading-relaxed mb-12">

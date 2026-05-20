@@ -36,7 +36,7 @@ export default function NotFound() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <section className="pt-36 pb-24 bg-background">
+      <section className="pt-44 pb-24 bg-background">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
             This page doesn&apos;t exist — but your ADU can.

@@ -49,7 +49,7 @@ export default async function BlogSearchPage({ searchParams }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Navigation />
 
-      <section className="pt-36 pb-12 bg-background border-b border-border">
+      <section className="pt-44 pb-12 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">Blog search</p>
           <h1 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">

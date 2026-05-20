@@ -373,7 +373,7 @@ export function AduRulesPageClient() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <section className="pt-36 pb-24 bg-background">
+      <section className="pt-44 pb-24 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="font-serif text-4xl md:text-5xl text-foreground text-balance leading-tight mb-4">

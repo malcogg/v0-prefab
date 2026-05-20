@@ -47,7 +47,7 @@ export default function AduChecklistPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <section className="pt-36 pb-12 bg-background border-b border-border">
+      <section className="pt-44 pb-12 bg-background border-b border-border">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4 text-balance">
             ADU feasibility checklist

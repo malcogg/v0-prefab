@@ -90,7 +90,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <Navigation />
-      <article className="pt-36 pb-24 bg-background">
+      <article className="pt-44 pb-24 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <header className="mb-14">
             <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">

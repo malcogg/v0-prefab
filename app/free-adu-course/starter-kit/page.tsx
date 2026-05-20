@@ -55,7 +55,7 @@ export default function StarterKitPage() {
         <Navigation />
       </div>
 
-      <section className="pt-36 pb-10 bg-secondary print:hidden">
+      <section className="pt-44 pb-10 bg-secondary print:hidden">
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
             Printable Starter Kit

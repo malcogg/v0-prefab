@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <Navigation />
 
-      <div className="pt-36 pb-20 bg-background">
+      <div className="pt-44 pb-20 bg-background">
         <div className="max-w-3xl mx-auto px-6">
           <Breadcrumb className="text-sm mb-8">
             <BreadcrumbList>

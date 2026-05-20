@@ -131,7 +131,7 @@ export default function ResourcesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Navigation />
 
-      <section className="pt-36 pb-20 bg-background">
+      <section className="pt-44 pb-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
             <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
